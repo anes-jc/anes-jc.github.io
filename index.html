@@ -118,6 +118,51 @@
   .foot-brand small{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.06em}
   .disc{font-size:12px;color:var(--muted);line-height:1.9}
   .disc strong{color:var(--ink-soft)}
+
+  @media(max-width:680px){
+    .wrap{padding-left:18px;padding-right:18px}
+    .bar-in{height:54px}
+    .brand{gap:9px;font-size:13px;line-height:1.35;white-space:nowrap}
+    .brand .dot{width:8px;height:8px}
+    .burger{gap:4px;padding:7px;margin:-7px}
+    .burger span{width:21px}
+    .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mobile-menu{inset:54px 0 0;padding-top:10px}
+
+    .hero{padding:34px 0 32px}
+    .hero .eyebrow{font-size:10px;letter-spacing:.08em;line-height:1.6;margin-bottom:14px;gap:8px}
+    .hero .eyebrow::before{width:18px}
+    h1.title{font-size:clamp(30px,9vw,38px);line-height:1.28;letter-spacing:0}
+    .lead{margin-top:16px;font-size:14px;line-height:1.85}
+    .sched{display:grid;grid-template-columns:1fr;gap:7px;margin-top:22px}
+    .chip{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:center;gap:10px;min-width:0;padding:9px 12px}
+    .chip .day{font-size:12px}
+    .chip .kind{font-size:12px;margin-top:0;line-height:1.5}
+
+    section{padding:42px 0}
+    .sec-head{margin-bottom:18px}
+    .sec-title{font-size:21px}
+    .post{padding:20px 4px;gap:10px}
+    .post-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+    .post-meta .tag{margin-top:0}
+    .post-title{font-size:18px}
+    .post-desc{font-size:13px;line-height:1.8}
+    .ptag{font-size:11px;padding:3px 9px}
+
+    .stat-band{padding:28px 20px}
+    .stat-band .eyebrow{margin-bottom:14px}
+    .stat-band h3{font-size:20px}
+    .stat-band p{font-size:13px;line-height:1.85}
+    .curri{margin-top:22px}
+    footer{padding:34px 0 44px;margin-top:0}
+  }
+
+  @media(max-width:370px){
+    .brand{font-size:12px;gap:7px}
+    .brand .dot{display:none}
+    h1.title{font-size:29px}
+  }
 </style>
 </head>
 <body>
