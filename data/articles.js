@@ -8,8 +8,8 @@
    ■ 各項目の意味
      date   : 表示する日付（例 "2026.06.22"）
      dow    : 曜日（"MON" / "WED" / "FRI"）
-     status : 状態ラベル（"公開中" など）
-     live   : 公開中なら true（緑のラベルになる）
+     status : 状態ラベル（公開日を基準に "公開中" / "公開予定" を自動判定）
+     live   : 公開日を基準に自動判定（公開中なら緑のラベルになる）
      title  : 記事のタイトル
      url    : 記事ファイルの場所（"articles/ファイル名.html"）
      desc   : 一覧に出る短い説明
@@ -23,7 +23,7 @@
 
 window.ARTICLES = [
   {
-    date: "2026.06.20", dow: "FRI", status: "公開中", live: true,
+    date: "2026.06.20", dow: "FRI", status: "公開予定", live: false,
     title: "肺を守る人工呼吸 — ARDSNet 試験と早期中止の読み方",
     url: "articles/ardsnet.html",
     desc: "ARDSで一回換気量を 6 vs 12 mL/kg で比較した古典RCT。死亡 31.0% vs 39.8%（NNT 11）。統計の山場は「試験の早期中止」をどう読むか。",
@@ -35,7 +35,7 @@ window.ARTICLES = [
     ]
   },
   {
-    date: "2026.06.18", dow: "WED", status: "公開中", live: true,
+    date: "2026.06.18", dow: "WED", status: "公開予定", live: false,
     title: "ICUの譫妄を予測できるか — 機械学習モデルと ROC・AUC の読み方",
     url: "articles/delirium-prediction.html",
     desc: "COPD・呼吸不全の高齢ICU患者で譫妄を予測する機械学習モデル（AUC 0.932）。統計の山場は「ROC・AUC」と、識別と較正は別物という視点。",
@@ -47,7 +47,7 @@ window.ARTICLES = [
     ]
   },
   {
-    date: "2026.06.16", dow: "MON", status: "公開中", live: true,
+    date: "2026.06.16", dow: "MON", status: "公開予定", live: false,
     title: "オピオイドを使わない全身麻酔は高齢者の合併症を減らすか",
     url: "articles/ofa-elderly.html",
     desc: "高齢者の短時間手術で OFA と従来麻酔を比較した新着RCT。複合アウトカム 25.0% vs 43.5%（NNT 5）。統計の山場は「複合アウトカムの読み方」。",
@@ -71,3 +71,19 @@ window.ARTICLES = [
     ]
   }
 ];
+
+// 公開日は日本時間で判定する。未来の記事は台帳に保持し、公開日まで一覧に出さない。
+const todayJst = new Intl.DateTimeFormat("sv-SE", {
+  timeZone: "Asia/Tokyo",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit"
+}).format(new Date()).replace(/-/g, ".");
+
+window.ARTICLES = window.ARTICLES.map(article => {
+  const live = article.date <= todayJst;
+  return { ...article, live, status: live ? "公開中" : "公開予定" };
+});
+window.PUBLISHED_ARTICLES = window.ARTICLES.filter(article => article.live);
+window.ALL_ARTICLES = window.ARTICLES;
+window.ARTICLES = window.PUBLISHED_ARTICLES;

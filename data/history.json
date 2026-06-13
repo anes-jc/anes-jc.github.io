@@ -1,5 +1,5 @@
 {
-  "_comment": "扱った論文の台帳。記事公開のたびに自動で追記される。ここに載ったDOI/PMIDは二度と選ばれない。recentStatKeys は直近に使った統計テーマ(新しい順)で、連続回避に使う。",
+  "_comment": "公開済み・公開予定を含む、扱うことが確定した論文の重複防止台帳。ここに載ったDOI/PMIDは二度と選ばれない。publishedDOIs/publishedPMIDs というキー名は互換性のため維持する。recentStatKeys は直近に使う統計テーマ(新しい順)で、連続回避に使う。",
   "publishedDOIs": [
     "10.1056/NEJM200005043421801",
     "10.1371/journal.pone.0319297",

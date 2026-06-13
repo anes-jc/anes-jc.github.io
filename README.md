@@ -13,12 +13,14 @@ site/
 ├── index.html              ← トップページ（統計テーマのタグつき）
 ├── tags.html               ← テーマ別の記事一覧（タグをクリックすると開く）
 ├── articles/
-│   └── nice-sugar.html     ← サンプル記事（公開中）
+│   ├── nice-sugar.html             ← 公開中の記事
+│   └── その他の記事.html           ← 公開済み・公開予定の記事
 ├── data/
+│   ├── articles.js                ← 記事一覧と公開予定日（公開日になると自動表示）
 │   ├── classics.json              ← 金曜用の古典論文リスト
 │   ├── paper-selection-policy.json ← 月・水・金の論文選定ルール
 │   ├── stat-themes.json           ← 統計テーマの台帳
-│   └── history.json               ← 扱った論文の台帳（自動更新される）
+│   └── history.json               ← 公開済み・公開予定を含む重複防止台帳
 ├── .nojekyll               ← GitHub Pages 用の設定（中身は空。消さないでください）
 └── README.md               ← このファイル
 ```
