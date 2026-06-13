@@ -53,6 +53,7 @@
   h1.title{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(32px,5.4vw,54px);line-height:1.2;letter-spacing:.01em;color:var(--ink)}
   h1.title em{font-style:normal;color:var(--teal)}
   .lead{margin-top:24px;max-width:60ch;font-size:16px;color:var(--ink-soft)}
+  .mobile-break{display:none}
 
   .sched{display:flex;gap:10px;margin-top:34px;flex-wrap:wrap}
   .chip{border:1px solid var(--line-strong);border-radius:2px;background:var(--paper-2);padding:11px 15px;min-width:130px}
@@ -133,6 +134,7 @@
     .hero{padding:34px 0 32px}
     .hero .eyebrow{font-size:10px;letter-spacing:.08em;line-height:1.6;margin-bottom:14px;gap:8px}
     .hero .eyebrow::before{width:18px}
+    .mobile-break{display:block}
     h1.title{font-size:clamp(30px,9vw,38px);line-height:1.28;letter-spacing:0}
     .lead{margin-top:16px;font-size:14px;line-height:1.85}
     .sched{display:grid;grid-template-columns:1fr;gap:7px;margin-top:22px}
@@ -210,7 +212,7 @@
   <div class="wrap">
     <div>
       <div class="eyebrow">麻酔・集中治療 / 論文ジャーナルクラブ</div>
-      <h1 class="title">論文1本で、<em>臨床</em>も<em>統計</em>も。</h1>
+      <h1 class="title">論文1本で、<br class="mobile-break"><em>臨床</em>も<em>統計</em>も。</h1>
       <p class="lead">麻酔・集中治療領域の英語論文を題材に、臨床背景・研究デザイン・統計解析・リミテーション・結果の解釈までを一気通貫で扱います。原著のキーセンテンスを使った英語読解の枠も付けています。</p>
       <div class="sched">
         <div class="chip"><div class="day">MON 月</div><div class="kind">新着RCT / メタ解析</div></div>
@@ -303,9 +305,9 @@
         <small>MON · WED · FRI</small>
       </div>
       <p class="disc">
-        <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモを、せっかくなので共有しているものです。同じ領域の方の役に立てば嬉しいですが、あくまで個人の学習ノートです。<br>
-        <strong>正確性について：</strong>内容には誤りが含まれているかもしれません。気づいた点があれば指摘してもらえると助かります。実際の臨床判断は、必ず原著論文・最新のガイドライン・各施設の方針に基づいて行ってください。<br>
-        <strong>作成方法：</strong>記事はAIによる下書きを自分でレビュー・修正して公開しています。引用する論文は全文オープンアクセスのものを基本とし、図表は転載せず独自に作図しています。数値や解釈は一次資料での確認をおすすめします。
+        <strong>このサイトについて：</strong>麻酔・集中治療領域の論文を題材に、臨床研究と統計を学ぶための解説サイトです。統計の勉強を目的として、論文の内容や解析手法をAIに解説させています。<br>
+        <strong>正確性について：</strong>AIが生成した解説には、サイト管理者自身の理解範囲を超える内容や、誤り・不正確な解釈が含まれる可能性があります。内容の正確性は保証できません。実際の臨床判断は、必ず原著論文・最新のガイドライン・各施設の方針に基づいて行ってください。<br>
+        <strong>作成方法：</strong>引用する論文は全文オープンアクセスのものを基本とし、AIによる解説を利用して記事を作成しています。図表は転載せず独自に作図しています。数値や解釈は一次資料で確認してください。
       </p>
     </div>
   </div>
