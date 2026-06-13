@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>血糖をどこまで下げるか — NICE-SUGAR 試験 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+
+  /* article head */
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+  /* English reading block */
+  .en{background:var(--paper-2);border:1px solid var(--line);border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{border-left:3px solid var(--teal);padding:4px 0 4px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .en .gloss{font-size:14px;color:var(--ink-soft);margin:14px 0 4px}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .vocab td.ipa{color:var(--muted);font-size:13px}
+  @media(max-width:560px){.vocab .hide-sm{display:none}}
+
+  /* 30s summary */
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBcb3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBcb3}
+  .summary li:last-child{margin-bottom:0}
+
+  /* section structure */
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+
+  /* PICO box */
+  .pico{display:grid;grid-template-columns:88px 1fr;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+
+  /* stats callout — signature element */
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .formula b{color:var(--amber)}
+
+  /* limitation list */
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+
+  /* takeaway */
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+
+  /* infographic */
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  /* 現代の視点 */
+  .modern{border:1px dashed var(--line-strong);border-radius:4px;padding:20px 24px;margin:14px 0;background:rgba(15,118,110,.035)}
+  .modern .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .modern .lbl::before{content:"now";background:var(--teal);color:#fff;font-size:9px;padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+  .modern p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
+  .modern p:last-child{margin-bottom:0}
+  .modern b{color:var(--ink)}
+  .modern .ref{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.6;border-left:2px solid var(--line-strong);padding-left:12px;margin-top:12px}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../index.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=古典論文">FRI · 古典論文</a>
+      <a class="pill" href="../tags.html?tag=集中治療">集中治療</a>
+      <a class="pill" href="../tags.html?tag=血糖管理">血糖管理</a>
+      <a class="pill" href="../tags.html?tag=効果の大きさを読む"><span class="kl">統計 G02</span>効果の大きさを読む</a>
+    </div>
+    <h1>血糖をどこまで下げるか — NICE-SUGAR 試験</h1>
+    <div class="cite">
+      The NICE-SUGAR Study Investigators.<br>
+      Intensive versus Conventional Glucose Control in Critically Ill Patients.<br>
+      N Engl J Med 2009;360:1283-1297. · 多施設無作為化比較試験 · n=6104
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/19318384/" target="_blank" rel="noopener">PubMed →</a>
+      <a class="lnk" href="https://www.nejm.org/doi/full/10.1056/NEJMoa0810625" target="_blank" rel="noopener">原著（NEJM 全文）→</a>
+      <a class="lnk" href="https://doi.org/10.1056/NEJMoa0810625" target="_blank" rel="noopener">DOI →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>重症患者で血糖を 81–108 mg/dL に厳格管理しても、緩めの管理（≤180 mg/dL）より<b>予後は改善せず、むしろ90日死亡が増えた</b>。</li>
+      <li>厳格管理で重症低血糖が圧倒的に増加（6.8% vs 0.5%）。</li>
+      <li>「より正常に近づける」が常に良いとは限らない、を示した代表的試験。今日の血糖管理目標の根拠になっている。</li>
+      <li>今回の統計の山場 → <b>絶対リスク差(ARD)と NNH（害必要数）</b>の読み方。</li>
+    </ul>
+  </div>
+
+  <!-- 01 臨床背景 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>2001年の単施設試験（Van den Berghe ら）で、外科ICU患者に血糖を 80–110 mg/dL に厳格管理すると死亡率が下がると報告され、「タイトな血糖管理」が世界的に広まりました。重症患者の高血糖は感染・予後悪化と関連するため、生理学的にも納得しやすい考え方でした。</p>
+    <p>しかしこの結果は単施設・特定の集団のもので、<b>一般化できるのか</b>、そして厳格管理に伴う<b>低血糖のリスクが利益を上回らないか</b>が未解決でした。これを大規模・多施設で検証するために行われたのが NICE-SUGAR です。</p>
+  </div>
+
+  <!-- 02 PICO -->
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>クリニカル・クエスチョン（PICO）</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">ICUに48時間以上滞在見込みの重症成人（内科・外科混合、6104例）</div>
+      <div class="k">I</div><div class="v">強化インスリン療法：目標血糖 <b>81–108 mg/dL</b></div>
+      <div class="k">C</div><div class="v">従来療法：目標血糖 <b>≤180 mg/dL</b>（実際の平均は約144 mg/dL）</div>
+      <div class="k">O</div><div class="v">主要：<b>90日全死因死亡</b>／副次：重症低血糖・ICU滞在・人工呼吸期間 ほか</div>
+    </div>
+  </div>
+
+  <!-- 03 デザイン -->
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>多施設（オーストラリア・ニュージーランド・北米の42施設）<b>並行群間ランダム化比較試験</b>。割り付けは中央でコンピュータ化され、隠蔽されています。インスリン投与は数値目標で介入するため、ケアスタッフを盲検化できないのが本質的な制約ですが、主要アウトカムが「死亡」という客観的で揺るがない指標なので、評価者バイアスの影響は小さい設計です。</p>
+    <p>サンプルサイズは約6000例と大きく、これは<b>相対的に小さな死亡率差でも検出できる検出力</b>を確保するための設計です。重症患者の死亡率は元々高く、わずかな差が多くの命に相当するため、大規模化が正当化されます。</p>
+  </div>
+
+  <!-- 04 統計キーポイント（signature） -->
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY 01</div>
+      <h3>絶対リスク差(ARD)と NNH（害必要数）</h3>
+      <p>「死亡率が 24.9% → 27.5% に増えた」。この差をどう表現するかで印象が大きく変わります。論文を読むときは必ず<b>相対</b>と<b>絶対</b>を分けて捉えます。</p>
+      <div class="formula">
+        絶対リスク差 ARD = 27.5% − 24.9% = <b>2.6 ポイント</b><br>
+        相対リスク RR ≈ 27.5 / 24.9 = <b>1.10（10%増）</b>
+      </div>
+      <p>「10%増加」と聞くと大きく感じますが、絶対差は2.6ポイント。実際の臨床インパクトを掴むには絶対差が重要です。これを患者数に翻訳したのが <b>NNH（1人の余分な死亡を生むのに何人を治療すると到達するか）</b>。</p>
+      <div class="formula">
+        NNH = 1 / ARD = 1 / 0.026 ≈ <b>約38人</b>
+      </div>
+      <p>つまり強化療法を<b>約38人に行うと、緩い管理に比べ余分な死亡が1人増える</b>という読み。NNT（益）と同じ計算で、符号が「害」に向くと NNH になります。論文の Figure や Abstract が相対値だけを強調していたら、必ず絶対値に直して受け取る — これが批判的吟味の第一歩です。</p>
+    </div>
+  </div>
+
+  <!-- 05 結果 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <p>90日死亡は強化療法群 <b>27.5%</b>、従来療法群 <b>24.9%</b>（オッズ比 1.14、95%CI 1.02–1.28、p=0.02）。つまり<b>厳格に下げた群のほうが死亡が多い</b>という、当時の常識に反する結果でした。</p>
+    <p>重症低血糖（≤40 mg/dL）は強化療法群 <b>6.8%</b> 対 従来療法群 <b>0.5%</b> と桁違いに多く発生。低血糖そのもの、あるいはそれを避けるための生体反応が害につながった可能性が議論されました。</p>
+  </div>
+
+  <!-- 06 リミテーション -->
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>ケアスタッフは介入を盲検化できない（数値目標のため）。ただし主要アウトカムが死亡なので影響は限定的。</li>
+      <li>インスリン製剤・栄養プロトコル・血糖測定法が施設間・時代で異なり、現在の実臨床と完全には一致しない。</li>
+      <li>「なぜ害が出たか」は本試験単独では断定できない（低血糖が原因か、相関にすぎないかはこのデザインでは因果として確定しない）。</li>
+      <li>混合ICU集団の平均的結論であり、特定サブグループ（例：糖尿病既往、心臓外科）に同じ目標が最適とは限らない。</li>
+    </ul>
+  </div>
+
+  <!-- 07 結果の解釈 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>この試験の教訓は「正常値に近づけるほど良い」という直感が重症患者では成り立たないことがある、という点です。介入には必ず<b>副作用（ここでは低血糖）</b>があり、生理学的な妥当性だけで方針を決めると痛い目を見る — EBMが単施設の有望な結果を大規模RCTで検証する意義を、最もよく示した例の一つです。</p>
+    <p>なお「強化管理は常に悪」と過度に一般化するのも誤りです。本試験が示したのは<b>この目標値・この集団・このプロトコルでは</b>益が示されなかった、ということ。結論を適用範囲の外に持ち出さないのも批判的吟味の一部です。</p>
+    <div class="modern">
+      <div class="lbl">現代の視点</div>
+      <p>この試験を受けて、現在の重症患者の血糖管理は「正常化」ではなく<b>緩やかな上限管理</b>に落ち着いています。Surviving Sepsis Campaign 2021 は、<b>血糖 ≥180 mg/dL でインスリンを開始し、目標を 144–180 mg/dL</b> とすることを推奨（≤110 mg/dL の厳格管理は採用していません）。NICE-SUGARはこの方針転換の中心的な根拠になりました。</p>
+      <div class="ref">出典：Evans L, et al. Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021. Crit Care Med 2021;49(11):e1063-e1143.</div>
+    </div>
+  </div>
+
+  <!-- 08 英語で読む -->
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <p>原著の要となる一文を取り上げ、構文と医学英語の表現を確認します。論文特有の言い回しに慣れると、Abstractを読む速度が変わります。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">— Conclusions, Abstract（NEJM 2009;360:1283-97）より一文を引用</span>
+        <span class="en-text">"In this large study, intensive glucose control increased mortality among adults in the ICU."</span>
+      </div>
+      <p class="gloss"><b>読みのポイント：</b>主語は <span class="mono">intensive glucose control</span>（厳格な血糖管理という「介入」そのもの）。動詞 <span class="mono">increased</span> が他動詞で <span class="mono">mortality</span> を目的語に取り、「介入が死亡を増やした」という因果を含む断定。結論文がこれだけ言い切れるのはRCTだからで、観察研究なら <span class="mono">was associated with</span>（〜と関連した）に弱められます。この動詞の強さの差が、研究デザインと因果の話に直結します。</p>
+      <table class="vocab">
+        <thead><tr><th>語・表現</th><th class="ipa hide-sm">発音</th><th>意味・ニュアンス</th></tr></thead>
+        <tbody>
+          <tr><td>intensive control</td><td class="ipa hide-sm">/ɪnˈtɛnsɪv/</td><td>強化（厳格）管理。⇔ conventional（従来）</td></tr>
+          <tr><td>mortality</td><td class="ipa hide-sm">/mɔːrˈtæləti/</td><td>死亡（率）。論文頻出。morbidity（罹病）と対で覚える</td></tr>
+          <tr><td>critically ill</td><td class="ipa hide-sm">/ˈkrɪtɪkli ɪl/</td><td>重症の。the critically ill で「重症患者ら」</td></tr>
+          <tr><td>was associated with</td><td class="ipa hide-sm">—</td><td>〜と関連した。因果を断定しない控えめ表現（観察研究で多用）</td></tr>
+          <tr><td>odds ratio</td><td class="ipa hide-sm">—</td><td>オッズ比。OR と略す。1を跨ぐ信頼区間は「有意差なし」</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 09 明日からの臨床 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>多くの重症患者で、血糖は「正常化」ではなく <b>180 mg/dL 程度を上限</b>に、低血糖を強く避ける管理が標準的。本試験以降の主要ガイドラインはこの方向に収束しています。目標を厳しくするほど低血糖リスクが跳ね上がることを、NNHの感覚と共に覚えておきましょう。</p>
+    </div>
+  </div>
+
+  <!-- 10 infographic -->
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 760 560" role="img" aria-label="NICE-SUGAR試験の要約図">
+        <!-- title -->
+        <text x="40" y="46" font-family="'Noto Serif JP',serif" font-size="22" font-weight="700" fill="#15302D">NICE-SUGAR：強化 vs 従来の血糖管理</text>
+        <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">N Engl J Med 2009 · n=6104 · 90日全死因死亡</text>
+        <line x1="40" y1="86" x2="720" y2="86" stroke="#D9E0DC" stroke-width="1"/>
+
+        <!-- mortality bars -->
+        <text x="40" y="120" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">90日死亡率</text>
+        <!-- conventional bar -->
+        <text x="40" y="156" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">従来 (≤180)</text>
+        <rect x="160" y="142" width="498" height="22" fill="#E7ECE9"/>
+        <rect x="160" y="142" width="361" height="22" fill="#0F766E"/>
+        <text x="668" y="159" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#0F766E">24.9%</text>
+        <!-- intensive bar -->
+        <text x="40" y="192" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">強化 (81–108)</text>
+        <rect x="160" y="178" width="498" height="22" fill="#E7ECE9"/>
+        <rect x="160" y="178" width="399" height="22" fill="#C96A2B"/>
+        <text x="668" y="195" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#C96A2B">27.5%</text>
+
+        <!-- ARD callout -->
+        <line x1="40" y1="226" x2="720" y2="226" stroke="#D9E0DC" stroke-width="1"/>
+        <rect x="40" y="246" width="210" height="120" rx="4" fill="#15302D"/>
+        <text x="64" y="282" font-family="'JetBrains Mono',monospace" font-size="11" fill="#6FBcb3">絶対リスク差 ARD</text>
+        <text x="64" y="322" font-family="'Noto Serif JP',serif" font-size="38" font-weight="700" fill="#ffffff">+2.6<tspan font-size="18">pt</tspan></text>
+        <text x="64" y="348" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#B7C7C2">強化群で死亡が多い</text>
+
+        <rect x="266" y="246" width="210" height="120" rx="4" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="290" y="282" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C96A2B">害必要数 NNH</text>
+        <text x="290" y="322" font-family="'Noto Serif JP',serif" font-size="38" font-weight="700" fill="#C96A2B">≈38<tspan font-size="16">人</tspan></text>
+        <text x="290" y="348" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#5C6B68">= 1 / 0.026</text>
+
+        <rect x="492" y="246" width="228" height="120" rx="4" fill="#FBFCFB" stroke="#D9E0DC"/>
+        <text x="516" y="282" font-family="'JetBrains Mono',monospace" font-size="11" fill="#0B4F4A">オッズ比 OR</text>
+        <text x="516" y="322" font-family="'Noto Serif JP',serif" font-size="34" font-weight="700" fill="#15302D">1.14</text>
+        <text x="516" y="348" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">95%CI 1.02–1.28</text>
+
+        <!-- hypoglycemia -->
+        <line x1="40" y1="392" x2="720" y2="392" stroke="#D9E0DC" stroke-width="1"/>
+        <text x="40" y="426" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">重症低血糖 (≤40 mg/dL)</text>
+        <text x="40" y="462" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">従来</text>
+        <rect x="160" y="448" width="498" height="20" fill="#E7ECE9"/>
+        <rect x="160" y="448" width="7" height="20" fill="#0F766E"/>
+        <text x="668" y="464" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="700" fill="#0F766E">0.5%</text>
+        <text x="40" y="496" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">強化</text>
+        <rect x="160" y="482" width="498" height="20" fill="#E7ECE9"/>
+        <rect x="160" y="482" width="98" height="20" fill="#C96A2B"/>
+        <text x="668" y="498" font-family="'JetBrains Mono',monospace" font-size="13" font-weight="700" fill="#C96A2B">6.8%</text>
+
+        <!-- bottom line -->
+        <rect x="40" y="524" width="680" height="0.5" fill="#D9E0DC"/>
+        <text x="40" y="546" font-family="'Noto Sans JP',sans-serif" font-size="13" font-weight="700" fill="#15302D">結論：厳格な血糖管理は予後を改善せず、重症低血糖を大幅に増やした。</text>
+      </svg>
+      <div class="info-cap">数値は原著（NEJM 2009;360:1283-97）に基づく。図は独自に作成。</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。気づいた点は指摘してもらえると助かります。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。<strong>作成方法：</strong>AIによる下書きを自分でレビュー・修正。数値・解釈は一次資料での確認をおすすめします。図表は転載せず独自に作図しています。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

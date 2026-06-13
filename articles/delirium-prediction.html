@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICU譫妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+
+  /* article head */
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+  /* English reading block */
+  .en{background:var(--paper-2);border:1px solid var(--line);border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{border-left:3px solid var(--teal);padding:4px 0 4px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .en .gloss{font-size:14px;color:var(--ink-soft);margin:14px 0 4px}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .vocab td.ipa{color:var(--muted);font-size:13px}
+  @media(max-width:560px){.vocab .hide-sm{display:none}}
+
+  /* 30s summary */
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBcb3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBcb3}
+  .summary li:last-child{margin-bottom:0}
+
+  /* section structure */
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+
+  /* PICO box */
+  .pico{display:grid;grid-template-columns:88px 1fr;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+
+  /* stats callout — signature element */
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .formula b{color:var(--amber)}
+
+  /* limitation list */
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+
+  /* takeaway */
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+
+  /* infographic */
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../index.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=統計・手法">WED · 統計・手法</a>
+      <a class="pill" href="../tags.html?tag=集中治療">集中治療</a>
+      <a class="pill" href="../tags.html?tag=譫妄">譫妄</a>
+      <a class="pill" href="../tags.html?tag=統合・予測・診断を読む"><span class="kl">統計 G06</span>統合・予測・診断を読む</a>
+    </div>
+    <h1>ICUの譫妄を予測できるか — 機械学習モデルと ROC・AUC の読み方</h1>
+    <div class="cite">
+      Predictive modeling for delirium in elderly ICU patients with COPD and respiratory failure.<br>
+      A retrospective study based on MIMIC-IV.<br>
+      PLOS One 2025;20(3):e0319297. · 後ろ向き・予測モデル開発 · n=1,155
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0319297" target="_blank" rel="noopener">原著（全文・OA）→</a>
+      <a class="lnk" href="https://doi.org/10.1371/journal.pone.0319297" target="_blank" rel="noopener">DOI →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>COPD・呼吸不全でICUに入った高齢者1,155例（譫妄発生 12.9%）で、譫妄を予測する機械学習モデルを開発した後ろ向き研究。</li>
+      <li>4つのモデルを比較し、XGBoost が最良。検証セットで <b>AUC 0.932</b>。</li>
+      <li>今回の統計の山場 → <b>ROC曲線とAUC（識別能）</b>。そして「当てる力（識別）」と「確率が正しい（較正）」は別物、という視点。</li>
+      <li>予測モデル論文を読むときの定型チェック（識別・較正・臨床的有用性・過学習）を一緒に押さえる。</li>
+    </ul>
+  </div>
+
+  <!-- 01 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>譫妄はICUで最も多い急性脳機能障害で、予後悪化・在院延長・コスト増につながります。とりわけCOPDと呼吸不全を併せ持つ高齢者は高リスクですが、この集団に特化した<b>早期予測ツール</b>はほとんどありませんでした。</p>
+    <p>「誰が譫妄を起こしそうか」を入室時点で見積もれれば、予防的ケアを先回りで集中投下できます。そこで大規模公開データベース（MIMIC-IV）を使い、機械学習で予測モデルを作ったのが本研究です。臨床の問いと同時に、<b>予測モデルをどう評価するか</b>という統計の作法を学ぶのに格好の題材です。</p>
+  </div>
+
+  <!-- 02 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>クリニカル・クエスチョン（PICO風に）</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">COPD＋呼吸不全でICU入室した高齢者 1,155例（MIMIC-IV、2008–2019）</div>
+      <div class="k">予測因子</div><div class="v">入室時の人口統計・臨床・検査・治療データ。Lasso回帰とbest subsetで変数選択</div>
+      <div class="k">モデル</div><div class="v">k近傍法・ランダムフォレスト・ロジスティック回帰・<b>XGBoost</b> の4種を比較</div>
+      <div class="k">O</div><div class="v">ICU譫妄の発生（12.9%）。評価は<b>AUC・正確度・F1・適合率・再現率</b>、SHAPで寄与度を解釈</div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>これはRCTではなく<b>予測モデル開発研究</b>です。読むときの軸がRCTと違います。RCTが「介入の効果」を問うのに対し、予測モデルは「アウトカムをどれだけ当てられるか」を問います。本研究は単一データベースを訓練用と検証用に分け、<b>10分割交差検証</b>でモデルの安定性を評価しています。</p>
+    <p>注意したいのは、これが<b>外部検証ではなく内部検証</b>である点。同じMIMIC-IVを分けて使っているので、別の病院・別の集団でも同じ性能が出るかは別問題です。予測モデル論文では「どこまでが内部で、どこからが外部か」を必ず確認します。</p>
+  </div>
+
+  <!-- 04 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY · 統合・予測・診断を読む</div>
+      <h3>ROC曲線とAUC、そして「識別」と「較正」は別物</h3>
+      <p>予測モデルの性能は、まず <b>ROC曲線</b>で見ます。これは閾値を動かしたときの「感度（本当に譫妄の人を当てる率）」と「1−特異度（譫妄でない人を誤って陽性とする率）」の関係を描いた曲線です。その曲線下の面積が <b>AUC</b>。</p>
+      <div class="formula">
+        AUC = 0.5 → でたらめ（コイン投げと同じ）<br>
+        AUC = 0.7–0.8 → まずまず<br>
+        AUC = 0.8–0.9 → 良好<br>
+        AUC = <b>0.932</b> → 非常に高い識別能（本研究のXGBoost）
+      </div>
+      <p>AUCの直感的な意味は「<b>譫妄になった人とならなかった人を1人ずつ取り出したとき、モデルが前者により高いリスクを付ける確率</b>」。0.932なら約93%の確率で正しく順序づけられる、という識別能の高さを表します。</p>
+      <p>ただしAUCが高い＝良いモデル、ではありません。AUCは<b>識別（discrimination：順位づけの能力）</b>しか見ていません。もう一つ<b>較正（calibration：予測した確率が実際の発生率と一致するか）</b>という軸があります。「80%と予測した人の実際に80%が譫妄になるか」が較正です。</p>
+      <div class="formula">
+        識別（AUC）… 高リスクと低リスクを<b>区別</b>できるか<br>
+        較正（calibration）… 予測<b>確率そのもの</b>が当たっているか<br>
+        → 両方そろって初めて「使える」モデル
+      </div>
+      <p>本研究は較正曲線と<b>決定曲線分析（DCA）</b>も示し、臨床的な有用性まで評価しています。予測モデル論文を読むときは「AUCだけでなく較正とDCAを見たか？」が定型チェックです。</p>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <p>1,155例中、譫妄は149例（12.9%）に発生。4モデルのうち <b>XGBoost が最良の識別能</b>を示し、検証セットでAUC 0.932、正確度0.891、適合率0.839、再現率0.795、F1スコア0.810でした。較正曲線は予測と実測がよく一致し、DCAでも臨床的有用性が確認されています。</p>
+    <p>SHAP解析で重要だった予測因子は、GCS言語スコア・在院日数・ICU初日の平均SpO₂・腎機能（MDRD）・平均拡張期血圧・GCS運動スコア・性別・非侵襲換気の時間など。<b>意識レベルと酸素化</b>が上位に来るのは臨床感覚とも合致します。</p>
+  </div>
+
+  <!-- 06 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>単一データベース（MIMIC-IV）の<b>内部検証のみ</b>。外部の別集団での性能は未確認で、過学習の可能性が残る。</li>
+      <li>後ろ向きデータのため、譫妄の判定や記録の質に依存する。未記録の譫妄が見落とされている可能性。</li>
+      <li>AUC 0.932は高いが、論文内で0.921など別の数値も示され、評価条件で変動しうる。単一の数字を過信しない。</li>
+      <li>予測因子に治療後の変数（在院日数など）が含まれ、実装時点での使い勝手は要検討。</li>
+    </ul>
+  </div>
+
+  <!-- 07 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>高いAUCは魅力的ですが、予測モデルの価値は「<b>その場で、外部集団でも、確率が当たるか</b>」で決まります。本研究は内部検証で優秀な識別能と良好な較正を示した良い第一歩ですが、<b>別施設での外部検証</b>を経て初めて臨床ツールとして信頼できます。</p>
+    <p>読み手としての教訓は、「AUC 0.9超え」という見出しに飛びつかず、較正・DCA・検証の種類（内部か外部か）まで確認する習慣です。識別だけを見て「当たるモデル」と判断するのは、複合アウトカムで内訳を見ないのと同じ落とし穴です。</p>
+  </div>
+
+  <!-- 08 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <p>予測モデル論文に頻出する評価指標の英語を確認します。診断・予測の語彙はパターンが決まっているので、一度覚えると応用が利きます。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">— Results, Abstract（PLOS One 2025;20:e0319297）より一文を引用</span>
+        <span class="en-text">"the XGBoost model demonstrated the best discriminative ability, achieving an AUC of 0.932 in the validation set."</span>
+      </div>
+      <p class="gloss"><b>読みのポイント：</b><span class="mono">discriminative ability</span>（識別能）は、まさにAUCが測る「区別する力」のこと。<span class="mono">demonstrated</span>（示した）は結果報告の定番動詞。予測モデルでは <span class="mono">discrimination</span> と <span class="mono">calibration</span> がペアで登場するので、両方の語を見つけたか確認する癖をつけると、論文の評価の質が見抜けます。</p>
+      <table class="vocab">
+        <thead><tr><th>語・表現</th><th class="ipa hide-sm">発音</th><th>意味・ニュアンス</th></tr></thead>
+        <tbody>
+          <tr><td>discrimination</td><td class="ipa hide-sm">/dɪˌskrɪmɪˈneɪʃn/</td><td>識別（能）。高低リスクを区別する力。AUCで測る</td></tr>
+          <tr><td>calibration</td><td class="ipa hide-sm">/ˌkælɪˈbreɪʃn/</td><td>較正。予測確率が実際の頻度と合うか</td></tr>
+          <tr><td>validation set</td><td class="ipa hide-sm">—</td><td>検証セット。内部(internal)か外部(external)かが重要</td></tr>
+          <tr><td>sensitivity / specificity</td><td class="ipa hide-sm">—</td><td>感度／特異度。ROC曲線の2軸の元になる</td></tr>
+          <tr><td>overfitting</td><td class="ipa hide-sm">/ˌoʊvərˈfɪtɪŋ/</td><td>過学習。訓練データに適合しすぎ汎化しない状態</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 09 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>「AUC 0.9超えの譫妄予測モデル」という話を聞いたら、まず<b>較正と外部検証</b>を確認する。識別能（AUC）が高くても、予測確率がずれていたり別集団で性能が落ちたりすれば、ベッドサイドでは使えません。逆に、意識レベル（GCS）と初日のSpO₂が譫妄リスクと強く関連するという知見は、モデルがなくても<b>高リスク患者を見積もるヒント</b>として今日から使えます。</p>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 760 580" role="img" aria-label="ROCとAUCの解説図">
+        <text x="40" y="46" font-family="'Noto Serif JP',serif" font-size="22" font-weight="700" fill="#15302D">ROC曲線とAUC ― 譫妄予測モデル</text>
+        <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">PLOS One 2025 · n=1,155 · 譫妄 12.9% · XGBoost</text>
+        <line x1="40" y1="86" x2="720" y2="86" stroke="#D9E0DC" stroke-width="1"/>
+
+        <!-- ROC plot -->
+        <g transform="translate(60,120)">
+          <rect x="0" y="0" width="300" height="300" fill="#FBFCFB" stroke="#D9E0DC"/>
+          <!-- diagonal -->
+          <line x1="0" y1="300" x2="300" y2="0" stroke="#BCC8C3" stroke-width="1.5" stroke-dasharray="5 5"/>
+          <text x="150" y="180" font-family="'JetBrains Mono',monospace" font-size="10" fill="#9FB3AE" transform="rotate(-45 150 180)">AUC=0.5（でたらめ）</text>
+          <!-- ROC curve AUC~0.93 -->
+          <path d="M0 300 C20 120 60 40 120 22 C190 0 260 0 300 0" stroke="#0F766E" stroke-width="3" fill="none"/>
+          <!-- AUC fill -->
+          <path d="M0 300 C20 120 60 40 120 22 C190 0 260 0 300 0 L300 300 Z" fill="#0F766E" opacity="0.08"/>
+          <text x="150" y="110" font-family="'Noto Serif JP',serif" font-size="26" font-weight="700" fill="#0F766E">AUC 0.932</text>
+          <!-- axes labels -->
+          <text x="150" y="330" font-family="'JetBrains Mono',monospace" font-size="11" fill="#5C6B68" text-anchor="middle">1 − 特異度（偽陽性率）→</text>
+          <text x="-150" y="-14" font-family="'JetBrains Mono',monospace" font-size="11" fill="#5C6B68" text-anchor="middle" transform="rotate(-90)">感度（真陽性率）→</text>
+        </g>
+
+        <!-- right: two axes -->
+        <g transform="translate(400,130)">
+          <rect x="0" y="0" width="300" height="130" rx="4" fill="#15302D"/>
+          <text x="20" y="34" font-family="'JetBrains Mono',monospace" font-size="11" fill="#6FBCB3">識別 DISCRIMINATION</text>
+          <text x="20" y="62" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#fff">高リスクと低リスクを区別できるか</text>
+          <text x="20" y="96" font-family="'Noto Serif JP',serif" font-size="20" font-weight="700" fill="#fff">AUC = 0.932</text>
+          <text x="20" y="118" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#9FB3AE">≒ 93%の確率で正しく順位づけ</text>
+        </g>
+        <g transform="translate(400,278)">
+          <rect x="0" y="0" width="300" height="130" rx="4" fill="#F7ECE2" stroke="#E4C9AF"/>
+          <text x="20" y="34" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C96A2B">較正 CALIBRATION</text>
+          <text x="20" y="62" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">予測した確率が実測と一致するか</text>
+          <text x="20" y="92" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#5C6B68">「80%予測 → 実際80%」か</text>
+          <text x="20" y="116" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#C96A2B">AUCが高くても較正は別途確認</text>
+        </g>
+
+        <line x1="40" y1="450" x2="720" y2="450" stroke="#D9E0DC" stroke-width="1"/>
+        <text x="40" y="480" font-family="'JetBrains Mono',monospace" font-size="11" fill="#5C6B68">読むときのチェック：① 識別(AUC) ② 較正 ③ 決定曲線(DCA) ④ 内部か外部検証か</text>
+        <text x="40" y="528" font-family="'Noto Sans JP',sans-serif" font-size="13" font-weight="700" fill="#15302D">結論：識別能は非常に高い。ただし内部検証のみ。較正・外部検証まで見て判断する。</text>
+      </svg>
+      <div class="info-cap">数値は原著（PLOS One 2025;20:e0319297、CC BY）に基づく。図は概念説明のため独自に作成（ROC曲線は模式図）。</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。気づいた点は指摘してもらえると助かります。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。<strong>作成方法：</strong>AIによる下書きを自分でレビュー・修正。数値・解釈は一次資料での確認をおすすめします。図表は転載せず独自に作図しています。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

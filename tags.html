@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テーマ別の記事 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--muted:#5C6B68;
+    --line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
+
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:880px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15);flex-shrink:0}
+  .back{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
+  .back:hover{color:var(--teal)}
+
+  .head{padding:48px 0 26px;border-bottom:1px solid var(--line)}
+  .head .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--teal-deep);margin-bottom:14px}
+  .head h1{font-family:"Noto Serif JP",serif;font-size:clamp(26px,5vw,38px);font-weight:700;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .head h1 .tagname{background:var(--ink);color:#fff;font-family:"JetBrains Mono",monospace;font-size:18px;font-weight:700;padding:6px 16px;border-radius:3px;letter-spacing:.04em}
+  .head .sub{margin-top:14px;font-size:14px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+
+  .feed{padding:10px 0 40px}
+  .post{display:grid;grid-template-columns:118px 1fr auto;gap:22px;align-items:start;padding:24px 8px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:background .15s}
+  .post:hover{background:var(--paper-2)}
+  .post:hover .post-title{color:var(--teal)}
+  .post-meta{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);line-height:1.6}
+  .post-meta .st{display:inline-block;margin-top:8px;padding:2px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--teal-deep);font-size:11px}
+  .post.live .post-meta .st{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .post-title{font-family:"Noto Serif JP",serif;font-size:19px;font-weight:600;line-height:1.5}
+  .post-desc{font-size:14px;color:var(--ink-soft);margin-top:7px}
+  .post-tags{margin-top:11px;display:flex;gap:8px;flex-wrap:wrap}
+  .ptag{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal-deep);border:1px solid var(--line-strong);border-radius:2px;padding:3px 9px;text-decoration:none;transition:.12s}
+  .ptag.cur{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .ptag:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .post-arrow{font-size:20px;color:var(--line-strong);align-self:center}
+  @media(max-width:640px){.post{grid-template-columns:1fr;gap:8px}.post-arrow{display:none}}
+
+  .empty{padding:50px 8px;color:var(--muted);font-size:15px;text-align:center;line-height:1.9}
+  .empty a{color:var(--teal);text-decoration:underline}
+
+  /* all tags index */
+  .alltags{padding:34px 0 60px;border-top:1px solid var(--line)}
+  .alltags h2{font-family:"Noto Serif JP",serif;font-size:16px;font-weight:600;margin-bottom:16px;color:var(--ink-soft)}
+  .tagcloud{display:flex;flex-wrap:wrap;gap:9px}
+  .tagcloud a{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 12px;text-decoration:none;transition:.12s}
+  .tagcloud a:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="index.html">← トップ</a>
+  </div>
+</header>
+
+<div class="head">
+  <div class="wrap">
+    <div class="eyebrow">テーマ別の記事</div>
+    <h1><span id="tagname" class="tagname">—</span></h1>
+    <div class="sub" id="sub"></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="feed" id="feed"></div>
+  <div class="empty" id="empty" style="display:none">
+    このテーマの記事はまだありません。<br>
+    <a href="index.html">トップページに戻る</a>
+  </div>
+
+  <div class="alltags">
+    <h2>すべてのテーマ</h2>
+    <div class="tagcloud" id="cloud"></div>
+  </div>
+</div>
+
+<script src="data/articles.js"></script>
+<script>
+  // 記事リストは data/articles.js（window.ARTICLES）を共通利用する。
+  // このページではタグ照合用に、各記事のタグを文字列の配列へ変換する。
+  const ARTICLES = (window.ARTICLES || []).map(a=>{
+    const tagList = [];
+    if (a.dowTag) tagList.push(a.dowTag.tag);
+    (a.tags || []).forEach(t=>tagList.push(t.tag));
+    return {
+      date:a.date, dow:a.dow, status:a.status, live:a.live,
+      title:a.title, url:a.url, desc:a.desc,
+      tags:tagList
+    };
+  });
+
+  // 統計テーマ6カテゴリ（トップと対応）＋臨床タグはおいおい増える
+  const STAT_THEMES = [
+    "研究デザインを読む","効果の大きさを読む","不確実性を読む",
+    "バイアスと交絡を読む","時間経過と予後を読む","統合・予測・診断を読む"
+  ];
+  const GROUP_NO = {
+    "研究デザインを読む":"G01","効果の大きさを読む":"G02","不確実性を読む":"G03",
+    "バイアスと交絡を読む":"G04","時間経過と予後を読む":"G05","統合・予測・診断を読む":"G06"
+  };
+  // 統計テーマならグループ番号を前置したラベルを返す
+  function tagLabel(t){
+    return GROUP_NO[t] ? `<span style="opacity:.6">${GROUP_NO[t]}</span> ${esc(t)}` : esc(t);
+  }
+
+  function getParam(name){
+    return new URLSearchParams(location.search).get(name);
+  }
+  function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+  const tag = getParam("tag");
+  const tagnameEl = document.getElementById("tagname");
+  const subEl = document.getElementById("sub");
+  const feedEl = document.getElementById("feed");
+  const emptyEl = document.getElementById("empty");
+
+  if(tag){
+    tagnameEl.innerHTML = GROUP_NO[tag] ? `<span style="opacity:.55">${GROUP_NO[tag]}</span> ${esc(tag)}` : esc(tag);
+    const rows = ARTICLES.filter(a=>a.tags.includes(tag));
+    subEl.textContent = rows.length ? `${rows.length} 件の記事` : "0 件";
+    if(rows.length){
+      feedEl.innerHTML = rows.map(a=>{
+        const tagHtml = a.tags.map(t=>{
+          const cur = t===tag ? " cur" : "";
+          return `<a class="ptag${cur}" href="tags.html?tag=${encodeURIComponent(t)}">${tagLabel(t)}</a>`;
+        }).join("");
+        return `<a class="post ${a.live?'live':''}" href="${a.url}">
+          <div class="post-meta">${a.date} ${a.dow}<span class="st">${a.status}</span></div>
+          <div>
+            <div class="post-title">${esc(a.title)}</div>
+            <div class="post-desc">${esc(a.desc)}</div>
+            <div class="post-tags">${tagHtml}</div>
+          </div>
+          <div class="post-arrow">→</div>
+        </a>`;
+      }).join("");
+    } else {
+      emptyEl.style.display = "block";
+    }
+  } else {
+    tagnameEl.textContent = "テーマを選ぶ";
+    subEl.textContent = "下のテーマから選んでください";
+    emptyEl.style.display = "block";
+    emptyEl.innerHTML = 'テーマを選ぶと、その記事一覧が表示されます。';
+  }
+
+  // すべてのテーマ（統計6カテゴリ＋記事に付いた臨床タグ）
+  const clinicalTags = [...new Set(ARTICLES.flatMap(a=>a.tags).filter(t=>!STAT_THEMES.includes(t)))];
+  const cloud = document.getElementById("cloud");
+  const ordered = [...STAT_THEMES, ...clinicalTags];
+  cloud.innerHTML = ordered.map(t=>`<a href="tags.html?tag=${encodeURIComponent(t)}">${tagLabel(t)}</a>`).join("");
+</script>
+
+</body>
+</html>

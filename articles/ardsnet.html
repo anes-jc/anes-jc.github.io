@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARDSの人工呼吸 — ARDSNet 試験 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+
+  /* article head */
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+  /* English reading block */
+  .en{background:var(--paper-2);border:1px solid var(--line);border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{border-left:3px solid var(--teal);padding:4px 0 4px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .en .gloss{font-size:14px;color:var(--ink-soft);margin:14px 0 4px}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .vocab td.ipa{color:var(--muted);font-size:13px}
+  @media(max-width:560px){.vocab .hide-sm{display:none}}
+
+  /* 30s summary */
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBcb3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBcb3}
+  .summary li:last-child{margin-bottom:0}
+
+  /* section structure */
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+
+  /* PICO box */
+  .pico{display:grid;grid-template-columns:88px 1fr;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+
+  /* stats callout — signature element */
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .formula b{color:var(--amber)}
+
+  /* limitation list */
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+
+  /* takeaway */
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+
+  /* infographic */
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .modern{border:1px dashed var(--line-strong);border-radius:4px;padding:20px 24px;margin:14px 0;background:rgba(15,118,110,.035)}
+  .modern .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .modern .lbl::before{content:"now";background:var(--teal);color:#fff;font-size:9px;padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+  .modern p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
+  .modern p:last-child{margin-bottom:0}
+  .modern b{color:var(--ink)}
+  .modern .ref{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.6;border-left:2px solid var(--line-strong);padding-left:12px;margin-top:12px}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../index.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=古典論文">FRI · 古典論文</a>
+      <a class="pill" href="../tags.html?tag=集中治療">集中治療</a>
+      <a class="pill" href="../tags.html?tag=人工呼吸">人工呼吸</a>
+      <a class="pill" href="../tags.html?tag=不確実性を読む"><span class="kl">統計 G03</span>不確実性を読む</a>
+    </div>
+    <h1>肺を守る人工呼吸 — ARDSNet（ARMA）試験と早期中止の読み方</h1>
+    <div class="cite">
+      The Acute Respiratory Distress Syndrome Network.<br>
+      Ventilation with Lower Tidal Volumes for Acute Lung Injury and ARDS.<br>
+      N Engl J Med 2000;342:1301-1308. · 多施設無作為化比較試験 · n=861
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/10793162/" target="_blank" rel="noopener">PubMed →</a>
+      <a class="lnk" href="https://www.nejm.org/doi/full/10.1056/NEJM200005043421801" target="_blank" rel="noopener">原著（NEJM 全文）→</a>
+      <a class="lnk" href="https://doi.org/10.1056/NEJM200005043421801" target="_blank" rel="noopener">DOI →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>ARDS患者で、一回換気量を <b>6 mL/kg</b>（理想体重）に抑える肺保護換気と、従来の <b>12 mL/kg</b> を比較した多施設RCT。</li>
+      <li>院内死亡は <b>31.0% vs 39.8%</b>（絶対差 8.8ポイント、NNT 約11）。低換気量群で有意に低下。</li>
+      <li>第4回中間解析で有意差が出たため、861例で<b>早期中止</b>。今日の肺保護換気の礎となった。</li>
+      <li>今回の統計の山場 → <b>試験の早期中止（中間解析）</b>をどう読むか。利益が早く見えても解釈に注意。</li>
+    </ul>
+  </div>
+
+  <!-- 01 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>かつてARDSの人工呼吸は、正常なガス交換を保とうと一回換気量を多め（10–15 mL/kg）に設定するのが一般的でした。しかし動物・臨床研究から、過大な換気量が<b>人工呼吸器関連肺損傷（VILI）</b>を起こし、炎症・多臓器不全を悪化させることが分かってきました。</p>
+    <p>「肺を休ませる」ために換気量を減らすと、二酸化炭素がたまり血液が酸性に傾くデメリットがあります。<b>少ない換気量の利益が、許容性高二酸化炭素血症などの不利益を上回るのか</b>を大規模に検証したのがARDSNet（ARMA）試験です。</p>
+  </div>
+
+  <!-- 02 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>クリニカル・クエスチョン（PICO）</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">急性肺損傷／ARDSで人工呼吸を要する患者 861例（米国10施設）</div>
+      <div class="k">I</div><div class="v">低一回換気量：<b>6 mL/kg</b>（理想体重）、プラトー圧 ≤30 cmH₂O（n=432）</div>
+      <div class="k">C</div><div class="v">従来換気量：<b>12 mL/kg</b>（理想体重）、プラトー圧 ≤50 cmH₂O（n=429）</div>
+      <div class="k">O</div><div class="v">主要：<b>院内死亡</b>／副次：人工呼吸器なしで過ごせた日数（ventilator-free days）ほか</div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>多施設・<b>並行群間ランダム化比較試験</b>。実際の一回換気量は1〜3日目で 6.2 vs 11.8 mL/kg、プラトー圧は 25 vs 33 cmH₂O と、群間にしっかり差がつきました（いずれもp<0.001）。介入が「換気設定」なので盲検化はできませんが、主要アウトカムが死亡という客観指標のため評価バイアスは小さい設計です。</p>
+    <p>重要なのは、この試験が<b>事前に中間解析の計画を持っていた</b>こと。データ安全性モニタリング委員会が定期的に結果を覗き、明確な差が出れば早期に止める仕組みです。実際に第4回中間解析で死亡率の差が統計的境界を越え、<b>861例の時点で組み入れが中止</b>されました。</p>
+  </div>
+
+  <!-- 04 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY · 不確実性を読む</div>
+      <h3>試験の早期中止（中間解析）をどう受け取るか</h3>
+      <p>大規模RCTは、全例を集め終わる前に数回「途中経過」を覗く<b>中間解析</b>を計画することがあります。明らかな利益（または害）が早期に見えたら、倫理的に試験を止めるためです。ARDSNetは第4回中間解析で死亡率の差が事前に決めた境界を越え、早期中止されました。</p>
+      <div class="formula">
+        院内死亡 39.8%（従来） → 31.0%（低換気量）<br>
+        絶対リスク差 ARR = 39.8 − 31.0 = <b>8.8 ポイント</b><br>
+        （95%CI 2.4–15.3, p=0.007）<br>
+        NNT = 1 / 0.088 ≈ <b>約11人</b>
+      </div>
+      <p>早期中止には光と影があります。光は「有効な治療を、害のある対照群に受けさせ続けない」という倫理的配慮。影は<b>早く止めるほど効果量が過大評価されやすい</b>こと。偶然に大きな差が出たタイミングで止まる可能性があるためです。</p>
+      <div class="formula">
+        早期中止の読み方<br>
+        ・事前に中止基準（境界）が決まっていたか<br>
+        ・何回目の中間解析だったか<br>
+        ・効果量が過大に出ていないか（CIの幅を見る）
+      </div>
+      <p>ARDSNetは中止基準が事前規定され、複数の中間解析を経ており、その後のメタ解析でも利益が支持されたため、<b>信頼できる早期中止</b>とされています。一方で「早期中止＝効果が大きい」と無条件に受け取らず、計画の妥当性を確認するのが読み手の作法です。</p>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <p>院内死亡は低換気量群 <b>31.0%</b>、従来群 <b>39.8%</b>（p=0.007、95%CI 2.4–15.3）。絶対差8.8ポイントは、約11人を低換気量で治療すると1人の死亡を防ぐ計算（NNT≈11）です。人工呼吸器なしで過ごせた日数も低換気量群で多く（12 vs 10日、p=0.007）、臓器不全のない日数も増加しました。</p>
+    <p>低換気量群は初期にやや高いPEEPを要し、呼吸性アシドーシスを起こしやすかったものの、その差は7日目までに消失。気胸（圧損傷）の発生頻度に両群で差はありませんでした。</p>
+  </div>
+
+  <!-- 06 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>早期中止のため、効果量がやや過大に出ている可能性は常に念頭に置く（ただし事前計画と後続メタ解析で補強されている）。</li>
+      <li>対照群の12 mL/kgは「当時の慣習」だが、現在の感覚ではやや高め。対照が不自然に不利だった可能性も議論された。</li>
+      <li>換気設定は盲検化できず、付随ケアの差が結果に影響した可能性。</li>
+      <li>倫理面で、説明同意の資料をめぐり当時調査が入った経緯がある（研究倫理の観点での論点）。</li>
+      <li><b>報告の作法（読むときの目線）：</b>本試験は CONSORT 声明が広く普及する前の論文で、現在のRCT報告で標準となった項目（事前登録、割り付け手順の詳細、フローダイアグラムなど）の記述は今の基準では簡素。古い試験を読むときは「報告が薄い＝質が低い」ではなく、当時の報告慣行を踏まえて評価するのが公平です。</li>
+    </ul>
+  </div>
+
+  <!-- 07 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>ARDSNetは「肺を守る＝換気量を減らす」という考え方を確立し、6 mL/kgを標準にした記念碑的試験です。NICE-SUGARが「正常化が常に良いとは限らない」を示したのと同じく、ここでも「ガス交換の正常化」より「肺損傷の最小化」を優先すべき場面があることが示されました。</p>
+    <p>統計的には、<b>早期中止でも信頼できる条件</b>（事前の中止基準・複数回の中間解析・後続研究での再現）がそろった好例です。「途中で止まった派手な結果」を見たら、まずこれらを確認する——その型を学ぶのに最適な古典です。</p>
+    <div class="modern">
+      <div class="lbl">現代の視点</div>
+      <p>肺保護換気の原則は今も健在ですが、作法は少し更新されています。ATS/ESICM/SCCM の最新ガイドラインは、6 mL/kg ぴったりではなく<b>4–8 mL/kg（理想体重）の範囲</b>でプラトー圧<30 cmH₂Oを推奨しています。さらに近年は、一回換気量そのものより<b>ドライビング圧（ΔP = プラトー圧 − PEEP）</b>の方が死亡をよく予測するという議論が活発で、ΔPを意識した個別化が注目されています。</p>
+      <div class="ref">出典：Qadir N, et al. An Update on Management of Adult Patients with ARDS: An Official ATS Clinical Practice Guideline. Am J Respir Crit Care Med 2024;209(1):24-36. ／ Amato MBP, et al. Driving Pressure and Survival in ARDS. N Engl J Med 2015;372:747-755.</div>
+    </div>
+  </div>
+
+  <!-- 08 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <p>結論文と、試験の早期中止を述べる定型表現を確認します。中間解析・中止の言い回しは論文で頻出します。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">— Abstract（N Engl J Med 2000;342:1301-8）より一文を引用</span>
+        <span class="en-text">"The trial was stopped after the enrollment of 861 patients because mortality was lower in the group treated with lower tidal volumes."</span>
+      </div>
+      <p class="gloss"><b>読みのポイント：</b><span class="mono">The trial was stopped</span>（試験は中止された）という受動態が早期中止の合図。続く <span class="mono">because</span> 以下が中止の理由です。中間解析・早期中止の文脈では <span class="mono">stopped early</span>／<span class="mono">interim analysis</span>／<span class="mono">stopping rule</span> がセットで出てくるので、これらを見つけたら「効果量が過大でないか」を確認する習慣をつけましょう。</p>
+      <table class="vocab">
+        <thead><tr><th>語・表現</th><th class="ipa hide-sm">発音</th><th>意味・ニュアンス</th></tr></thead>
+        <tbody>
+          <tr><td>tidal volume</td><td class="ipa hide-sm">/ˈtaɪdl/</td><td>一回換気量。1回の呼吸で出入りする量</td></tr>
+          <tr><td>enrollment</td><td class="ipa hide-sm">/ɪnˈroʊlmənt/</td><td>（被験者の）組み入れ・登録</td></tr>
+          <tr><td>interim analysis</td><td class="ipa hide-sm">/ˈɪntərɪm/</td><td>中間解析。試験途中で行う事前計画された解析</td></tr>
+          <tr><td>stopping rule</td><td class="ipa hide-sm">—</td><td>中止基準。早期中止を判断する事前の境界</td></tr>
+          <tr><td>ventilator-free days</td><td class="ipa hide-sm">—</td><td>人工呼吸器なしで過ごせた日数。重症領域の定番アウトカム</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 09 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>ARDS（および広くは人工呼吸を要する患者）では、理想体重あたり<b>6 mL/kg を基本</b>に、プラトー圧を抑えた肺保護換気が標準。多少の高二酸化炭素血症は許容してでも肺を守る、という発想が予後を改善します。そして論文を読むときは、「早期中止された大成功」を見たら<b>中止基準と中間解析の回数</b>を確認する——派手な数字ほど、その出方を冷静に見るのが大事です。</p>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 760 560" role="img" aria-label="ARDSNet試験の要約図">
+        <text x="40" y="46" font-family="'Noto Serif JP',serif" font-size="22" font-weight="700" fill="#15302D">ARDSNet：低換気量 6 vs 従来 12 mL/kg</text>
+        <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">N Engl J Med 2000 · n=861 · 院内死亡 · 第4回中間解析で早期中止</text>
+        <line x1="40" y1="86" x2="720" y2="86" stroke="#D9E0DC" stroke-width="1"/>
+
+        <text x="40" y="120" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">院内死亡率</text>
+        <text x="40" y="156" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">6 mL/kg</text>
+        <rect x="130" y="142" width="530" height="22" fill="#E7ECE9"/>
+        <rect x="130" y="142" width="411" height="22" fill="#0F766E"/>
+        <text x="668" y="159" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#0F766E">31.0%</text>
+        <text x="40" y="192" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">12 mL/kg</text>
+        <rect x="130" y="178" width="530" height="22" fill="#E7ECE9"/>
+        <rect x="130" y="178" width="527" height="22" fill="#C96A2B"/>
+        <text x="668" y="195" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#C96A2B">39.8%</text>
+
+        <line x1="40" y1="224" x2="720" y2="224" stroke="#D9E0DC" stroke-width="1"/>
+        <rect x="40" y="244" width="210" height="118" rx="4" fill="#15302D"/>
+        <text x="64" y="280" font-family="'JetBrains Mono',monospace" font-size="11" fill="#6FBCB3">絶対リスク差 ARR</text>
+        <text x="64" y="320" font-family="'Noto Serif JP',serif" font-size="36" font-weight="700" fill="#ffffff">8.8<tspan font-size="17">pt</tspan></text>
+        <text x="64" y="346" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#B7C7C2">低換気量で少ない</text>
+
+        <rect x="266" y="244" width="210" height="118" rx="4" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="290" y="280" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C96A2B">治療必要数 NNT</text>
+        <text x="290" y="320" font-family="'Noto Serif JP',serif" font-size="36" font-weight="700" fill="#C96A2B">≈11<tspan font-size="15">人</tspan></text>
+        <text x="290" y="346" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">= 1 / 0.088</text>
+
+        <rect x="492" y="244" width="228" height="118" rx="4" fill="#FBFCFB" stroke="#D9E0DC"/>
+        <text x="516" y="280" font-family="'JetBrains Mono',monospace" font-size="11" fill="#0B4F4A">p値</text>
+        <text x="516" y="320" font-family="'Noto Serif JP',serif" font-size="30" font-weight="700" fill="#15302D">0.007</text>
+        <text x="516" y="346" font-family="'JetBrains Mono',monospace" font-size="11" fill="#5C6B68">95%CI 2.4–15.3</text>
+
+        <line x1="40" y1="386" x2="720" y2="386" stroke="#D9E0DC" stroke-width="1"/>
+        <text x="40" y="416" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">早期中止 EARLY STOPPING</text>
+        <text x="40" y="442" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#2C4541">第4回中間解析で死亡率の差が境界を越え、861例で組み入れ中止</text>
+        <text x="40" y="466" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#5C6B68">✓ 中止基準は事前規定　✓ 複数回の中間解析　✓ 後続メタ解析でも支持</text>
+        <text x="40" y="490" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#C96A2B">⚠ 一般に早期中止は効果量を過大評価しうる → CIの幅と計画を確認</text>
+
+        <line x1="40" y1="510" x2="720" y2="510" stroke="#D9E0DC" stroke-width="0.5"/>
+        <text x="40" y="536" font-family="'Noto Sans JP',sans-serif" font-size="13" font-weight="700" fill="#15302D">結論：6 mL/kgの肺保護換気が死亡を減らし標準に。早期中止は計画の妥当性とセットで読む。</text>
+      </svg>
+      <div class="info-cap">数値は原著（NEJM 2000;342:1301-8）に基づく。図は独自に作成。</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。気づいた点は指摘してもらえると助かります。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。<strong>作成方法：</strong>AIによる下書きを自分でレビュー・修正。数値・解釈は一次資料での確認をおすすめします。図表は転載せず独自に作図しています。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

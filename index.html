@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--muted:#5C6B68;
+    --line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace;letter-spacing:.02em}
+  a{color:inherit}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:15px}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15);animation:pulse 3s ease-in-out infinite;flex-shrink:0}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(15,118,110,.15)}50%{box-shadow:0 0 0 7px rgba(15,118,110,.05)}}
+  .nav{display:flex;gap:22px;font-size:13px;color:var(--muted)}
+  .nav a{color:inherit;text-decoration:none}
+  .nav a:hover{color:var(--teal)}
+  /* hamburger */
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin:-8px}
+  .burger span{display:block;width:22px;height:2px;background:var(--ink);transition:.2s}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;inset:60px 0 0;background:var(--paper);z-index:49;overflow-y:auto;padding:20px 0 60px;border-top:1px solid var(--line)}
+  .mobile-menu.open{display:block}
+  .mm-sec{padding:18px 0;border-bottom:1px solid var(--line)}
+  .mm-sec h3{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);margin-bottom:14px;text-transform:uppercase}
+  .mm-link{display:block;padding:11px 0;font-size:16px;color:var(--ink);text-decoration:none;font-family:"Noto Serif JP",serif}
+  .mm-link .mm-date{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);display:block;margin-bottom:2px;font-weight:400}
+  .mm-tags{display:flex;flex-wrap:wrap;gap:8px}
+  .mm-tags a{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);border:1px solid var(--line-strong);background:var(--paper-2);border-radius:3px;padding:7px 13px;text-decoration:none}
+  .mm-nav a{display:block;padding:11px 0;font-size:15px;color:var(--ink-soft);text-decoration:none}
+  @media(max-width:680px){.nav{display:none}.burger{display:flex}}
+  @media(min-width:681px){.mobile-menu{display:none!important}}
+
+  .hero{position:relative;padding:74px 0 58px;border-bottom:1px solid var(--line);overflow:hidden}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--teal-deep)}
+  h1.title{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(32px,5.4vw,54px);line-height:1.2;letter-spacing:.01em;color:var(--ink)}
+  h1.title em{font-style:normal;color:var(--teal)}
+  .lead{margin-top:24px;max-width:60ch;font-size:16px;color:var(--ink-soft)}
+
+  .sched{display:flex;gap:10px;margin-top:34px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line-strong);border-radius:2px;background:var(--paper-2);padding:11px 15px;min-width:130px}
+  .chip .day{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:13px;color:var(--teal-deep);letter-spacing:.06em}
+  .chip .kind{font-size:13px;color:var(--muted);margin-top:3px}
+
+  section{padding:60px 0}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:24px}
+  .sec-num{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--teal);font-weight:700}
+  .sec-title{font-family:"Noto Serif JP",serif;font-size:24px;font-weight:600}
+  .sec-sub{margin-left:auto;font-size:13px;color:var(--muted)}
+  @media(max-width:640px){.sec-sub{display:none}}
+
+  /* feed */
+  .feed{border-top:1px solid var(--line)}
+  .post{display:grid;grid-template-columns:118px 1fr auto;gap:22px;align-items:start;padding:24px 8px;border-bottom:1px solid var(--line);color:inherit;transition:background .15s;cursor:pointer}
+  .post:hover{background:var(--paper-2)}
+  .post:hover .post-title{color:var(--teal)}
+  .post-meta{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);line-height:1.6}
+  .post-meta .tag{display:inline-block;margin-top:8px;padding:2px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--teal-deep);font-size:11px}
+  .post.live .post-meta .tag{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .post-title{font-family:"Noto Serif JP",serif;font-size:19px;font-weight:600;line-height:1.5}
+  .post-desc{font-size:14px;color:var(--ink-soft);margin-top:7px}
+  .post-tags{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .ptag{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);border:1px solid var(--line-strong);border-radius:3px;padding:4px 11px;text-decoration:none;transition:.12s;letter-spacing:.03em}
+  .ptag:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .ptag.dow{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+  .ptag.dow:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .post-arrow{font-size:20px;color:var(--line-strong);align-self:center}
+  .post.upcoming{opacity:.6}
+  .post.upcoming .post-arrow{visibility:hidden}
+  @media(max-width:640px){.post{grid-template-columns:1fr;gap:8px}.post-arrow{display:none}}
+
+  /* stat themes — clickable tag cards */
+  .stat-band{background:var(--ink);color:#E8EEEB;border-radius:4px;padding:42px 36px}
+  .stat-band .eyebrow{color:#6FBCB3}
+  .stat-band .eyebrow::before{background:#6FBCB3}
+  .stat-band h3{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;color:#fff;margin-bottom:10px;max-width:36ch}
+  .stat-band p{font-size:15px;color:#B7C7C2;max-width:62ch}
+  .curri{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+  @media(max-width:760px){.curri{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.curri{grid-template-columns:1fr}}
+  .gcard{display:block;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:3px;padding:18px 18px 16px;text-decoration:none;color:inherit;transition:.15s;position:relative}
+  .gcard:hover{background:rgba(111,188,179,.12);border-color:#6FBCB3;transform:translateY(-2px)}
+  .gcard .gn{font-family:"JetBrains Mono",monospace;font-size:11px;color:#6FBCB3;letter-spacing:.08em}
+  .gcard .gt{font-family:"Noto Serif JP",serif;font-size:16px;font-weight:600;color:#fff;margin:7px 0 9px}
+  .gcard .gk{font-size:12px;color:#9FB3AE;line-height:1.7;font-family:"JetBrains Mono",monospace}
+  .gcard .garrow{position:absolute;top:16px;right:16px;color:#3C5A55;font-size:14px;transition:.15s}
+  .gcard:hover .garrow{color:#6FBCB3}
+
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .flow .step{border:1px solid var(--line);background:var(--paper-2);border-radius:3px;padding:22px 18px}
+  .flow .step .k{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal);font-weight:700}
+  .flow .step h4{font-size:15px;font-weight:700;margin:10px 0 6px}
+  .flow .step p{font-size:13px;color:var(--muted)}
+  @media(max-width:760px){.flow{grid-template-columns:1fr 1fr}}
+  @media(max-width:440px){.flow{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:20px}
+  .foot-inner{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
+  @media(max-width:640px){.foot-inner{grid-template-columns:1fr;gap:20px}}
+  .foot-brand{font-family:"Noto Serif JP",serif;font-size:18px;line-height:1.6;color:var(--ink)}
+  .foot-brand small{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.06em}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <div class="brand"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</div>
+    <nav class="nav">
+      <a href="#feed">記事</a>
+      <a href="#themes">統計テーマ</a>
+      <a href="#flow">この企画について</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="wrap">
+    <div class="mm-sec mm-nav">
+      <a href="#feed">記事一覧へ</a>
+      <a href="#themes">統計テーマへ</a>
+      <a href="#flow">この企画について</a>
+    </div>
+    <div class="mm-sec">
+      <h3>新着記事</h3>
+      <div id="mm-articles"></div>
+    </div>
+    <div class="mm-sec">
+      <h3>統計テーマから探す</h3>
+      <div class="mm-tags">
+        <a href="tags.html?tag=研究デザインを読む"><span style="opacity:.6">G01</span> 研究デザインを読む</a>
+        <a href="tags.html?tag=効果の大きさを読む"><span style="opacity:.6">G02</span> 効果の大きさを読む</a>
+        <a href="tags.html?tag=不確実性を読む"><span style="opacity:.6">G03</span> 不確実性を読む</a>
+        <a href="tags.html?tag=バイアスと交絡を読む"><span style="opacity:.6">G04</span> バイアスと交絡を読む</a>
+        <a href="tags.html?tag=時間経過と予後を読む"><span style="opacity:.6">G05</span> 時間経過と予後を読む</a>
+        <a href="tags.html?tag=統合・予測・診断を読む"><span style="opacity:.6">G06</span> 統合・予測・診断を読む</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">麻酔・集中治療 / 論文ジャーナルクラブ</div>
+      <h1 class="title">論文1本で、<em>臨床</em>も<em>統計</em>も。</h1>
+      <p class="lead">麻酔・集中治療領域の英語論文を題材に、臨床背景・研究デザイン・統計解析・リミテーション・結果の解釈までを一気通貫で扱います。原著のキーセンテンスを使った英語読解の枠も付けています。</p>
+      <div class="sched">
+        <div class="chip"><div class="day">MON 月</div><div class="kind">新着RCT / メタ解析</div></div>
+        <div class="chip"><div class="day">WED 水</div><div class="kind">統計・研究手法の深掘り</div></div>
+        <div class="chip"><div class="day">FRI 金</div><div class="kind">臨床を変えた古典</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="feed">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <span class="sec-title">記事</span>
+      <span class="sec-sub">週3回更新 — 月・水・金</span>
+    </div>
+    <div class="feed" id="feed-list"></div>
+  </div>
+</section>
+
+<section id="themes">
+  <div class="wrap">
+    <div class="stat-band">
+      <div class="eyebrow">統計テーマ</div>
+      <h3>読みたいテーマから記事を探す。</h3>
+      <p>論文を読むときに必要になる「読み解きの視点」を6つに分けました。各カテゴリをクリックすると、そのテーマを扱った記事の一覧へ移動します。記事ごとに1つのテーマを主役にして解説します。</p>
+      <div class="curri">
+        <a class="gcard" href="tags.html?tag=研究デザインを読む">
+          <span class="garrow">→</span>
+          <div class="gn">GROUP 01</div>
+          <div class="gt">研究デザインを読む</div>
+          <div class="gk">PICO / 対象集団 / 主要アウトカム / RCT / コホート / メタ解析</div>
+        </a>
+        <a class="gcard" href="tags.html?tag=効果の大きさを読む">
+          <span class="garrow">→</span>
+          <div class="gn">GROUP 02</div>
+          <div class="gt">効果の大きさを読む</div>
+          <div class="gk">リスク / 平均差 / 相対リスク / オッズ比 / 絶対リスク差 / NNT・NNH</div>
+        </a>
+        <a class="gcard" href="tags.html?tag=不確実性を読む">
+          <span class="garrow">→</span>
+          <div class="gn">GROUP 03</div>
+          <div class="gt">不確実性を読む</div>
+          <div class="gk">p値 / 95%信頼区間 / 標準偏差 / 検出力 / サンプルサイズ</div>
+        </a>
+        <a class="gcard" href="tags.html?tag=バイアスと交絡を読む">
+          <span class="garrow">→</span>
+          <div class="gn">GROUP 04</div>
+          <div class="gt">バイアスと交絡を読む</div>
+          <div class="gk">ITT / per-protocol / 交絡 / 多変量解析 / 傾向スコア / 欠測</div>
+        </a>
+        <a class="gcard" href="tags.html?tag=時間経過と予後を読む">
+          <span class="garrow">→</span>
+          <div class="gn">GROUP 05</div>
+          <div class="gt">時間経過と予後を読む</div>
+          <div class="gk">Kaplan–Meier / censoring / hazard ratio / Cox回帰 / competing risk</div>
+        </a>
+        <a class="gcard" href="tags.html?tag=統合・予測・診断を読む">
+          <span class="garrow">→</span>
+          <div class="gn">GROUP 06</div>
+          <div class="gt">統合・予測・診断を読む</div>
+          <div class="gk">forest plot / I² / 感度・特異度 / ROC・AUC / calibration</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <span class="sec-title">記事ができるまで</span>
+    </div>
+    <div class="flow">
+      <div class="step"><div class="k">STEP 1</div><h4>自動収集</h4><p>月・水・金の早朝、対象誌のオープンアクセス新着論文を自動取得。ライセンスも自動チェック。</p></div>
+      <div class="step"><div class="k">STEP 2</div><h4>下書き生成</h4><p>全文を読み込み、固定テンプレートに沿った解説とインフォグラフィックを下書き。</p></div>
+      <div class="step"><div class="k">STEP 3</div><h4>専門医レビュー</h4><p>麻酔科医が内容・統計解釈を確認し、修正のうえ承認。誤りを公開前に止める。</p></div>
+      <div class="step"><div class="k">STEP 4</div><h4>公開</h4><p>承認された記事だけが自動で公開。読者は週3本のペースで学べる。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        麻酔・集中治療<br>論文ジャーナルクラブ
+        <small>MON · WED · FRI</small>
+      </div>
+      <p class="disc">
+        <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモを、せっかくなので共有しているものです。同じ領域の方の役に立てば嬉しいですが、あくまで個人の学習ノートです。<br>
+        <strong>正確性について：</strong>内容には誤りが含まれているかもしれません。気づいた点があれば指摘してもらえると助かります。実際の臨床判断は、必ず原著論文・最新のガイドライン・各施設の方針に基づいて行ってください。<br>
+        <strong>作成方法：</strong>記事はAIによる下書きを自分でレビュー・修正して公開しています。引用する論文は全文オープンアクセスのものを基本とし、図表は転載せず独自に作図しています。数値や解釈は一次資料での確認をおすすめします。
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="data/articles.js"></script>
+<script>
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+  // ---- 記事一覧を data/articles.js のリストから組み立てる ----
+  function tagHtml(t){
+    const m = t.label.match(/^(G0[1-6])\s+(.+)$/);
+    const inner = m ? `<span style="opacity:.6">${esc(m[1])}</span> ${esc(m[2])}` : esc(t.label);
+    return `<a class="ptag" href="tags.html?tag=${encodeURIComponent(t.tag)}">${inner}</a>`;
+  }
+  function cardHtml(a){
+    const dow = a.dowTag
+      ? `<a class="ptag dow" href="tags.html?tag=${encodeURIComponent(a.dowTag.tag)}">${esc(a.dowTag.label)}</a>`
+      : "";
+    const tags = (a.tags || []).map(tagHtml).join("");
+    return `<div class="post ${a.live ? "live" : ""}" data-href="${esc(a.url)}" role="link" tabindex="0">
+      <div class="post-meta">${esc(a.date)} ${esc(a.dow)}<span class="tag">${esc(a.status)}</span></div>
+      <div>
+        <div class="post-title">${esc(a.title)}</div>
+        <div class="post-desc">${esc(a.desc)}</div>
+        <div class="post-tags">${dow}${tags}</div>
+      </div>
+      <div class="post-arrow">→</div>
+    </div>`;
+  }
+  function mmLinkHtml(a){
+    return `<a class="mm-link" href="${esc(a.url)}"><span class="mm-date">${esc(a.date)} ${esc(a.dow)} · ${esc(a.status)}</span>${esc(a.title)}</a>`;
+  }
+  if (window.ARTICLES) {
+    const feedList = document.getElementById("feed-list");
+    if (feedList) feedList.innerHTML = window.ARTICLES.map(cardHtml).join("");
+    const mmArticles = document.getElementById("mm-articles");
+    if (mmArticles) mmArticles.innerHTML = window.ARTICLES.map(mmLinkHtml).join("");
+  }
+
+  // ハンバーガーメニュー
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("mobileMenu");
+  burger.addEventListener("click", ()=>{
+    const open = menu.classList.toggle("open");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  menu.querySelectorAll("a").forEach(a=>{
+    a.addEventListener("click", ()=>{
+      menu.classList.remove("open");
+      burger.setAttribute("aria-expanded","false");
+      document.body.style.overflow = "";
+    });
+  });
+
+  // 記事カード — div[data-href] をリンクとして動作させる（一覧を作った後に実行）
+  document.querySelectorAll(".post[data-href]").forEach(card=>{
+    const href = card.dataset.href;
+    card.addEventListener("click", e=>{
+      if(e.target.closest("a")) return;
+      window.location.href = href;
+    });
+    card.addEventListener("keydown", e=>{
+      if(e.key === "Enter") window.location.href = href;
+    });
+  });
+</script>
+
+</body>
+</html>
