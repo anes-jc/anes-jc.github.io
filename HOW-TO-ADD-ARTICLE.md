@@ -109,3 +109,10 @@ GitHub で `data/articles.js` を開き、鉛筆（Edit）。
 複数のページを直す必要がなく、間違いも起きにくい。
 将来 Claude API での自動化に進むときも、この `articles.js` に
 1ブロック自動で書き足すだけ、という形にできます。
+
+## Xリンクカード
+
+- 記事HTMLには og:* と twitter:* メタタグを設定する。
+- 通常記事のカード画像は assets/og/<記事slug>.png に置く。
+- 日曜記事は assets/og/sunday-x-header.png を共通利用する。
+- URLは https://anes-jc.github.io/ から始まる絶対URLにする。

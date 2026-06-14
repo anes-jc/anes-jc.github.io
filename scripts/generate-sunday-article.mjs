@@ -1,4 +1,4 @@
-import fs from "node:fs";
+﻿import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
@@ -90,6 +90,23 @@ function deriveTheme(paper) {
   return themes.find(([, terms]) => terms.some((term) => text.includes(term)))?.[0] || "麻酔・集中治療の最新研究";
 }
 
+function derivePaperHeading(paper) {
+  const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
+  const headings = [
+    ["チアノーゼ性先天性心疾患手術で正常酸素と高酸素を比較", ["cyanotic congenital heart surgery", "normoxia", "hyperoxia"]],
+    ["非挿管麻酔の長時間手術でTHRIVEが術後無気肺を減らすか", ["non-intubated anesthesia", "transnasal humidified rapid insufflation", "atelectasis"]],
+    ["若年者の脊椎手術で麻酔深度が運動誘発電位に与える影響", ["depth of anesthesia", "motor evoked potentials", "spinal surgery"]],
+    ["ARDS患者で人工呼吸戦略が予後に与える影響", ["ards", "mechanical ventilation", "mortality"]],
+    ["周術期の低血圧管理が術後転帰に与える影響", ["perioperative", "hypotension", "postoperative outcome"]],
+    ["術後疼痛に対する鎮痛法・オピオイド戦略を比較", ["postoperative pain", "analgesia", "opioid"]],
+    ["ICU患者の鎮静法とせん妄・転帰の関連を評価", ["icu", "sedation", "delirium"]],
+    ["気道管理・挿管手技の有効性と安全性を比較", ["airway", "intubation", "laryngoscopy"]],
+    ["敗血症・敗血症性ショックの治療戦略を評価", ["sepsis", "septic shock"]],
+  ];
+  const match = headings.find(([, terms]) => terms.every((term) => text.includes(term)));
+  return match?.[0] || `${deriveTheme(paper)}：${classifyStudyDesign(paper)}`;
+}
+
 async function fetchWithRetry(url, attempts = 3) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
@@ -142,10 +159,10 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
     <li><a href="../${escapeHtml(article.url)}">${escapeHtml(article.title)}</a><span>${escapeHtml(article.date)}</span></li>`).join("")
     : "<li>今週公開されたサイト記事はありません。</li>";
   const papersHtml = papers.length ? papers.map((paper, index) => {
-    const theme = deriveTheme(paper);
+    const heading = derivePaperHeading(paper);
     return `<article class="paper-card">
       <div class="number">PAPER ${index + 1}</div>
-      <h2>${escapeHtml(theme)}</h2>
+      <h2>${escapeHtml(heading)}</h2>
       <p class="design">${escapeHtml(classifyStudyDesign(paper))}</p>
       <h3>${escapeHtml(paper.title)}</h3>
       <p class="meta">${escapeHtml(paper.journalTitle || "")}${paper.firstPublicationDate ? ` / ${escapeHtml(paper.firstPublicationDate)}` : ""}</p>
@@ -153,7 +170,16 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
     </article>`;
   }).join("") : "<p>最新論文情報を取得できませんでした。</p>";
   return `<!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="麻酔・集中治療領域の最新論文を紹介する anes-jc の日曜記事です。">
+<link rel="canonical" href="https://anes-jc.github.io/articles/latest-papers-${issueDate}.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="先週のまとめ＋最新論文3選 | anes-jc">
+<meta property="og:description" content="麻酔・集中治療領域の最新論文を紹介する anes-jc の日曜記事です。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/latest-papers-${issueDate}.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/sunday-x-header.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="先週のまとめ＋最新論文3選 | anes-jc">
+<meta name="twitter:description" content="麻酔・集中治療領域の最新論文を紹介する anes-jc の日曜記事です。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/sunday-x-header.png">
 <title>先週のまとめ｜最新論文3選 | anes-jc</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
 <style>:root{--paper:#f4f6f4;--paper-2:#fbfcfb;--ink:#15302d;--ink-soft:#2c4541;--teal:#0f766e;--teal-deep:#0b4f4a;--muted:#5c6b68;--line:#d9e0dc;--line-strong:#bcc8c3}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9}.wrap{max-width:760px;margin:auto;padding:0 24px}a{color:var(--teal-deep)}.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}.bar-in{max-width:760px;margin:auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}.brand,.back{text-decoration:none;color:var(--ink)}.brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px}.dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}.back{font-size:13px;color:var(--muted)}.article-head{padding:48px 0 30px;border-bottom:1px solid var(--line)}.eyebrow,.number{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal);font-weight:700}.article-head h1{font-family:"Noto Serif JP",serif;font-size:clamp(28px,5vw,40px);line-height:1.35;margin:14px 0}.lead{color:var(--ink-soft);margin:0}.content-section{padding:38px 0;border-bottom:1px solid var(--line)}.content-section>h2{font-family:"Noto Serif JP",serif;font-size:22px;margin:0 0 18px}.site-list{padding:0;margin:0;list-style:none}.site-list li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.site-list span,.meta{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px;white-space:nowrap}.paper-card{padding:26px 28px;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:4px;margin:18px 0;background:var(--paper-2)}.paper-card h2{font-family:"Noto Serif JP",serif;font-size:22px;line-height:1.4;margin:6px 0;color:var(--ink)}.paper-card h3{font-size:15px;line-height:1.7;margin:14px 0 5px;font-weight:500;color:var(--ink-soft)}.design{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--line-strong);border-radius:3px;padding:3px 9px;margin:4px 0;color:var(--teal-deep)}.source{display:inline-block;margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-decoration:none;border:1px solid var(--line-strong);padding:6px 12px;border-radius:2px}.source:hover{background:var(--teal);color:#fff;border-color:var(--teal)}footer{padding:36px 0 60px;color:var(--muted);font-size:12px}@media(max-width:600px){.wrap,.bar-in{padding-left:18px;padding-right:18px}.brand{font-size:12px}.paper-card{padding:20px}.site-list li{display:block}.site-list span{display:block;margin-top:4px}}</style>
@@ -205,3 +231,4 @@ fs.writeFileSync(path.join(repoRoot, "articles", `${slug}.html`),
   renderPage({ config, issueDate, period, siteArticles, papers }), "utf8");
 writeRegistry(issueDate, slug);
 console.log(`Generated Sunday article ${slug}: ${siteArticles.length} site article(s), ${papers.length} paper(s).`);
+
