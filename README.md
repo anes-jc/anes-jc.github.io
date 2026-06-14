@@ -10,13 +10,14 @@
 
 ```
 site/
-├── index.html              ← トップページ（統計テーマのタグつき）
+├── index.html              ← トップページ（新着記事は最大5件のみ表示）
+├── articles.html           ← 公開済みの全記事一覧
 ├── tags.html               ← テーマ別の記事一覧（タグをクリックすると開く）
 ├── articles/
 │   ├── nice-sugar.html             ← 公開中の記事
 │   └── その他の記事.html           ← 公開済み・公開予定の記事
 ├── data/
-│   ├── articles.js                ← 記事一覧と公開予定日（公開日になると自動表示）
+│   ├── articles.js                ← 記事一覧と公開予定日（公開日になるとトップ/全記事一覧へ自動表示）
 │   ├── classics.json              ← 金曜用の古典論文リスト
 │   ├── paper-selection-policy.json ← 月・水・金の論文選定ルール
 │   ├── stat-themes.json           ← 統計テーマの台帳

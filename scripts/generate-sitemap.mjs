@@ -55,6 +55,7 @@ const tags = [...new Set(publishedArticles.flatMap((article) => [
 
 const urls = [];
 addUrl(urls, `${siteUrl}/`, latestDate, "1.0");
+addUrl(urls, `${siteUrl}/articles.html`, latestDate, "0.8");
 addUrl(urls, `${siteUrl}/tags.html`, latestDate, "0.8");
 
 for (const tag of tags) {

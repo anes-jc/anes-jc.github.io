@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="麻酔・集中治療領域の論文ジャーナルクラブで公開済みの記事一覧です。">
+<link rel="canonical" href="https://anes-jc.github.io/articles.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="記事一覧 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="麻酔・集中治療領域の論文ジャーナルクラブで公開済みの記事一覧です。">
+<meta property="og:url" content="https://anes-jc.github.io/articles.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/sunday-x-header.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="記事一覧 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="麻酔・集中治療領域の論文ジャーナルクラブで公開済みの記事一覧です。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/sunday-x-header.png">
+<title>記事一覧 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:920px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15);flex-shrink:0}
+  .bar-actions{display:flex;align-items:center;gap:14px}
+  .back,.xlink{font-size:13px;color:var(--muted);text-decoration:none}
+  .xlink{color:var(--teal-deep);font-weight:700}
+  .back:hover,.xlink:hover{color:var(--teal)}
+  .head{padding:54px 0 34px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--teal-deep)}
+  h1{font-family:"Noto Serif JP",serif;font-size:clamp(30px,5vw,44px);line-height:1.25;font-weight:700}
+  .sub{margin-top:14px;color:var(--muted);font-size:14px}
+  main{padding:40px 0 62px}
+  .feed{border-top:1px solid var(--line)}
+  .post{display:grid;grid-template-columns:118px 1fr auto;gap:22px;align-items:start;padding:24px 8px;border-bottom:1px solid var(--line);color:inherit;transition:background .15s;cursor:pointer}
+  .post:hover{background:var(--paper-2)}
+  .post:hover .post-title{color:var(--teal)}
+  .post-meta{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);line-height:1.6}
+  .post-meta .tag{display:inline-block;margin-top:8px;padding:2px 8px;border:1px solid var(--line-strong);border-radius:2px;background:var(--teal);color:#fff;font-size:11px}
+  .post-title{font-family:"Noto Serif JP",serif;font-size:19px;font-weight:600;line-height:1.5}
+  .post-desc{font-size:14px;color:var(--ink-soft);margin-top:7px}
+  .post-tags{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .ptag{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);border:1px solid var(--line-strong);border-radius:3px;padding:4px 11px;text-decoration:none;transition:.12s;letter-spacing:.03em}
+  .ptag:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .ptag.dow{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+  .ptag.dow:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .post-arrow{font-size:20px;color:var(--line-strong);align-self:center}
+  .empty{border:1px solid var(--line);background:var(--paper-2);border-radius:3px;padding:24px;color:var(--muted)}
+  footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--muted);font-size:12px}
+  footer a{color:var(--teal-deep);text-decoration:none}
+  footer a:hover{color:var(--teal)}
+  @media(max-width:640px){
+    .wrap,.bar-in{padding-left:18px;padding-right:18px}
+    .bar-in{height:54px;gap:12px}
+    .brand{font-size:12px;line-height:1.25;white-space:nowrap}
+    .bar-actions{gap:10px}
+    .back,.xlink{font-size:12px;white-space:nowrap}
+    .head{padding:38px 0 28px}
+    .post{grid-template-columns:1fr;gap:10px;padding:20px 4px}
+    .post-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+    .post-meta .tag{margin-top:0}
+    .post-title{font-size:18px}
+    .post-desc{font-size:13px;line-height:1.8}
+    .ptag{font-size:11px;padding:3px 9px}
+    .post-arrow{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <div class="bar-actions">
+      <a class="xlink" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">X</a>
+      <a class="back" href="index.html">← トップ</a>
+    </div>
+  </div>
+</header>
+
+<div class="head">
+  <div class="wrap">
+    <div class="eyebrow">All Articles</div>
+    <h1>記事一覧</h1>
+    <div class="sub" id="summary">公開済みの記事を新しい順に表示します。</div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="feed" id="feed-list"></div>
+    <div class="empty" id="empty" style="display:none">公開済みの記事はまだありません。</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html">トップページへ戻る</a>
+  </div>
+</footer>
+
+<script src="data/sunday-articles.js"></script>
+<script src="data/articles.js"></script>
+<script>
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+  function tagHtml(t){
+    const m = t.label.match(/^(G0[1-6])\s+(.+)$/);
+    const inner = m ? `<span style="opacity:.6">${esc(m[1])}</span> ${esc(m[2])}` : esc(t.label);
+    return `<a class="ptag" href="tags.html?tag=${encodeURIComponent(t.tag)}">${inner}</a>`;
+  }
+  function cardHtml(a){
+    const dow = a.dowTag
+      ? `<a class="ptag dow" href="tags.html?tag=${encodeURIComponent(a.dowTag.tag)}">${esc(a.dowTag.label)}</a>`
+      : "";
+    const tags = (a.tags || []).map(tagHtml).join("");
+    return `<article class="post ${a.live ? "live" : ""}" data-href="${esc(a.url)}" role="link" tabindex="0">
+      <div class="post-meta">${esc(a.date)} ${esc(a.dow)}<span class="tag">${esc(a.status)}</span></div>
+      <div>
+        <div class="post-title">${esc(a.title)}</div>
+        <div class="post-desc">${esc(a.desc)}</div>
+        <div class="post-tags">${dow}${tags}</div>
+      </div>
+      <div class="post-arrow">→</div>
+    </article>`;
+  }
+
+  const articles = window.ARTICLES || [];
+  const feedList = document.getElementById("feed-list");
+  const empty = document.getElementById("empty");
+  const summary = document.getElementById("summary");
+  if (articles.length) {
+    feedList.innerHTML = articles.map(cardHtml).join("");
+    summary.textContent = `${articles.length}件の公開済み記事`;
+  } else {
+    empty.style.display = "block";
+  }
+
+  document.querySelectorAll(".post[data-href]").forEach(card=>{
+    const href = card.dataset.href;
+    card.addEventListener("click", e=>{
+      if(e.target.closest("a")) return;
+      window.location.href = href;
+    });
+    card.addEventListener("keydown", e=>{
+      if(e.key === "Enter") window.location.href = href;
+    });
+  });
+</script>
+
+</body>
+</html>

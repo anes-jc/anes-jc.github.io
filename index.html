@@ -113,6 +113,9 @@
   .post-arrow{font-size:20px;color:var(--line-strong);align-self:center}
   .post.upcoming{opacity:.6}
   .post.upcoming .post-arrow{visibility:hidden}
+  .feed-more{display:flex;justify-content:flex-end;margin-top:18px}
+  .feed-more a{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:8px 13px;transition:.12s}
+  .feed-more a:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
   @media(max-width:640px){.post{grid-template-columns:1fr;gap:8px}.post-arrow{display:none}}
 
   /* stat themes — clickable tag cards */
@@ -203,7 +206,7 @@
   <div class="wrap bar-in">
     <div class="brand"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</div>
     <nav class="nav">
-      <a href="#feed">記事</a>
+      <a href="#feed">新着記事</a>
       <a href="#themes">統計テーマ</a>
       <a href="#flow">この企画について</a>
       <a class="x-nav" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">X</a>
@@ -217,7 +220,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <div class="wrap">
     <div class="mm-sec mm-nav">
-      <a href="#feed">記事一覧へ</a>
+      <a href="articles.html">記事一覧へ</a>
       <a href="#themes">統計テーマへ</a>
       <a href="#flow">この企画について</a>
       <a href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
@@ -264,6 +267,9 @@
       <span class="sec-sub">週4回更新 — 日・月・水・金</span>
     </div>
     <div class="feed" id="feed-list"></div>
+    <div class="feed-more">
+      <a href="articles.html">すべての記事一覧へ →</a>
+    </div>
   </div>
 </section>
 
@@ -377,10 +383,12 @@
     return `<a class="mm-link" href="${esc(a.url)}"><span class="mm-date">${esc(a.date)} ${esc(a.dow)} · ${esc(a.status)}</span>${esc(a.title)}</a>`;
   }
   if (window.ARTICLES) {
+    const HOME_ARTICLE_LIMIT = 5;
+    const homeArticles = window.ARTICLES.slice(0, HOME_ARTICLE_LIMIT);
     const feedList = document.getElementById("feed-list");
-    if (feedList) feedList.innerHTML = window.ARTICLES.map(cardHtml).join("");
+    if (feedList) feedList.innerHTML = homeArticles.map(cardHtml).join("");
     const mmArticles = document.getElementById("mm-articles");
-    if (mmArticles) mmArticles.innerHTML = window.ARTICLES.map(mmLinkHtml).join("");
+    if (mmArticles) mmArticles.innerHTML = homeArticles.map(mmLinkHtml).join("");
   }
 
   // ハンバーガーメニュー
