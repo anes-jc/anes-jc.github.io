@@ -54,12 +54,14 @@ function scorePaper(paper, config) {
     "guideline", "consensus", "multicenter", "multicentre", "prospective", "cohort"];
   let score = terms.reduce((sum, term) => sum + (title.includes(term) ? 8 : 0), 0);
   score += config.preferredJournals.some((name) => journal.includes(name.toLowerCase())) ? 20 : 0;
-  score += type.includes("editorial") || type.includes("letter") ? -30 : 0;
+  score += type.includes("editorial") || type.includes("letter") || title.includes("protocol") ? -30 : 0;
   return score + Math.min(Number(paper.citedByCount || 0), 10);
 }
 
 function classifyStudyDesign(paper) {
   const text = `${paper.title || ""} ${paper.pubType || ""}`.toLowerCase();
+  if (text.includes("protocol")) return "研究プロトコル";
+  if (text.includes("non-randomized") || text.includes("non-randomised")) return "非無作為化研究";
   const designs = [
     ["システマティックレビュー・メタ解析", ["systematic review", "meta-analysis", "meta analysis"]],
     ["無作為化比較試験", ["randomized", "randomised", "randomized controlled trial"]],
@@ -109,7 +111,13 @@ async function fetchLatestPapers(period, config) {
   const params = new URLSearchParams({ query, format: "json", resultType: "core", pageSize: "100" });
   const response = await fetchWithRetry(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?${params}`);
   const body = await response.json();
-  const ranked = (body.resultList?.result || []).filter((paper) => paper.title && paper.abstractText)
+  const ranked = (body.resultList?.result || []).filter((paper) => {
+    const text = `${paper.title || ""} ${paper.pubType || ""}`.toLowerCase();
+    return paper.title && paper.abstractText
+      && !text.includes("protocol")
+      && !text.includes("editorial")
+      && !text.includes("letter");
+  })
     .map((paper) => ({ ...paper, selectionScore: scorePaper(paper, config) }))
     .sort((a, b) => b.selectionScore - a.selectionScore
       || String(b.firstPublicationDate || "").localeCompare(String(a.firstPublicationDate || "")));
