@@ -3,18 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="麻酔・集中治療領域の論文ジャーナルクラブ anes-jc の記事です。">
+<meta name="description" content="重症患者の強化インスリン療法は本当に有益か。90日死亡をアウトカムにした大規模RCT。統計の山場は絶対リスク差とNNH。">
 <link rel="canonical" href="https://anes-jc.github.io/articles/nice-sugar.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="anes-jc">
 <meta property="og:title" content="血糖をどこまで下げるか — NICE-SUGAR 試験 | 麻酔・集中治療 / 論文ジャーナルクラブ">
-<meta property="og:description" content="麻酔・集中治療領域の論文を読み解く anes-jc">
+<meta property="og:description" content="重症患者の強化インスリン療法は本当に有益か。90日死亡をアウトカムにした大規模RCT。統計の山場は絶対リスク差とNNH。">
 <meta property="og:url" content="https://anes-jc.github.io/articles/nice-sugar.html">
 <meta property="og:image" content="https://anes-jc.github.io/assets/og/nice-sugar.png?v=20260614-3">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="血糖をどこまで下げるか — NICE-SUGAR 試験 | 麻酔・集中治療 / 論文ジャーナルクラブ">
-<meta name="twitter:description" content="麻酔・集中治療領域の論文を読み解く anes-jc">
+<meta name="twitter:description" content="重症患者の強化インスリン療法は本当に有益か。90日死亡をアウトカムにした大規模RCT。統計の山場は絶対リスク差とNNH。">
 <meta name="twitter:image" content="https://anes-jc.github.io/assets/og/nice-sugar.png?v=20260614-3">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/nice-sugar.html"
+  },
+  "headline": "血糖をどこまで下げるか — NICE-SUGAR 試験",
+  "description": "重症患者の強化インスリン療法は本当に有益か。90日死亡をアウトカムにした大規模RCT。統計の山場は絶対リスク差とNNH。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/nice-sugar.png?v=20260614-3"
+  ],
+  "datePublished": "2026-06-12T00:00:00+09:00",
+  "dateModified": "2026-06-14T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
 <title>血糖をどこまで下げるか — NICE-SUGAR 試験 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +63,9 @@
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
   .back{font-size:13px;color:var(--muted);text-decoration:none}
   .back:hover{color:var(--teal)}
+  .bar-actions{display:flex;align-items:center;gap:14px}
+  .xlink{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 10px;white-space:nowrap}
+  .xlink:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 
   /* article head */
   .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
@@ -122,6 +151,8 @@
   footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
   .disc{font-size:12px;color:var(--muted);line-height:1.9}
   .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
   /* 現代の視点 */
   .modern{border:1px dashed var(--line-strong);border-radius:4px;padding:20px 24px;margin:14px 0;background:rgba(15,118,110,.035)}
   .modern .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
@@ -137,7 +168,10 @@
 <header class="bar">
   <div class="bar-in">
     <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
-    <a class="back" href="../index.html">← 記事一覧</a>
+    <div class="bar-actions">
+      <a class="xlink" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">X</a>
+      <a class="back" href="../index.html">← 記事一覧</a>
+    </div>
   </div>
 </header>
 
@@ -346,6 +380,7 @@
     <p class="disc">
       <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。気づいた点は指摘してもらえると助かります。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。<strong>作成方法：</strong>AIによる下書きを自分でレビュー・修正。数値・解釈は一次資料での確認をおすすめします。図表は転載せず独自に作図しています。
     </p>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
   </div>
 </footer>
 

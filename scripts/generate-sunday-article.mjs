@@ -155,6 +155,32 @@ async function fetchLatestPapers(period, config) {
 }
 
 function renderPage({ config, issueDate, period, siteArticles, papers }) {
+  const pageTitle = "先週のまとめ｜最新論文3選";
+  const pageDescription = `${period.start}から${period.end}の麻酔・集中治療領域の最新論文3選と、先週公開した記事をまとめます。`;
+  const pageUrl = `${siteUrl}/articles/latest-papers-${issueDate}.html`;
+  const imageUrl = `${siteUrl}/assets/og/sunday-x-header.png?v=${issueDate}`;
+  const structuredData = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": pageUrl,
+    },
+    headline: pageTitle,
+    description: pageDescription,
+    image: [imageUrl],
+    datePublished: `${issueDate}T00:00:00+09:00`,
+    dateModified: `${issueDate}T00:00:00+09:00`,
+    author: {
+      "@type": "Organization",
+      name: "anes-jc",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "anes-jc",
+    },
+    inLanguage: "ja",
+  }, null, 2);
   const siteArticlesHtml = siteArticles.length ? siteArticles.map((article) => `
     <li><a href="../${escapeHtml(article.url)}">${escapeHtml(article.title)}</a><span>${escapeHtml(article.date)}</span></li>`).join("")
     : "<li>今週公開されたサイト記事はありません。</li>";
@@ -170,25 +196,26 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
     </article>`;
   }).join("") : "<p>最新論文情報を取得できませんでした。</p>";
   return `<!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="麻酔・集中治療領域の最新論文を紹介する anes-jc の日曜記事です。">
-<link rel="canonical" href="https://anes-jc.github.io/articles/latest-papers-${issueDate}.html">
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="${escapeHtml(pageDescription)}">
+<link rel="canonical" href="${pageUrl}">
 <meta property="og:type" content="article"><meta property="og:site_name" content="anes-jc">
-<meta property="og:title" content="先週のまとめ＋最新論文3選 | anes-jc">
-<meta property="og:description" content="麻酔・集中治療領域の最新論文を紹介する anes-jc の日曜記事です。">
-<meta property="og:url" content="https://anes-jc.github.io/articles/latest-papers-${issueDate}.html">
-<meta property="og:image" content="https://anes-jc.github.io/assets/og/sunday-x-header.png?v=${issueDate}">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="先週のまとめ＋最新論文3選 | anes-jc">
-<meta name="twitter:description" content="麻酔・集中治療領域の最新論文を紹介する anes-jc の日曜記事です。">
-<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/sunday-x-header.png?v=${issueDate}">
-<title>先週のまとめ｜最新論文3選 | anes-jc</title>
+<meta property="og:title" content="${pageTitle} | anes-jc">
+<meta property="og:description" content="${escapeHtml(pageDescription)}">
+<meta property="og:url" content="${pageUrl}">
+<meta property="og:image" content="${imageUrl}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${pageTitle} | anes-jc">
+<meta name="twitter:description" content="${escapeHtml(pageDescription)}">
+<meta name="twitter:image" content="${imageUrl}">
+<script type="application/ld+json">${structuredData}</script>
+<title>${pageTitle} | anes-jc</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
-<style>:root{--paper:#f4f6f4;--paper-2:#fbfcfb;--ink:#15302d;--ink-soft:#2c4541;--teal:#0f766e;--teal-deep:#0b4f4a;--muted:#5c6b68;--line:#d9e0dc;--line-strong:#bcc8c3}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}.wrap{max-width:760px;margin:0 auto;padding:0 24px}a{color:var(--teal-deep)}header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}.bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}.back{font-size:13px;color:var(--muted);text-decoration:none}.ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}.kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}.pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep)}.pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.35;letter-spacing:.01em}.cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}.sec{padding:38px 0;border-bottom:1px solid var(--line)}.sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}.sechd .no,.number{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}.sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}.site-list{padding:0;list-style:none}.site-list li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.site-list span,.meta{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px;white-space:nowrap}.paper-card{padding:26px 28px;border:1px solid var(--line);border-radius:4px;margin:18px 0;background:var(--paper-2)}.paper-card h2{font-family:"Noto Serif JP",serif;font-size:22px;line-height:1.4;margin:6px 0;color:var(--ink)}.paper-card h3{font-size:15px;line-height:1.7;margin:14px 0 5px;font-weight:500;color:var(--ink-soft)}.design{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--line-strong);border-radius:3px;padding:3px 9px;margin:4px 0;color:var(--teal-deep)}.source{display:inline-block;margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-decoration:none;border:1px solid var(--line-strong);padding:6px 12px;border-radius:2px}.source:hover{background:var(--teal);color:#fff;border-color:var(--teal)}footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}.disc{font-size:12px;color:var(--muted);line-height:1.9}@media(max-width:560px){.bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.back{font-size:12px;white-space:nowrap}.wrap{padding:0 18px}.paper-card{padding:20px}.site-list li{display:block}.site-list span{display:block;margin-top:4px}}</style>
-</head><body><header class="bar"><div class="bar-in"><a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a><a class="back" href="../index.html">← 記事一覧</a></div></header><div class="wrap">
+<style>:root{--paper:#f4f6f4;--paper-2:#fbfcfb;--ink:#15302d;--ink-soft:#2c4541;--teal:#0f766e;--teal-deep:#0b4f4a;--muted:#5c6b68;--line:#d9e0dc;--line-strong:#bcc8c3}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}.wrap{max-width:760px;margin:0 auto;padding:0 24px}a{color:var(--teal-deep)}header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}.bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}.bar-actions{display:flex;align-items:center;gap:14px}.back{font-size:13px;color:var(--muted);text-decoration:none}.xlink,.foot-x{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 10px;white-space:nowrap}.xlink:hover,.foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}.ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}.kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}.pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep)}.pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.35;letter-spacing:.01em}.cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}.sec{padding:38px 0;border-bottom:1px solid var(--line)}.sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}.sechd .no,.number{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}.sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}.site-list{padding:0;list-style:none}.site-list li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.site-list span,.meta{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px;white-space:nowrap}.paper-card{padding:26px 28px;border:1px solid var(--line);border-radius:4px;margin:18px 0;background:var(--paper-2)}.paper-card h2{font-family:"Noto Serif JP",serif;font-size:22px;line-height:1.4;margin:6px 0;color:var(--ink)}.paper-card h3{font-size:15px;line-height:1.7;margin:14px 0 5px;font-weight:500;color:var(--ink-soft)}.design{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--line-strong);border-radius:3px;padding:3px 9px;margin:4px 0;color:var(--teal-deep)}.source{display:inline-block;margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-decoration:none;border:1px solid var(--line-strong);padding:6px 12px;border-radius:2px}.source:hover{background:var(--teal);color:#fff;border-color:var(--teal)}footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}.disc{font-size:12px;color:var(--muted);line-height:1.9}.foot-x{display:inline-block;margin-top:14px;padding:7px 12px}@media(max-width:560px){.bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.back{font-size:12px;white-space:nowrap}.wrap{padding:0 18px}.paper-card{padding:20px}.site-list li{display:block}.site-list span{display:block;margin-top:4px}}</style>
+</head><body><header class="bar"><div class="bar-in"><a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a><div class="bar-actions"><a class="xlink" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">X</a><a class="back" href="../index.html">← 記事一覧</a></div></div></header><div class="wrap">
 <div class="ahead"><div class="kicker"><a class="pill cls" href="../tags.html?tag=先週のまとめ">SUN · 先週のまとめ</a><a class="pill" href="../tags.html?tag=最新論文">最新論文</a></div>
 <h1>先週のまとめ｜最新論文3選</h1><div class="cite">${issueDate} 公開<br>対象期間: ${period.start} - ${period.end}</div></div>
 <section class="sec"><div class="sechd"><span class="no">01</span><h2>先週公開した記事</h2></div><ul class="site-list">${siteArticlesHtml}</ul></section>
 <section class="sec"><div class="sechd"><span class="no">02</span><h2>最新論文3選</h2></div>${papersHtml}</section>
-</div><footer><div class="wrap"><p class="disc">${escapeHtml(config.disclaimer)}</p></div></footer>
+</div><footer><div class="wrap"><p class="disc">${escapeHtml(config.disclaimer)}</p><a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a></div></footer>
 </body></html>`;
 }
 

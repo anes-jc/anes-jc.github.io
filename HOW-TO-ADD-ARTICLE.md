@@ -116,3 +116,11 @@ GitHub で `data/articles.js` を開き、鉛筆（Edit）。
 - 通常記事のカード画像は assets/og/<記事slug>.png に置く。
 - 日曜記事は assets/og/sunday-x-header.png を共通利用する。
 - URLは https://anes-jc.github.io/ から始まる絶対URLにする。
+
+## 検索向けメタ情報
+
+- 記事HTMLの `<head>` には、記事ごとの `description`、`canonical`、`og:*`、`twitter:*` を入れる。
+- `description` は汎用文ではなく、論文名・対象・統計テーマがわかる1文にする。
+- `script type="application/ld+json"` で `BlogPosting` を入れる。
+- `BlogPosting` には `headline`、`description`、`image`、`datePublished`、`dateModified`、`author`、`publisher` を入れる。
+- 公開済みURLの sitemap は `node scripts/generate-sitemap.mjs` で生成する。

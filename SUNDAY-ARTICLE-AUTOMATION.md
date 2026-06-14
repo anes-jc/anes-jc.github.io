@@ -29,7 +29,8 @@ GitHub Actionsの `Publish Sunday article` が以下を実行します。
 2. 注目テーマが異なる論文を優先して3件選定
 3. 通常記事HTMLを生成
 4. `data/sunday-articles.js` へ記事情報を追加
-5. GitHubへ自動コミット・公開
+5. `sitemap.xml` を更新
+6. GitHubへ自動コミット・公開
 
 Europe PMCが一時的に応答しない場合は3回再試行します。論文3件を取得できない場合は不完全な記事を公開せず失敗扱いとし、19:17 JSTの補完実行へ回します。同じ日に再実行しても同じ記事を更新するため、重複記事は作成されません。
 
@@ -50,3 +51,4 @@ node scripts/generate-sunday-article.mjs
 - 日曜記事は `data/sunday-articles.js` で別管理し、トップページとタグ一覧で通常記事として統合表示します。
 
 - Xリンクカードには assets/og/sunday-x-header.png を使用し、生成時にメタタグを自動設定します。
+- 検索向けに `BlogPosting` のJSON-LDを自動設定し、`scripts/generate-sitemap.mjs` で公開済みURLの sitemap を更新します。

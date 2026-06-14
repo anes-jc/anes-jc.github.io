@@ -3,6 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="麻酔・集中治療領域の論文解説を、ARDS、せん妄、術後悪心嘔吐、周術期管理、ICU血糖管理、統計テーマなどから探せます。">
+<link rel="canonical" href="https://anes-jc.github.io/tags.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="テーマ別の記事 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="麻酔・集中治療領域の論文解説を、臨床テーマと統計テーマから探せます。">
+<meta property="og:url" content="https://anes-jc.github.io/tags.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/sunday-x-header.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="テーマ別の記事 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="麻酔・集中治療領域の論文解説を、臨床テーマと統計テーマから探せます。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/sunday-x-header.png">
 <title>テーマ別の記事 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +34,11 @@
   .bar-in{max-width:880px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;color:var(--ink);text-decoration:none}
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15);flex-shrink:0}
+  .bar-actions{display:flex;align-items:center;gap:14px}
   .back{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
   .back:hover{color:var(--teal)}
+  .xlink{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 10px;white-space:nowrap}
+  .xlink:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 
   .head{padding:48px 0 26px;border-bottom:1px solid var(--line)}
   .head .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--teal-deep);margin-bottom:14px}
@@ -66,6 +81,9 @@
   .tagcloud{display:flex;flex-wrap:wrap;gap:9px}
   .tagcloud a{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 12px;text-decoration:none;transition:.12s}
   .tagcloud a:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .follow{padding:0 0 56px}
+  .follow a{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .follow a:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 </style>
 </head>
 <body>
@@ -73,7 +91,10 @@
 <header class="bar">
   <div class="bar-in">
     <a class="brand" href="index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
-    <a class="back" href="index.html">← トップ</a>
+    <div class="bar-actions">
+      <a class="xlink" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">X</a>
+      <a class="back" href="index.html">← トップ</a>
+    </div>
   </div>
 </header>
 
@@ -95,6 +116,9 @@
   <div class="alltags">
     <h2>すべてのテーマ</h2>
     <div class="tagcloud" id="cloud"></div>
+  </div>
+  <div class="follow">
+    <a href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
   </div>
 </div>
 
@@ -132,6 +156,14 @@
     return new URLSearchParams(location.search).get(name);
   }
   function esc(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+  function setMeta(selector, value){
+    const el = document.querySelector(selector);
+    if(el) el.setAttribute("content", value);
+  }
+  function setHref(selector, value){
+    const el = document.querySelector(selector);
+    if(el) el.setAttribute("href", value);
+  }
 
   const tag = getParam("tag");
   const tagnameEl = document.getElementById("tagname");
@@ -140,6 +172,17 @@
   const emptyEl = document.getElementById("empty");
 
   if(tag){
+    const pageTitle = `${tag}の記事 | 麻酔・集中治療 / 論文ジャーナルクラブ`;
+    const pageDescription = `${tag}に関する麻酔・集中治療領域の論文解説と統計テーマをまとめた記事一覧です。`;
+    const pageUrl = `https://anes-jc.github.io/tags.html?tag=${encodeURIComponent(tag)}`;
+    document.title = pageTitle;
+    setMeta('meta[name="description"]', pageDescription);
+    setMeta('meta[property="og:title"]', pageTitle);
+    setMeta('meta[property="og:description"]', pageDescription);
+    setMeta('meta[property="og:url"]', pageUrl);
+    setMeta('meta[name="twitter:title"]', pageTitle);
+    setMeta('meta[name="twitter:description"]', pageDescription);
+    setHref('link[rel="canonical"]', pageUrl);
     tagnameEl.innerHTML = GROUP_NO[tag] ? `<span style="opacity:.55">${GROUP_NO[tag]}</span> ${esc(tag)}` : esc(tag);
     const rows = ARTICLES.filter(a=>a.tags.includes(tag));
     subEl.textContent = rows.length ? `${rows.length} 件の記事` : "0 件";
