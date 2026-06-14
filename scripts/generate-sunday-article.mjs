@@ -10,11 +10,21 @@ const configPath = path.join(repoRoot, "data", "sunday-article.json");
 const siteUrl = (process.env.SITE_URL || "https://anes-jc.github.io").replace(/\/$/, "");
 
 function issueDateJst() {
-  const value = process.env.ISSUE_DATE_JST || new Intl.DateTimeFormat("sv-SE", {
-    timeZone: "Asia/Tokyo", year: "numeric", month: "2-digit", day: "2-digit",
-  }).format(new Date());
+  const value = process.env.ISSUE_DATE_JST || latestSundayJst();
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) throw new Error("ISSUE_DATE_JST must use YYYY-MM-DD format.");
   return value;
+}
+
+function currentDateJst(date = new Date()) {
+  return new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Tokyo", year: "numeric", month: "2-digit", day: "2-digit",
+  }).format(date);
+}
+
+function latestSundayJst(date = new Date()) {
+  const dateString = currentDateJst(date);
+  const day = new Date(`${dateString}T00:00:00Z`).getUTCDay();
+  return addDays(dateString, -day);
 }
 
 function addDays(dateString, days) {

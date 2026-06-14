@@ -108,7 +108,8 @@ const todayJst = new Intl.DateTimeFormat("sv-SE", {
 window.ARTICLES = window.ARTICLES.map(article => {
   const live = article.date <= todayJst;
   return { ...article, live, status: live ? "公開中" : "公開予定" };
-});
-window.PUBLISHED_ARTICLES = window.ARTICLES.filter(article => article.live);
+}).sort((a, b) => String(b.date || "").localeCompare(String(a.date || ""))
+  || String(a.url || "").localeCompare(String(b.url || "")));
 window.ALL_ARTICLES = window.ARTICLES;
+window.PUBLISHED_ARTICLES = window.ALL_ARTICLES.filter(article => article.live);
 window.ARTICLES = window.PUBLISHED_ARTICLES;
