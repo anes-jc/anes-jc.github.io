@@ -115,88 +115,9 @@
   .modern b{color:var(--ink)}
   .modern .ref{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.6;border-left:2px solid var(--line-strong);padding-left:12px;margin-top:12px}
 
-  /* ===== PRE-PUBLICATION REVIEW BANNER — REMOVE BEFORE PUBLISHING ===== */
-  .review-banner{
-    background:#1a0000;
-    color:#fff;
-    font-family:"JetBrains Mono",monospace;
-    font-size:13px;
-    line-height:1.7;
-    padding:20px 24px;
-    border-bottom:3px solid #dc2626;
-  }
-  .review-banner .rb-title{
-    font-size:14px;
-    font-weight:700;
-    color:#fca5a5;
-    letter-spacing:.1em;
-    margin-bottom:12px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .review-banner .rb-title::before{
-    content:"⚠";
-    font-size:18px;
-  }
-  .review-banner .rb-blocker{
-    background:#7f1d1d;
-    border:1px solid #dc2626;
-    border-radius:3px;
-    padding:10px 14px;
-    margin-bottom:10px;
-    color:#fecaca;
-  }
-  .review-banner .rb-major{
-    background:#431407;
-    border:1px solid #ea580c;
-    border-radius:3px;
-    padding:10px 14px;
-    margin-bottom:10px;
-    color:#fed7aa;
-  }
-  .review-banner .rb-label{
-    font-size:10px;
-    letter-spacing:.12em;
-    font-weight:700;
-    margin-bottom:4px;
-  }
-  .review-banner .rb-footer{
-    margin-top:14px;
-    color:#6b7280;
-    font-size:11px;
-    border-top:1px solid #374151;
-    padding-top:10px;
-  }
 </style>
 </head>
 <body>
-
-<!-- ===== PRE-PUBLICATION REVIEW BANNER — このバナーを公開前に削除してください ===== -->
-<div class="review-banner">
-  <div class="rb-title">公開前確認バナー — 公開時にこのブロックを削除してください</div>
-
-  <div class="rb-blocker">
-    <div class="rb-label">🚨 BLOCKER — B1: 人間による論文選定承認が未完了</div>
-    <div><code>selectedByHuman: false</code> のまま。共有運用ルール上、人間が採用を明示しない限り公開不可。<br>
-    → FINAL_APPROVAL_REQUEST.md を確認し、POISE-2 の採用可否を決定してください。</div>
-  </div>
-
-  <div class="rb-major">
-    <div class="rb-label">⚠️ MAJOR（未解決）— M6: 公開予定日と曜日枠の不整合</div>
-    <div>現在の <code>scheduledPublishDate: 2026-06-27</code> は<strong>土曜日</strong>ですが、枠は <code>friday_classic</code>（金曜枠）です。<br>
-    → 金曜枠を維持するなら候補日は <strong>2026-06-26（金）</strong>。どちらかに統一してください。</div>
-  </div>
-
-  <div class="rb-footer">
-    job_id: 20260614_0925_live-claude-chain ·
-    drafter: claude · reviewer: codex ·
-    生成: 2026-06-14 ·
-    ステータス: awaiting_human_final_check ·
-    未公開（GitHubへの反映なし）
-  </div>
-</div>
-<!-- ===== /PRE-PUBLICATION REVIEW BANNER ===== -->
 
 <header class="bar">
   <div class="bar-in">

@@ -1,0 +1,45 @@
+name: Publish Sunday article
+
+on:
+  schedule:
+    # GitHub cron uses UTC. Sunday 09:00 UTC is Sunday 18:00 JST.
+    - cron: "0 9 * * 0"
+    # Catch-up run for delayed schedules or temporary API failures.
+    - cron: "17 10 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-sunday-article
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SITE_URL: https://anes-jc.github.io
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate Sunday article
+        run: node scripts/generate-sunday-article.mjs
+
+      - name: Publish generated article
+        run: |
+          if [ -z "$(git status --porcelain -- articles data/sunday-articles.js)" ]; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add articles data/sunday-articles.js
+          git commit -m "Publish Sunday latest papers article"
+          git push

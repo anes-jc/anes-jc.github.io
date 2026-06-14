@@ -36,7 +36,7 @@
       "doi": "10.1056/NEJM200005043421801",
       "pmid": "10793162",
       "statKey": "STOPPING",
-      "publishedAt": "2026-06-20",
+      "publishedAt": "2026-06-19",
       "slot": "friday_classic"
     },
     {
@@ -45,7 +45,7 @@
       "doi": "10.1371/journal.pone.0319297",
       "pmid": "",
       "statKey": "AUC_CALIBRATION",
-      "publishedAt": "2026-06-18",
+      "publishedAt": "2026-06-17",
       "slot": "wednesday_methods"
     },
     {
@@ -54,7 +54,7 @@
       "doi": "10.1080/07853890.2025.2600751",
       "pmid": "41656873",
       "statKey": "COMPOSITE",
-      "publishedAt": "2026-06-16",
+      "publishedAt": "2026-06-15",
       "slot": "monday_rct"
     },
     {
@@ -63,7 +63,7 @@
       "doi": "10.1056/NEJMoa0810625",
       "pmid": "19318384",
       "statKey": "ARD_NNT",
-      "publishedAt": "2026-06-13",
+      "publishedAt": "2026-06-12",
       "slot": "friday_classic"
     }
   ]

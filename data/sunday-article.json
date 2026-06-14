@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "latestPaperCount": 3,
+  "europePmcQuery": "TITLE_ABS:(anesthesia OR anaesthesia OR perioperative OR \"critical care\" OR \"intensive care\") AND HAS_ABSTRACT:Y",
+  "preferredJournals": [
+    "Anesthesiology",
+    "British Journal of Anaesthesia",
+    "Anaesthesia",
+    "Intensive Care Medicine",
+    "Critical Care",
+    "Critical Care Medicine",
+    "The Lancet",
+    "The New England Journal of Medicine",
+    "JAMA"
+  ],
+  "disclaimer": "本記事は論文情報の共有を目的としており、個別の診療判断を代替するものではありません。"
+}

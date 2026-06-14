@@ -99,4 +99,4 @@ window.ARTICLES = window.ARTICLES.map(article => {
 });
 window.PUBLISHED_ARTICLES = window.ARTICLES.filter(article => article.live);
 window.ALL_ARTICLES = window.ARTICLES;
-window.ARTICLES = window.PUBLISHED_ARTICLES;
+window.A
