@@ -116,6 +116,3 @@ GitHub で `data/articles.js` を開き、鉛筆（Edit）。
 - 通常記事のカード画像は assets/og/<記事slug>.png に置く。
 - 日曜記事は assets/og/sunday-x-header.png を共通利用する。
 - URLは https://anes-jc.github.io/ から始まる絶対URLにする。
-- 通常記事のカード画像は `scripts/render-og-card.ps1 -Slug <記事slug>` で本文のインフォグラフィックから生成する。
-- 公開日を使った `?v=YYYYMMDD` を画像URLに付け、Xの古い画像キャッシュを避ける。
-- X投稿成功までを公開完了とする。詳細は `X-PUBLISH-RUNBOOK.md` を参照する。
