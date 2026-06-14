@@ -36,6 +36,18 @@ window.ARTICLES = [
     ]
   },
   {
+    date: "2026.06.22", dow: "MON", status: "公開予定", live: false,
+    title: "肩関節鏡手術のブロック選択：痛みと横隔膜のトレードオフ",
+    url: "articles/shoulder-block-diaphragm.html",
+    desc: "肩関節鏡手術60例のRCT。上神経幹ブロックは早期鎮痛に優れる一方、起立筋面ブロックは横隔膜運動を保ちやすい。",
+    dowTag: { label: "MON · 新着RCT", tag: "新着RCT" },
+    tags: [
+      { label: "麻酔", tag: "麻酔" },
+      { label: "区域麻酔", tag: "区域麻酔" },
+      { label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
+    ]
+  },
+  {
     date: "2026.06.19", dow: "FRI", status: "公開予定", live: false,
     title: "肺を守る人工呼吸 — ARDSNet 試験と早期中止の読み方",
     url: "articles/ardsnet.html",
