@@ -50,3 +50,4 @@ node scripts/generate-sunday-article.mjs
 - 日曜記事は `data/sunday-articles.js` で別管理し、トップページとタグ一覧で通常記事として統合表示します。
 
 - Xリンクカードには assets/og/sunday-x-header.png を使用し、生成時にメタタグを自動設定します。
+- 日曜記事公開後は `.github/workflows/publish-x.yml` がカードを検証し、Xへ投稿して投稿IDを記録します。

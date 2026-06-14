@@ -1,0 +1,82 @@
+name: Publish scheduled article to X
+
+on:
+  push:
+    paths:
+      - ".github/workflows/publish-x.yml"
+      - "scripts/publish-x.mjs"
+  schedule:
+    # Check every 30 minutes. The ledger prevents duplicate posts.
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-x
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SITE_URL: https://anes-jc.github.io
+      X_API_KEY: ${{ secrets.X_API_KEY }}
+      X_API_KEY_SECRET: ${{ secrets.X_API_KEY_SECRET }}
+      X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+      X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+      X_DRY_RUN: ${{ github.event_name == 'push' && '1' || '0' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install card renderer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          npm install --no-save --package-lock=false sharp
+
+      - name: Prepare regular article card
+        run: node scripts/prepare-x-card.mjs
+
+      - name: Publish generated card
+        run: |
+          if [ -z "$(git status --porcelain -- assets/og articles)" ]; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/og articles
+          git commit -m "Prepare scheduled article X card"
+          git pull --rebase
+          git push
+          sleep 60
+
+      - name: Verify X secrets are configured
+        run: |
+          test -n "$X_API_KEY"
+          test -n "$X_API_KEY_SECRET"
+          test -n "$X_ACCESS_TOKEN"
+          test -n "$X_ACCESS_TOKEN_SECRET"
+
+      - name: Validate card and publish to X
+        run: node scripts/publish-x.mjs
+
+      - name: Record successful X post
+        run: |
+          if [ -z "$(git status --porcelain -- data/x-posts.json)" ]; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/x-posts.json
+          git commit -m "Record published X post"
+          git pull --rebase
+          git push
