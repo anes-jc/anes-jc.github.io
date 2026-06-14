@@ -116,6 +116,7 @@ GitHub で `data/articles.js` を開き、鉛筆（Edit）。
 - 通常記事のカード画像は assets/og/<記事slug>.png に置く。
 - 日曜記事は assets/og/sunday-x-header.png を共通利用する。
 - URLは https://anes-jc.github.io/ から始まる絶対URLにする。
+- 記事ページのヘッダーにはXリンクを置かない。Xへの導線は本文末尾のフッターに `foot-x` として置く。
 
 ## 検索向けメタ情報
 
