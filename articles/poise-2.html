@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周術期アスピリンは心血管イベントを防げるか — POISE-2 試験 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(26px,5vw,38px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+  .en{background:var(--paper-2);border:1px solid var(--line);border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{border-left:3px solid var(--teal);padding:4px 0 4px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .en .gloss{font-size:14px;color:var(--ink-soft);margin:14px 0 4px}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .vocab td.ipa{color:var(--muted);font-size:13px}
+  @media(max-width:560px){.vocab .hide-sm{display:none}}
+
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBcb3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBcb3}
+  .summary li:last-child{margin-bottom:0}
+
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+
+  .pico{display:grid;grid-template-columns:88px 1fr;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .formula b{color:var(--amber)}
+
+  .factorial-grid{display:grid;grid-template-columns:80px 1fr 1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);border-radius:3px;overflow:hidden;margin:18px 0;font-size:14px}
+  .fg-cell{background:var(--paper-2);padding:12px 14px;display:flex;align-items:center;justify-content:center;text-align:center}
+  .fg-header{background:var(--ink);color:#E4ECE9;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.05em}
+  .fg-row-header{background:var(--paper);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;color:var(--teal-deep)}
+  .fg-corner{background:var(--paper)}
+  .fg-a{border-left:3px solid var(--teal)}
+  .fg-b{border-left:3px solid var(--teal)}
+  .fg-c{border-left:3px solid var(--line-strong)}
+  .fg-d{border-left:3px solid var(--line-strong)}
+  .fg-cell small{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);display:block;margin-top:4px}
+
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+
+  .modern{border:1px dashed var(--line-strong);border-radius:4px;padding:20px 24px;margin:14px 0;background:rgba(15,118,110,.035)}
+  .modern .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .modern .lbl::before{content:"now";background:var(--teal);color:#fff;font-size:9px;padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+  .modern p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
+  .modern p:last-child{margin-bottom:0}
+  .modern b{color:var(--ink)}
+  .modern .ref{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.6;border-left:2px solid var(--line-strong);padding-left:12px;margin-top:12px}
+
+  /* ===== PRE-PUBLICATION REVIEW BANNER — REMOVE BEFORE PUBLISHING ===== */
+  .review-banner{
+    background:#1a0000;
+    color:#fff;
+    font-family:"JetBrains Mono",monospace;
+    font-size:13px;
+    line-height:1.7;
+    padding:20px 24px;
+    border-bottom:3px solid #dc2626;
+  }
+  .review-banner .rb-title{
+    font-size:14px;
+    font-weight:700;
+    color:#fca5a5;
+    letter-spacing:.1em;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .review-banner .rb-title::before{
+    content:"⚠";
+    font-size:18px;
+  }
+  .review-banner .rb-blocker{
+    background:#7f1d1d;
+    border:1px solid #dc2626;
+    border-radius:3px;
+    padding:10px 14px;
+    margin-bottom:10px;
+    color:#fecaca;
+  }
+  .review-banner .rb-major{
+    background:#431407;
+    border:1px solid #ea580c;
+    border-radius:3px;
+    padding:10px 14px;
+    margin-bottom:10px;
+    color:#fed7aa;
+  }
+  .review-banner .rb-label{
+    font-size:10px;
+    letter-spacing:.12em;
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .review-banner .rb-footer{
+    margin-top:14px;
+    color:#6b7280;
+    font-size:11px;
+    border-top:1px solid #374151;
+    padding-top:10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== PRE-PUBLICATION REVIEW BANNER — このバナーを公開前に削除してください ===== -->
+<div class="review-banner">
+  <div class="rb-title">公開前確認バナー — 公開時にこのブロックを削除してください</div>
+
+  <div class="rb-blocker">
+    <div class="rb-label">🚨 BLOCKER — B1: 人間による論文選定承認が未完了</div>
+    <div><code>selectedByHuman: false</code> のまま。共有運用ルール上、人間が採用を明示しない限り公開不可。<br>
+    → FINAL_APPROVAL_REQUEST.md を確認し、POISE-2 の採用可否を決定してください。</div>
+  </div>
+
+  <div class="rb-major">
+    <div class="rb-label">⚠️ MAJOR（未解決）— M6: 公開予定日と曜日枠の不整合</div>
+    <div>現在の <code>scheduledPublishDate: 2026-06-27</code> は<strong>土曜日</strong>ですが、枠は <code>friday_classic</code>（金曜枠）です。<br>
+    → 金曜枠を維持するなら候補日は <strong>2026-06-26（金）</strong>。どちらかに統一してください。</div>
+  </div>
+
+  <div class="rb-footer">
+    job_id: 20260614_0925_live-claude-chain ·
+    drafter: claude · reviewer: codex ·
+    生成: 2026-06-14 ·
+    ステータス: awaiting_human_final_check ·
+    未公開（GitHubへの反映なし）
+  </div>
+</div>
+<!-- ===== /PRE-PUBLICATION REVIEW BANNER ===== -->
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../index.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=古典論文">FRI · 古典論文</a>
+      <a class="pill" href="../tags.html?tag=麻酔">麻酔</a>
+      <a class="pill" href="../tags.html?tag=周術期心臓管理">周術期心臓管理</a>
+      <a class="pill" href="../tags.html?tag=研究デザインを読む"><span class="kl">統計 G01</span>研究デザインを読む</a>
+    </div>
+    <h1>周術期アスピリンは心血管イベントを防げるか — POISE-2 試験と要因デザインの読み方</h1>
+    <div class="cite">
+      Devereaux PJ, Mrkobrada M, Sessler DI, et al. (POISE-2 Investigators).<br>
+      Aspirin in patients undergoing noncardiac surgery.<br>
+      N Engl J Med 2014;370:1494-1503. · 多施設二重盲検無作為化比較試験（2×2 要因デザイン）· n≈10,010
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/24679062/" target="_blank" rel="noopener">PubMed →</a>
+      <a class="lnk" href="https://www.nejm.org/doi/full/10.1056/NEJMoa1401105" target="_blank" rel="noopener">原著（NEJM）→</a>
+      <a class="lnk" href="https://doi.org/10.1056/NEJMoa1401105" target="_blank" rel="noopener">DOI →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>非心臓手術を受ける心血管リスクのある患者で、周術期アスピリンは<b>30日死亡・非致死的心筋梗塞の複合エンドポイントを減らさなかった</b>（7.0% vs 7.1%、HR 0.99）。</li>
+      <li>一方、<b>大出血リスクは有意に増加</b>した（4.6% vs 3.8%、HR 1.23、p=0.04）。</li>
+      <li>本試験は <b>2×2 要因デザイン</b>：アスピリンとクロニジンという 2 つの疑問を 1 つの RCT で同時に検証した設計的特徴を持つ。</li>
+      <li>今回の統計の山場 → <b>Factorial RCT（要因デザイン）</b>の読み方：1 試験で複数の疑問を検証する仕組みと前提条件。</li>
+    </ul>
+  </div>
+
+  <!-- 01 臨床背景 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>アスピリンが心血管疾患の二次予防に有効であることは、1990年代までに多くの RCT で示されていました。冠動脈疾患や脳卒中の既往がある患者では、アスピリン継続が当然とされていたのです。この「アスピリンは心臓を守る」というエビデンスが、非心臓手術の周術期にも自然に外挿されました。「手術という侵襲的なストレスがかかる場面だからこそ、アスピリンで心血管イベントを防ぐべき」という論理です。</p>
+    <p>しかし観察研究での関連は、<b>選択バイアスや交絡を排除できない</b>という根本的な問題を抱えています。すでにアスピリンを内服している患者は、そもそも心血管リスクが高い集団であり、「アスピリンを飲んでいてもイベントが起きた」という見かけ上の関連が生まれます。さらに周術期には<b>出血リスク</b>という対立するコストも存在します。手術という場面での益と害をバランスよく評価するには、大規模なランダム化比較試験が不可欠でした。</p>
+    <p>もう 1 つの疑問として、α2 アドレナリン受容体作動薬であるクロニジンの周術期投与の有益性も未解決でした。POISE-2 はこの 2 つの疑問を <b>一つの試験で同時に</b> 検証するという、設計上の工夫を持って始まりました。</p>
+  </div>
+
+  <!-- 02 PICO -->
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>クリニカル・クエスチョン（PICO）</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">非心臓手術を受ける 45 歳以上で、血管合併症リスクを持つ患者（n=10,010）</div>
+      <div class="k">I</div><div class="v">アスピリン：手術直前 200 mg、以降 100 mg/日。新規開始層では 30 日間、既服用継続層では 7 日間投与後に通常のアスピリンへ戻す</div>
+      <div class="k">C</div><div class="v">プラセボ</div>
+      <div class="k">O</div><div class="v">主要：<b>30 日時点での死亡または非致死的心筋梗塞</b>の複合 ／ 副次：大出血、脳卒中、心臓停止、新規機械的換気など</div>
+    </div>
+    <p style="margin-top:14px;font-size:14px;color:var(--muted)">※ 同試験でクロニジン vs プラセボの疑問も同時に検証（別報告）。本記事はアスピリンアームの結果を扱う。</p>
+  </div>
+
+  <!-- 03 デザイン解説 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>POISE-2 は多施設（国際）<b>二重盲検無作為化比較試験</b>で、2×2 要因デザインを採用しています。患者は「アスピリン vs プラセボ」と「クロニジン vs プラセボ」の 2 軸でランダムに割り付けられ、4 つの群（アスピリン＋クロニジン、アスピリン＋プラセボ、プラセボ＋クロニジン、プラセボ＋プラセボ）のいずれかに入ります。</p>
+    <p>アスピリンとクロニジンにはそれぞれ対応するプラセボが用いられ、患者・医療者・研究スタッフ・アウトカム評価者を盲検化しました。主要アウトカムが「死亡または心筋梗塞」という比較的客観的な複合エンドポイントであることも、評価の偏りを抑える設計です。</p>
+    <p>今回の統計の読み物として重要なのは、<b>要因デザイン（Factorial design）</b> そのものです。次のセクションで詳しく解説します。</p>
+  </div>
+
+  <!-- 04 統計キーポイント -->
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY 01 — G01 研究デザインを読む</div>
+      <h3>2×2 要因デザイン（Factorial RCT）の仕組みと前提</h3>
+      <p>通常の RCT は「介入 A vs 対照」という 1 対比較です。要因デザインは複数の介入を組み合わせることで、<b>1 つの試験に 2 つ以上の研究疑問を埋め込む</b>設計です。</p>
+      <div class="factorial-grid">
+        <div class="fg-cell fg-corner"></div>
+        <div class="fg-cell fg-header">クロニジン群</div>
+        <div class="fg-cell fg-header">プラセボ群</div>
+        <div class="fg-cell fg-row-header">アスピリン群</div>
+        <div class="fg-cell fg-a">アスピリン＋クロニジン<small>グループ A</small></div>
+        <div class="fg-cell fg-b">アスピリン＋プラセボ<small>グループ B</small></div>
+        <div class="fg-cell fg-row-header">プラセボ群</div>
+        <div class="fg-cell fg-c">プラセボ＋クロニジン<small>グループ C</small></div>
+        <div class="fg-cell fg-d">プラセボ＋プラセボ<small>グループ D</small></div>
+      </div>
+      <p>アスピリンの効果を評価するには「A＋B（アスピリン使用者全員）vs C＋D（アスピリン未使用者全員）」を比較します。同様に、クロニジンの効果は「A＋C vs B＋D」で評価できます。同じ参加者が 2 つの比較に貢献するため、<b>別々の参加者集団で 2 試験を行うより効率的になり得る</b>設計です。ただし必要人数は各比較のイベント率・期待効果・検出力と交互作用の想定に依存します。</p>
+      <div class="formula">
+        要因デザインの効率性<br>
+        通常RCT 2本分の疑問 ÷ <b>約1本分の参加者</b> → コスト・時間の節約<br><br>
+        前提条件（重要）: アスピリンとクロニジンの効果が <b>互いに干渉しない（交互作用がない）</b>
+      </div>
+      <p>たとえばアスピリンの効果がクロニジンの有無で大きく変わるなら、アスピリンの平均効果だけでは臨床像を十分に表せません。そのため要因デザインでは、<b>交互作用（interaction）</b>の有無と、その推定精度を確認することが重要です。</p>
+      <div class="formula">
+        交互作用の推定値と信頼区間を確認<br>
+        交互作用が小さいと考えられる → <b>各介入の平均効果を効率よく評価</b><br><br>
+        交互作用が疑われる → <b>介入の組み合わせ別効果を慎重に解釈</b>
+      </div>
+      <p>「交互作用の p 値が有意でない」ことだけで、交互作用が存在しないと証明できるわけではありません。交互作用検定は検出力が不足しやすいため、推定値と信頼区間、事前の生物学的妥当性も合わせて読みます。</p>
+    </div>
+  </div>
+
+  <!-- 05 結果 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <p><b>一次エンドポイント（30 日死亡または非致死的心筋梗塞）</b>：アスピリン群 351/4,998 例（<b>7.0%</b>）、プラセボ群 355/5,012 例（<b>7.1%</b>）（HR 0.99、95%CI 0.86–1.15、p=0.92）。周術期アスピリンによる一次エンドポイント減少は示されませんでした。</p>
+    <p><b>大出血</b>：アスピリン群 230/4,998 例（<b>4.6%</b>）、プラセボ群 188/5,012 例（<b>3.8%</b>）（HR 1.23、95%CI 1.01–1.49、p=0.04）。大出血はアスピリン群で増加しました。</p>
+    <p>特筆すべきは、この「益なし・害あり」という構造が、アスピリン服用歴の違い（継続 vs 新規開始）によらず概ね一貫していたことです。「継続中の患者は別では？」という疑問への応答も、この試験の重要な貢献の一つです。</p>
+  </div>
+
+  <!-- 06 リミテーション -->
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>アスピリン「新規開始」と「既服用の継続」が混在しており、サブグループとして分析されているが、試験全体としての主解析は両者を統合したものである。</li>
+      <li>フォローアップ期間が 30 日に限られており、術後の長期心血管アウトカムへの影響は評価できない。</li>
+      <li>試験薬は手術直前 200 mg、その後 100 mg/日というレジメンであり、他の用量・投与時期へ直接は外挿できない。</li>
+      <li>心血管リスクを持つ 45 歳以上の非心臓手術患者が対象であり、すべての手術・患者背景を代表するわけではない。</li>
+      <li>要因デザインでは、アスピリンとクロニジンの組み合わせによる効果修飾を十分な精度で除外できるとは限らない。</li>
+    </ul>
+  </div>
+
+  <!-- 07 解釈 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>POISE-2 の全体集団では、周術期アスピリンによる虚血イベント減少は示されず、大出血は増加しました。ただし一次エンドポイントの信頼区間は一定の利益と害の双方を含み、「効果が完全にゼロ」と証明した試験ではありません。また、PCI 後など血栓リスクが特に高い患者への適用は、全体集団の平均効果だけで決められません。</p>
+    <p>もう一つの教訓は、<b>「観察研究の関連をそのまま介入の根拠にしてはいけない」</b>という RCT の存在意義そのものです。「アスピリンを飲んでいる人は心血管イベントが少ない」という観察データは、アスピリンが原因かもしれないし、そもそもリスク管理が徹底されている患者層であることを反映しているだけかもしれません。POISE-2 は「ランダム化しなければ分からなかった真実」を示した典型例です。</p>
+    <div class="modern">
+      <div class="lbl">現代の視点</div>
+      <p>現行ガイドラインでは、<b>非心臓手術のためだけにアスピリンを一律に新規開始することは支持されません</b>。一方、服用中患者、とくに PCI 後では、手術延期の可否、出血リスク、虚血・ステント血栓症リスクを多職種で評価し、可能ならアスピリン継続を検討します。</p>
+      <p><b>実臨床での問いへの答え</b>：「アスピリンを内服していない患者に周術期に始めますか？」→ <b>通常は開始しない</b>。「アスピリン内服中の患者に中止を指示しますか？」→ 手術の出血リスクと血栓リスクを評価し、ケースバイケースで判断する。</p>
+      <div class="ref">参考: Thompson A, et al. 2024 AHA/ACC Guideline for Perioperative Cardiovascular Management for Noncardiac Surgery. Circulation. 2024. DOI: 10.1161/CIR.0000000000001285. ／ Halvorsen S, et al. 2022 ESC Guidelines on cardiovascular assessment and management of patients undergoing non-cardiac surgery. Eur Heart J. 2022;43:3826-3924. DOI: 10.1093/eurheartj/ehac270.</div>
+    </div>
+  </div>
+
+  <!-- 08 英語で読む -->
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <p>原著の要となる一文を取り上げ、構文と医学英語の表現を確認します。論文特有の言い回しに慣れると、Abstract を読む速度が変わります。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">— Conclusions, Abstract（NEJM 2014;370:1494-1503）より</span>
+        <span class="en-text">"Perioperative aspirin did not reduce the rate of a composite of death or nonfatal myocardial infarction but increased the risk of major bleeding."</span>
+      </div>
+      <p class="gloss"><b>読みのポイント：</b>文の構造は <span class="mono">aspirin did not reduce ... but increased ...</span> という対比。<span class="mono">did not reduce</span> と <span class="mono">increased</span> の 2 つの動詞が等位接続詞 <span class="mono">but</span> でつながっており、「益なし・害あり」を 1 文でコンパクトに表現しています。<span class="mono">composite</span>（複合）という語は、複数のアウトカムを 1 つにまとめたエンドポイントを指す論文頻出の専門語です。RCT の Conclusions ではこのような断言調の書き方が許容されます — 観察研究なら <span class="mono">was associated with</span> に弱められる点も確認しておきましょう。</p>
+      <table class="vocab">
+        <thead><tr><th>語・表現</th><th class="ipa hide-sm">発音</th><th>意味・ニュアンス</th></tr></thead>
+        <tbody>
+          <tr><td>perioperative</td><td class="ipa hide-sm">/ˌpɛriˈɒpərətɪv/</td><td>周術期の。peri-（周囲・前後）+ operative（手術の）</td></tr>
+          <tr><td>composite endpoint</td><td class="ipa hide-sm">—</td><td>複合エンドポイント。複数のアウトカムを 1 指標にまとめたもの</td></tr>
+          <tr><td>nonfatal</td><td class="ipa hide-sm">/ˌnɒnˈfeɪtl/</td><td>非致死的な。fatal（致死的）の否定。non- は否定接頭辞</td></tr>
+          <tr><td>major bleeding</td><td class="ipa hide-sm">—</td><td>大出血。論文ごとに定義が異なるため Methods を確認する習慣を</td></tr>
+          <tr><td>hazard ratio (HR)</td><td class="ipa hide-sm">—</td><td>ハザード比。リスク比と混同しないこと。生存時間解析の文脈で用いられる</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 09 明日からの臨床 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>非心臓手術を予定している患者で「手術のためにアスピリンを新たに始めますか？」と問われたら、<b>通常は開始しない</b>。一方、すでに服用中の患者に対しては、手術種別・出血リスク・虚血リスク（PCI 後か否かなど）を個別に評価します。</p>
+    </div>
+    <p style="margin-top:16px;font-size:15px">また、<b>要因デザインの視点</b>で論文を読むときは「交互作用はなかったか？」を確認する習慣が役立ちます。要因デザインを謳っていても交互作用の記載が不明瞭な論文は、解釈に注意が必要です。</p>
+  </div>
+
+  <!-- 10 インフォグラフィック -->
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 760 640" role="img" aria-label="POISE-2試験の要約図">
+
+        <!-- === タイトルエリア === -->
+        <text x="40" y="46" font-family="'Noto Serif JP',serif" font-size="20" font-weight="700" fill="#15302D">POISE-2：周術期アスピリン vs プラセボ</text>
+        <text x="40" y="68" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">N Engl J Med 2014 · 2×2 要因デザイン · n≈10,010</text>
+        <line x1="40" y1="84" x2="720" y2="84" stroke="#D9E0DC" stroke-width="1"/>
+
+        <!-- === 要因デザイン 2x2 グリッド === -->
+        <text x="40" y="112" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">2×2 要因デザイン</text>
+
+        <!-- ヘッダー行 -->
+        <rect x="200" y="122" width="230" height="36" fill="#15302D"/>
+        <text x="315" y="146" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#E4ECE9" text-anchor="middle">クロニジン群</text>
+        <rect x="434" y="122" width="230" height="36" fill="#15302D"/>
+        <text x="549" y="146" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#E4ECE9" text-anchor="middle">プラセボ群</text>
+
+        <!-- 行ヘッダー -->
+        <rect x="40" y="158" width="158" height="60" fill="#F4F6F4" stroke="#BCC8C3" stroke-width="1"/>
+        <text x="119" y="193" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="700" fill="#0B4F4A" text-anchor="middle">アスピリン群</text>
+        <rect x="40" y="220" width="158" height="60" fill="#F4F6F4" stroke="#BCC8C3" stroke-width="1"/>
+        <text x="119" y="255" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="700" fill="#0B4F4A" text-anchor="middle">プラセボ群</text>
+
+        <!-- セル A: アスピリン＋クロニジン -->
+        <rect x="200" y="158" width="230" height="60" fill="#FBFCFB" stroke="#0F766E" stroke-width="2"/>
+        <text x="315" y="183" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#15302D" text-anchor="middle">アスピリン＋クロニジン</text>
+        <text x="315" y="202" font-family="'JetBrains Mono',monospace" font-size="10" fill="#5C6B68" text-anchor="middle">グループ A</text>
+
+        <!-- セル B: アスピリン＋プラセボ -->
+        <rect x="434" y="158" width="230" height="60" fill="#FBFCFB" stroke="#0F766E" stroke-width="2"/>
+        <text x="549" y="183" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#15302D" text-anchor="middle">アスピリン＋プラセボ</text>
+        <text x="549" y="202" font-family="'JetBrains Mono',monospace" font-size="10" fill="#5C6B68" text-anchor="middle">グループ B</text>
+
+        <!-- セル C: プラセボ＋クロニジン -->
+        <rect x="200" y="220" width="230" height="60" fill="#FBFCFB" stroke="#BCC8C3" stroke-width="1"/>
+        <text x="315" y="245" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#15302D" text-anchor="middle">プラセボ＋クロニジン</text>
+        <text x="315" y="264" font-family="'JetBrains Mono',monospace" font-size="10" fill="#5C6B68" text-anchor="middle">グループ C</text>
+
+        <!-- セル D: プラセボ＋プラセボ -->
+        <rect x="434" y="220" width="230" height="60" fill="#FBFCFB" stroke="#BCC8C3" stroke-width="1"/>
+        <text x="549" y="245" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#15302D" text-anchor="middle">プラセボ＋プラセボ</text>
+        <text x="549" y="264" font-family="'JetBrains Mono',monospace" font-size="10" fill="#5C6B68" text-anchor="middle">グループ D</text>
+
+        <!-- 比較の矢印ラベル -->
+        <text x="40" y="305" font-family="'JetBrains Mono',monospace" font-size="11" fill="#0F766E">→ アスピリン効果 = (A+B) vs (C+D)　　クロニジン効果 = (A+C) vs (B+D)</text>
+
+        <line x1="40" y1="322" x2="720" y2="322" stroke="#D9E0DC" stroke-width="1"/>
+
+        <!-- === 一次エンドポイント === -->
+        <text x="40" y="350" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">一次EP（30日死亡または非致死的 MI）</text>
+        <!-- アスピリン群バー -->
+        <text x="40" y="382" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">アスピリン群</text>
+        <rect x="200" y="368" width="460" height="22" fill="#E7ECE9"/>
+        <rect x="200" y="368" width="322" height="22" fill="#0F766E"/>
+        <text x="666" y="384" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#0F766E">7.0%</text>
+        <!-- プラセボ群バー -->
+        <text x="40" y="412" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">プラセボ群</text>
+        <rect x="200" y="398" width="460" height="22" fill="#E7ECE9"/>
+        <rect x="200" y="398" width="327" height="22" fill="#BCC8C3"/>
+        <text x="666" y="414" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#5C6B68">7.1%</text>
+        <!-- 結果ラベル -->
+        <rect x="40" y="430" width="300" height="26" rx="3" fill="#FBFCFB" stroke="#D9E0DC"/>
+        <text x="52" y="448" font-family="'JetBrains Mono',monospace" font-size="12" fill="#15302D">HR 0.99 (95%CI 0.86–1.15)  p=0.92  → 減少を示さず</text>
+
+        <line x1="40" y1="474" x2="720" y2="474" stroke="#D9E0DC" stroke-width="1"/>
+
+        <!-- === 大出血 === -->
+        <text x="40" y="502" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">大出血（副次EP）</text>
+        <!-- アスピリン群バー（大出血） -->
+        <text x="40" y="534" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">アスピリン群</text>
+        <rect x="200" y="520" width="460" height="22" fill="#E7ECE9"/>
+        <rect x="200" y="520" width="212" height="22" fill="#C96A2B"/>
+        <text x="666" y="536" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#C96A2B">4.6%</text>
+        <!-- プラセボ群バー（大出血） -->
+        <text x="40" y="564" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">プラセボ群</text>
+        <rect x="200" y="550" width="460" height="22" fill="#E7ECE9"/>
+        <rect x="200" y="550" width="175" height="22" fill="#BCC8C3"/>
+        <text x="666" y="566" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#5C6B68">3.8%</text>
+        <!-- 結果ラベル -->
+        <rect x="40" y="583" width="320" height="26" rx="3" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="52" y="601" font-family="'JetBrains Mono',monospace" font-size="12" fill="#C96A2B">HR 1.23 (95%CI 1.01–1.49)  p=0.04  → 有意に増加</text>
+
+        <!-- 下線 -->
+        <rect x="40" y="620" width="680" height="0.5" fill="#D9E0DC"/>
+        <text x="40" y="637" font-family="'Noto Sans JP',sans-serif" font-size="12" font-weight="700" fill="#15302D">結論：周術期アスピリンは心血管イベントを減らさず、大出血を増やした。</text>
+      </svg>
+      <div class="info-cap">数値は原著（NEJM 2014;370:1494-1503）の報告値。図は独自に作成。</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。気づいた点は指摘してもらえると助かります。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。<strong>作成方法：</strong>AIによる下書きを自分でレビュー・修正。数値・解釈は一次資料での確認をおすすめします。図表は転載せず独自に作図しています。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

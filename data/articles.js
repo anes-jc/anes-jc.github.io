@@ -23,6 +23,18 @@
 
 window.ARTICLES = [
   {
+    date: "2026.06.26", dow: "FRI", status: "公開予定", live: false,
+    title: "周術期アスピリンは心血管イベントを防げるか — POISE-2 試験",
+    url: "articles/poise-2.html",
+    desc: "周術期アスピリンが心血管イベントを抑えるかを 2×2 要因デザインで検証した古典RCT（n=10,010）。主要評価項目は HR 0.99（p=0.92）で無効、むしろ大出血が増加（HR 1.23, p=0.04）。山場は要因デザインの読み方。",
+    dowTag: { label: "FRI · 古典", tag: "古典論文" },
+    tags: [
+      { label: "麻酔", tag: "麻酔" },
+      { label: "周術期心臓管理", tag: "周術期心臓管理" },
+      { label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
+    ]
+  },
+  {
     date: "2026.06.20", dow: "FRI", status: "公開予定", live: false,
     title: "肺を守る人工呼吸 — ARDSNet 試験と早期中止の読み方",
     url: "articles/ardsnet.html",

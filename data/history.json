@@ -4,23 +4,67 @@
     "10.1056/NEJM200005043421801",
     "10.1371/journal.pone.0319297",
     "10.1080/07853890.2025.2600751",
-    "10.1056/NEJMoa0810625"
+    "10.1056/NEJMoa0810625",
+    "10.1056/NEJMoa1401105"
   ],
   "publishedPMIDs": [
     "10793162",
     "41656873",
-    "19318384"
+    "19318384",
+    "24679062"
   ],
   "recentStatKeys": [
+    "FACTORIAL",
     "STOPPING",
     "AUC_CALIBRATION",
     "COMPOSITE",
     "ARD_NNT"
   ],
   "articles": [
-    {"id":"ardsnet","title":"肺を守る人工呼吸 — ARDSNet 試験","doi":"10.1056/NEJM200005043421801","pmid":"10793162","statKey":"STOPPING","publishedAt":"2026-06-20","slot":"friday_classic"},
-    {"id":"delirium-prediction","title":"ICUの譫妄を予測できるか","doi":"10.1371/journal.pone.0319297","pmid":"","statKey":"AUC_CALIBRATION","publishedAt":"2026-06-18","slot":"wednesday_methods"},
-    {"id":"ofa-elderly","title":"オピオイドを使わない全身麻酔","doi":"10.1080/07853890.2025.2600751","pmid":"41656873","statKey":"COMPOSITE","publishedAt":"2026-06-16","slot":"monday_rct"},
-    {"id":"nice-sugar","title":"血糖をどこまで下げるか — NICE-SUGAR 試験","doi":"10.1056/NEJMoa0810625","pmid":"19318384","statKey":"ARD_NNT","publishedAt":"2026-06-13","slot":"friday_classic"}
+    {
+      "id": "poise-2",
+      "title": "周術期アスピリンは心血管イベントを防げるか — POISE-2 試験",
+      "doi": "10.1056/NEJMoa1401105",
+      "pmid": "24679062",
+      "statKey": "FACTORIAL",
+      "publishedAt": "2026-06-26",
+      "slot": "friday_classic"
+    },
+    {
+      "id": "ardsnet",
+      "title": "肺を守る人工呼吸 — ARDSNet 試験",
+      "doi": "10.1056/NEJM200005043421801",
+      "pmid": "10793162",
+      "statKey": "STOPPING",
+      "publishedAt": "2026-06-20",
+      "slot": "friday_classic"
+    },
+    {
+      "id": "delirium-prediction",
+      "title": "ICUの譫妄を予測できるか",
+      "doi": "10.1371/journal.pone.0319297",
+      "pmid": "",
+      "statKey": "AUC_CALIBRATION",
+      "publishedAt": "2026-06-18",
+      "slot": "wednesday_methods"
+    },
+    {
+      "id": "ofa-elderly",
+      "title": "オピオイドを使わない全身麻酔",
+      "doi": "10.1080/07853890.2025.2600751",
+      "pmid": "41656873",
+      "statKey": "COMPOSITE",
+      "publishedAt": "2026-06-16",
+      "slot": "monday_rct"
+    },
+    {
+      "id": "nice-sugar",
+      "title": "血糖をどこまで下げるか — NICE-SUGAR 試験",
+      "doi": "10.1056/NEJMoa0810625",
+      "pmid": "19318384",
+      "statKey": "ARD_NNT",
+      "publishedAt": "2026-06-13",
+      "slot": "friday_classic"
+    }
   ]
 }
