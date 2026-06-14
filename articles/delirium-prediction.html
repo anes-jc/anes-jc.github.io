@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -10,11 +10,11 @@
 <meta property="og:title" content="ICU譫妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ">
 <meta property="og:description" content="麻酔・集中治療領域の論文を読み解く anes-jc">
 <meta property="og:url" content="https://anes-jc.github.io/articles/delirium-prediction.html">
-<meta property="og:image" content="https://anes-jc.github.io/assets/og/delirium-prediction.png">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/delirium-prediction.png?v=20260617">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ICU譫妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ">
 <meta name="twitter:description" content="麻酔・集中治療領域の論文を読み解く anes-jc">
-<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/delirium-prediction.png">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/delirium-prediction.png?v=20260617">
 <title>ICU譫妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -144,7 +144,7 @@
     </div>
     <h1>ICUの譫妄を予測できるか — 機械学習モデルと ROC・AUC の読み方</h1>
     <div class="cite">
-      Predictive modeling for delirium in elderly ICU patients with COPD and respiratory failure.<br>
+      Enhanced machine learning predictive modeling for delirium in elderly ICU patients with COPD and respiratory failure:<br>
       A retrospective study based on MIMIC-IV.<br>
       PLOS One 2025;20(3):e0319297. · 後ろ向き・予測モデル開発 · n=1,155
     </div>
@@ -157,10 +157,10 @@
   <div class="summary">
     <div class="lbl">30秒サマリー</div>
     <ul>
-      <li>COPD・呼吸不全でICUに入った高齢者1,155例（譫妄発生 12.9%）で、譫妄を予測する機械学習モデルを開発した後ろ向き研究。</li>
+      <li>COPD・呼吸不全でICUに入った65歳以上1,155例を用い、譫妄を予測する機械学習モデルを開発した後ろ向き研究。</li>
       <li>4つのモデルを比較し、XGBoost が最良。検証セットで <b>AUC 0.932</b>。</li>
       <li>今回の統計の山場 → <b>ROC曲線とAUC（識別能）</b>。そして「当てる力（識別）」と「確率が正しい（較正）」は別物、という視点。</li>
-      <li>予測モデル論文を読むときの定型チェック（識別・較正・臨床的有用性・過学習）を一緒に押さえる。</li>
+      <li>原著は較正指標を報告していない。識別能が高くても、較正・外部検証・予測時点より後の情報混入を確認する必要がある。</li>
     </ul>
   </div>
 
@@ -176,16 +176,16 @@
     <div class="sechd"><span class="no">02</span><h2>クリニカル・クエスチョン（PICO風に）</h2></div>
     <div class="pico">
       <div class="k">P</div><div class="v">COPD＋呼吸不全でICU入室した高齢者 1,155例（MIMIC-IV、2008–2019）</div>
-      <div class="k">予測因子</div><div class="v">入室時の人口統計・臨床・検査・治療データ。Lasso回帰とbest subsetで変数選択</div>
+      <div class="k">予測因子</div><div class="v">MIMIC-IVから抽出した人口統計・臨床・検査・治療データ。Lasso回帰とbest subsetで変数選択。利用可能時点が混在する</div>
       <div class="k">モデル</div><div class="v">k近傍法・ランダムフォレスト・ロジスティック回帰・<b>XGBoost</b> の4種を比較</div>
-      <div class="k">O</div><div class="v">ICU譫妄の発生（12.9%）。評価は<b>AUC・正確度・F1・適合率・再現率</b>、SHAPで寄与度を解釈</div>
+      <div class="k">O</div><div class="v">ICU滞在中のICD-9/10診断コードによる譫妄。評価は<b>AUC・正確度・F1・適合率・再現率</b>、SHAPで寄与度を解釈</div>
     </div>
   </div>
 
   <!-- 03 -->
   <div class="sec">
     <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
-    <p>これはRCTではなく<b>予測モデル開発研究</b>です。読むときの軸がRCTと違います。RCTが「介入の効果」を問うのに対し、予測モデルは「アウトカムをどれだけ当てられるか」を問います。本研究は単一データベースを訓練用と検証用に分け、<b>10分割交差検証</b>でモデルの安定性を評価しています。</p>
+    <p>これはRCTではなく<b>予測モデル開発研究</b>です。読むときの軸がRCTと違います。RCTが「介入の効果」を問うのに対し、予測モデルは「アウトカムをどれだけ当てられるか」を問います。本研究は単一データベースを80:20で訓練用と検証用に分け、訓練過程で<b>10分割交差検証</b>を行いました。欠測率10%超の変数を除外し、残る欠測値をランダムフォレストによる多重代入で補完し、クラス不均衡にはSMOTEを使用しています。</p>
     <p>注意したいのは、これが<b>外部検証ではなく内部検証</b>である点。同じMIMIC-IVを分けて使っているので、別の病院・別の集団でも同じ性能が出るかは別問題です。予測モデル論文では「どこまでが内部で、どこからが外部か」を必ず確認します。</p>
   </div>
 
@@ -209,14 +209,14 @@
         較正（calibration）… 予測<b>確率そのもの</b>が当たっているか<br>
         → 両方そろって初めて「使える」モデル
       </div>
-      <p>本研究は較正曲線と<b>決定曲線分析（DCA）</b>も示し、臨床的な有用性まで評価しています。予測モデル論文を読むときは「AUCだけでなく較正とDCAを見たか？」が定型チェックです。</p>
+      <p>本研究は<b>決定曲線分析（DCA）</b>を示していますが、本文・図には較正曲線や較正指標の報告を確認できませんでした。したがって「予測確率そのものが正しい」とは評価できません。予測モデル論文を読むときは「AUCだけでなく較正とDCAを見たか？」が定型チェックです。</p>
     </div>
   </div>
 
   <!-- 05 -->
   <div class="sec">
     <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
-    <p>1,155例中、譫妄は149例（12.9%）に発生。4モデルのうち <b>XGBoost が最良の識別能</b>を示し、検証セットでAUC 0.932、正確度0.891、適合率0.839、再現率0.795、F1スコア0.810でした。較正曲線は予測と実測がよく一致し、DCAでも臨床的有用性が確認されています。</p>
+    <p>対象は1,155例。譫妄数は<b>抄録では149例（12.9%）、本文Resultsでは146例</b>と原著内で不一致があります。4モデルのうち <b>XGBoost が最良の識別能</b>を示し、検証セットでAUC 0.932、正確度0.891、適合率0.839、再現率0.795、F1スコア0.810でした。DCAは介入に有利な結果と著者らが報告していますが、較正は報告されていません。</p>
     <p>SHAP解析で重要だった予測因子は、GCS言語スコア・在院日数・ICU初日の平均SpO₂・腎機能（MDRD）・平均拡張期血圧・GCS運動スコア・性別・非侵襲換気の時間など。<b>意識レベルと酸素化</b>が上位に来るのは臨床感覚とも合致します。</p>
   </div>
 
@@ -225,29 +225,38 @@
     <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
     <ul class="lims">
       <li>単一データベース（MIMIC-IV）の<b>内部検証のみ</b>。外部の別集団での性能は未確認で、過学習の可能性が残る。</li>
-      <li>後ろ向きデータのため、譫妄の判定や記録の質に依存する。未記録の譫妄が見落とされている可能性。</li>
-      <li>AUC 0.932は高いが、論文内で0.921など別の数値も示され、評価条件で変動しうる。単一の数字を過信しない。</li>
-      <li>予測因子に治療後の変数（在院日数など）が含まれ、実装時点での使い勝手は要検討。</li>
+      <li>後ろ向きデータで、譫妄はICD-9/10診断コードにより定義される。未診断・未記録例を見落とす可能性がある。</li>
+      <li>譫妄数が抄録149例、本文146例と一致しない。イベント数と性能指標の再現確認が必要。</li>
+      <li>AUC 0.932は検証セット、0.921は10分割交差検証で報告された値。評価条件を区別して読む必要がある。</li>
+      <li>予測因子に在院日数や非侵襲換気時間が含まれるため、「早期」に利用できる時点より後の情報が混入する時間的情報漏洩の懸念がある。</li>
+      <li>較正曲線・較正指標が報告されておらず、個々の予測確率の正確さは判断できない。</li>
     </ul>
   </div>
 
   <!-- 07 -->
   <div class="sec">
     <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
-    <p>高いAUCは魅力的ですが、予測モデルの価値は「<b>その場で、外部集団でも、確率が当たるか</b>」で決まります。本研究は内部検証で優秀な識別能と良好な較正を示した良い第一歩ですが、<b>別施設での外部検証</b>を経て初めて臨床ツールとして信頼できます。</p>
+    <p>高いAUCは魅力的ですが、予測モデルの価値は「<b>利用時点で入手可能な情報だけを使い、外部集団でも、確率が当たるか</b>」で決まります。本研究は内部検証で優秀な識別能を示した第一歩ですが、較正は未報告で、在院日数などの時間的情報漏洩も懸念されます。<b>明確な予測時点を定めた別施設での外部検証</b>を経て初めて臨床ツールとして検討できます。</p>
     <p>読み手としての教訓は、「AUC 0.9超え」という見出しに飛びつかず、較正・DCA・検証の種類（内部か外部か）まで確認する習慣です。識別だけを見て「当たるモデル」と判断するのは、複合アウトカムで内訳を見ないのと同じ落とし穴です。</p>
   </div>
 
   <!-- 08 -->
   <div class="sec">
-    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <div class="sechd"><span class="no">08</span><h2>現代の視点</h2></div>
+    <p>現在の臨床予測モデル評価では、単一施設データのランダム分割で高いAUCを示すだけでは十分ではありません。対象患者をいつ識別し、どの時点までの変数で、いつ以後の譫妄を予測するのかを事前に固定する必要があります。外部・時間的検証、較正、欠測処理、クラス不均衡処理、臨床導入後の影響評価まで確認して、初めて実装可能性を論じられます。</p>
+    <p>本モデルはコードが公開されている点は検証可能性を高めます。一方、在院日数を含むモデルを「早期予測」に使うには再設計が必要です。現時点ではベッドサイドの意思決定ツールではなく、将来の外部検証に値する開発モデルとして位置づけるのが妥当です。</p>
+  </div>
+
+  <!-- 09 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>英語で読む</h2></div>
     <p>予測モデル論文に頻出する評価指標の英語を確認します。診断・予測の語彙はパターンが決まっているので、一度覚えると応用が利きます。</p>
     <div class="en">
       <div class="quote">
         <span class="src">— Results, Abstract（PLOS One 2025;20:e0319297）より一文を引用</span>
-        <span class="en-text">"the XGBoost model demonstrated the best discriminative ability, achieving an AUC of 0.932 in the validation set."</span>
+        <span class="en-text">"The XGBoost model demonstrated the best discriminative ability, achieving an AUC of 0.932 in the validation set."</span>
       </div>
-      <p class="gloss"><b>読みのポイント：</b><span class="mono">discriminative ability</span>（識別能）は、まさにAUCが測る「区別する力」のこと。<span class="mono">demonstrated</span>（示した）は結果報告の定番動詞。予測モデルでは <span class="mono">discrimination</span> と <span class="mono">calibration</span> がペアで登場するので、両方の語を見つけたか確認する癖をつけると、論文の評価の質が見抜けます。</p>
+      <p class="gloss"><b>読みのポイント：</b><span class="mono">discriminative ability</span>（識別能）は高低リスクを区別する力で、AUCで測ります。<span class="mono">demonstrated</span> は結果報告の定番動詞。<span class="mono">validation set</span> は訓練に直接使わず性能評価に使うデータ集合で、ここでは同じMIMIC-IV内の分割のため外部検証ではありません。予測モデルでは <span class="mono">discrimination</span> と <span class="mono">calibration</span> を分け、どのデータで検証したかまで確認します。</p>
       <table class="vocab">
         <thead><tr><th>語・表現</th><th class="ipa hide-sm">発音</th><th>意味・ニュアンス</th></tr></thead>
         <tbody>
@@ -261,22 +270,22 @@
     </div>
   </div>
 
-  <!-- 09 -->
+  <!-- 10 -->
   <div class="sec">
-    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="sechd"><span class="no">10</span><h2>明日からの臨床に活かすには</h2></div>
     <div class="take">
       <div class="lbl">TAKEAWAY</div>
-      <p>「AUC 0.9超えの譫妄予測モデル」という話を聞いたら、まず<b>較正と外部検証</b>を確認する。識別能（AUC）が高くても、予測確率がずれていたり別集団で性能が落ちたりすれば、ベッドサイドでは使えません。逆に、意識レベル（GCS）と初日のSpO₂が譫妄リスクと強く関連するという知見は、モデルがなくても<b>高リスク患者を見積もるヒント</b>として今日から使えます。</p>
+      <p>「AUC 0.9超えの譫妄予測モデル」という話を聞いたら、まず<b>予測時点・較正・外部検証</b>を確認する。識別能（AUC）が高くても、未来の情報が混入していたり、予測確率が未評価だったり、別集団で性能が落ちたりすれば、ベッドサイドでは使えません。本モデルを直接利用するのではなく、譫妄リスク評価と標準的な予防・モニタリングを丁寧に行う契機として読みます。</p>
     </div>
   </div>
 
-  <!-- 10 -->
+  <!-- 11 -->
   <div class="sec">
-    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="sechd"><span class="no">11</span><h2>インフォグラフィック</h2></div>
     <div class="info-wrap">
       <svg class="info" viewBox="0 0 760 580" role="img" aria-label="ROCとAUCの解説図">
         <text x="40" y="46" font-family="'Noto Serif JP',serif" font-size="22" font-weight="700" fill="#15302D">ROC曲線とAUC ― 譫妄予測モデル</text>
-        <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">PLOS One 2025 · n=1,155 · 譫妄 12.9% · XGBoost</text>
+        <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">PLOS One 2025 · n=1,155 · 譫妄数は原著内不一致 · XGBoost</text>
         <line x1="40" y1="86" x2="720" y2="86" stroke="#D9E0DC" stroke-width="1"/>
 
         <!-- ROC plot -->
@@ -308,12 +317,12 @@
           <text x="20" y="34" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C96A2B">較正 CALIBRATION</text>
           <text x="20" y="62" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">予測した確率が実測と一致するか</text>
           <text x="20" y="92" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#5C6B68">「80%予測 → 実際80%」か</text>
-          <text x="20" y="116" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#C96A2B">AUCが高くても較正は別途確認</text>
+          <text x="20" y="116" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#C96A2B">本研究では較正の報告を確認できない</text>
         </g>
 
         <line x1="40" y1="450" x2="720" y2="450" stroke="#D9E0DC" stroke-width="1"/>
         <text x="40" y="480" font-family="'JetBrains Mono',monospace" font-size="11" fill="#5C6B68">読むときのチェック：① 識別(AUC) ② 較正 ③ 決定曲線(DCA) ④ 内部か外部検証か</text>
-        <text x="40" y="528" font-family="'Noto Sans JP',sans-serif" font-size="13" font-weight="700" fill="#15302D">結論：識別能は非常に高い。ただし内部検証のみ。較正・外部検証まで見て判断する。</text>
+        <text x="40" y="528" font-family="'Noto Sans JP',sans-serif" font-size="13" font-weight="700" fill="#15302D">結論：識別能は高い。ただし較正未報告・内部検証のみ・時間的情報漏洩の懸念あり。</text>
       </svg>
       <div class="info-cap">数値は原著（PLOS One 2025;20:e0319297、CC BY）に基づく。図は概念説明のため独自に作成（ROC曲線は模式図）。</div>
     </div>
@@ -331,4 +340,3 @@
 
 </body>
 </html>
-

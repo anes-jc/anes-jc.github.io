@@ -39,7 +39,7 @@ window.ARTICLES = [
     date: "2026.06.19", dow: "FRI", status: "公開予定", live: false,
     title: "肺を守る人工呼吸 — ARDSNet 試験と早期中止の読み方",
     url: "articles/ardsnet.html",
-    desc: "ARDSで一回換気量を 6 vs 12 mL/kg で比較した古典RCT。死亡 31.0% vs 39.8%（NNT 11）。統計の山場は「試験の早期中止」をどう読むか。",
+    desc: "ARDSで一回換気量を 6 vs 12 mL/kg で比較した古典RCT。死亡 31.0% vs 39.8%（絶対差8.8ポイント）。統計の山場は「試験の早期中止」をどう読むか。",
     dowTag: { label: "FRI · 古典", tag: "古典論文" },
     tags: [
       { label: "集中治療", tag: "集中治療" },
@@ -63,7 +63,7 @@ window.ARTICLES = [
     date: "2026.06.15", dow: "MON", status: "公開予定", live: false,
     title: "オピオイドを使わない全身麻酔は高齢者の合併症を減らすか",
     url: "articles/ofa-elderly.html",
-    desc: "高齢者の短時間手術で OFA と従来麻酔を比較した新着RCT。複合アウトカム 25.0% vs 43.5%（NNT 5）。統計の山場は「複合アウトカムの読み方」。",
+    desc: "高齢者の短時間手術で OFA と従来麻酔を比較した新着RCT。複合アウトカム 25.0% vs 43.5%（NNT 6）。統計の山場は「複合アウトカムの読み方」。",
     dowTag: { label: "MON · 新着RCT", tag: "新着RCT" },
     tags: [
       { label: "麻酔", tag: "麻酔" },

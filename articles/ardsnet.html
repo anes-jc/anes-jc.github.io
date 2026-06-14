@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -10,11 +10,11 @@
 <meta property="og:title" content="ARDSの人工呼吸 — ARDSNet 試験 | 麻酔・集中治療 / 論文ジャーナルクラブ">
 <meta property="og:description" content="麻酔・集中治療領域の論文を読み解く anes-jc">
 <meta property="og:url" content="https://anes-jc.github.io/articles/ardsnet.html">
-<meta property="og:image" content="https://anes-jc.github.io/assets/og/ardsnet.png">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/ardsnet.png?v=20260619">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ARDSの人工呼吸 — ARDSNet 試験 | 麻酔・集中治療 / 論文ジャーナルクラブ">
 <meta name="twitter:description" content="麻酔・集中治療領域の論文を読み解く anes-jc">
-<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/ardsnet.png">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/ardsnet.png?v=20260619">
 <title>ARDSの人工呼吸 — ARDSNet 試験 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,7 +152,7 @@
     <h1>肺を守る人工呼吸 — ARDSNet（ARMA）試験と早期中止の読み方</h1>
     <div class="cite">
       The Acute Respiratory Distress Syndrome Network.<br>
-      Ventilation with Lower Tidal Volumes for Acute Lung Injury and ARDS.<br>
+      Ventilation with Lower Tidal Volumes as Compared with Traditional Tidal Volumes for Acute Lung Injury and the Acute Respiratory Distress Syndrome.<br>
       N Engl J Med 2000;342:1301-1308. · 多施設無作為化比較試験 · n=861
     </div>
     <div class="links">
@@ -165,9 +165,9 @@
   <div class="summary">
     <div class="lbl">30秒サマリー</div>
     <ul>
-      <li>ARDS患者で、一回換気量を <b>6 mL/kg</b>（理想体重）に抑える肺保護換気と、従来の <b>12 mL/kg</b> を比較した多施設RCT。</li>
-      <li>院内死亡は <b>31.0% vs 39.8%</b>（絶対差 8.8ポイント、NNT 約11）。低換気量群で有意に低下。</li>
-      <li>第4回中間解析で有意差が出たため、861例で<b>早期中止</b>。今日の肺保護換気の礎となった。</li>
+      <li>ARDS患者で、一回換気量を <b>6 mL/kg</b>（predicted body weight：予測体重）に抑える肺保護換気と、従来の <b>12 mL/kg</b> を比較した多施設RCT。</li>
+      <li>死亡は <b>31.0% vs 39.8%</b>（絶対差 8.8ポイント）。低換気量群で有意に低下。</li>
+      <li>死亡が低換気量群で少なかったため、861例で<b>試験中止</b>。今日の肺保護換気の礎となった。</li>
       <li>今回の統計の山場 → <b>試験の早期中止（中間解析）</b>をどう読むか。利益が早く見えても解釈に注意。</li>
     </ul>
   </div>
@@ -183,18 +183,18 @@
   <div class="sec">
     <div class="sechd"><span class="no">02</span><h2>クリニカル・クエスチョン（PICO）</h2></div>
     <div class="pico">
-      <div class="k">P</div><div class="v">急性肺損傷／ARDSで人工呼吸を要する患者 861例（米国10施設）</div>
-      <div class="k">I</div><div class="v">低一回換気量：<b>6 mL/kg</b>（理想体重）、プラトー圧 ≤30 cmH₂O（n=432）</div>
-      <div class="k">C</div><div class="v">従来換気量：<b>12 mL/kg</b>（理想体重）、プラトー圧 ≤50 cmH₂O（n=429）</div>
-      <div class="k">O</div><div class="v">主要：<b>院内死亡</b>／副次：人工呼吸器なしで過ごせた日数（ventilator-free days）ほか</div>
+      <div class="k">P</div><div class="v">急性肺損傷／ARDSで人工呼吸を要する患者 861例</div>
+      <div class="k">I</div><div class="v">低一回換気量：初期 <b>6 mL/kg predicted body weight</b>、プラトー圧 ≤30 cmH₂O（n=432）</div>
+      <div class="k">C</div><div class="v">従来換気量：初期 <b>12 mL/kg predicted body weight</b>、プラトー圧 ≤50 cmH₂O（n=429）</div>
+      <div class="k">O</div><div class="v">共同主要評価項目：<b>自宅退院前かつ補助なし呼吸獲得前の死亡</b>、無作為化後28日間の人工呼吸器非使用日数（ventilator-free days）</div>
     </div>
   </div>
 
   <!-- 03 -->
   <div class="sec">
     <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
-    <p>多施設・<b>並行群間ランダム化比較試験</b>。実際の一回換気量は1〜3日目で 6.2 vs 11.8 mL/kg、プラトー圧は 25 vs 33 cmH₂O と、群間にしっかり差がつきました（いずれもp<0.001）。介入が「換気設定」なので盲検化はできませんが、主要アウトカムが死亡という客観指標のため評価バイアスは小さい設計です。</p>
-    <p>重要なのは、この試験が<b>事前に中間解析の計画を持っていた</b>こと。データ安全性モニタリング委員会が定期的に結果を覗き、明確な差が出れば早期に止める仕組みです。実際に第4回中間解析で死亡率の差が統計的境界を越え、<b>861例の時点で組み入れが中止</b>されました。</p>
+    <p>多施設・<b>並行群間ランダム化比較試験</b>。実際の一回換気量は1〜3日目で 6.2 vs 11.8 mL/kg、プラトー圧は 25 vs 33 cmH₂O と、群間にしっかり差がつきました（いずれもp&lt;0.001）。介入が換気設定なので治療担当者の盲検化は困難です。死亡は客観的ですが、ventilator-free daysや付随治療には非盲検の影響が残り得ます。</p>
+    <p>PubMed抄録で確認できるのは、<b>死亡が低換気量群で少なかったため861例で試験が中止された</b>ことです。中間解析の回数、統計的中止境界、意思決定手順の詳細は、全文・プロトコルで確認してから評価する必要があります。</p>
   </div>
 
   <!-- 04 -->
@@ -203,39 +203,40 @@
     <div class="stats">
       <div class="tag">STATS KEY · 不確実性を読む</div>
       <h3>試験の早期中止（中間解析）をどう受け取るか</h3>
-      <p>大規模RCTは、全例を集め終わる前に数回「途中経過」を覗く<b>中間解析</b>を計画することがあります。明らかな利益（または害）が早期に見えたら、倫理的に試験を止めるためです。ARDSNetは第4回中間解析で死亡率の差が事前に決めた境界を越え、早期中止されました。</p>
+      <p>大規模RCTでは、全例を集め終わる前に途中経過を評価する<b>中間解析</b>を計画することがあります。明らかな利益・害・無益性が示された場合に試験を止めるためですが、繰り返し解析による偶然の有意差を抑える統計的調整と、事前に定めた中止規則が重要です。ARDSNet論文の抄録は、死亡が低換気量群で少なかったため861例で試験を中止したと報告しています。</p>
       <div class="formula">
         院内死亡 39.8%（従来） → 31.0%（低換気量）<br>
         絶対リスク差 ARR = 39.8 − 31.0 = <b>8.8 ポイント</b><br>
-        （95%CI 2.4–15.3, p=0.007）<br>
-        NNT = 1 / 0.088 ≈ <b>約11人</b>
+        p=0.007<br>
+        丸め済み割合による参考計算：1 / ARR = 1 / 0.088 ≈ <b>11.4</b><br>
+        NNTとして整数化するなら通常は切り上げるが、正確なイベント数で再計算が必要
       </div>
       <p>早期中止には光と影があります。光は「有効な治療を、害のある対照群に受けさせ続けない」という倫理的配慮。影は<b>早く止めるほど効果量が過大評価されやすい</b>こと。偶然に大きな差が出たタイミングで止まる可能性があるためです。</p>
       <div class="formula">
         早期中止の読み方<br>
-        ・事前に中止基準（境界）が決まっていたか<br>
-        ・何回目の中間解析だったか<br>
+        ・中止基準（境界）が事前規定されていたか<br>
+        ・解析回数と多重性が調整されていたか<br>
         ・効果量が過大に出ていないか（CIの幅を見る）
       </div>
-      <p>ARDSNetは中止基準が事前規定され、複数の中間解析を経ており、その後のメタ解析でも利益が支持されたため、<b>信頼できる早期中止</b>とされています。一方で「早期中止＝効果が大きい」と無条件に受け取らず、計画の妥当性を確認するのが読み手の作法です。</p>
+      <p>この抄録だけでは中止規則の詳細までは判断できません。一方、死亡低下とventilator-free days増加は同じ方向を示しています。<b>中止された試験の結果は、中止理由だけでなく、効果量・不確実性・共同主要評価項目の整合性をセットで読む</b>ことが重要です。</p>
     </div>
   </div>
 
   <!-- 05 -->
   <div class="sec">
     <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
-    <p>院内死亡は低換気量群 <b>31.0%</b>、従来群 <b>39.8%</b>（p=0.007、95%CI 2.4–15.3）。絶対差8.8ポイントは、約11人を低換気量で治療すると1人の死亡を防ぐ計算（NNT≈11）です。人工呼吸器なしで過ごせた日数も低換気量群で多く（12 vs 10日、p=0.007）、臓器不全のない日数も増加しました。</p>
-    <p>低換気量群は初期にやや高いPEEPを要し、呼吸性アシドーシスを起こしやすかったものの、その差は7日目までに消失。気胸（圧損傷）の発生頻度に両群で差はありませんでした。</p>
+    <p>自宅退院前かつ補助なし呼吸獲得前の死亡は低換気量群 <b>31.0%</b>、従来群 <b>39.8%</b>（p=0.007）。絶対差は8.8ポイントです。丸め済み割合からの逆数は約11.4ですが、NNTを確定するには正確なイベント数で計算し、整数化では通常切り上げます。もう一つの共同主要評価項目である28日間のventilator-free daysも低換気量群で多く、平均 <b>12±11 vs 10±11日</b>（p=0.007）でした。</p>
+    <p>1〜3日目の平均一回換気量は 6.2±0.8 vs 11.8±0.8 mL/kg predicted body weight、平均プラトー圧は 25±6 vs 33±8 cmH₂Oで、いずれも低換気量群で低値でした（p&lt;0.001）。</p>
   </div>
 
   <!-- 06 -->
   <div class="sec">
     <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
     <ul class="lims">
-      <li>早期中止のため、効果量がやや過大に出ている可能性は常に念頭に置く（ただし事前計画と後続メタ解析で補強されている）。</li>
+      <li>利益を理由に861例で中止された試験であり、一般に早期中止された試験では効果量が過大に見える可能性を検討する必要がある。</li>
       <li>対照群の12 mL/kgは「当時の慣習」だが、現在の感覚ではやや高め。対照が不自然に不利だった可能性も議論された。</li>
       <li>換気設定は盲検化できず、付随ケアの差が結果に影響した可能性。</li>
-      <li>倫理面で、説明同意の資料をめぐり当時調査が入った経緯がある（研究倫理の観点での論点）。</li>
+      <li>抄録だけでは、中間解析計画、中止境界、欠測、クロスオーバー、付随治療の詳細を十分に監査できない。</li>
       <li><b>報告の作法（読むときの目線）：</b>本試験は CONSORT 声明が広く普及する前の論文で、現在のRCT報告で標準となった項目（事前登録、割り付け手順の詳細、フローダイアグラムなど）の記述は今の基準では簡素。古い試験を読むときは「報告が薄い＝質が低い」ではなく、当時の報告慣行を踏まえて評価するのが公平です。</li>
     </ul>
   </div>
@@ -244,11 +245,11 @@
   <div class="sec">
     <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
     <p>ARDSNetは「肺を守る＝換気量を減らす」という考え方を確立し、6 mL/kgを標準にした記念碑的試験です。NICE-SUGARが「正常化が常に良いとは限らない」を示したのと同じく、ここでも「ガス交換の正常化」より「肺損傷の最小化」を優先すべき場面があることが示されました。</p>
-    <p>統計的には、<b>早期中止でも信頼できる条件</b>（事前の中止基準・複数回の中間解析・後続研究での再現）がそろった好例です。「途中で止まった派手な結果」を見たら、まずこれらを確認する——その型を学ぶのに最適な古典です。</p>
+    <p>統計的には、「途中で止まった大きな効果」を見たときに、<b>中止規則、解析回数、不確実性、共同主要評価項目の方向</b>を確認する型を学べる古典です。ただし、本稿で確認できた抄録情報だけから中止規則の妥当性を断定はできません。</p>
     <div class="modern">
       <div class="lbl">現代の視点</div>
-      <p>肺保護換気の原則は今も健在ですが、作法は少し更新されています。ATS/ESICM/SCCM の最新ガイドラインは、6 mL/kg ぴったりではなく<b>4–8 mL/kg（理想体重）の範囲</b>でプラトー圧<30 cmH₂Oを推奨しています。さらに近年は、一回換気量そのものより<b>ドライビング圧（ΔP = プラトー圧 − PEEP）</b>の方が死亡をよく予測するという議論が活発で、ΔPを意識した個別化が注目されています。</p>
-      <div class="ref">出典：Qadir N, et al. An Update on Management of Adult Patients with ARDS: An Official ATS Clinical Practice Guideline. Am J Respir Crit Care Med 2024;209(1):24-36. ／ Amato MBP, et al. Driving Pressure and Survival in ARDS. N Engl J Med 2015;372:747-755.</div>
+      <p>肺保護換気の原則は現在も中核です。2017年のATS/ESICM/SCCMガイドラインは、ARDSで<b>4–8 mL/kg predicted body weight</b>とプラトー圧30 cmH₂O未満を強く推奨しました。2024年のATS更新は、ARDS管理の追加論点を扱っています。ドライビング圧（ΔP = プラトー圧 − PEEP）は予後との関連が報告されていますが、単独の介入目標としての位置づけは、予測因子と治療効果を分けて読む必要があります。</p>
+      <div class="ref">出典：Fan E, et al. Mechanical Ventilation in Adult Patients with ARDS: An Official ATS/ESICM/SCCM Clinical Practice Guideline. Am J Respir Crit Care Med 2017. ／ Qadir N, et al. An Update on Management of Adult Patients with ARDS: An Official ATS Clinical Practice Guideline. Am J Respir Crit Care Med 2024. ／ Amato MBP, et al. Driving Pressure and Survival in ARDS. N Engl J Med 2015.</div>
     </div>
   </div>
 
@@ -280,7 +281,7 @@
     <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
     <div class="take">
       <div class="lbl">TAKEAWAY</div>
-      <p>ARDS（および広くは人工呼吸を要する患者）では、理想体重あたり<b>6 mL/kg を基本</b>に、プラトー圧を抑えた肺保護換気が標準。多少の高二酸化炭素血症は許容してでも肺を守る、という発想が予後を改善します。そして論文を読むときは、「早期中止された大成功」を見たら<b>中止基準と中間解析の回数</b>を確認する——派手な数字ほど、その出方を冷静に見るのが大事です。</p>
+      <p>ARDSでは、predicted body weightに基づく低一回換気量とプラトー圧制限を中核に、患者ごとの病態・ガス交換・安全性を評価します。本試験の結果をARDS以外の全人工呼吸患者へそのまま一般化はしません。そして中止された試験を読むときは、<b>中止規則、解析回数、効果量の不確実性、共同主要評価項目</b>を確認します。</p>
     </div>
   </div>
 
@@ -290,10 +291,10 @@
     <div class="info-wrap">
       <svg class="info" viewBox="0 0 760 560" role="img" aria-label="ARDSNet試験の要約図">
         <text x="40" y="46" font-family="'Noto Serif JP',serif" font-size="22" font-weight="700" fill="#15302D">ARDSNet：低換気量 6 vs 従来 12 mL/kg</text>
-        <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">N Engl J Med 2000 · n=861 · 院内死亡 · 第4回中間解析で早期中止</text>
+        <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">N Engl J Med 2000 · n=861 · 死亡と28日VFDが共同主要評価項目</text>
         <line x1="40" y1="86" x2="720" y2="86" stroke="#D9E0DC" stroke-width="1"/>
 
-        <text x="40" y="120" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">院内死亡率</text>
+        <text x="40" y="120" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">自宅退院・自力呼吸獲得前の死亡割合</text>
         <text x="40" y="156" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#2C4541">6 mL/kg</text>
         <rect x="130" y="142" width="530" height="22" fill="#E7ECE9"/>
         <rect x="130" y="142" width="411" height="22" fill="#0F766E"/>
@@ -310,19 +311,19 @@
         <text x="64" y="346" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#B7C7C2">低換気量で少ない</text>
 
         <rect x="266" y="244" width="210" height="118" rx="4" fill="#F7ECE2" stroke="#E4C9AF"/>
-        <text x="290" y="280" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C96A2B">治療必要数 NNT</text>
-        <text x="290" y="320" font-family="'Noto Serif JP',serif" font-size="36" font-weight="700" fill="#C96A2B">≈11<tspan font-size="15">人</tspan></text>
-        <text x="290" y="346" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">= 1 / 0.088</text>
+        <text x="290" y="280" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C96A2B">1 / ARR（参考）</text>
+        <text x="290" y="320" font-family="'Noto Serif JP',serif" font-size="36" font-weight="700" fill="#C96A2B">≈11.4</text>
+        <text x="290" y="346" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">丸め済み割合で計算</text>
 
         <rect x="492" y="244" width="228" height="118" rx="4" fill="#FBFCFB" stroke="#D9E0DC"/>
         <text x="516" y="280" font-family="'JetBrains Mono',monospace" font-size="11" fill="#0B4F4A">p値</text>
         <text x="516" y="320" font-family="'Noto Serif JP',serif" font-size="30" font-weight="700" fill="#15302D">0.007</text>
-        <text x="516" y="346" font-family="'JetBrains Mono',monospace" font-size="11" fill="#5C6B68">95%CI 2.4–15.3</text>
+        <text x="516" y="346" font-family="'JetBrains Mono',monospace" font-size="11" fill="#5C6B68">死亡差の p=0.007</text>
 
         <line x1="40" y1="386" x2="720" y2="386" stroke="#D9E0DC" stroke-width="1"/>
         <text x="40" y="416" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#0B4F4A">早期中止 EARLY STOPPING</text>
-        <text x="40" y="442" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#2C4541">第4回中間解析で死亡率の差が境界を越え、861例で組み入れ中止</text>
-        <text x="40" y="466" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#5C6B68">✓ 中止基準は事前規定　✓ 複数回の中間解析　✓ 後続メタ解析でも支持</text>
+        <text x="40" y="442" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#2C4541">死亡が低換気量群で少なかったため、861例で試験を中止</text>
+        <text x="40" y="466" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#5C6B68">確認点：中止規則　解析回数　多重性調整　効果量の不確実性</text>
         <text x="40" y="490" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#C96A2B">⚠ 一般に早期中止は効果量を過大評価しうる → CIの幅と計画を確認</text>
 
         <line x1="40" y1="510" x2="720" y2="510" stroke="#D9E0DC" stroke-width="0.5"/>
@@ -344,4 +345,3 @@
 
 </body>
 </html>
-
