@@ -1,6 +1,7 @@
 {
   "_comment": "公開済み・公開予定を含む、扱うことが確定した論文の重複防止台帳。ここに載ったDOI/PMIDは二度と選ばれない。publishedDOIs/publishedPMIDs というキー名は互換性のため維持する。recentStatKeys は直近に使う統計テーマ(新しい順)で、連続回避に使う。",
   "publishedDOIs": [
+    "10.1080/0886022X.2026.2663247",
     "10.1080/07853890.2026.2672843",
     "10.1056/NEJM200005043421801",
     "10.1371/journal.pone.0319297",
@@ -9,6 +10,7 @@
     "10.1056/NEJMoa1401105"
   ],
   "publishedPMIDs": [
+    "42087275",
     "42130321",
     "10793162",
     "41656873",
@@ -16,6 +18,7 @@
     "24679062"
   ],
   "recentStatKeys": [
+    "OBS_03_PROPENSITY_SCORE",
     "RCT_04_POWER_SAMPLE_SIZE",
     "FACTORIAL",
     "STOPPING",
@@ -24,6 +27,15 @@
     "ARD_NNT"
   ],
   "articles": [
+    {
+      "id": "nsaid-aki-psm",
+      "title": "術中NSAIDsはAKIを増やすか — 傾向スコアマッチングで読む観察研究",
+      "doi": "10.1080/0886022X.2026.2663247",
+      "pmid": "42087275",
+      "statKey": "OBS_03_PROPENSITY_SCORE",
+      "publishedAt": "2026-06-24",
+      "slot": "wednesday_methods"
+    },
     {
       "id": "shoulder-block-diaphragm",
       "title": "肩関節鏡手術のブロック選択：痛みと横隔膜のトレードオフ",

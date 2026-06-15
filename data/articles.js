@@ -36,6 +36,18 @@ window.ARTICLES = [
     ]
   },
   {
+    date: "2026.06.24", dow: "WED", status: "公開予定", live: false,
+    title: "術中NSAIDsはAKIを増やすか — 傾向スコアマッチングで読む観察研究",
+    url: "articles/nsaid-aki-psm.html",
+    desc: "大非心臓手術11,139例の後ろ向きコホート。PSM後、AKIは4.2% vs 4.2%。統計の山場は傾向スコアマッチングと残余交絡です。",
+    dowTag: { label: "WED · 統計・手法", tag: "統計・手法" },
+    tags: [
+      { label: "麻酔", tag: "麻酔" },
+      { label: "周術期鎮痛", tag: "周術期鎮痛" },
+      { label: "G04 バイアスと交絡を読む", tag: "バイアスと交絡を読む" }
+    ]
+  },
+  {
     date: "2026.06.22", dow: "MON", status: "公開予定", live: false,
     title: "肩関節鏡手術のブロック選択：痛みと横隔膜のトレードオフ",
     url: "articles/shoulder-block-diaphragm.html",
