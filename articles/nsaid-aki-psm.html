@@ -270,7 +270,7 @@
         <tbody>
           <tr><td>propensity score</td><td class="hide-sm">傾向スコア</td><td>介入を受ける確率。交絡調整の道具</td></tr>
           <tr><td>matched pairs</td><td class="hide-sm">マッチしたペア</td><td>背景が近い介入群と対照群の組み合わせ</td></tr>
-          <tr><td>standardized mean difference</td><td class="hide-sm">標準化差</td><td>マッチング後の背景バランスを見る指標</td></tr>
+          <tr><td>standardized mean difference</td><td class="hide-sm">標準化差</td><td>背景差の目安。0.1（10%）未満なら概ね小さい、0.1以上ならまだ差が残るサイン</td></tr>
           <tr><td>residual confounding</td><td class="hide-sm">残余交絡</td><td>調整後にも残る測定不能・不十分な交絡</td></tr>
         </tbody>
       </table>
@@ -288,45 +288,48 @@
   <div class="sec">
     <div class="sechd"><span class="no">11</span><h2>インフォグラフィック</h2></div>
     <div class="info-wrap">
-      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="術中NSAIDsと術後AKIの傾向スコアマッチング研究の要約。PSM後のAKIはNSAIDs群4.2%、対照群4.2%。">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="術中NSAIDsと術後AKI研究の流れ。29,497例をスクリーニングし、11,139例を解析、傾向スコアマッチングで3,361ペアを作り、術後7日以内AKIを比較した。">
         <rect width="1200" height="630" fill="#F4F6F4"/>
         <rect x="48" y="42" width="1104" height="546" rx="22" fill="#FBFCFB" stroke="#D9E0DC" stroke-width="2"/>
-        <text x="86" y="98" font-family="Noto Serif JP, serif" font-size="34" font-weight="700" fill="#15302D">術中NSAIDsはAKIを増やすか</text>
-        <text x="86" y="136" font-family="Noto Sans JP, sans-serif" font-size="19" fill="#5C6B68">大非心臓手術11,139例 · 傾向スコアマッチング後3,361ペア</text>
+        <text x="86" y="96" font-family="Noto Serif JP, serif" font-size="32" font-weight="700" fill="#15302D">研究の流れ：術中NSAIDsと術後AKI</text>
+        <text x="86" y="132" font-family="Noto Sans JP, sans-serif" font-size="18" fill="#5C6B68">後ろ向きコホート → 傾向スコアマッチング → 術後7日以内AKIを比較</text>
 
-        <rect x="86" y="174" width="308" height="122" rx="14" fill="#EAF4F2" stroke="#BFD8D3"/>
-        <text x="112" y="216" font-family="JetBrains Mono, monospace" font-size="16" fill="#0B4F4A">STEP 1</text>
-        <text x="112" y="250" font-family="Noto Sans JP, sans-serif" font-size="21" font-weight="700" fill="#15302D">治療選択の偏り</text>
-        <text x="112" y="278" font-family="Noto Sans JP, sans-serif" font-size="15" fill="#5C6B68">NSAIDsを使う患者と使わない患者は違う</text>
+        <rect x="86" y="168" width="224" height="102" rx="14" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="108" y="199" font-family="JetBrains Mono, monospace" font-size="14" fill="#0B4F4A">SCREENING</text>
+        <text x="108" y="232" font-family="Noto Serif JP, serif" font-size="31" font-weight="700" fill="#15302D">29,497例</text>
+        <text x="108" y="256" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#5C6B68">2019-2022年の手術症例</text>
 
-        <rect x="446" y="174" width="308" height="122" rx="14" fill="#F7ECE2" stroke="#E4C9AF"/>
-        <text x="472" y="216" font-family="JetBrains Mono, monospace" font-size="16" fill="#C96A2B">STEP 2</text>
-        <text x="472" y="250" font-family="Noto Sans JP, sans-serif" font-size="21" font-weight="700" fill="#15302D">PSMで近づける</text>
-        <text x="472" y="278" font-family="Noto Sans JP, sans-serif" font-size="15" fill="#5C6B68">SMD &lt;10%で背景バランスを確認</text>
+        <line x1="310" y1="219" x2="372" y2="219" stroke="#BCC8C3" stroke-width="3"/>
+        <polygon points="372,219 358,210 358,228" fill="#BCC8C3"/>
 
-        <rect x="806" y="174" width="308" height="122" rx="14" fill="#EAF4F2" stroke="#BFD8D3"/>
-        <text x="832" y="216" font-family="JetBrains Mono, monospace" font-size="16" fill="#0B4F4A">STEP 3</text>
-        <text x="832" y="250" font-family="Noto Sans JP, sans-serif" font-size="21" font-weight="700" fill="#15302D">残余交絡を疑う</text>
-        <text x="832" y="278" font-family="Noto Sans JP, sans-serif" font-size="15" fill="#5C6B68">測っていない判断は補正できない</text>
+        <rect x="372" y="168" width="224" height="102" rx="14" fill="#FBFCFB" stroke="#D9E0DC"/>
+        <text x="394" y="199" font-family="JetBrains Mono, monospace" font-size="14" fill="#0B4F4A">ELIGIBLE</text>
+        <text x="394" y="232" font-family="Noto Serif JP, serif" font-size="31" font-weight="700" fill="#15302D">11,139例</text>
+        <text x="394" y="256" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#5C6B68">大非心臓手術を解析</text>
 
-        <line x1="394" y1="235" x2="446" y2="235" stroke="#BCC8C3" stroke-width="3"/>
-        <polygon points="446,235 432,226 432,244" fill="#BCC8C3"/>
-        <line x1="754" y1="235" x2="806" y2="235" stroke="#BCC8C3" stroke-width="3"/>
-        <polygon points="806,235 792,226 792,244" fill="#BCC8C3"/>
+        <line x1="596" y1="219" x2="658" y2="219" stroke="#BCC8C3" stroke-width="3"/>
+        <polygon points="658,219 644,210 644,228" fill="#BCC8C3"/>
 
-        <text x="86" y="354" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" fill="#0B4F4A">PRIMARY OUTCOME · AKI within 7 days after surgery</text>
-        <rect x="86" y="384" width="480" height="96" rx="14" fill="#15302D"/>
-        <text x="118" y="426" font-family="Noto Sans JP, sans-serif" font-size="21" fill="#E4ECE9">NSAIDs群</text>
-        <text x="118" y="465" font-family="Noto Serif JP, serif" font-size="38" font-weight="700" fill="#6FBCB3">4.2%</text>
-        <text x="224" y="462" font-family="JetBrains Mono, monospace" font-size="17" fill="#BFD8D3">140 / 3,361</text>
+        <rect x="658" y="168" width="456" height="102" rx="14" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="684" y="199" font-family="JetBrains Mono, monospace" font-size="14" fill="#C96A2B">BEFORE MATCHING</text>
+        <text x="684" y="232" font-family="Noto Sans JP, sans-serif" font-size="23" font-weight="700" fill="#15302D">NSAIDs 3,361例 vs 対照 7,778例</text>
+        <text x="684" y="257" font-family="Noto Sans JP, sans-serif" font-size="14" fill="#5C6B68">背景が違う可能性があるため、そのまま比較しない</text>
 
-        <rect x="634" y="384" width="480" height="96" rx="14" fill="#15302D"/>
-        <text x="666" y="426" font-family="Noto Sans JP, sans-serif" font-size="21" fill="#E4ECE9">対照群</text>
-        <text x="666" y="465" font-family="Noto Serif JP, serif" font-size="38" font-weight="700" fill="#6FBCB3">4.2%</text>
-        <text x="772" y="462" font-family="JetBrains Mono, monospace" font-size="17" fill="#BFD8D3">140 / 3,361</text>
+        <rect x="86" y="312" width="1028" height="98" rx="18" fill="#15302D"/>
+        <text x="120" y="348" font-family="JetBrains Mono, monospace" font-size="15" fill="#6FBCB3">PROPENSITY SCORE MATCHING</text>
+        <text x="120" y="382" font-family="Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#E4ECE9">似た背景の患者を1:1で組み合わせ、3,361ペアを作る</text>
+        <text x="812" y="354" font-family="Noto Sans JP, sans-serif" font-size="15" fill="#BFD8D3">確認ポイント</text>
+        <text x="812" y="382" font-family="Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">全SMD &lt; 0.1</text>
 
-        <rect x="86" y="512" width="1028" height="48" rx="24" fill="#F7ECE2" stroke="#E4C9AF"/>
-        <text x="112" y="543" font-family="Noto Sans JP, sans-serif" font-size="18" fill="#15302D">読み方：関連なしは「安全の証明」ではない。測定済み交絡をそろえた範囲で、AKI増加シグナルは見えなかった。</text>
+        <rect x="86" y="450" width="490" height="86" rx="14" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="116" y="481" font-family="Noto Sans JP, sans-serif" font-size="19" font-weight="700" fill="#15302D">NSAIDs群：AKI 4.2%</text>
+        <text x="116" y="512" font-family="JetBrains Mono, monospace" font-size="17" fill="#0B4F4A">140 / 3,361</text>
+
+        <rect x="624" y="450" width="490" height="86" rx="14" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="654" y="481" font-family="Noto Sans JP, sans-serif" font-size="19" font-weight="700" fill="#15302D">対照群：AKI 4.2%</text>
+        <text x="654" y="512" font-family="JetBrains Mono, monospace" font-size="17" fill="#0B4F4A">140 / 3,361 · p&gt;0.999</text>
+
+        <text x="86" y="574" font-family="Noto Sans JP, sans-serif" font-size="17" fill="#15302D">結論の読み方：観察研究なので「安全の証明」ではなく、測定済み背景をそろえた範囲でAKI増加シグナルは見えなかった。</text>
       </svg>
       <div class="info-cap">独自作成インフォグラフィック。Zhang C, et al. Ren Fail. 2026;48:2663247 の主要結果を独自に作図。図表の転載ではありません。</div>
     </div>
