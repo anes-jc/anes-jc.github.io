@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.06.29", dow: "MON", status: "公開予定", live: false,
+    title: "脊麻帝王切開の昇圧薬は何を選ぶか — ネットワークメタ解析で読む",
+    url: "articles/cesarean-vasopressor-nma.html",
+    desc: "55RCT・5487例のネットワークメタ解析。低血圧予防、胎児酸塩基、SUCRA順位、エビデンスの確実性を読みます。",
+    dowTag: { label: "MON · 新着RCT/メタ解析", tag: "新着RCT" },
+    tags: [
+      { label: "麻酔", tag: "麻酔" },
+      { label: "産科麻酔", tag: "産科麻酔" },
+      { label: "G06 統合・予測・診断を読む", tag: "統合・予測・診断を読む" }
+    ]
+  },
+  {
     date: "2026.06.26", dow: "FRI", status: "公開予定", live: false,
     title: "周術期アスピリンは心血管イベントを防げるか — POISE-2 試験",
     url: "articles/poise-2.html",
