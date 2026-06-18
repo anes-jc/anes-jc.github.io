@@ -33,13 +33,11 @@
 
   header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
   .bar-in{max-width:880px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;color:var(--ink);text-decoration:none}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15);flex-shrink:0}
   .bar-actions{display:flex;align-items:center;gap:14px}
   .back{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
   .back:hover{color:var(--teal)}
-  .xlink{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 10px;white-space:nowrap}
-  .xlink:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 
   .head{padding:48px 0 26px;border-bottom:1px solid var(--line)}
   .head .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--teal-deep);margin-bottom:14px}
@@ -65,6 +63,10 @@
   .post-arrow{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:18px;color:var(--line-strong);align-self:center;text-decoration:none;transition:.15s}
   .post:hover .post-arrow{color:#fff;background:var(--teal)}
   @media(max-width:640px){
+    .wrap,.bar-in{padding-left:18px;padding-right:18px}
+    .bar-in{height:54px;gap:12px}
+    .brand{min-width:0;gap:8px;font-size:12px;line-height:1.25;white-space:nowrap}
+    .back{font-size:12px}
     .head{padding:36px 0 22px}
     .post{grid-template-columns:1fr;gap:12px;padding:22px 4px}
     .post-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -95,7 +97,6 @@
   <div class="bar-in">
     <a class="brand" href="index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
     <div class="bar-actions">
-      <a class="xlink" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">X</a>
       <a class="back" href="index.html">← トップ</a>
     </div>
   </div>
