@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="anes-jc の管理用記事スケジュールです。公開中と公開予定の記事URLを確認できます。">
+<link rel="canonical" href="https://anes-jc.github.io/schedule.html">
+<title>記事スケジュール | anes-jc</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#A75B1F;--muted:#5C6B68;
+    --line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.88);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15);flex-shrink:0}
+  .bar-actions{display:flex;align-items:center;gap:14px}
+  .back{font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
+  .back:hover{color:var(--teal)}
+  .head{padding:52px 0 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.12em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:17px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--teal-deep)}
+  h1{font-family:"Noto Serif JP",serif;font-size:clamp(30px,5vw,44px);line-height:1.25;font-weight:700}
+  .sub{margin-top:14px;color:var(--muted);font-size:14px;max-width:70ch}
+  main{padding:32px 0 64px}
+  .tools{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:18px}
+  .counts{display:flex;gap:10px;flex-wrap:wrap}
+  .count{border:1px solid var(--line-strong);background:var(--paper-2);border-radius:3px;padding:8px 12px;font-size:13px;color:var(--ink-soft)}
+  .count strong{font-family:"JetBrains Mono",monospace;color:var(--teal-deep)}
+  .seg{display:flex;gap:4px;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:3px;padding:4px}
+  .seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;line-height:1;padding:8px 11px;border-radius:2px;cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .table{border-top:1px solid var(--line)}
+  .row{display:grid;grid-template-columns:118px 138px minmax(0,1fr);gap:20px;padding:22px 8px;border-bottom:1px solid var(--line);align-items:start}
+  .date{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);line-height:1.7}
+  .state{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+  .badge{display:inline-flex;align-items:center;border-radius:2px;padding:3px 9px;font-size:12px;font-weight:700;border:1px solid var(--line-strong)}
+  .badge.live{background:var(--teal);border-color:var(--teal);color:#fff}
+  .badge.upcoming{background:#FFF7E9;border-color:#E3BD83;color:#7A4319}
+  .surface{font-size:12px;color:var(--muted)}
+  .title{font-family:"Noto Serif JP",serif;font-size:19px;font-weight:600;line-height:1.5}
+  .desc{font-size:14px;color:var(--ink-soft);margin-top:7px}
+  .url-line{margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .url{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);word-break:break-all;text-decoration:none;border-bottom:1px solid rgba(15,118,110,.28)}
+  .url:hover{color:var(--teal)}
+  .copy{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal-deep);border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 8px;cursor:pointer}
+  .copy:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+  .tags{margin-top:11px;display:flex;gap:7px;flex-wrap:wrap}
+  .tag{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal-deep);border:1px solid var(--line-strong);border-radius:2px;padding:3px 8px;text-decoration:none}
+  .tag:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+  .empty{display:none;border:1px solid var(--line);background:var(--paper-2);border-radius:3px;padding:24px;color:var(--muted)}
+  footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--muted);font-size:12px}
+  footer a{color:var(--teal-deep);text-decoration:none}
+  footer a:hover{color:var(--teal)}
+  @media(max-width:720px){
+    .wrap{padding-left:18px;padding-right:18px}
+    .bar-in{height:54px;gap:12px}
+    .brand{font-size:12px;line-height:1.25;white-space:nowrap}
+    .bar-actions{gap:10px}
+    .back{font-size:12px}
+    .head{padding:38px 0 26px}
+    .tools{align-items:stretch}
+    .seg{width:100%;display:grid;grid-template-columns:repeat(3,1fr)}
+    .seg button{padding:9px 6px}
+    .row{grid-template-columns:1fr;gap:10px;padding:20px 4px}
+    .state{flex-direction:row;align-items:center;flex-wrap:wrap}
+    .title{font-size:18px}
+    .desc{font-size:13px}
+  }
+</style>
+<script src="assets/analytics-config.js"></script>
+<script src="assets/analytics.js" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <div class="bar-actions">
+      <a class="back" href="articles.html">記事一覧</a>
+      <a class="back" href="index.html">← トップ</a>
+    </div>
+  </div>
+</header>
+
+<div class="head">
+  <div class="wrap">
+    <div class="eyebrow">Internal Schedule</div>
+    <h1>記事スケジュール</h1>
+    <div class="sub">公開中の記事と、通常のトップページ・記事一覧ではまだ見えない公開予定の記事をまとめて確認できます。検索避けの管理用ページです。</div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+    <div class="tools">
+      <div class="counts" id="counts"></div>
+      <div class="seg" aria-label="表示フィルター">
+        <button type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button type="button" data-filter="live" aria-pressed="false">公開中</button>
+        <button type="button" data-filter="upcoming" aria-pressed="false">公開予定</button>
+      </div>
+    </div>
+    <div class="table" id="table"></div>
+    <div class="empty" id="empty">表示できる記事がありません。</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    URL: <a href="https://anes-jc.github.io/schedule.html">https://anes-jc.github.io/schedule.html</a>
+  </div>
+</footer>
+
+<script src="data/sunday-articles.js"></script>
+<script src="data/articles.js"></script>
+<script>
+  const SITE_URL = "https://anes-jc.github.io";
+  let currentFilter = "all";
+
+  function esc(value){
+    return String(value ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+  }
+  function articleUrl(article){
+    return `${SITE_URL}/${String(article.url || "").replace(/^\/+/, "")}`;
+  }
+  function tagHtml(tag){
+    const m = String(tag.label || "").match(/^(G0[1-6])\s+(.+)$/);
+    const label = m ? `<span style="opacity:.6">${esc(m[1])}</span> ${esc(m[2])}` : esc(tag.label);
+    return `<a class="tag" href="tags.html?tag=${encodeURIComponent(tag.tag)}">${label}</a>`;
+  }
+  function rowHtml(article){
+    const live = Boolean(article.live);
+    const url = articleUrl(article);
+    const tags = [
+      article.dowTag ? tagHtml(article.dowTag) : "",
+      ...(article.tags || []).map(tagHtml)
+    ].join("");
+    return `<article class="row" data-status="${live ? "live" : "upcoming"}">
+      <div class="date">${esc(article.date)}<br>${esc(article.dow)}</div>
+      <div class="state">
+        <span class="badge ${live ? "live" : "upcoming"}">${live ? "公開中" : "公開予定"}</span>
+        <span class="surface">${live ? "一覧に表示中" : "一覧では非表示"}</span>
+      </div>
+      <div>
+        <div class="title">${esc(article.title)}</div>
+        <div class="desc">${esc(article.desc)}</div>
+        <div class="url-line">
+          <a class="url" href="${esc(url)}">${esc(url)}</a>
+          <button class="copy" type="button" data-copy="${esc(url)}">COPY</button>
+        </div>
+        <div class="tags">${tags}</div>
+      </div>
+    </article>`;
+  }
+  function renderCounts(articles){
+    const live = articles.filter(article => article.live).length;
+    const upcoming = articles.length - live;
+    document.getElementById("counts").innerHTML = `
+      <span class="count">全部 <strong>${articles.length}</strong></span>
+      <span class="count">公開中 <strong>${live}</strong></span>
+      <span class="count">公開予定 <strong>${upcoming}</strong></span>`;
+  }
+  function render(){
+    const all = (window.ALL_ARTICLES || window.ARTICLES || []).slice();
+    renderCounts(all);
+    const rows = all.filter(article => currentFilter === "all" || (currentFilter === "live" ? article.live : !article.live));
+    document.getElementById("table").innerHTML = rows.map(rowHtml).join("");
+    document.getElementById("empty").style.display = rows.length ? "none" : "block";
+    document.querySelectorAll("[data-copy]").forEach(button => {
+      button.addEventListener("click", async () => {
+        const text = button.dataset.copy;
+        try {
+          await navigator.clipboard.writeText(text);
+          button.textContent = "COPIED";
+          setTimeout(() => { button.textContent = "COPY"; }, 1200);
+        } catch {
+          window.prompt("URL", text);
+        }
+      });
+    });
+  }
+
+  document.querySelectorAll("[data-filter]").forEach(button => {
+    button.addEventListener("click", () => {
+      currentFilter = button.dataset.filter;
+      document.querySelectorAll("[data-filter]").forEach(item => item.setAttribute("aria-pressed", item === button ? "true" : "false"));
+      render();
+    });
+  });
+
+  render();
+</script>
+
+</body>
+</html>
