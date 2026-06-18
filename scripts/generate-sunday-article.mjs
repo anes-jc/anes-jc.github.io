@@ -279,9 +279,9 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
 </head><body><header class="bar"><div class="bar-in"><a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a><div class="bar-actions"><a class="back" href="../articles.html">← 記事一覧</a></div></div></header><div class="wrap">
 <div class="ahead"><div class="kicker"><a class="pill cls" href="../tags.html?tag=先週のまとめ">SUN · 先週のまとめ</a><a class="pill" href="../tags.html?tag=最新論文">最新論文</a></div>
 <h1><span class="title-part">先週のまとめ</span><span class="title-sep">｜</span><span class="title-part title-tail">最新論文3選</span></h1><div class="cite">${issueDate} 公開<br>対象期間: ${period.start} - ${period.end}</div></div>
-<section class="sec"><div class="sechd"><h2>このページについて</h2></div><p>このページは、週次の定点観測として毎週日曜に自動生成・自動公開しています。</p></section>
 <section class="sec"><div class="sechd"><h2>先週の記事一覧</h2></div><ul class="site-list">${siteArticlesHtml}</ul></section>
 <section class="sec"><div class="sechd"><h2>最新論文3選</h2></div>${papersHtml}</section>
+<section class="sec"><div class="sechd"><h2>このページについて</h2></div><p>このページは、週次の定点観測として毎週日曜に自動生成・自動公開しています。</p></section>
 </div><footer><div class="wrap"><p class="disc">${escapeHtml(config.disclaimer)}</p><a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a></div></footer>
 </body></html>`;
 }
