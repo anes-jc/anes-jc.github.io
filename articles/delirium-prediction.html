@@ -7,14 +7,14 @@
 <link rel="canonical" href="https://anes-jc.github.io/articles/delirium-prediction.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="anes-jc">
-<meta property="og:title" content="ICU譫妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:title" content="ICUせん妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ">
 <meta property="og:description" content="COPD・呼吸不全の高齢ICU患者でせん妄を予測する機械学習モデルを解説。ROC・AUC、識別能、較正の違いを読みます。">
 <meta property="og:url" content="https://anes-jc.github.io/articles/delirium-prediction.html">
-<meta property="og:image" content="https://anes-jc.github.io/assets/og/delirium-prediction.png?v=20260617">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/delirium-prediction.png?v=20260618">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ICU譫妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:title" content="ICUせん妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ">
 <meta name="twitter:description" content="COPD・呼吸不全の高齢ICU患者でせん妄を予測する機械学習モデルを解説。ROC・AUC、識別能、較正の違いを読みます。">
-<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/delirium-prediction.png?v=20260617">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/delirium-prediction.png?v=20260618">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -23,13 +23,13 @@
     "@type": "WebPage",
     "@id": "https://anes-jc.github.io/articles/delirium-prediction.html"
   },
-  "headline": "ICUの譫妄を予測できるか — 機械学習モデルと ROC・AUC の読み方",
+  "headline": "ICUのせん妄を予測できるか — 機械学習モデルと ROC・AUC の読み方",
   "description": "COPD・呼吸不全の高齢ICU患者でせん妄を予測する機械学習モデルを解説。ROC・AUC、識別能、較正の違いを読みます。",
   "image": [
-    "https://anes-jc.github.io/assets/og/delirium-prediction.png?v=20260617"
+    "https://anes-jc.github.io/assets/og/delirium-prediction.png?v=20260618"
   ],
   "datePublished": "2026-06-17T00:00:00+09:00",
-  "dateModified": "2026-06-14T00:00:00+09:00",
+  "dateModified": "2026-06-18T00:00:00+09:00",
   "author": {
     "@type": "Organization",
     "name": "anes-jc"
@@ -41,7 +41,7 @@
   "inLanguage": "ja"
 }
 </script>
-<title>ICU譫妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<title>ICUせん妄を予測できるか — 機械学習モデル | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,10 +173,10 @@
     <div class="kicker">
       <a class="pill cls" href="../tags.html?tag=統計・手法">WED · 統計・手法</a>
       <a class="pill" href="../tags.html?tag=集中治療">集中治療</a>
-      <a class="pill" href="../tags.html?tag=譫妄">譫妄</a>
+      <a class="pill" href="../tags.html?tag=せん妄">せん妄</a>
       <a class="pill" href="../tags.html?tag=統合・予測・診断を読む"><span class="kl">統計 G06</span>統合・予測・診断を読む</a>
     </div>
-    <h1>ICUの譫妄を予測できるか — 機械学習モデルと ROC・AUC の読み方</h1>
+    <h1>ICUのせん妄を予測できるか — 機械学習モデルと ROC・AUC の読み方</h1>
     <div class="cite">
       Enhanced machine learning predictive modeling for delirium in elderly ICU patients with COPD and respiratory failure:<br>
       A retrospective study based on MIMIC-IV.<br>
@@ -191,7 +191,7 @@
   <div class="summary">
     <div class="lbl">30秒サマリー</div>
     <ul>
-      <li>COPD・呼吸不全でICUに入った65歳以上1,155例を用い、譫妄を予測する機械学習モデルを開発した後ろ向き研究。</li>
+      <li>COPD・呼吸不全でICUに入った65歳以上1,155例を用い、せん妄を予測する機械学習モデルを開発した後ろ向き研究。</li>
       <li>4つのモデルを比較し、XGBoost が最良。検証セットで <b>AUC 0.932</b>。</li>
       <li>今回の統計の山場 → <b>ROC曲線とAUC（識別能）</b>。そして「当てる力（識別）」と「確率が正しい（較正）」は別物、という視点。</li>
       <li>原著は較正指標を報告していない。識別能が高くても、較正・外部検証・予測時点より後の情報混入を確認する必要がある。</li>
@@ -201,8 +201,8 @@
   <!-- 01 -->
   <div class="sec">
     <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
-    <p>譫妄はICUで最も多い急性脳機能障害で、予後悪化・在院延長・コスト増につながります。とりわけCOPDと呼吸不全を併せ持つ高齢者は高リスクですが、この集団に特化した<b>早期予測ツール</b>はほとんどありませんでした。</p>
-    <p>「誰が譫妄を起こしそうか」を入室時点で見積もれれば、予防的ケアを先回りで集中投下できます。そこで大規模公開データベース（MIMIC-IV）を使い、機械学習で予測モデルを作ったのが本研究です。臨床の問いと同時に、<b>予測モデルをどう評価するか</b>という統計の作法を学ぶのに格好の題材です。</p>
+    <p>せん妄はICUで最も多い急性脳機能障害で、予後悪化・在院延長・コスト増につながります。とりわけCOPDと呼吸不全を併せ持つ高齢者は高リスクですが、この集団に特化した<b>早期予測ツール</b>はほとんどありませんでした。</p>
+    <p>「誰がせん妄を起こしそうか」を入室時点で見積もれれば、予防的ケアを先回りで集中投下できます。そこで大規模公開データベース（MIMIC-IV）を使い、機械学習で予測モデルを作ったのが本研究です。臨床の問いと同時に、<b>予測モデルをどう評価するか</b>という統計の作法を学ぶのに格好の題材です。</p>
   </div>
 
   <!-- 02 -->
@@ -212,7 +212,7 @@
       <div class="k">P</div><div class="v">COPD＋呼吸不全でICU入室した高齢者 1,155例（MIMIC-IV、2008–2019）</div>
       <div class="k">予測因子</div><div class="v">MIMIC-IVから抽出した人口統計・臨床・検査・治療データ。Lasso回帰とbest subsetで変数選択。利用可能時点が混在する</div>
       <div class="k">モデル</div><div class="v">k近傍法・ランダムフォレスト・ロジスティック回帰・<b>XGBoost</b> の4種を比較</div>
-      <div class="k">O</div><div class="v">ICU滞在中のICD-9/10診断コードによる譫妄。評価は<b>AUC・正確度・F1・適合率・再現率</b>、SHAPで寄与度を解釈</div>
+      <div class="k">O</div><div class="v">ICU滞在中のICD-9/10診断コードによるせん妄。評価は<b>AUC・正確度・F1・適合率・再現率</b>、SHAPで寄与度を解釈</div>
     </div>
   </div>
 
@@ -229,15 +229,15 @@
     <div class="stats">
       <div class="tag">STATS KEY · 統合・予測・診断を読む</div>
       <h3>ROC曲線とAUC、そして「識別」と「較正」は別物</h3>
-      <p>予測モデルの性能は、まず <b>ROC曲線</b>で見ます。これは閾値を動かしたときの「感度（本当に譫妄の人を当てる率）」と「1−特異度（譫妄でない人を誤って陽性とする率）」の関係を描いた曲線です。その曲線下の面積が <b>AUC</b>。</p>
+      <p>予測モデルの性能は、まず <b>ROC曲線</b>で見ます。これは閾値を動かしたときの「感度（本当にせん妄の人を当てる率）」と「1−特異度（せん妄でない人を誤って陽性とする率）」の関係を描いた曲線です。その曲線下の面積が <b>AUC</b>。</p>
       <div class="formula">
         AUC = 0.5 → でたらめ（コイン投げと同じ）<br>
         AUC = 0.7–0.8 → まずまず<br>
         AUC = 0.8–0.9 → 良好<br>
         AUC = <b>0.932</b> → 非常に高い識別能（本研究のXGBoost）
       </div>
-      <p>AUCの直感的な意味は「<b>譫妄になった人とならなかった人を1人ずつ取り出したとき、モデルが前者により高いリスクを付ける確率</b>」。0.932なら約93%の確率で正しく順序づけられる、という識別能の高さを表します。</p>
-      <p>ただしAUCが高い＝良いモデル、ではありません。AUCは<b>識別（discrimination：順位づけの能力）</b>しか見ていません。もう一つ<b>較正（calibration：予測した確率が実際の発生率と一致するか）</b>という軸があります。「80%と予測した人の実際に80%が譫妄になるか」が較正です。</p>
+      <p>AUCの直感的な意味は「<b>せん妄になった人とならなかった人を1人ずつ取り出したとき、モデルが前者により高いリスクを付ける確率</b>」。0.932なら約93%の確率で正しく順序づけられる、という識別能の高さを表します。</p>
+      <p>ただしAUCが高い＝良いモデル、ではありません。AUCは<b>識別（discrimination：順位づけの能力）</b>しか見ていません。もう一つ<b>較正（calibration：予測した確率が実際の発生率と一致するか）</b>という軸があります。「80%と予測した人の実際に80%がせん妄になるか」が較正です。</p>
       <div class="formula">
         識別（AUC）… 高リスクと低リスクを<b>区別</b>できるか<br>
         較正（calibration）… 予測<b>確率そのもの</b>が当たっているか<br>
@@ -250,7 +250,7 @@
   <!-- 05 -->
   <div class="sec">
     <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
-    <p>対象は1,155例。譫妄数は<b>抄録では149例（12.9%）、本文Resultsでは146例</b>と原著内で不一致があります。4モデルのうち <b>XGBoost が最良の識別能</b>を示し、検証セットでAUC 0.932、正確度0.891、適合率0.839、再現率0.795、F1スコア0.810でした。DCAは介入に有利な結果と著者らが報告していますが、較正は報告されていません。</p>
+    <p>対象は1,155例。せん妄数は<b>抄録では149例（12.9%）、本文Resultsでは146例</b>と原著内で不一致があります。4モデルのうち <b>XGBoost が最良の識別能</b>を示し、検証セットでAUC 0.932、正確度0.891、適合率0.839、再現率0.795、F1スコア0.810でした。DCAは介入に有利な結果と著者らが報告していますが、較正は報告されていません。</p>
     <p>SHAP解析で重要だった予測因子は、GCS言語スコア・在院日数・ICU初日の平均SpO₂・腎機能（MDRD）・平均拡張期血圧・GCS運動スコア・性別・非侵襲換気の時間など。<b>意識レベルと酸素化</b>が上位に来るのは臨床感覚とも合致します。</p>
   </div>
 
@@ -259,8 +259,8 @@
     <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
     <ul class="lims">
       <li>単一データベース（MIMIC-IV）の<b>内部検証のみ</b>。外部の別集団での性能は未確認で、過学習の可能性が残る。</li>
-      <li>後ろ向きデータで、譫妄はICD-9/10診断コードにより定義される。未診断・未記録例を見落とす可能性がある。</li>
-      <li>譫妄数が抄録149例、本文146例と一致しない。イベント数と性能指標の再現確認が必要。</li>
+      <li>後ろ向きデータで、せん妄はICD-9/10診断コードにより定義される。未診断・未記録例を見落とす可能性がある。</li>
+      <li>せん妄数が抄録149例、本文146例と一致しない。イベント数と性能指標の再現確認が必要。</li>
       <li>AUC 0.932は検証セット、0.921は10分割交差検証で報告された値。評価条件を区別して読む必要がある。</li>
       <li>予測因子に在院日数や非侵襲換気時間が含まれるため、「早期」に利用できる時点より後の情報が混入する時間的情報漏洩の懸念がある。</li>
       <li>較正曲線・較正指標が報告されておらず、個々の予測確率の正確さは判断できない。</li>
@@ -277,7 +277,7 @@
   <!-- 08 -->
   <div class="sec">
     <div class="sechd"><span class="no">08</span><h2>現代の視点</h2></div>
-    <p>現在の臨床予測モデル評価では、単一施設データのランダム分割で高いAUCを示すだけでは十分ではありません。対象患者をいつ識別し、どの時点までの変数で、いつ以後の譫妄を予測するのかを事前に固定する必要があります。外部・時間的検証、較正、欠測処理、クラス不均衡処理、臨床導入後の影響評価まで確認して、初めて実装可能性を論じられます。</p>
+    <p>現在の臨床予測モデル評価では、単一施設データのランダム分割で高いAUCを示すだけでは十分ではありません。対象患者をいつ識別し、どの時点までの変数で、いつ以後のせん妄を予測するのかを事前に固定する必要があります。外部・時間的検証、較正、欠測処理、クラス不均衡処理、臨床導入後の影響評価まで確認して、初めて実装可能性を論じられます。</p>
     <p>本モデルはコードが公開されている点は検証可能性を高めます。一方、在院日数を含むモデルを「早期予測」に使うには再設計が必要です。現時点ではベッドサイドの意思決定ツールではなく、将来の外部検証に値する開発モデルとして位置づけるのが妥当です。</p>
   </div>
 
@@ -309,7 +309,7 @@
     <div class="sechd"><span class="no">10</span><h2>明日からの臨床に活かすには</h2></div>
     <div class="take">
       <div class="lbl">TAKEAWAY</div>
-      <p>「AUC 0.9超えの譫妄予測モデル」という話を聞いたら、まず<b>予測時点・較正・外部検証</b>を確認する。識別能（AUC）が高くても、未来の情報が混入していたり、予測確率が未評価だったり、別集団で性能が落ちたりすれば、ベッドサイドでは使えません。本モデルを直接利用するのではなく、譫妄リスク評価と標準的な予防・モニタリングを丁寧に行う契機として読みます。</p>
+      <p>「AUC 0.9超えのせん妄予測モデル」という話を聞いたら、まず<b>予測時点・較正・外部検証</b>を確認する。識別能（AUC）が高くても、未来の情報が混入していたり、予測確率が未評価だったり、別集団で性能が落ちたりすれば、ベッドサイドでは使えません。本モデルを直接利用するのではなく、せん妄リスク評価と標準的な予防・モニタリングを丁寧に行う契機として読みます。</p>
     </div>
   </div>
 
@@ -318,8 +318,8 @@
     <div class="sechd"><span class="no">11</span><h2>インフォグラフィック</h2></div>
     <div class="info-wrap">
       <svg class="info" viewBox="0 0 760 580" role="img" aria-label="ROCとAUCの解説図">
-        <text x="40" y="46" font-family="'Noto Serif JP',serif" font-size="22" font-weight="700" fill="#15302D">ROC曲線とAUC ― 譫妄予測モデル</text>
-        <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">PLOS One 2025 · n=1,155 · 譫妄数は原著内不一致 · XGBoost</text>
+        <text x="40" y="46" font-family="'Noto Serif JP',serif" font-size="22" font-weight="700" fill="#15302D">ROC曲線とAUC ― せん妄予測モデル</text>
+        <text x="40" y="70" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">PLOS One 2025 · n=1,155 · せん妄数は原著内不一致 · XGBoost</text>
         <line x1="40" y1="86" x2="720" y2="86" stroke="#D9E0DC" stroke-width="1"/>
 
         <!-- ROC plot -->

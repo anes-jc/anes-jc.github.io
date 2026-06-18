@@ -77,7 +77,7 @@
     },
     {
       "id": "delirium-prediction",
-      "title": "ICUの譫妄を予測できるか",
+      "title": "ICUのせん妄を予測できるか",
       "doi": "10.1371/journal.pone.0319297",
       "pmid": "",
       "statKey": "AUC_CALIBRATION",

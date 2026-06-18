@@ -85,13 +85,13 @@ window.ARTICLES = [
   },
   {
     date: "2026.06.17", dow: "WED", status: "公開予定", live: false,
-    title: "ICUの譫妄を予測できるか — 機械学習モデルと ROC・AUC の読み方",
+    title: "ICUのせん妄を予測できるか — 機械学習モデルと ROC・AUC の読み方",
     url: "articles/delirium-prediction.html",
-    desc: "COPD・呼吸不全の高齢ICU患者で譫妄を予測する機械学習モデル（AUC 0.932）。統計の山場は「ROC・AUC」と、識別と較正は別物という視点。",
+    desc: "COPD・呼吸不全の高齢ICU患者でせん妄を予測する機械学習モデル（AUC 0.932）。統計の山場は「ROC・AUC」と、識別と較正は別物という視点。",
     dowTag: { label: "WED · 統計・手法", tag: "統計・手法" },
     tags: [
       { label: "集中治療", tag: "集中治療" },
-      { label: "譫妄", tag: "譫妄" },
+      { label: "せん妄", tag: "せん妄" },
       { label: "G06 統合・予測・診断を読む", tag: "統合・予測・診断を読む" }
     ]
   },
