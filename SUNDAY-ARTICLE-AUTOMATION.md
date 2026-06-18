@@ -20,6 +20,7 @@
 - 週次ページのレイアウトは通常記事と同じ固定ヘッダー、記事ヘッド（kicker・引用情報欄）、番号なしセクション、本文外フッターを使用する
 - 末尾セクションは「このページについて」とし、「このページは、週次の定点観測として毎週日曜に自動生成・自動公開しています。」のみを簡潔に表示する
 - 各論文には研究デザイン、抄録の日本語要約、英語タイトル、雑誌名、原文リンクを表示
+- OGP画像は `assets/og/latest-papers-YYYY-MM-DD.png` として記事ごとに生成し、タイトルと3論文の日本語テーマを表示する
 - 研究プロトコル、editorial、letter は最新論文3選から除外
 
 英語抄録全文やRSS専用ページは生成しません。
@@ -53,5 +54,5 @@ node scripts/generate-sunday-article.mjs
 - 月・水・金の記事追加方法と既存記事スキーマは変更しません。
 - 日曜記事は `data/sunday-articles.js` で別管理し、トップページとタグ一覧で通常記事として統合表示します。
 
-- Xリンクカードには assets/og/sunday-x-header.png を使用し、生成時にメタタグを自動設定します。
+- Xリンクカードには記事ごとの `assets/og/latest-papers-YYYY-MM-DD.png` を使用し、生成時にメタタグを自動設定します。
 - 検索向けに `BlogPosting` のJSON-LDを自動設定し、`scripts/generate-sitemap.mjs` で公開済みURLの sitemap を更新します。

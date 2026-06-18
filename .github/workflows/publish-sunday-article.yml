@@ -33,19 +33,33 @@ jobs:
         with:
           node-version: 22
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Sunday OGP image dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          python -m pip install --upgrade pip
+          python -m pip install pillow
+
       - name: Generate Sunday article
         run: node scripts/generate-sunday-article.mjs
+
+      - name: Generate Sunday OGP image
+        run: python scripts/generate-sunday-ogp.py "$(ls articles/latest-papers-*.html | sort | tail -n 1)"
 
       - name: Generate sitemap
         run: node scripts/generate-sitemap.mjs
 
       - name: Publish generated article
         run: |
-          if [ -z "$(git status --porcelain -- articles data/sunday-articles.js sitemap.xml)" ]; then
+          if [ -z "$(git status --porcelain -- articles assets/og data/sunday-articles.js sitemap.xml)" ]; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add articles data/sunday-articles.js sitemap.xml
+          git add articles assets/og data/sunday-articles.js sitemap.xml
           git commit -m "Publish Sunday latest papers article"
           git push

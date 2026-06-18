@@ -221,7 +221,7 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
   const pageTitle = "先週のまとめ｜最新論文3選";
   const pageDescription = `${period.start}から${period.end}の麻酔・集中治療領域の最新論文3選と、先週の記事一覧をまとめます。`;
   const pageUrl = `${siteUrl}/articles/latest-papers-${issueDate}.html`;
-  const imageUrl = `${siteUrl}/assets/og/sunday-x-header.png?v=${issueDate}`;
+  const imageUrl = `${siteUrl}/assets/og/latest-papers-${issueDate}.png?v=${issueDate}`;
   const structuredData = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
