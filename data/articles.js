@@ -61,7 +61,7 @@ window.ARTICLES = [
   },
   {
     date: "2026.06.22", dow: "MON", status: "公開予定", live: false,
-    title: "肩関節鏡手術のブロック選択：痛みと横隔膜のトレードオフ",
+    title: "上神経幹ブロックかESPBか：肩関節鏡手術での鎮痛と横隔膜への影響",
     url: "articles/shoulder-block-diaphragm.html",
     desc: "肩関節鏡手術60例のRCT。上神経幹ブロックは早期鎮痛に優れる一方、起立筋面ブロックは横隔膜運動を保ちやすい。",
     dowTag: { label: "MON · 新着RCT", tag: "新着RCT" },
