@@ -111,6 +111,8 @@
   .ptag:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
   .ptag.dow{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
   .ptag.dow:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .ptag.stat{color:var(--amber);border-color:#E4C9AF;background:#FFF7EF}
+  .ptag.stat:hover{background:var(--amber);color:#fff;border-color:var(--amber)}
   .post-arrow{font-size:20px;color:var(--line-strong);align-self:center}
   .post.upcoming{opacity:.6}
   .post.upcoming .post-arrow{visibility:hidden}
@@ -254,7 +256,7 @@
       <p class="lead">麻酔・集中治療領域の英語論文を題材に、臨床背景・研究デザイン・統計解析・リミテーション・結果の解釈までを一気通貫で扱います。原著のキーセンテンスを使った英語読解の枠も付けています。</p>
       <div class="sched">
         <div class="chip"><div class="day">SUN 日</div><div class="kind">先週のまとめ・最新論文3選</div></div>
-        <div class="chip"><div class="day">MON 月</div><div class="kind">新着RCT / メタ解析</div></div>
+        <div class="chip"><div class="day">MON 月</div><div class="kind">新着論文 / メタ解析</div></div>
         <div class="chip"><div class="day">WED 水</div><div class="kind">統計・研究手法の深掘り</div></div>
         <div class="chip"><div class="day">FRI 金</div><div class="kind">臨床を変えた古典論文</div></div>
       </div>
@@ -365,7 +367,8 @@
   function tagHtml(t){
     const m = t.label.match(/^(G0[1-6])\s+(.+)$/);
     const inner = m ? `<span style="opacity:.6">${esc(m[1])}</span> ${esc(m[2])}` : esc(t.label);
-    return `<a class="ptag" href="tags.html?tag=${encodeURIComponent(t.tag)}">${inner}</a>`;
+    const cls = t.kind ? ` ${esc(t.kind)}` : "";
+    return `<a class="ptag${cls}" href="tags.html?tag=${encodeURIComponent(t.tag)}">${inner}</a>`;
   }
   function cardHtml(a){
     const dow = a.dowTag

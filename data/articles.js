@@ -12,9 +12,9 @@
      live   : 公開日を基準に自動判定（公開中なら緑のラベルになる）
      title  : 記事のタイトル
      url    : 記事ファイルの場所（"articles/ファイル名.html"）
-     desc   : 一覧に出る短い説明
-     dowTag : 曜日タグの { label:表示文字, tag:リンク先タグ } 
-     tags   : タグの配列。各 { label:表示文字, tag:リンク先タグ }
+     desc   : 一覧に出る短い説明。「対象・デザイン・主要結果・読みどころ」の順にそろえる
+     dowTag : 曜日枠タグの { kind:"weekday", label:表示文字, tag:リンク先タグ }
+     tags   : タグの配列。臨床タグは kind:"clinical"、統計テーマタグは kind:"stat"
               （統計テーマは label に "G02 効果の大きさを読む" のように番号を付ける）
 
    ※ カンマや { } の対応がズレると表示されなくなります。
@@ -27,96 +27,96 @@ window.ARTICLES = [
     date: "2026.06.29", dow: "MON", status: "公開予定", live: false,
     title: "脊麻帝王切開の昇圧薬は何を選ぶか — ネットワークメタ解析で読む",
     url: "articles/cesarean-vasopressor-nma.html",
-    desc: "55RCT・5487例のネットワークメタ解析。低血圧予防、胎児酸塩基、SUCRA順位、エビデンスの確実性を読みます。",
-    dowTag: { label: "MON · 新着RCT/メタ解析", tag: "新着RCT" },
+    desc: "脊麻帝王切開を対象にした55RCT・5487例のネットワークメタ解析。metaraminolなどが低血圧予防で上位。読みどころはSUCRA順位と胎児アウトカムの確実性。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
     tags: [
-      { label: "麻酔", tag: "麻酔" },
-      { label: "産科麻酔", tag: "産科麻酔" },
-      { label: "G06 統合・予測・診断を読む", tag: "統合・予測・診断を読む" }
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "産科麻酔", tag: "産科麻酔" },
+      { kind: "stat", label: "G06 統合・予測・診断を読む", tag: "統合・予測・診断を読む" }
     ]
   },
   {
     date: "2026.06.26", dow: "FRI", status: "公開予定", live: false,
-    title: "周術期アスピリンは心血管イベントを防げるか — POISE-2 試験",
+    title: "周術期アスピリンは心血管イベントを防げるか — POISE-2試験と要因デザインの読み方",
     url: "articles/poise-2.html",
-    desc: "周術期アスピリンが心血管イベントを抑えるかを 2×2 要因デザインで検証した古典RCT（n=10,010）。主要評価項目は HR 0.99（p=0.92）で無効、むしろ大出血が増加（HR 1.23, p=0.04）。山場は要因デザインの読み方。",
-    dowTag: { label: "FRI · 古典", tag: "古典論文" },
+    desc: "心血管リスクのある非心臓手術患者を対象にした2×2要因RCT。アスピリンは30日死亡/心筋梗塞を減らさず、大出血を増やした。読みどころは要因デザインとHR。",
+    dowTag: { kind: "weekday", label: "FRI · 古典論文", tag: "古典論文" },
     tags: [
-      { label: "麻酔", tag: "麻酔" },
-      { label: "周術期心臓管理", tag: "周術期心臓管理" },
-      { label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "周術期心臓管理", tag: "周術期心臓管理" },
+      { kind: "stat", label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
     ]
   },
   {
     date: "2026.06.24", dow: "WED", status: "公開予定", live: false,
     title: "術中NSAIDsはAKIを増やすか — 傾向スコアマッチングで読む観察研究",
     url: "articles/nsaid-aki-psm.html",
-    desc: "大非心臓手術11,139例の後ろ向きコホート。PSM後、AKIは4.2% vs 4.2%。統計の山場は傾向スコアマッチングと残余交絡です。",
-    dowTag: { label: "WED · 統計・手法", tag: "統計・手法" },
+    desc: "待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%。読みどころは傾向スコアと残余交絡。",
+    dowTag: { kind: "weekday", label: "WED · 統計・手法", tag: "統計・手法" },
     tags: [
-      { label: "麻酔", tag: "麻酔" },
-      { label: "周術期鎮痛", tag: "周術期鎮痛" },
-      { label: "G04 バイアスと交絡を読む", tag: "バイアスと交絡を読む" }
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "周術期鎮痛", tag: "周術期鎮痛" },
+      { kind: "stat", label: "G04 バイアスと交絡を読む", tag: "バイアスと交絡を読む" }
     ]
   },
   {
     date: "2026.06.22", dow: "MON", status: "公開予定", live: false,
-    title: "上神経幹ブロックかESPBか：肩関節鏡手術での鎮痛と横隔膜への影響",
+    title: "上神経幹ブロックかESPBか — 肩関節鏡手術での鎮痛と横隔膜機能",
     url: "articles/shoulder-block-diaphragm.html",
-    desc: "肩関節鏡手術60例のRCT。上神経幹ブロックは早期鎮痛に優れる一方、起立筋面ブロックは横隔膜運動を保ちやすい。",
-    dowTag: { label: "MON · 新着RCT", tag: "新着RCT" },
+    desc: "肩関節鏡手術60例を対象にした単施設RCT。STBは早期鎮痛に優れ、ESPBは横隔膜運動を保ちやすい。読みどころは複数主要アウトカム。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
     tags: [
-      { label: "麻酔", tag: "麻酔" },
-      { label: "区域麻酔", tag: "区域麻酔" },
-      { label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "区域麻酔", tag: "区域麻酔" },
+      { kind: "stat", label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
     ]
   },
   {
     date: "2026.06.19", dow: "FRI", status: "公開予定", live: false,
-    title: "肺を守る人工呼吸 — ARDSNet 試験と早期中止の読み方",
+    title: "肺を守る人工呼吸 — ARDSNet（ARMA）試験と早期中止の読み方",
     url: "articles/ardsnet.html",
-    desc: "ARDSで一回換気量を 6 vs 12 mL/kg で比較した古典RCT。死亡 31.0% vs 39.8%（絶対差8.8ポイント）。統計の山場は「試験の早期中止」をどう読むか。",
-    dowTag: { label: "FRI · 古典", tag: "古典論文" },
+    desc: "ARDS/急性肺損傷861例を対象にした多施設RCT。低一回換気量は死亡31.0% vs 39.8%に低下。読みどころは中間解析と早期中止。",
+    dowTag: { kind: "weekday", label: "FRI · 古典論文", tag: "古典論文" },
     tags: [
-      { label: "集中治療", tag: "集中治療" },
-      { label: "人工呼吸", tag: "人工呼吸" },
-      { label: "G03 不確実性を読む", tag: "不確実性を読む" }
+      { kind: "clinical", label: "集中治療", tag: "集中治療" },
+      { kind: "clinical", label: "人工呼吸", tag: "人工呼吸" },
+      { kind: "stat", label: "G03 不確実性を読む", tag: "不確実性を読む" }
     ]
   },
   {
     date: "2026.06.17", dow: "WED", status: "公開予定", live: false,
-    title: "ICUのせん妄を予測できるか — 機械学習モデルと ROC・AUC の読み方",
+    title: "ICUのせん妄を予測できるか — 機械学習モデルとROC・AUCの読み方",
     url: "articles/delirium-prediction.html",
-    desc: "COPD・呼吸不全の高齢ICU患者でせん妄を予測する機械学習モデル（AUC 0.932）。統計の山場は「ROC・AUC」と、識別と較正は別物という視点。",
-    dowTag: { label: "WED · 統計・手法", tag: "統計・手法" },
+    desc: "COPD・呼吸不全の高齢ICU患者を対象にした機械学習予測モデル研究。せん妄予測AUCは0.932。読みどころはROC・AUCと較正。",
+    dowTag: { kind: "weekday", label: "WED · 統計・手法", tag: "統計・手法" },
     tags: [
-      { label: "集中治療", tag: "集中治療" },
-      { label: "せん妄", tag: "せん妄" },
-      { label: "G06 統合・予測・診断を読む", tag: "統合・予測・診断を読む" }
+      { kind: "clinical", label: "集中治療", tag: "集中治療" },
+      { kind: "clinical", label: "せん妄", tag: "せん妄" },
+      { kind: "stat", label: "G06 統合・予測・診断を読む", tag: "統合・予測・診断を読む" }
     ]
   },
   {
     date: "2026.06.15", dow: "MON", status: "公開予定", live: false,
-    title: "オピオイドを使わない全身麻酔は高齢者の合併症を減らすか",
+    title: "オピオイドを使わない全身麻酔は高齢者の合併症を減らすか — OFA vs OBA試験",
     url: "articles/ofa-elderly.html",
-    desc: "高齢者の短時間手術で OFA と従来麻酔を比較した新着RCT。複合アウトカム 25.0% vs 43.5%（NNT 6）。統計の山場は「複合アウトカムの読み方」。",
-    dowTag: { label: "MON · 新着RCT", tag: "新着RCT" },
+    desc: "60歳以上の短時間手術400例を対象にした単施設RCT。OFAは複合合併症25.0% vs 43.5%に低下。読みどころは複合アウトカムとNNT。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
     tags: [
-      { label: "麻酔", tag: "麻酔" },
-      { label: "オピオイドフリー麻酔", tag: "オピオイドフリー麻酔" },
-      { label: "G02 効果の大きさを読む", tag: "効果の大きさを読む" }
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "オピオイドフリー麻酔", tag: "オピオイドフリー麻酔" },
+      { kind: "stat", label: "G02 効果の大きさを読む", tag: "効果の大きさを読む" }
     ]
   },
   {
     date: "2026.06.12", dow: "FRI", status: "公開中", live: true,
-    title: "血糖をどこまで下げるか — NICE-SUGAR 試験",
+    title: "血糖をどこまで下げるか — NICE-SUGAR試験",
     url: "articles/nice-sugar.html",
-    desc: "重症患者の強化インスリン療法は本当に有益か。90日死亡をアウトカムにした大規模RCT。統計の山場は「絶対リスク差とNNH」。英語読解枠つき。",
-    dowTag: { label: "FRI · 古典", tag: "古典論文" },
+    desc: "重症患者6,104例を対象にした大規模RCT。強化血糖管理は90日死亡を27.5% vs 24.9%に増やした。読みどころは絶対リスク差とNNH。",
+    dowTag: { kind: "weekday", label: "FRI · 古典論文", tag: "古典論文" },
     tags: [
-      { label: "集中治療", tag: "集中治療" },
-      { label: "血糖管理", tag: "血糖管理" },
-      { label: "G02 効果の大きさを読む", tag: "効果の大きさを読む" }
+      { kind: "clinical", label: "集中治療", tag: "集中治療" },
+      { kind: "clinical", label: "血糖管理", tag: "血糖管理" },
+      { kind: "stat", label: "G02 効果の大きさを読む", tag: "効果の大きさを読む" }
     ]
   }
 ];

@@ -1,4 +1,4 @@
-﻿import fs from "node:fs";
+import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
@@ -219,7 +219,7 @@ async function fetchLatestPapers(period, config) {
 
 function renderPage({ config, issueDate, period, siteArticles, papers }) {
   const pageTitle = "先週のまとめ｜最新論文3選";
-  const pageDescription = `${period.start}から${period.end}の麻酔・集中治療領域の最新論文3選と、先週の記事一覧をまとめます。`;
+  const pageDescription = `${period.start}から${period.end}の公開記事と最新論文3選をまとめる週次記事。選定論文と読みどころを短く確認できます。`;
   const pageUrl = `${siteUrl}/articles/latest-papers-${issueDate}.html`;
   const imageUrl = `${siteUrl}/assets/og/latest-papers-${issueDate}.png?v=${issueDate}`;
   const structuredData = JSON.stringify({
@@ -299,9 +299,9 @@ function writeRegistry(issueDate, slug) {
     date: issueDate.replaceAll("-", "."), dow: "SUN", status: "公開中", live: true,
     title: "先週のまとめ｜最新論文3選",
     url,
-    desc: "先週の記事一覧と、麻酔・集中治療領域の注目テーマがわかる最新論文3選。",
-    dowTag: { label: "SUN · 先週のまとめ", tag: "先週のまとめ" },
-    tags: [{ label: "最新論文", tag: "最新論文" }],
+    desc: "対象期間の公開記事と最新論文3選をまとめる週次記事。選定論文と読みどころを短く確認できます。",
+    dowTag: { kind: "weekday", label: "SUN · 先週のまとめ", tag: "先週のまとめ" },
+    tags: [{ kind: "clinical", label: "最新論文", tag: "最新論文" }],
   }, ...articles.filter((article) => article.url !== url)];
   fs.writeFileSync(registryPath, `window.SUNDAY_ARTICLES = ${JSON.stringify(next, null, 2)};\n`, "utf8");
 }

@@ -60,6 +60,10 @@
   .ptag{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--teal-deep);border:1px solid var(--line-strong);border-radius:2px;padding:3px 9px;text-decoration:none;transition:.12s}
   .ptag.cur{background:var(--teal);color:#fff;border-color:var(--teal)}
   .ptag:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .ptag.weekday{color:#fff;border-color:var(--ink);background:var(--ink)}
+  .ptag.weekday:hover,.ptag.weekday.cur{background:var(--teal-deep);color:#fff;border-color:var(--teal-deep)}
+  .ptag.stat{color:var(--amber);border-color:#E4C9AF;background:#FFF7EF}
+  .ptag.stat:hover,.ptag.stat.cur{background:var(--amber);color:#fff;border-color:var(--amber)}
   .post-arrow{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:18px;color:var(--line-strong);align-self:center;text-decoration:none;transition:.15s}
   .post:hover .post-arrow{color:#fff;background:var(--teal)}
   @media(max-width:640px){
@@ -130,11 +134,11 @@
 <script src="data/articles.js"></script>
 <script>
   // 記事リストは data/articles.js（window.ARTICLES）を共通利用する。
-  // このページではタグ照合用に、各記事のタグを文字列の配列へ変換する。
+  // このページではタグ照合用に、各記事のタグ種別も保持する。
   const ARTICLES = (window.ARTICLES || []).map(a=>{
     const tagList = [];
-    if (a.dowTag) tagList.push(a.dowTag.tag);
-    (a.tags || []).forEach(t=>tagList.push(t.tag));
+    if (a.dowTag) tagList.push({ tag:a.dowTag.tag, kind:a.dowTag.kind || "weekday" });
+    (a.tags || []).forEach(t=>tagList.push({ tag:t.tag, kind:t.kind || "clinical" }));
     return {
       date:a.date, dow:a.dow, status:a.status, live:a.live,
       title:a.title, url:a.url, desc:a.desc,
@@ -188,13 +192,14 @@
     setMeta('meta[name="twitter:description"]', pageDescription);
     setHref('link[rel="canonical"]', pageUrl);
     tagnameEl.innerHTML = GROUP_NO[tag] ? `<span style="opacity:.55">${GROUP_NO[tag]}</span> ${esc(tag)}` : esc(tag);
-    const rows = ARTICLES.filter(a=>a.tags.includes(tag));
+    const rows = ARTICLES.filter(a=>a.tags.some(t=>t.tag === tag));
     subEl.textContent = rows.length ? `${rows.length} 件の記事` : "0 件";
     if(rows.length){
       feedEl.innerHTML = rows.map(a=>{
-        const tagHtml = a.tags.map(t=>{
-          const cur = t===tag ? " cur" : "";
-          return `<a class="ptag${cur}" href="tags.html?tag=${encodeURIComponent(t)}">${tagLabel(t)}</a>`;
+        const tagHtml = a.tags.map(item=>{
+          const cur = item.tag===tag ? " cur" : "";
+          const cls = item.kind ? ` ${esc(item.kind)}` : "";
+          return `<a class="ptag${cls}${cur}" href="tags.html?tag=${encodeURIComponent(item.tag)}">${tagLabel(item.tag)}</a>`;
         }).join("");
         return `<article class="post ${a.live?'live':''}">
           <div class="post-meta">${a.date} ${a.dow}<span class="st">${a.status}</span></div>
@@ -217,7 +222,9 @@
   }
 
   // すべてのテーマ（統計6カテゴリ＋記事に付いた臨床タグ）
-  const clinicalTags = [...new Set(ARTICLES.flatMap(a=>a.tags).filter(t=>!STAT_THEMES.includes(t)))];
+  const clinicalTags = [...new Set(ARTICLES.flatMap(a=>a.tags)
+    .filter(t=>!STAT_THEMES.includes(t.tag) && t.kind !== "weekday")
+    .map(t=>t.tag))];
   const cloud = document.getElementById("cloud");
   const ordered = [...STAT_THEMES, ...clinicalTags];
   cloud.innerHTML = ordered.map(t=>`<a href="tags.html?tag=${encodeURIComponent(t)}">${tagLabel(t)}</a>`).join("");

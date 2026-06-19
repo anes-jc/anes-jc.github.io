@@ -23,7 +23,7 @@
 <style>
   :root{
     --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
-    --teal:#0F766E;--teal-deep:#0B4F4A;--muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
@@ -54,6 +54,8 @@
   .ptag:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
   .ptag.dow{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
   .ptag.dow:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .ptag.stat{color:var(--amber);border-color:#E4C9AF;background:#FFF7EF}
+  .ptag.stat:hover{background:var(--amber);color:#fff;border-color:var(--amber)}
   .post-arrow{font-size:20px;color:var(--line-strong);align-self:center}
   .empty{border:1px solid var(--line);background:var(--paper-2);border-radius:3px;padding:24px;color:var(--muted)}
   footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--muted);font-size:12px}
@@ -123,7 +125,8 @@
   function tagHtml(t){
     const m = t.label.match(/^(G0[1-6])\s+(.+)$/);
     const inner = m ? `<span style="opacity:.6">${esc(m[1])}</span> ${esc(m[2])}` : esc(t.label);
-    return `<a class="ptag" href="tags.html?tag=${encodeURIComponent(t.tag)}">${inner}</a>`;
+    const cls = t.kind ? ` ${esc(t.kind)}` : "";
+    return `<a class="ptag${cls}" href="tags.html?tag=${encodeURIComponent(t.tag)}">${inner}</a>`;
   }
   function cardHtml(a){
     const dow = a.dowTag
