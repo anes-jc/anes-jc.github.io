@@ -1,2 +1,14 @@
 output/
 .fuse_hidden*
+
+# Local/internal operation files. Keep these on the workstation but do not
+# publish them in the public GitHub Pages repository.
+README.md
+HOW-TO-ADD-ARTICLE.md
+ANALYTICS-SETUP.md
+SCHEDULE-PAGE.md
+SUNDAY-ARTICLE-AUTOMATION.md
+data/classics.json
+data/history.json
+data/paper-selection-policy.json
+data/stat-themes.json
