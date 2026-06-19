@@ -1,0 +1,46 @@
+name: Refresh derived feeds
+
+on:
+  schedule:
+    # GitHub cron uses UTC. 15:10 UTC is 00:10 JST.
+    - cron: "10 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+concurrency:
+  group: refresh-derived-feeds
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SITE_URL: https://anes-jc.github.io
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate sitemap and RSS feed
+        run: |
+          node scripts/generate-sitemap.mjs
+          node scripts/generate-rss.mjs
+
+      - name: Publish derived feed changes
+        run: |
+          if [ -z "$(git status --porcelain -- sitemap.xml feed.xml)" ]; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml feed.xml
+          git commit -m "Refresh sitemap and RSS feed"
+          git push

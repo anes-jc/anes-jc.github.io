@@ -53,13 +53,16 @@ jobs:
       - name: Generate sitemap
         run: node scripts/generate-sitemap.mjs
 
+      - name: Generate RSS feed
+        run: node scripts/generate-rss.mjs
+
       - name: Publish generated article
         run: |
-          if [ -z "$(git status --porcelain -- articles assets/og data/sunday-articles.js sitemap.xml)" ]; then
+          if [ -z "$(git status --porcelain -- articles assets/og data/sunday-articles.js sitemap.xml feed.xml)" ]; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add articles assets/og data/sunday-articles.js sitemap.xml
+          git add articles assets/og data/sunday-articles.js sitemap.xml feed.xml
           git commit -m "Publish Sunday latest papers article"
           git push
