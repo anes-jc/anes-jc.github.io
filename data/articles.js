@@ -61,7 +61,7 @@ window.ARTICLES = [
   },
   {
     date: "2026.06.22", dow: "MON", status: "公開予定", live: false,
-    title: "上神経幹ブロックかESPBか — 肩関節鏡手術での鎮痛と横隔膜機能",
+    title: "上神経幹 vs ESPB — 肩関節鏡手術での鎮痛と横隔神経麻痺",
     url: "articles/shoulder-block-diaphragm.html",
     desc: "肩関節鏡手術60例を対象にした単施設RCT。STBは早期鎮痛に優れ、ESPBは横隔膜運動を保ちやすい。読みどころは複数主要アウトカム。",
     dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
