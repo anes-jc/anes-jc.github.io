@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.01", dow: "WED", status: "公開予定", live: false,
+    title: "レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence",
+    url: "articles/remimazolam-eeg-regression.html",
+    desc: "レミマゾラムTIVA中の成人69例で、年齢が高いほどα/β/γ帯域パワーが低く、相対δ/θ帯域やcoherenceも変化した研究。PSIだけでは見えにくい脳波の年齢差を単回帰で読む。",
+    dowTag: { kind: "weekday", label: "WED · 統計の手法", tag: "統計の手法" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "脳波モニタリング", tag: "脳波モニタリング" },
+      { kind: "stat", label: "G02 効果の大きさを読む", tag: "効果の大きさを読む" }
+    ]
+  },
+  {
     date: "2026.06.29", dow: "MON", status: "公開予定", live: false,
     title: "脊麻帝王切開の昇圧薬は何を選ぶか — ネットワークメタ解析で読む",
     url: "articles/cesarean-vasopressor-nma.html",

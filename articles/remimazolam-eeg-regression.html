@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="レミマゾラムTIVA中の成人69例で、年齢が高いほどα/β/γ帯域パワーが低く、相対δ/θ帯域やcoherenceも変化した研究。PSIだけでは見えにくい脳波の年齢差を回帰分析で読む。">
+<meta name="robots" content="noindex,nofollow" data-draft-only="true">
+<link rel="canonical" href="https://anes-jc.github.io/articles/remimazolam-eeg-regression.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="レミマゾラムTIVA中の成人69例で、年齢が高いほどα/β/γ帯域パワーが低く、相対δ/θ帯域やcoherenceも変化した研究。PSIだけでは見えにくい脳波の年齢差を回帰分析で読む。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/remimazolam-eeg-regression.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/remimazolam-eeg-regression.png?v=20260701">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="レミマゾラムTIVA中の成人69例で、年齢が高いほどα/β/γ帯域パワーが低く、相対δ/θ帯域やcoherenceも変化した研究。PSIだけでは見えにくい脳波の年齢差を回帰分析で読む。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/remimazolam-eeg-regression.png?v=20260701">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/remimazolam-eeg-regression.html"
+  },
+  "headline": "レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence",
+  "description": "レミマゾラムTIVA中の成人69例で、年齢が高いほどα/β/γ帯域パワーが低く、相対δ/θ帯域やcoherenceも変化した研究。PSIだけでは見えにくい脳波の年齢差を回帰分析で読む。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/remimazolam-eeg-regression.png?v=20260701"
+  ],
+  "datePublished": "2026-07-01T00:00:00+09:00",
+  "dateModified": "2026-07-01T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
+<title>レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
+<link rel="stylesheet" href="../assets/article-toc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(27px,5vw,39px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .draft-notice{border:1px solid #E4C9AF;border-left:4px solid var(--amber);background:#FFF4EA;border-radius:3px;padding:14px 16px;margin:20px 0 0;color:var(--ink-soft);font-size:13px;line-height:1.7}
+  .draft-notice strong{display:block;color:var(--amber);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;margin-bottom:4px}
+  .published .draft-notice{display:none}
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBcb3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBcb3}
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+  .pico{display:grid;grid-template-columns:104px 1fr;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  .result-card{background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:18px}
+  .result-card .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.09em;margin-bottom:8px}
+  .result-card .num{font-family:"Noto Serif JP",serif;font-size:28px;font-weight:700;color:var(--teal-deep);line-height:1.15}
+  .result-card .sub{font-size:13px;color:var(--muted);margin-top:7px}
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+  .en{background:#EAF4F2;border:1px solid #BFD8D3;border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{background:rgba(255,255,255,.42);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:12px 14px 12px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  @media(max-width:560px){
+    .bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.brand .dot{width:7px;height:7px;flex-shrink:0}.back{font-size:12px;white-space:nowrap;flex-shrink:0}
+    .wrap{padding:0 18px}.pico{grid-template-columns:78px 1fr}.summary{padding:24px 22px}.stats{padding:22px 20px}.result-grid{grid-template-columns:1fr}
+    .en{padding:20px 18px}.vocab,.vocab tbody,.vocab tr,.vocab td{display:block;width:100%}.vocab thead{display:none}.vocab tr{border-bottom:1px solid var(--line);padding:12px 0}.vocab td{border-bottom:0;padding:0}.vocab td:first-child{white-space:normal;font-size:14px;line-height:1.45;margin-bottom:5px}.vocab td:last-child{font-size:14px;line-height:1.7}
+  }
+</style>
+<script src="../assets/analytics-config.js"></script>
+<script src="../assets/analytics.js" defer></script>
+<script src="../assets/article-toc.js" defer></script>
+<script src="../assets/draft-gate.js" data-publish-date="2026-07-01" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../articles.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="draft-notice" data-draft-notice data-publish-date="2026-07-01" role="note">
+    <strong>PUBLICATION DRAFT</strong>
+    この記事は公開予定日前の下書き表示です。公開予定日は2026年7月1日です。正式公開前のため、内容が変更される場合があります。
+  </div>
+
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=統計・手法">WED · 統計・手法</a>
+      <a class="pill" href="../tags.html?tag=麻酔">麻酔</a>
+      <a class="pill" href="../tags.html?tag=脳波モニタリング">脳波モニタリング</a>
+      <a class="pill" href="../tags.html?tag=効果の大きさを読む"><span class="kl">統計 G02</span>効果の大きさを読む</a>
+    </div>
+    <h1>レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence</h1>
+    <div class="cite">
+      Bae J, Bae MI, Han DW, Kwon J, Song Y.<br>
+      Age-dependent electroencephalogram alterations under remimazolam anesthesia.<br>
+      Korean J Anesthesiol. 2026;79(3):318-331. · PMID: 41873221 · DOI: 10.4097/kja.25686
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/41873221/" target="_blank" rel="noopener">PubMed →</a>
+      <a class="lnk" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13247345/" target="_blank" rel="noopener">原著（全文・OA）→</a>
+      <a class="lnk" href="https://doi.org/10.4097/kja.25686" target="_blank" rel="noopener">DOI →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>この研究の問いは、レミマゾラムTIVA中のEEGが年齢でどう変わるかです。PSI 25-50を目標に管理された成人69例で、切開前10分間の前頭部EEGを解析しました。</li>
+      <li>高齢ほど、絶対α・β・γ帯域パワーは低下しました。一方で相対δ・θ帯域パワーは増え、相対α・β帯域パワーは低下しました。全体として、速い成分やα/β成分が弱く、遅い成分の割合が増える方向です。</li>
+      <li>前頭部coherenceとSEFも年齢とともに低下しましたが、PSIとBSRは年齢との有意な関連を示しませんでした。つまり、processed indexだけでは見えにくい脳波の年齢差がありました。</li>
+      <li>回帰分析は、年齢を連続変数として扱い、各EEG指標が平均でどちらへ動くかを要約しています。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>レミマゾラムは、全静脈麻酔に使われるベンゾジアゼピン系の麻酔薬です。臨床ではPSIやBISのようなprocessed EEGを見ながら麻酔深度を調整します。ただし、これらの指数は脳波の周波数構成を要約した数字なので、同じ数値でも背景にあるraw EEGやスペクトルが同じとは限りません。</p>
+    <p>高齢患者では、プロポフォールや揮発性麻酔薬でもEEGの振幅や周波数成分が変わることが知られています。では、レミマゾラムでPSIを目標範囲に保ったとき、高齢者のEEGは若年者と同じように見えるのでしょうか。この論文は、そこを前頭部EEGの周波数パワー、coherence、SEFで見にいった研究です。</p>
+    <p>臨床的には、同じprocessed EEGの値でも、背後にあるraw EEGやスペクトルが年齢によって異なる可能性があります。レミマゾラムは比較的新しい静脈麻酔薬で、プロポフォールや揮発性麻酔薬ほど、年齢とEEG変化の関係が整理されていません。この不足が、本研究の臨床的背景です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>研究上の問い</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">レミマゾラムベースの全身麻酔を受けた19歳以上の成人。最終解析は69例、若年・中年・高齢の3群に各23例。</div>
+      <div class="k">曝露</div><div class="v">年齢。連続変数として解析し、補助的に若年&lt;45歳、中年45-65歳、高齢>=65歳に分類。</div>
+      <div class="k">O</div><div class="v">麻酔導入後、手術切開前の10分間EEGから得た絶対/相対周波数パワー、前頭部coherence、aperiodic component、BSR、PSI、SEF。</div>
+      <div class="k">解析</div><div class="v">線形回帰で回帰係数と95%信頼区間を算出。Pearson相関でrを算出。回帰係数は10歳増加あたりの変化量として表示。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>これはRCTではなく前向き観察研究です。成人患者を登録し、レミマゾラムとレミフェンタニルで麻酔を行い、SEDLineで前頭部EEGを記録しました。解析対象は、導入5分後から手術切開前までの10分間です。つまり、術中全体ではなく、侵襲刺激が入る前の比較的そろった時間帯を見ています。</p>
+    <p>EEGは、δ 1-4 Hz、θ 4-8 Hz、α 8-13 Hz、β 13-30 Hz、γ 30-50 Hzに分けて解析されました。周波数パワーとは、raw EEGを周波数ごとに分解したとき、その帯域の波がどれだけ強く含まれているかを表す量です。日常語の「電力」でも、ある瞬間の電位そのものでもなく、EEG電位差信号の揺れの大きさ（おおまかには振幅の二乗）を周波数帯ごとに見た指標です。絶対パワーはその帯域の強さ、相対パワーは1-50 Hz全体の中でその帯域が占める割合です。coherenceは、前頭部チャンネル間で同じ周波数帯がどれくらい同期しているかを表します。SEF（spectral edge frequency）は、脳波パワーの大部分がその周波数以下に収まる境界を示す指標です。</p>
+    <p>麻酔はPSI 25-50を目標に調整されました。ここが重要です。年齢でEEGが違って見えても、それが年齢そのものの神経生理なのか、レミマゾラム濃度や投与調整の違いなのか、併存症の違いなのかは完全には分けられません。この研究は「高齢者ではこういうEEGの見え方になりやすい」という観察です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY · G02 効果の大きさを読む</div>
+      <h3>単回帰で、年齢とEEG指標の関連を見る</h3>
+      <p>この研究では、各EEG指標を年齢に対して線形回帰しました。目的は「高齢群と若年群で違うか」だけでなく、年齢が連続的に高くなるにつれて、脳波指標が平均でどの方向へどれくらい動くかを読むことです。</p>
+      <div class="formula">
+        EEG指標 = β0 + β1 × 年齢 + 誤差<br>
+        β1 = 年齢が1単位増えたとき、EEG指標が平均でどれだけ変わるか
+      </div>
+      <p>この解析は、年齢だけを説明変数にした単回帰です。たとえば絶対α帯域パワーの回帰係数は -0.957 dBです。これは、年齢が10歳高いと、α波成分のパワーが平均で約0.96 dB低い、という読み方です。β帯域パワーも同じ方向で、10歳あたり -0.922 dBでした。</p>
+      <p>相関係数 r は、関係の向きと強さを -1 から +1 で表します。回帰係数は「どれだけ変わるか」、rは「どれくらい直線的に並ぶか」です。今回のような脳波論文では、まず何の帯域がどちらへ動いたかを読み、そのあとに回帰係数、95%信頼区間、r、P値を確認すると理解しやすくなります。</p>
+      <p>もう一つ大事なのは、回帰線は因果も外挿も保証しないことです。今回の対象は19歳以上の手術患者69例で、重い神経疾患を持つ患者は除外されています。この線を、超高齢者、神経疾患患者、別の麻酔薬、別のモニタへそのまま伸ばしてはいけません。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="lbl">Absolute α-band power</div>
+        <div class="num">-0.957 dB</div>
+        <div class="sub">10歳増加あたり。95%CI -1.464 to -0.450、P&lt;0.001、r=-0.412。</div>
+      </div>
+      <div class="result-card">
+        <div class="lbl">Absolute β-band power</div>
+        <div class="num">-0.922 dB</div>
+        <div class="sub">10歳増加あたり。95%CI -1.349 to -0.494、P&lt;0.001、r=-0.459。</div>
+      </div>
+      <div class="result-card">
+        <div class="lbl">Relative θ-band power</div>
+        <div class="num">+0.009</div>
+        <div class="sub">10歳増加あたり。95%CI 0.004 to 0.013、P&lt;0.001、r=0.433。</div>
+      </div>
+      <div class="result-card">
+        <div class="lbl">SEF</div>
+        <div class="num">-0.565</div>
+        <div class="sub">10歳増加あたり。95%CI -0.878 to -0.253、P&lt;0.001、r=-0.397。</div>
+      </div>
+    </div>
+    <p>結果を一言でいうと、年齢が高いほど「速い成分とα/β成分が弱く、遅い成分の比率が高い」EEGに見えました。絶対α・β・γ帯域パワーは年齢とともに低下しました。相対パワーでは、δ帯域とθ帯域が年齢とともに増え、α帯域とβ帯域は低下しました。</p>
+    <p>さらに、前頭部coherenceもδ、θ、α、β帯域で年齢と負の相関を示しました。coherence低下は、単に「パワーが小さい」だけでなく、前頭部間の周波数特異的な同期性も弱く見えた、という読みになります。SEFも年齢とともに低下し、10歳あたり -0.565 でした。</p>
+    <p>一方で、PSIとBSRは年齢との有意な関連を示しませんでした。BSRは全群で平均値がほぼゼロに近く、深いburst suppressionが主要な説明ではなさそうです。つまり、PSI目標下で指数が大きく変わらなくても、背後のスペクトルやcoherenceには年齢差が出ていました。</p>
+    <p>年齢群で比べる解析でも、絶対α帯域パワー、絶対β帯域パワー、相対θ帯域パワー、δ帯域coherence、SEFなどに群間差が見られました。ただし、群分けは連続的な年齢情報を粗くするため、この記事では連続変数としての年齢を回帰で読む点を重視します。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>レミマゾラムの血漿濃度や効果部位濃度は測定されていません。年齢差が薬物動態・薬力学の違いを反映している可能性があります。</li>
+      <li>レミマゾラムは固定用量ではなく、PSI 25-50を目標に調整されました。投与量とEEGの関係をきれいに分離できません。</li>
+      <li>全患者がレミフェンタニルを受けており、EEG指標に影響した可能性があります。</li>
+      <li>高齢群では高血圧や糖尿病などの併存症が多く、年齢そのものと併存症の影響を完全には分けられません。</li>
+      <li>麻酔深度、術中覚醒、術後認知機能などの機能的アウトカムにはつながっていません。</li>
+      <li>多数のEEG指標を解析しているため、個々のP値だけで結論を強く言い切るべきではありません。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>臨床的には、「高齢者ではレミマゾラム下のEEGが若年者と同じようには見えないかもしれない」と読むのがよさそうです。PSIが目標範囲でも、raw EEGやスペクトログラムではα/β帯域の弱さ、相対δ/θ帯域の増加、coherence低下、SEF低下が隠れている可能性があります。</p>
+    <p>ただし、この研究は「高齢者ではレミマゾラムをどれだけ減らすべきか」を直接答える研究ではありません。レミマゾラムの血漿濃度は測定されておらず、投与はPSI目標に合わせて調整されています。年齢、併存症、薬物動態、投与調整が絡むので、回帰線が右下がりだからといって「年齢だけが原因」とは言えません。</p>
+    <p>統計の学びとしては、まず「何を目的変数にして、何を説明変数にした単回帰か」を確認することが重要です。そのうえで、回帰係数を読める単位に直すと、「P&lt;0.001だった」だけでなく、「10歳高いとα帯域パワーが平均0.96 dB低い」と大きさを受け取れます。最後に95%CIの幅を見て、推定の不確実性を確認します。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <div class="en">
+      <div class="quote">
+        <span class="src">Methods（Korean J Anesthesiol. 2026;79:318-331）より</span>
+        <span class="en-text">"linear regression and Pearson correlation analyses"</span>
+      </div>
+      <p><b>読みのポイント：</b><span class="mono">linear regression</span> は「直線で平均的な変化量を推定する方法」、<span class="mono">Pearson correlation</span> は「直線的な並び方の強さを見る方法」です。同じ散布図を見ていても、答えている問いが違います。</p>
+      <table class="vocab">
+        <thead><tr><th>表現</th><th>意味</th><th>この論文での読み方</th></tr></thead>
+        <tbody>
+          <tr><td>frequency power</td><td>周波数パワー</td><td>EEG電位差信号の揺れを周波数帯ごとに分けたとき、その帯域の揺れがどれだけ大きいか</td></tr>
+          <tr><td>spectral edge frequency</td><td>SEF</td><td>脳波パワーの大部分がその周波数以下に入る境界。低いほど高い周波数成分が少ない方向に読む</td></tr>
+          <tr><td>beta coefficient</td><td>回帰係数</td><td>年齢10歳増加あたり、EEG指標が平均でどれだけ変わるか</td></tr>
+          <tr><td>95% confidence interval</td><td>95%信頼区間</td><td>推定値の不確実性。0をまたぐかだけでなく幅を見る</td></tr>
+          <tr><td>Pearson correlation</td><td>Pearson相関</td><td>年齢とEEG指標がどの程度直線的に並ぶか</td></tr>
+          <tr><td>per 10-year increase</td><td>10歳増加あたり</td><td>回帰係数を10歳単位で表示したもの</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>この論文の持ち帰りは、レミマゾラム下の高齢患者では、PSIだけでなくraw EEG、スペクトログラム、周波数パワーも合わせて見る価値がある、という点です。統計面では、回帰分析を見たら「何をYにして、何をXにした単回帰か」「係数の向きと大きさはどうか」「95%CIはどれくらい広いか」を順に確認します。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="回帰分析で年齢とレミマゾラム麻酔中EEGの関係を読むための1200x630インフォグラフィック。">
+        <rect width="1200" height="630" fill="#F4F6F4"/>
+        <rect x="48" y="42" width="1104" height="546" rx="22" fill="#FBFCFB" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="82" y="94" font-family="Noto Serif JP, serif" font-size="34" font-weight="700" fill="#15302D">回帰分析で読む：年齢と麻酔中EEG</text>
+        <text x="82" y="132" font-family="Noto Sans JP, sans-serif" font-size="18" fill="#5C6B68">レミマゾラムTIVA · 成人69例 · 回帰係数は10歳増加あたり</text>
+
+        <g transform="translate(82,170)">
+          <rect x="0" y="0" width="465" height="300" rx="18" fill="#EAF4F2" stroke="#BFD8D3"/>
+          <text x="28" y="42" font-family="JetBrains Mono, monospace" font-size="14" fill="#0B4F4A">SCATTER + REGRESSION LINE</text>
+          <line x1="70" y1="238" x2="390" y2="238" stroke="#5C6B68" stroke-width="2"/>
+          <line x1="70" y1="238" x2="70" y2="48" stroke="#5C6B68" stroke-width="2"/>
+          <text x="230" y="274" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="#5C6B68">Age</text>
+          <text x="-143" y="36" text-anchor="middle" transform="rotate(-90)" font-family="JetBrains Mono, monospace" font-size="15" fill="#5C6B68">EEG power</text>
+          <path d="M82 72 C130 96 168 104 210 128 C266 160 320 188 384 218" fill="none" stroke="#0F766E" stroke-width="5"/>
+          <path d="M82 46 C130 70 168 78 210 102 C266 134 320 162 384 192" fill="none" stroke="#0F766E" stroke-width="2" opacity=".25"/>
+          <path d="M82 98 C130 122 168 130 210 154 C266 186 320 214 384 244" fill="none" stroke="#0F766E" stroke-width="2" opacity=".25"/>
+          <g fill="#15302D" opacity=".72">
+            <circle cx="98" cy="82" r="5"/><circle cx="125" cy="108" r="5"/><circle cx="144" cy="91" r="5"/>
+            <circle cx="172" cy="118" r="5"/><circle cx="202" cy="132" r="5"/><circle cx="230" cy="143" r="5"/>
+            <circle cx="256" cy="174" r="5"/><circle cx="282" cy="152" r="5"/><circle cx="312" cy="188" r="5"/>
+            <circle cx="338" cy="198" r="5"/><circle cx="360" cy="214" r="5"/><circle cx="382" cy="222" r="5"/>
+          </g>
+          <rect x="244" y="52" width="178" height="62" rx="10" fill="#15302D"/>
+          <text x="262" y="78" font-family="JetBrains Mono, monospace" font-size="14" fill="#6FBCB3">regression coef.</text>
+          <text x="262" y="101" font-family="Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">傾き = 変化量</text>
+        </g>
+
+        <g transform="translate(590,170)">
+          <rect x="0" y="0" width="524" height="86" rx="16" fill="#15302D"/>
+          <text x="26" y="33" font-family="JetBrains Mono, monospace" font-size="13" fill="#6FBCB3">ABSOLUTE α-BAND POWER</text>
+          <text x="26" y="66" font-family="Noto Serif JP, serif" font-size="29" font-weight="700" fill="#FFFFFF">-0.957 dB / 10歳</text>
+          <text x="322" y="61" font-family="Noto Sans JP, sans-serif" font-size="15" fill="#BFD8D3">95%CI -1.464 to -0.450</text>
+
+          <rect x="0" y="108" width="524" height="86" rx="16" fill="#15302D"/>
+          <text x="26" y="141" font-family="JetBrains Mono, monospace" font-size="13" fill="#6FBCB3">ABSOLUTE β-BAND POWER</text>
+          <text x="26" y="174" font-family="Noto Serif JP, serif" font-size="29" font-weight="700" fill="#FFFFFF">-0.922 dB / 10歳</text>
+          <text x="322" y="169" font-family="Noto Sans JP, sans-serif" font-size="15" fill="#BFD8D3">95%CI -1.349 to -0.494</text>
+
+          <rect x="0" y="216" width="252" height="86" rx="16" fill="#F7ECE2" stroke="#E4C9AF"/>
+          <text x="24" y="248" font-family="JetBrains Mono, monospace" font-size="13" fill="#C96A2B">RELATIVE θ-BAND</text>
+          <text x="24" y="281" font-family="Noto Serif JP, serif" font-size="29" font-weight="700" fill="#15302D">+0.009</text>
+
+          <rect x="272" y="216" width="252" height="86" rx="16" fill="#F7ECE2" stroke="#E4C9AF"/>
+          <text x="296" y="248" font-family="JetBrains Mono, monospace" font-size="13" fill="#C96A2B">SEF</text>
+          <text x="296" y="281" font-family="Noto Serif JP, serif" font-size="29" font-weight="700" fill="#15302D">-0.565 / 10歳</text>
+        </g>
+
+        <line x1="82" y1="512" x2="1114" y2="512" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="82" y="550" font-family="Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#15302D">読み方：回帰係数は「どれだけ変わるか」、rは「どれくらい直線的に並ぶか」。</text>
+        <text x="82" y="582" font-family="Noto Sans JP, sans-serif" font-size="17" fill="#5C6B68">回帰線は関連を要約する道具。因果や対象外への外挿は、研究デザインと限界を見て判断する。</text>
+      </svg>
+      <div class="info-cap">独自作成インフォグラフィック。Bae J, et al. Korean J Anesthesiol. 2026;79:318-331 のTable 2をもとに独自に作図。原著図表の転載ではありません。</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>免責・作成方法：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。PubMed、PMC全文、原著本文・表を確認し、統計テーマを線形回帰の基本的な読み方に絞って解説しました。図表は転載せず独自に作図しています。この通常記事は人間の内容確認と公開許可を経て掲載しています。
+    </p>
+    <a class="foot-x" href="../feed.xml">RSSで更新を受け取る</a>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
+  </div>
+</footer>
+</body>
+</html>
