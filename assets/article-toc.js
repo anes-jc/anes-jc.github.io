@@ -38,27 +38,22 @@
       cursor = next;
     }
 
-    var items = [];
     var summary = null;
     contentNodes.forEach(function (node) {
       if (!summary && hasClass(node, "summary")) summary = node;
     });
-    if (summary) {
-      summary.id = summary.id || "summary";
-      var summaryLabel = summary.querySelector(".lbl");
-      var labelText = summaryLabel ? summaryLabel.textContent.trim() : "30秒サマリー";
-      var label = labelText || "30秒サマリー";
-      items.push({ id: summary.id, label: label });
-    }
 
+    var items = [];
+    var sectionIndex = 0;
     contentNodes.forEach(function (node, index) {
       if (!hasClass(node, "sec")) return;
+      sectionIndex += 1;
       var heading = node.querySelector(".sechd h2, h2");
       if (!heading) return;
       if (!node.id) {
         var numberNode = node.querySelector(".sechd .no");
         var number = numberNode ? numberNode.textContent.trim() : "";
-        var sectionNumber = index + 1 < 10 ? "0" + String(index + 1) : String(index + 1);
+        var sectionNumber = sectionIndex < 10 ? "0" + String(sectionIndex) : String(sectionIndex);
         var fallback = "section-" + sectionNumber;
         node.id = number ? "section-" + slug(number, fallback) : fallback;
       }
@@ -86,12 +81,17 @@
     var content = document.createElement("div");
     content.className = "article-content";
     contentNodes.forEach(function (node) {
+      if (node === summary) return;
       content.appendChild(node);
     });
 
     var shell = document.createElement("div");
     shell.className = "article-shell";
     shell.appendChild(toc);
+    if (summary) {
+      summary.classList.add("article-summary");
+      shell.appendChild(summary);
+    }
     shell.appendChild(content);
 
     ahead.insertAdjacentElement("afterend", shell);
