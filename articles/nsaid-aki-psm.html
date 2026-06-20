@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%。読みどころは傾向スコアと残余交絡。">
+<meta name="description" content="待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%、OR 1.00（95%CI 0.79-1.27）。読みどころは傾向スコア、CI、残余交絡。">
 <meta name="robots" content="noindex,nofollow" data-draft-only="true">
 <link rel="canonical" href="https://anes-jc.github.io/articles/nsaid-aki-psm.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="anes-jc">
 <meta property="og:title" content="術中NSAIDsはAKIを増やすか — 傾向スコアマッチングで読む観察研究 | 麻酔・集中治療 / 論文ジャーナルクラブ">
-<meta property="og:description" content="待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%。読みどころは傾向スコアと残余交絡。">
+<meta property="og:description" content="待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%、OR 1.00（95%CI 0.79-1.27）。読みどころは傾向スコア、CI、残余交絡。">
 <meta property="og:url" content="https://anes-jc.github.io/articles/nsaid-aki-psm.html">
 <meta property="og:image" content="https://anes-jc.github.io/assets/og/nsaid-aki-psm.png?v=20260624">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="術中NSAIDsはAKIを増やすか — 傾向スコアマッチングで読む観察研究 | 麻酔・集中治療 / 論文ジャーナルクラブ">
-<meta name="twitter:description" content="待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%。読みどころは傾向スコアと残余交絡。">
+<meta name="twitter:description" content="待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%、OR 1.00（95%CI 0.79-1.27）。読みどころは傾向スコア、CI、残余交絡。">
 <meta name="twitter:image" content="https://anes-jc.github.io/assets/og/nsaid-aki-psm.png?v=20260624">
 <script type="application/ld+json">
 {
@@ -25,7 +25,7 @@
     "@id": "https://anes-jc.github.io/articles/nsaid-aki-psm.html"
   },
   "headline": "術中NSAIDsはAKIを増やすか — 傾向スコアマッチングで読む観察研究",
-  "description": "待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%。読みどころは傾向スコアと残余交絡。",
+  "description": "待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%、OR 1.00（95%CI 0.79-1.27）。読みどころは傾向スコア、CI、残余交絡。",
   "image": [
     "https://anes-jc.github.io/assets/og/nsaid-aki-psm.png?v=20260624"
   ],
@@ -109,6 +109,7 @@
   .result-card .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.09em;margin-bottom:8px}
   .result-card .num{font-family:"Noto Serif JP",serif;font-size:32px;font-weight:700;color:var(--teal-deep);line-height:1.1}
   .result-card .sub{font-size:13px;color:var(--muted);margin-top:7px}
+  .result-card.result-wide{grid-column:1/-1}
   .lims{list-style:none;margin-top:4px}
   .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
   .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
@@ -181,7 +182,7 @@
     <ul>
       <li>待機的大非心臓手術11,139例で、術中NSAIDs投与と術後AKIの関連を調べた単施設後ろ向きコホート研究です。</li>
       <li>術中NSAIDs群3,361例、対照群7,778例。傾向スコアマッチング後は3,361ペアで比較されました。</li>
-      <li>マッチング後のAKIは <b>4.2% vs 4.2%</b>（p&gt;0.999）で、AKI stageや入院延長にも有意差は示されませんでした。</li>
+      <li>マッチング後のAKIは <b>4.2% vs 4.2%</b>（p&gt;0.999）、主要アウトカムのORは1.00（95%CI 0.79-1.27、周辺2×2表からの計算）でした。</li>
       <li>今回の統計の山場は、<b>傾向スコアマッチングで「似た患者同士」に近づけても、因果が証明されたわけではない</b>という読み方です。</li>
     </ul>
   </div>
@@ -238,8 +239,13 @@
         <div class="num">4.2%</div>
         <div class="sub">140 / 3,361（PSM後）</div>
       </div>
+      <div class="result-card result-wide">
+        <div class="lbl">主要アウトカム 効果推定値</div>
+        <div class="num">OR 1.00</div>
+        <div class="sub">95%CI 0.79-1.27（PSM後の周辺2×2表から計算）</div>
+      </div>
     </div>
-    <p>マッチング前のAKIはNSAIDs群 140/3,361（4.2%）、対照群 380/7,778（4.9%）で、p=0.109でした。マッチング後は、両群とも140/3,361（4.2%）で、p&gt;0.999でした。</p>
+    <p>マッチング前のAKIはNSAIDs群 140/3,361（4.2%）、対照群 380/7,778（4.9%）で、p=0.109でした。マッチング後は、両群とも140/3,361（4.2%）で、p&gt;0.999でした。率は同じですが、本当に見るべきは信頼区間です。周辺2×2表から計算すると主要アウトカムのORは1.00、95%CIは0.79-1.27で、少なくともこのデータだけでは25%前後までのオッズ増加を明確には否定できません。</p>
     <p>AKI stageの分布にも有意差はなく、マッチング後のp値は0.830でした。術後入院期間は両群とも中央値6日で、NSAIDs群はIQR 5-9日、対照群はIQR 4-9日、p=0.290でした。術後入院期間延長（7日以上）も46.0% vs 46.0%で差はありませんでした。</p>
     <p>薬剤別・用量別解析でも、AKI増加との有意な関連は示されませんでした。マッチング後のORは、parecoxib vs controlで1.25（95%CI 0.91-1.69）、flurbiprofen vs controlで0.86（95%CI 0.62-1.18）でした。用量別でも、低用量 vs controlで OR 0.87（95%CI 0.55-1.35）、高用量合計 vs controlで OR 1.08（95%CI 0.83-1.42）といずれも有意差はなく、用量依存的なAKI増加のシグナルは確認されませんでした。</p>
     <p>低アルブミン、腎機能低下、術中低血圧、術前貧血のサブグループでも、有意な交互作用は示されませんでした。欠測なし完全症例9,385例での感度分析も主解析と一貫していました。</p>
@@ -258,8 +264,9 @@
 
   <div class="sec">
     <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
-    <p>この研究は、術中NSAIDsが術後AKIを大きく増やすという強いシグナルを示しませんでした。とくにマッチング後のAKIが4.2% vs 4.2%で完全に同じだった点は、臨床的には安心材料です。</p>
-    <p>しかし、安心材料と安全宣言は別です。NSAIDsを投与するかどうかはランダムではなく、腎機能や循環リスクを見て選ばれていたはずです。PSMはその偏りを減らしますが、測定できない判断や術後曝露までは補正できません。</p>
+    <p>この研究は、術中NSAIDsが術後AKIを大きく増やすという強いシグナルを示しませんでした。とくにマッチング後のAKIが4.2% vs 4.2%で完全に同じだった点は、臨床的には安心材料です。ただし、これは「真の効果が完全にゼロ」と同義ではなく、イベント数と信頼区間の幅を一緒に読む必要があります。</p>
+    <p>しかし、安心材料と安全宣言は別です。主要アウトカムは各群140イベントで、OR 1.00（95%CI 0.79-1.27）でした。概算では、OR 1.25程度の増加を検出する力は十分ではなく、OR 1.30程度でも検出力は限定的です。つまり、この論文はabsence of evidenceであって、evidence of absenceや同等性の証明ではありません。</p>
+    <p>NSAIDsを投与するかどうかはランダムではなく、腎機能や循環リスクを見て選ばれていたはずです。PSMはその偏りを減らしますが、測定できない判断や術後曝露までは補正できません。</p>
     <p>したがって、この研究から言えることは「標準量の単回術中NSAIDsは誰にでも安全」ではなく、「腎機能が比較的保たれた大非心臓手術集団では、慎重な患者選択のもとで術中NSAIDsとAKI増加の明確な関連は示されなかった」です。</p>
   </div>
 
