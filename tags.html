@@ -69,9 +69,10 @@
   .post:hover .post-arrow{color:#fff;background:var(--teal)}
   @media(max-width:640px){
     .wrap,.bar-in{padding-left:18px;padding-right:18px}
-    .bar-in{height:54px;gap:12px}
-    .brand{min-width:0;gap:8px;font-size:12px;line-height:1.25;white-space:nowrap}
-    .back{font-size:12px}
+    .bar-in{height:54px;gap:12px;min-width:0}
+    .brand{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;gap:8px;font-size:12px;line-height:1.25;white-space:nowrap}
+    .bar-actions{flex:0 0 auto}
+    .back{font-size:12px;white-space:nowrap}
     .head{padding:36px 0 22px}
     .post{grid-template-columns:1fr;gap:12px;padding:22px 4px}
     .post-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}

@@ -159,10 +159,10 @@
 
   @media(max-width:680px){
     .wrap{padding-left:18px;padding-right:18px}
-    .bar-in{height:54px}
-    .brand{gap:9px;font-size:13px;line-height:1.35;white-space:nowrap}
+    .bar-in{height:54px;min-width:0;gap:12px}
+    .brand{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;gap:9px;font-size:13px;line-height:1.35;white-space:nowrap}
     .brand .dot{width:8px;height:8px}
-    .burger{gap:4px;padding:7px;margin:-7px}
+    .burger{flex:0 0 auto;gap:4px;padding:7px;margin:-7px}
     .burger span{width:21px}
     .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
     .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}

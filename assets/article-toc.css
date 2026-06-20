@@ -13,6 +13,7 @@
   gap:34px;
   align-items:start;
   padding:34px 0 0;
+  min-width:0;
 }
 .article-content{
   min-width:0;
@@ -45,6 +46,7 @@
   line-height:1.45;
   padding:9px 0;
   border-top:1px solid var(--line);
+  overflow-wrap:anywhere;
 }
 .article-toc a:hover{
   color:var(--teal);
@@ -66,5 +68,124 @@
     border-top:0;
     border-bottom:1px solid var(--line);
     margin-right:14px;
+  }
+}
+@media(max-width:640px){
+  .article-toc-enabled{
+    overflow-x:hidden;
+  }
+  .article-toc-enabled header.bar .bar-in{
+    min-width:0;
+  }
+  .article-toc-enabled header.bar .brand{
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:nowrap !important;
+  }
+  .article-toc-enabled header.bar .back{
+    flex:0 0 auto !important;
+  }
+  .article-toc{
+    padding:12px !important;
+  }
+  .article-toc a{
+    display:block !important;
+    border-top:1px solid var(--line) !important;
+    border-bottom:0 !important;
+    margin-right:0 !important;
+    padding:8px 0 !important;
+  }
+  .article-content,
+  .article-content .sec,
+  .article-content .summary,
+  .article-content .stats,
+  .article-content .take,
+  .article-content .en{
+    max-width:100%;
+    min-width:0;
+  }
+  .article-content .kicker .pill{
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+  .article-content .pico{
+    grid-template-columns:minmax(52px,78px) minmax(0,1fr) !important;
+  }
+  .article-content .pico .k,
+  .article-content .pico .v,
+  .article-content .result-card,
+  .article-content .lims li{
+    min-width:0;
+    overflow-wrap:anywhere;
+  }
+  .article-content .result-grid{
+    grid-template-columns:1fr !important;
+  }
+  .article-content .formula{
+    max-width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .article-content svg,
+  .article-content img{
+    max-width:100%;
+    height:auto;
+  }
+  .article-content .en{
+    overflow:hidden;
+    padding:20px 18px !important;
+  }
+  .article-content .en .quote{
+    padding:12px 12px 12px 14px !important;
+  }
+  .article-content .en .quote .en-text{
+    overflow-wrap:anywhere;
+    font-size:15px;
+  }
+  .article-content .vocab,
+  .article-content .vocab tbody,
+  .article-content .vocab tr,
+  .article-content .vocab td{
+    display:block !important;
+    width:100% !important;
+  }
+  .article-content .vocab thead{
+    display:none !important;
+  }
+  .article-content .vocab tr{
+    border-bottom:1px solid var(--line) !important;
+    padding:12px 0 !important;
+  }
+  .article-content .vocab td{
+    border-bottom:0 !important;
+    padding:0 !important;
+    min-width:0;
+    overflow-wrap:anywhere;
+  }
+  .article-content .vocab td:first-child{
+    white-space:normal !important;
+    font-size:14px;
+    line-height:1.45;
+    margin-bottom:5px;
+  }
+  .article-content .vocab td.hide-sm{
+    display:block !important;
+    color:var(--teal-deep);
+    font-size:12px;
+    font-weight:700;
+    line-height:1.5;
+    margin-bottom:4px;
+  }
+  .article-content .vocab td.ipa:not(.hide-sm){
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.5;
+    margin-bottom:4px;
+  }
+  .article-content .vocab td:last-child{
+    font-size:14px;
+    line-height:1.7;
   }
 }

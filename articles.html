@@ -67,9 +67,9 @@
   .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
   @media(max-width:640px){
     .wrap,.bar-in{padding-left:18px;padding-right:18px}
-    .bar-in{height:54px;gap:12px}
-    .brand{font-size:12px;line-height:1.25;white-space:nowrap}
-    .bar-actions{gap:10px}
+    .bar-in{height:54px;gap:12px;min-width:0}
+    .brand{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;font-size:12px;line-height:1.25;white-space:nowrap}
+    .bar-actions{flex:0 0 auto;gap:10px}
     .back{font-size:12px;white-space:nowrap}
     .head{padding:38px 0 28px}
     .post{grid-template-columns:1fr;gap:10px;padding:20px 4px}
