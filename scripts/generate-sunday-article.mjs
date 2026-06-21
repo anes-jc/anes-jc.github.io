@@ -56,6 +56,17 @@ function paperLink(paper) {
   return `https://europepmc.org/article/${paper.source || "MED"}/${paper.id}`;
 }
 
+function isPreprint(paper) {
+  const source = String(paper.source || "").toUpperCase();
+  const doi = String(paper.doi || "").toLowerCase();
+  const text = `${paper.title || ""} ${paper.abstractText || ""} ${paper.pubType || ""} ${paper.journalTitle || ""}`.toLowerCase();
+  return source === "PPR"
+    || text.includes("preprint")
+    || text.includes("research square")
+    || doi.startsWith("10.21203/rs.")
+    || doi.includes("/rs.3.rs-");
+}
+
 function scorePaper(paper, config) {
   const title = (paper.title || "").toLowerCase();
   const journal = (paper.journalTitle || "").toLowerCase();
@@ -91,6 +102,7 @@ function deriveTheme(paper) {
     ["小児心臓手術", ["paediatric", "heart surgery"]],
     ["形成外科手術の鎮痛", ["blepharoplasty", "analgesia"]],
     ["術後せん妄", ["postoperative delirium"]],
+    ["区域麻酔", ["regional anesthesia"]],
     ["人工呼吸・ARDS管理", ["mechanical ventilation", "ventilator", "ards"]],
     ["気道管理・挿管", ["airway", "intubation", "laryngoscopy"]],
     ["術後合併症の予防", ["postoperative complication", "postoperative outcome"]],
@@ -111,6 +123,7 @@ function derivePaperHeading(paper) {
     ["小児心臓手術でメチルプレドニゾロンは転帰を改善するか", ["methylprednisolone", "heart surgery", "pediatric"]],
     ["小児心臓手術でメチルプレドニゾロンは転帰を改善するか", ["methylprednisolone", "heart surgery", "paediatric"]],
     ["高齢整形外科手術で血中セレン低値は術後せん妄と関連するか", ["blood selenium", "postoperative delirium", "orthopedic"]],
+    ["橈骨遠位端骨折手術で区域麻酔は周術期転帰と術後医療利用にどう影響するか", ["regional anesthesia", "distal radius fracture"]],
     ["チアノーゼ性先天性心疾患手術で正常酸素と高酸素を比較", ["cyanotic congenital heart surgery", "normoxia", "hyperoxia"]],
     ["非挿管麻酔の長時間手術でTHRIVEが術後無気肺を減らすか", ["non-intubated anesthesia", "transnasal humidified rapid insufflation", "atelectasis"]],
     ["若年者の脊椎手術で麻酔深度が運動誘発電位に与える影響", ["depth of anesthesia", "motor evoked potentials", "spinal surgery"]],
@@ -132,6 +145,7 @@ function derivePopulationJa(paper) {
     ["小児心臓手術患者", ["heart surgery", "pediatric"]],
     ["小児心臓手術患者", ["heart surgery", "paediatric"]],
     ["高齢整形外科手術患者", ["elderly", "orthopedic surgery"]],
+    ["橈骨遠位端骨折の手術患者", ["distal radius fracture"]],
     ["チアノーゼ性先天性心疾患の手術患者", ["cyanotic congenital heart"]],
     ["長時間の非挿管麻酔を受ける患者", ["prolonged non-intubated anesthesia"]],
     ["若年者の脊椎手術患者", ["youth", "spinal surgery"]],
@@ -151,6 +165,7 @@ function deriveClinicalQuestionJa(paper) {
     ["小児心臓手術でメチルプレドニゾロンが術後転帰を改善するか", ["methylprednisolone", "heart surgery", "pediatric"]],
     ["小児心臓手術でメチルプレドニゾロンが術後転帰を改善するか", ["methylprednisolone", "heart surgery", "paediatric"]],
     ["血中セレン濃度と術後せん妄の関連", ["blood selenium", "postoperative delirium"]],
+    ["区域麻酔と周術期転帰・術後医療利用の関係", ["regional anesthesia", "distal radius fracture"]],
     ["周術期の正常酸素管理と高酸素管理の違いが臨床転帰にどう影響するか", ["normoxia", "hyperoxia"]],
     ["THRIVEの使用が術後早期無気肺を減らせるか", ["transnasal humidified rapid insufflation", "atelectasis"]],
     ["麻酔深度が運動誘発電位モニタリングに与える影響", ["depth of anesthesia", "motor evoked potentials"]],
@@ -210,6 +225,7 @@ async function fetchLatestPapers(period, config) {
   const ranked = (body.resultList?.result || []).filter((paper) => {
     const text = `${paper.title || ""} ${paper.pubType || ""}`.toLowerCase();
     return paper.title && paper.abstractText
+      && !isPreprint(paper)
       && !text.includes("protocol")
       && !text.includes("editorial")
       && !text.includes("letter");
