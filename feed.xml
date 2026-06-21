@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 21 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>上神経幹 vs ESPB — 肩関節鏡手術での鎮痛と横隔神経麻痺</title>
+      <link>https://anes-jc.github.io/articles/shoulder-block-diaphragm.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/shoulder-block-diaphragm.html</guid>
+      <description>肩関節鏡手術60例を対象にした単施設RCT。STBは早期鎮痛に優れ、ESPBは横隔膜運動を保ちやすい。読みどころは複数主要アウトカム。</description>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+      <category>新着論文</category>
+      <category>麻酔</category>
+      <category>区域麻酔</category>
+      <category>研究デザインを読む</category>
+    </item>
     <item>
       <title>先週のまとめ｜最新論文3選</title>
       <link>https://anes-jc.github.io/articles/latest-papers-2026-06-21.html</link>
