@@ -366,6 +366,14 @@
 <script src="data/articles.js"></script>
 <script>
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+  function mergedArticles(){
+    const byUrl = new Map();
+    [...(window.SUNDAY_ARTICLES || []), ...(window.ARTICLES || [])].forEach(a=>{
+      if(a && a.url && a.live !== false && !byUrl.has(a.url)) byUrl.set(a.url, a);
+    });
+    return [...byUrl.values()].sort((a,b)=>String(b.date || "").localeCompare(String(a.date || ""))
+      || String(a.url || "").localeCompare(String(b.url || "")));
+  }
 
   // ---- 記事一覧を data/articles.js のリストから組み立てる ----
   function tagHtml(t){
@@ -392,9 +400,10 @@
   function mmLinkHtml(a){
     return `<a class="mm-link" href="${esc(a.url)}"><span class="mm-date">${esc(a.date)} ${esc(a.dow)} · ${esc(a.status)}</span>${esc(a.title)}</a>`;
   }
-  if (window.ARTICLES) {
+  const articles = mergedArticles();
+  if (articles.length) {
     const HOME_ARTICLE_LIMIT = 5;
-    const homeArticles = window.ARTICLES.slice(0, HOME_ARTICLE_LIMIT);
+    const homeArticles = articles.slice(0, HOME_ARTICLE_LIMIT);
     const feedList = document.getElementById("feed-list");
     if (feedList) feedList.innerHTML = homeArticles.map(cardHtml).join("");
     const mmArticles = document.getElementById("mm-articles");

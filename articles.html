@@ -124,6 +124,14 @@
 <script src="data/articles.js"></script>
 <script>
   function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+  function mergedArticles(){
+    const byUrl = new Map();
+    [...(window.SUNDAY_ARTICLES || []), ...(window.ARTICLES || [])].forEach(a=>{
+      if(a && a.url && a.live !== false && !byUrl.has(a.url)) byUrl.set(a.url, a);
+    });
+    return [...byUrl.values()].sort((a,b)=>String(b.date || "").localeCompare(String(a.date || ""))
+      || String(a.url || "").localeCompare(String(b.url || "")));
+  }
   function tagHtml(t){
     const m = t.label.match(/^(G0[1-6])\s+(.+)$/);
     const inner = m ? `<span style="opacity:.6">${esc(m[1])}</span> ${esc(m[2])}` : esc(t.label);
@@ -146,7 +154,7 @@
     </article>`;
   }
 
-  const articles = window.ARTICLES || [];
+  const articles = mergedArticles();
   const feedList = document.getElementById("feed-list");
   const empty = document.getElementById("empty");
   const summary = document.getElementById("summary");

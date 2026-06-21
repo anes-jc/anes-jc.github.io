@@ -87,6 +87,10 @@ function deriveTheme(paper) {
   const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
   const themes = [
     ["敗血症の治療・管理", ["sepsis", "septic shock"]],
+    ["小児心臓手術", ["pediatric", "heart surgery"]],
+    ["小児心臓手術", ["paediatric", "heart surgery"]],
+    ["形成外科手術の鎮痛", ["blepharoplasty", "analgesia"]],
+    ["術後せん妄", ["postoperative delirium"]],
     ["人工呼吸・ARDS管理", ["mechanical ventilation", "ventilator", "ards"]],
     ["気道管理・挿管", ["airway", "intubation", "laryngoscopy"]],
     ["術後合併症の予防", ["postoperative complication", "postoperative outcome"]],
@@ -103,6 +107,10 @@ function deriveTheme(paper) {
 function derivePaperHeading(paper) {
   const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
   const headings = [
+    ["上眼瞼再手術の局所麻酔にオリセリジン＋アルフェンタニルを足すと鎮痛は改善するか", ["oliceridine", "alfentanil", "blepharoplasty"]],
+    ["小児心臓手術でメチルプレドニゾロンは転帰を改善するか", ["methylprednisolone", "heart surgery", "pediatric"]],
+    ["小児心臓手術でメチルプレドニゾロンは転帰を改善するか", ["methylprednisolone", "heart surgery", "paediatric"]],
+    ["高齢整形外科手術で血中セレン低値は術後せん妄と関連するか", ["blood selenium", "postoperative delirium", "orthopedic"]],
     ["チアノーゼ性先天性心疾患手術で正常酸素と高酸素を比較", ["cyanotic congenital heart surgery", "normoxia", "hyperoxia"]],
     ["非挿管麻酔の長時間手術でTHRIVEが術後無気肺を減らすか", ["non-intubated anesthesia", "transnasal humidified rapid insufflation", "atelectasis"]],
     ["若年者の脊椎手術で麻酔深度が運動誘発電位に与える影響", ["depth of anesthesia", "motor evoked potentials", "spinal surgery"]],
@@ -114,12 +122,16 @@ function derivePaperHeading(paper) {
     ["敗血症・敗血症性ショックの治療戦略を評価", ["sepsis", "septic shock"]],
   ];
   const match = headings.find(([, terms]) => terms.every((term) => text.includes(term)));
-  return match?.[0] || `${deriveTheme(paper)}：${classifyStudyDesign(paper)}`;
+  return match?.[0] || `${deriveClinicalQuestionJa(paper)}：${classifyStudyDesign(paper)}`;
 }
 
 function derivePopulationJa(paper) {
   const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
   const populations = [
+    ["上眼瞼形成の再手術患者", ["blepharoplasty"]],
+    ["小児心臓手術患者", ["heart surgery", "pediatric"]],
+    ["小児心臓手術患者", ["heart surgery", "paediatric"]],
+    ["高齢整形外科手術患者", ["elderly", "orthopedic surgery"]],
     ["チアノーゼ性先天性心疾患の手術患者", ["cyanotic congenital heart"]],
     ["長時間の非挿管麻酔を受ける患者", ["prolonged non-intubated anesthesia"]],
     ["若年者の脊椎手術患者", ["youth", "spinal surgery"]],
@@ -135,6 +147,10 @@ function derivePopulationJa(paper) {
 function deriveClinicalQuestionJa(paper) {
   const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
   const questions = [
+    ["上眼瞼再手術の局所麻酔にオリセリジン＋アルフェンタニルを足すと鎮痛は改善するか", ["oliceridine", "alfentanil", "blepharoplasty"]],
+    ["小児心臓手術でメチルプレドニゾロンが術後転帰を改善するか", ["methylprednisolone", "heart surgery", "pediatric"]],
+    ["小児心臓手術でメチルプレドニゾロンが術後転帰を改善するか", ["methylprednisolone", "heart surgery", "paediatric"]],
+    ["血中セレン濃度と術後せん妄の関連", ["blood selenium", "postoperative delirium"]],
     ["周術期の正常酸素管理と高酸素管理の違いが臨床転帰にどう影響するか", ["normoxia", "hyperoxia"]],
     ["THRIVEの使用が術後早期無気肺を減らせるか", ["transnasal humidified rapid insufflation", "atelectasis"]],
     ["麻酔深度が運動誘発電位モニタリングに与える影響", ["depth of anesthesia", "motor evoked potentials"]],

@@ -136,9 +136,18 @@
 <script src="data/sunday-articles.js"></script>
 <script src="data/articles.js"></script>
 <script>
-  // 記事リストは data/articles.js（window.ARTICLES）を共通利用する。
+  function mergedArticles(){
+    const byUrl = new Map();
+    [...(window.SUNDAY_ARTICLES || []), ...(window.ARTICLES || [])].forEach(a=>{
+      if(a && a.url && a.live !== false && !byUrl.has(a.url)) byUrl.set(a.url, a);
+    });
+    return [...byUrl.values()].sort((a,b)=>String(b.date || "").localeCompare(String(a.date || ""))
+      || String(a.url || "").localeCompare(String(b.url || "")));
+  }
+
+  // 記事リストは通常記事と日曜記事を統合して共通利用する。
   // このページではタグ照合用に、各記事のタグ種別も保持する。
-  const ARTICLES = (window.ARTICLES || []).map(a=>{
+  const ARTICLES = mergedArticles().map(a=>{
     const tagList = [];
     if (a.dowTag) tagList.push({ tag:a.dowTag.tag, kind:a.dowTag.kind || "weekday" });
     (a.tags || []).forEach(t=>tagList.push({ tag:t.tag, kind:t.kind || "clinical" }));
