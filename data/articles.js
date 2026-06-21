@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.06", dow: "MON", status: "公開予定", live: false,
+    title: "がん手術の麻酔は予後を変えるか — GA-CARES試験とITT/per-protocolの読み方",
+    url: "articles/ga-cares.html",
+    desc: "進行がん切除術1,763例を対象にした米国5施設の多施設RCT。プロポフォール維持麻酔は揮発性麻酔より生存を改善せず（ITT HR1.16）、per-protocolの副次結果は脆弱。読みどころはITTとper-protocolの読み分け。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "がん手術麻酔", tag: "がん手術麻酔" },
+      { kind: "stat", label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
+    ]
+  },
+  {
     date: "2026.07.01", dow: "WED", status: "公開予定", live: false,
     title: "レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence",
     url: "articles/remimazolam-eeg-regression.html",

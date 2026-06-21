@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="進行がん切除術1,763例を対象にした米国5施設プラグマティックRCT。ITTではプロポフォール維持麻酔の生存改善なし（HR1.16、95%CI 0.96–1.41）。per-protocol HR1.31の脆弱な副次結果を、ITTとの読み分けで考える。">
+<meta name="robots" content="noindex,nofollow" data-draft-only="true">
+<link rel="canonical" href="https://anes-jc.github.io/articles/ga-cares.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="がん手術の麻酔は予後を変えるか — GA-CARES試験とITT/per-protocolの読み方 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="進行がん切除術1,763例を対象にした米国5施設プラグマティックRCT。ITTではプロポフォール維持麻酔の生存改善なし（HR1.16、95%CI 0.96–1.41）。per-protocol HR1.31の脆弱な副次結果を、ITTとの読み分けで考える。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/ga-cares.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/ga-cares.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="がん手術の麻酔は予後を変えるか — GA-CARES試験とITT/per-protocolの読み方 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="進行がん切除術1,763例を対象にした米国5施設プラグマティックRCT。ITTではプロポフォール維持麻酔の生存改善なし（HR1.16、95%CI 0.96–1.41）。per-protocol HR1.31の脆弱な副次結果を、ITTとの読み分けで考える。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/ga-cares.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/ga-cares.html"
+  },
+  "headline": "がん手術の麻酔は予後を変えるか — GA-CARES試験とITT/per-protocolの読み方",
+  "description": "進行がん切除術1,763例を対象にした米国5施設プラグマティックRCT。ITTではプロポフォール維持麻酔の生存改善なし（HR1.16、95%CI 0.96–1.41）。per-protocol HR1.31の脆弱な副次結果を、ITTとの読み分けで考える。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/ga-cares.png"
+  ],
+  "datePublished": "2026-07-06T00:00:00+09:00",
+  "dateModified": "2026-07-06T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
+<title>がん手術の麻酔は予後を変えるか — GA-CARES試験とITT/per-protocolの読み方 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
+<link rel="stylesheet" href="../assets/article-toc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+  .bar-actions{display:flex;align-items:center;gap:14px}
+
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(26px,5vw,38px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .draft-notice{border:1px solid #E4C9AF;border-left:4px solid var(--amber);background:#FFF4EA;border-radius:3px;padding:14px 16px;margin:20px 0 0;color:var(--ink-soft);font-size:13px;line-height:1.7}
+  .draft-notice strong{display:block;color:var(--amber);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;margin-bottom:4px}
+  .published .draft-notice{display:none}
+
+  .en{background:#EAF4F2;border:1px solid #BFD8D3;border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{background:rgba(255,255,255,.42);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:12px 14px 12px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .en .gloss{font-size:14px;color:var(--ink-soft);margin:14px 0 4px}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .vocab td.ipa{color:var(--muted);font-size:13px}
+  @media(max-width:560px){
+    .bar-in{height:54px;padding:0 18px;gap:12px}
+    .brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}
+    .brand .dot{width:7px;height:7px;flex-shrink:0}
+    .back{font-size:12px;white-space:nowrap;flex-shrink:0}
+    .vocab .hide-sm{display:none}
+  }
+
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBcb3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBcb3}
+  .summary li:last-child{margin-bottom:0}
+
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+
+  .pico{display:grid;grid-template-columns:88px 1fr;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .formula b{color:var(--amber)}
+
+  .factorial-grid{display:grid;grid-template-columns:80px 1fr 1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);border-radius:3px;overflow:hidden;margin:18px 0;font-size:14px}
+  .fg-cell{background:var(--paper-2);padding:12px 14px;display:flex;align-items:center;justify-content:center;text-align:center}
+  .fg-header{background:var(--ink);color:#E4ECE9;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.05em}
+  .fg-row-header{background:var(--paper);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;color:var(--teal-deep)}
+  .fg-corner{background:var(--paper)}
+  .fg-a{border-left:3px solid var(--teal)}
+  .fg-b{border-left:3px solid var(--teal)}
+  .fg-c{border-left:3px solid var(--line-strong)}
+  .fg-d{border-left:3px solid var(--line-strong)}
+  .fg-cell small{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);display:block;margin-top:4px}
+
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+  .modern{border:1px dashed var(--line-strong);border-radius:4px;padding:20px 24px;margin:14px 0;background:rgba(15,118,110,.035)}
+  .modern .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .modern .lbl::before{content:"now";background:var(--teal);color:#fff;font-size:9px;padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+  .modern p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
+  .modern p:last-child{margin-bottom:0}
+  .modern b{color:var(--ink)}
+  .modern .ref{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.6;border-left:2px solid var(--line-strong);padding-left:12px;margin-top:12px}
+
+</style>
+<script src="../assets/analytics-config.js"></script>
+<script src="../assets/analytics.js" defer></script>
+<script src="../assets/article-toc.js" defer></script>
+<script src="../assets/draft-gate.js" data-publish-date="2026-07-06" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <div class="bar-actions">
+      <a class="back" href="../articles.html">← 記事一覧</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="draft-notice" data-draft-notice data-publish-date="2026-07-06" role="note">
+    <strong>PUBLICATION DRAFT</strong>
+    この記事は公開予定日前の下書き表示です。公開予定日は2026年7月6日です。正式公開前のため、内容が変更される場合があります。
+  </div>
+
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=新着論文">MON · 新着</a>
+      <a class="pill" href="../tags.html?tag=麻酔">麻酔</a>
+      <a class="pill" href="../tags.html?tag=がん手術麻酔">がん手術麻酔</a>
+      <a class="pill" href="../tags.html?tag=研究デザインを読む"><span class="kl">統計 G01</span>研究デザインを読む</a>
+    </div>
+    <h1>がん手術の麻酔は予後を変えるか — GA-CARES試験とITT/per-protocolの読み方</h1>
+    <div class="cite">
+      Bennett-Guerrero E, Romeiser JL, DeMaria S, et al. (GA-CARES Investigators).<br>
+      Anesthesia Type during Cancer Surgery: Results of the GA-CARES Randomized, Multicenter Trial.<br>
+      Anesthesiology 2026;144(1):51-62. · 多施設・プラグマティック・部分盲検 無作為化優越性試験 · n=1,763（ITT）
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/41363871/" target="_blank" rel="noopener">PubMed →</a>
+      <a class="lnk" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12677337/" target="_blank" rel="noopener">原著（PMC・OA）→</a>
+      <a class="lnk" href="https://doi.org/10.1097/ALN.0000000000005769" target="_blank" rel="noopener">DOI →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>悪性度の高いがん（膵・食道・肺・胃・胆道・肝・膀胱・腹膜）の切除術を受ける成人を、<b>プロポフォール維持麻酔</b>と<b>揮発性麻酔</b>に1:1で割り付けた米国5施設・多施設RCT（GA-CARES）。主要評価項目は全死亡（最低2年追跡）。</li>
+      <li>ITT解析（n=1,763）では、プロポフォール群の死亡26.1% vs 揮発性群22.9%、<b>HR 1.16（95%CI 0.96–1.41、P=0.115）で有意差なし</b>。仮説と逆に、プロポフォールが生存を改善する所見は得られなかった。</li>
+      <li>事前指定のper-protocol解析（n=1,411）では<b>プロポフォール群で死亡が多かった</b>（25.5% vs 20%、HR 1.31、95%CI 1.05–1.64、P=0.017）。ただし著者はこれを「統計的に脆弱」と位置づけている。</li>
+      <li>今回の統計の山場 → <b>ITTとper-protocolの読み分け</b>。2つの解析が食い違うとき、何が言えて何が言えないか。</li>
+    </ul>
+  </div>
+
+  <!-- 01 臨床背景 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>手術はがん治療の主要な手段ですが、手術操作の最中に腫瘍細胞が血流へ撒かれ、その細胞に対する免疫応答が再発リスクに影響しうる、という仮説が以前から提唱されてきました。基礎研究や動物モデルでは、<b>プロポフォールが揮発性麻酔薬より抗腫瘍免疫を保ちやすく、腫瘍細胞の増殖・転移を抑えうる</b>可能性が示されてきました。</p>
+    <p>これを受けて、後ろ向き研究を中心とするメタ解析では、プロポフォール麻酔の方が揮発性麻酔より再発のない生存や全生存が良い、という関連が報告されていました。しかし観察研究の関連は交絡や選択バイアスを排除できず、<b>悪性度の高いがんの切除術で麻酔法が予後を変えるかを前向きに検証したランダム化試験はほとんどありませんでした</b>。2015年には専門家グループが、麻酔法とがん予後の関係を前向きに検証するよう呼びかけており、その問いに答えるために計画されたのが本試験です。</p>
+  </div>
+
+  <!-- 02 PICO -->
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>クリニカル・クエスチョン（PICO）</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">悪性度が高く予後不良ながん（膵・食道・肺・胃・胆道・肝・膀胱・腹膜＝HIPEC）の切除術を受ける成人。米国5施設（ITT n=1,763）</div>
+      <div class="k">I</div><div class="v">維持麻酔にプロポフォールを使用（割付時883例、ITT解析881例）。導入目的の少量プロポフォールは両群とも許容</div>
+      <div class="k">C</div><div class="v">維持麻酔に揮発性麻酔薬を使用（イソフルラン・セボフルラン・デスフルランから担当医が選択。割付時883例、ITT解析882例）</div>
+      <div class="k">O</div><div class="v">主要：<b>全死亡（最低2年追跡）</b>／副次：無病生存（disease-free survival）</div>
+    </div>
+  </div>
+
+  <!-- 03 デザイン解説 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>GA-CARESは、研究者主導の<b>多施設・プラグマティック・部分盲検の無作為化「優越性」試験</b>です。プロポフォールが揮発性麻酔より生存を改善するという仮説を検証する設計で、除外基準を絞った実地に近いセッティングで行われました。割付はREDCapを用いた<b>ブロックランダム化</b>（施設で層別化し、さらに8つの術式で層別化）で、割付の隠蔽が担保されています。</p>
+    <p>介入の性質上、手術室の麻酔科医を盲検化することはできません。しかし主要評価項目の死亡は、National Death IndexとNew York Cancer Registryという<b>割付を知らない外部情報源</b>から取得しており、アウトカム測定の偏りを抑えています。プロトコル遵守は高く、手術を受けた患者の95.9%が割り付けられた麻酔薬のみで維持されました。生存解析はKaplan–Meier曲線と<b>正確な層別ログランク検定</b>で行われ、主解析はITT、加えて事前指定のper-protocol解析が実施されています。中間解析は計画も実施もされていません。</p>
+  </div>
+
+  <!-- 04 統計キーポイント -->
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY · 研究デザインを読む</div>
+      <h3>ITT と per-protocol：2つの解析が食い違うとき、何が言えるか</h3>
+      <p>この試験は、同じデータを<b>2通りの集団</b>で解析しています。違いを押さえると、見かけ上の矛盾が読み解けます。</p>
+      <div class="formula">
+        ITT（intention-to-treat, n=1,763）<br>
+        　= 無作為化された全例（同意撤回の3例のみ除外）<br>
+        　→ 割付をそのまま保持。ランダム化の利点（既知・未知の交絡の均衡）を壊さない<br>
+        　→ ただし、がんが確認されなかった例や手術中止例も含むため、効果が薄まりうる<br><br>
+        per-protocol（n=1,411）<br>
+        　= 手術を完遂し・病理でがんが確認され・割付どおりの麻酔薬を受けた例<br>
+        　→ 介入（プロポフォール）が効果を示すなら最も有利な条件<br>
+        　→ ただし「遵守できた人」を選ぶため、ランダム化が崩れ選択バイアスが入りうる
+      </div>
+      <p>一般にITTは<b>保守的で頑健</b>、per-protocolは<b>効果を最大限拾いに行く反面、偏りやすい</b>解析です。だから「per-protocolで差が出たから効いた／害だ」と単純に読むのは危険です。</p>
+      <p>本試験ではITTで有意差がなく（P=0.115）、per-protocolでは<b>仮説と逆向き</b>に、プロポフォール群の死亡が有意に多い（P=0.017）という結果でした。著者自身がper-protocolの差を「統計的に脆弱（statistically fragile）」と表現しています。<b>どちらの解析もプロポフォールの利益を支持していない</b>——これが2つの解析を併せて読んだときの結論です。あわせて、本試験は「優越性」試験であり、有意差がないことは「両者が同等であると証明された」という意味ではない点にも注意します。</p>
+    </div>
+  </div>
+
+  <!-- 05 結果 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <p>ITT集団（n=1,763）の2年時点の全死亡は、プロポフォール群 <b>26.1%（230/881）</b>、揮発性群 <b>22.9%（202/882）</b>。<b>HR 1.16（95%CI 0.96–1.41、P=0.115、正確層別ログランク検定）</b>で、両群に有意差はありませんでした。</p>
+    <p>事前指定のper-protocol集団（n=1,411）では、プロポフォール群で死亡が有意に多く（<b>25.5% vs 20%、HR 1.31、95%CI 1.05–1.64、P=0.017</b>）。無病生存も同様の傾向で、プロポフォール優位は示されませんでした（HR 1.10、95%CI 0.90–1.36、P=0.428）。これらの結果は8つの術式サブグループや手術時間で概ね一貫し、最長5年の追跡でも同様でした。</p>
+    <p>短期の代替指標に群間差はなく、院内死亡は両群とも11例、術後在院日数は中央値5日で同等でした。プロトコル遵守95.9%、97.2%が最低2年の追跡を受けるなど、追跡の質も高い試験です。</p>
+  </div>
+
+  <!-- 06 リミテーション -->
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>介入の性質上、手術室の麻酔科医は盲検化できない。ただし死亡は割付を知らない外部レジストリから取得し、背景因子も群間で良好に均衡しており、影響は限定的と考えられる。</li>
+      <li>per-protocol解析は遵守者を選ぶため、予後因子の偏りを完全には調整できず、推定値にバイアスが入りうる。著者もper-protocolの差を「統計的に脆弱」としている。</li>
+      <li>麻酔法が予後に影響しなかった機序を説明する生体試料・メカニズムのデータは収集していない。</li>
+      <li>術式ごとの差を検出する検出力はなく、サブグループによっては症例数が少ない。</li>
+      <li>米国5施設のプラグマティック試験であり、対象は悪性度の高いがんに限定される。対象や診療が異なる集団へそのまま一般化はできない。</li>
+    </ul>
+  </div>
+
+  <!-- 07 解釈 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>悪性度の高いがんの切除術において、<b>プロポフォール維持麻酔が揮発性麻酔よりがん関連予後を改善する、という仮説は支持されませんでした</b>。ITTで有意差はなく、per-protocolではむしろプロポフォール群の死亡が多い方向でしたが、後者は統計的に脆弱で、害を確定するものではありません。妥当な読み方は「<b>少なくとも、プロポフォールにがん予後上の利益はない</b>」です。</p>
+    <p>中国で行われた類似の多施設試験（高齢がん患者、プロポフォール vs セボフルラン）でも、プロポフォールの利益は示されず、むしろ予後がやや悪い傾向が報告されており、本試験の結論と整合します。後ろ向き研究のメタ解析が示した「プロポフォール優位」は、前向きRCTでは再現されなかった、と捉えるのが現時点で妥当です。</p>
+  </div>
+
+  <!-- 08 現代の視点 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>現代の視点</h2></div>
+    <p>GA-CARESは、悪性度の高いがん切除術における麻酔法とがん予後を検証した、大規模な前向きRCTです。基礎・動物実験や後ろ向きメタ解析で期待された「プロポフォールの抗腫瘍効果」が、質の高い前向き試験では確認されなかったことは、<b>前臨床の知見を臨床へ外挿することの難しさ</b>を示す例として読めます。</p>
+    <p>同種の問いを扱う前向き試験として、肺がんを対象とするGAS-TIVA試験のプロトコルも報告されています。今後さらに知見が蓄積されれば、がん種や周術期管理の違いによる外的妥当性をより丁寧に見られるはずです。現時点での実務的な含意は、TIVAと揮発性麻酔の選択を「がん再発抑制」を理由に決める必要はなく、術後悪心嘔吐・気道管理・血行動態・覚醒の質といった<b>他の臨床的要因で選んでよい</b>、という位置づけです。</p>
+  </div>
+
+  <!-- 09 英語で読む -->
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>英語で読む</h2></div>
+    <p>結論文を取り上げ、陰性結果を述べる医学英語の言い回しを確認します。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">— Conclusions, Abstract（Anesthesiology 2026;144:51-62）より引用</span>
+        <span class="en-text">"Propofol-based anesthesia is not effective at improving cancer-related outcomes in patients undergoing resection of malignancies."</span>
+      </div>
+      <p class="gloss"><b>読みのポイント：</b><span class="mono">is not effective at improving</span>（〜の改善に有効ではない）は、介入の効果を否定する典型表現。「悪い（harmful）」とまでは言わず、<b>益が示されなかった</b>ことを淡々と述べています。本文ではper-protocol解析の差を <span class="mono">statistically fragile</span> と表現していますが、結論文では強い言葉を避け、<span class="mono">not effective at improving</span> と控えめにまとめている点に、優越性試験が「差を示せなかった」ことの慎重な書き方が表れています。<span class="mono">undergoing resection</span>（切除術を受ける）は手術対象を表す定型句です。</p>
+      <table class="vocab">
+        <thead><tr><th>語・表現</th><th class="ipa hide-sm">発音</th><th>意味・ニュアンス</th></tr></thead>
+        <tbody>
+          <tr><td>effective at (improving)</td><td class="ipa hide-sm">/ɪˈfɛktɪv/</td><td>〜に有効。not effective at＝〜の効果は示されなかった、と益を否定する言い回し</td></tr>
+          <tr><td>cancer-related outcomes</td><td class="ipa hide-sm">—</td><td>がんに関連した予後（全生存・無病生存など）</td></tr>
+          <tr><td>undergoing</td><td class="ipa hide-sm">/ˌʌndərˈɡoʊɪŋ/</td><td>（手術・治療を）受けている。patients undergoing resection で「切除術を受ける患者」</td></tr>
+          <tr><td>resection</td><td class="ipa hide-sm">/rɪˈsɛkʃən/</td><td>切除（術）。腫瘍などを外科的に取り除くこと</td></tr>
+          <tr><td>malignancies</td><td class="ipa hide-sm">/məˈlɪɡnənsiz/</td><td>悪性腫瘍（malignancyの複数形）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 10 明日からの臨床 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>悪性度の高いがんの切除術で、<b>「がん再発を抑えたいからTIVA（プロポフォール）にする」という選択は、この試験の結果からは支持されません</b>。維持麻酔は、術後悪心嘔吐のリスク、気道・血行動態の管理しやすさ、覚醒の質といった目の前の臨床要因で選んでよい、というのが実務的な読み方です。少なくとも本試験対象のような悪性度の高いがん・米国5施設の条件では、がん予後を理由にプロポフォールと揮発性麻酔の優劣をつける根拠は現時点で強くありません。</p>
+    </div>
+  </div>
+
+  <!-- 11 インフォグラフィック -->
+  <div class="sec">
+    <div class="sechd"><span class="no">11</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="GA-CARES試験の要約図。プロポフォール維持麻酔と揮発性麻酔の全死亡率、ITT解析、per-protocol解析を比較する。">
+        <rect width="1200" height="630" fill="#F4F6F4"/>
+        <rect x="48" y="42" width="1104" height="546" rx="18" fill="#FBFCFB" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="84" y="94" font-family="'Noto Serif JP',serif" font-size="34" font-weight="700" fill="#15302D">がん手術の麻酔：プロポフォール vs 揮発性</text>
+        <text x="84" y="130" font-family="'JetBrains Mono',monospace" font-size="15" fill="#5C6B68">GA-CARES · Anesthesiology 2026 · 米国5施設 · 全死亡（最低2年追跡）</text>
+
+        <rect x="84" y="162" width="1032" height="146" rx="14" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="118" y="202" font-family="'JetBrains Mono',monospace" font-size="15" font-weight="700" fill="#0B4F4A">ITT 全死亡率（n=1,763、2年）</text>
+        <text x="118" y="246" font-family="'Noto Sans JP',sans-serif" font-size="19" fill="#2C4541">プロポフォール</text>
+        <rect x="274" y="225" width="720" height="28" rx="4" fill="#DDE5E1"/>
+        <rect x="274" y="225" width="470" height="28" rx="4" fill="#C96A2B"/>
+        <text x="1020" y="247" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="22" font-weight="700" fill="#C96A2B">26.1%</text>
+        <text x="118" y="286" font-family="'Noto Sans JP',sans-serif" font-size="19" fill="#2C4541">揮発性</text>
+        <rect x="274" y="265" width="720" height="28" rx="4" fill="#DDE5E1"/>
+        <rect x="274" y="265" width="412" height="28" rx="4" fill="#0F766E"/>
+        <text x="1020" y="287" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="22" font-weight="700" fill="#0F766E">22.9%</text>
+        <text x="274" y="318" font-family="'JetBrains Mono',monospace" font-size="12" fill="#5C6B68">横軸は0–40%スケール。差はプロポフォールの利益を示さない。</text>
+
+        <rect x="84" y="346" width="498" height="130" rx="10" fill="#FBFCFB" stroke="#D9E0DC"/>
+        <text x="118" y="384" font-family="'JetBrains Mono',monospace" font-size="14" fill="#0B4F4A">ITT解析（主解析）</text>
+        <text x="118" y="428" font-family="'Noto Serif JP',serif" font-size="42" font-weight="700" fill="#15302D">HR 1.16</text>
+        <text x="118" y="460" font-family="'JetBrains Mono',monospace" font-size="15" fill="#5C6B68">95%CI 0.96–1.41 · P=0.115</text>
+        <text x="390" y="428" font-family="'Noto Sans JP',sans-serif" font-size="18" font-weight="700" fill="#0F766E">有意差なし</text>
+
+        <rect x="618" y="346" width="498" height="130" rx="10" fill="#15302D"/>
+        <text x="652" y="384" font-family="'JetBrains Mono',monospace" font-size="14" fill="#6FBCB3">per-protocol解析（副次）</text>
+        <text x="652" y="428" font-family="'Noto Serif JP',serif" font-size="42" font-weight="700" fill="#FFFFFF">HR 1.31</text>
+        <text x="652" y="460" font-family="'JetBrains Mono',monospace" font-size="15" fill="#B7C7C2">95%CI 1.05–1.64 · P=0.017</text>
+        <text x="902" y="428" font-family="'Noto Sans JP',sans-serif" font-size="18" font-weight="700" fill="#E0A878">脆弱な副次結果</text>
+
+        <line x1="84" y1="504" x2="1116" y2="504" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="84" y="536" font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#0B4F4A">READING POINT</text>
+        <text x="84" y="568" font-family="'Noto Sans JP',sans-serif" font-size="19" font-weight="700" fill="#15302D">ITTもper-protocolも、プロポフォールのがん予後上の利益を支持しなかった。</text>
+        <text x="84" y="598" font-family="'Noto Sans JP',sans-serif" font-size="16" fill="#2C4541">PP解析の差は害の確定ではなく、ITTと併せて「利益なし」と慎重に読む。</text>
+      </svg>
+      <div class="info-cap">数値は原著（Anesthesiology 2026;144:51-62、CC BY-NC-ND）に基づく。図は転載せず独自に作成。</div>
+    </div>
+  </div>
+
+</div>
+
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。気づいた点は指摘してもらえると助かります。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。<strong>作成方法：</strong>AIによる下書きを自分でレビュー・修正。数値・解釈は一次資料での確認をおすすめします。図表は転載せず独自に作図しています。
+    </p>
+    <a class="foot-x" href="../feed.xml">RSSで更新を受け取る</a>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
+  </div>
+</footer>
+
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                      
