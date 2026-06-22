@@ -87,7 +87,7 @@ window.ARTICLES = [
     date: "2026.06.24", dow: "WED", status: "公開予定", live: false,
     title: "術中NSAIDsはAKIを増やすか — 傾向スコアマッチングで読む観察研究",
     url: "articles/nsaid-aki-psm.html",
-    desc: "待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。PSM後のAKIは4.2% vs 4.2%、OR 1.00（95%CI 0.79-1.27）。読みどころは傾向スコア、CI、残余交絡。",
+    desc: "待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。傾向スコアマッチング後のAKIは4.2% vs 4.2%（p>0.999）。読みどころは傾向スコアマッチングの仕組みと残余交絡。",
     dowTag: { kind: "weekday", label: "WED · 統計・手法", tag: "統計・手法" },
     tags: [
       { kind: "clinical", label: "麻酔", tag: "麻酔" },
