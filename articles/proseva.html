@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="重症ARDS 466例を対象にした多施設RCT。早期に16時間以上の腹臥位を行うと28日死亡は16.0% vs 32.8%に低下。読みどころはKaplan-Meier曲線とハザード比。">
+<meta name="robots" content="noindex,nofollow" data-draft-only="true">
+<link rel="canonical" href="https://anes-jc.github.io/articles/proseva.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="腹臥位は重症ARDSの死亡を減らすか — PROSEVA試験とハザード比の読み方 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="重症ARDS 466例を対象にした多施設RCT。早期に16時間以上の腹臥位を行うと28日死亡は16.0% vs 32.8%に低下。読みどころはKaplan-Meier曲線とハザード比。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/proseva.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/proseva.png?v=20260703">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="腹臥位は重症ARDSの死亡を減らすか — PROSEVA試験とハザード比の読み方 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="重症ARDS 466例を対象にした多施設RCT。早期に16時間以上の腹臥位を行うと28日死亡は16.0% vs 32.8%に低下。読みどころはKaplan-Meier曲線とハザード比。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/proseva.png?v=20260703">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/proseva.html"
+  },
+  "headline": "腹臥位は重症ARDSの死亡を減らすか — PROSEVA試験とハザード比の読み方",
+  "description": "重症ARDS 466例を対象にした多施設RCT。早期に16時間以上の腹臥位を行うと28日死亡は16.0% vs 32.8%に低下。読みどころはKaplan-Meier曲線とハザード比。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/proseva.png?v=20260703"
+  ],
+  "datePublished": "2026-07-03T00:00:00+09:00",
+  "dateModified": "2026-07-03T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
+<title>腹臥位は重症ARDSの死亡を減らすか — PROSEVA試験とハザード比の読み方 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
+<link rel="stylesheet" href="../assets/article-toc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(27px,5vw,39px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .draft-notice{border:1px solid #E4C9AF;border-left:4px solid var(--amber);background:#FFF4EA;border-radius:3px;padding:14px 16px;margin:20px 0 0;color:var(--ink-soft);font-size:13px;line-height:1.7}
+  .draft-notice strong{display:block;color:var(--amber);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;margin-bottom:4px}
+  .published .draft-notice{display:none}
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBcb3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBcb3}
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+  .pico{display:grid;grid-template-columns:104px 1fr;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  .result-card{background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:18px}
+  .result-card .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.09em;margin-bottom:8px}
+  .result-card .num{font-family:"Noto Serif JP",serif;font-size:28px;font-weight:700;color:var(--teal-deep);line-height:1.15}
+  .result-card .sub{font-size:13px;color:var(--muted);margin-top:7px}
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+  .en{background:#EAF4F2;border:1px solid #BFD8D3;border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{background:rgba(255,255,255,.42);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:12px 14px 12px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .gloss{font-size:14px;color:var(--ink-soft);margin:14px 0 4px}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+  .modern{border:1px dashed var(--line-strong);border-radius:4px;padding:20px 24px;margin:14px 0;background:rgba(15,118,110,.035)}
+  .modern .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .modern .lbl::before{content:"now";background:var(--teal);color:#fff;font-size:9px;padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+  .modern p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  @media(max-width:560px){
+    .bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.brand .dot{width:7px;height:7px;flex-shrink:0}.back{font-size:12px;white-space:nowrap;flex-shrink:0}
+    .wrap{padding:0 18px}.pico{grid-template-columns:78px 1fr}.summary{padding:24px 22px}.stats{padding:22px 20px}.result-grid{grid-template-columns:1fr}
+    .en{padding:20px 18px}.vocab,.vocab tbody,.vocab tr,.vocab td{display:block;width:100%}.vocab thead{display:none}.vocab tr{border-bottom:1px solid var(--line);padding:12px 0}.vocab td{border-bottom:0;padding:0}.vocab td:first-child{white-space:normal;font-size:14px;line-height:1.45;margin-bottom:5px}.vocab td:last-child{font-size:14px;line-height:1.7}
+  }
+</style>
+<script src="../assets/analytics-config.js"></script>
+<script src="../assets/analytics.js" defer></script>
+<script src="../assets/article-toc.js" defer></script>
+<script src="../assets/draft-gate.js" data-publish-date="2026-07-03" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../articles.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="draft-notice" data-draft-notice data-publish-date="2026-07-03" role="note">
+    <strong>PUBLICATION DRAFT</strong>
+    この記事は公開予定日前の下書き表示です。公開予定日は2026年7月3日です。正式公開前のため、内容が変更される場合があります。
+  </div>
+
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=古典論文">FRI · 古典論文</a>
+      <a class="pill" href="../tags.html?tag=集中治療">集中治療</a>
+      <a class="pill" href="../tags.html?tag=ARDS">ARDS</a>
+      <a class="pill" href="../tags.html?tag=時間経過と予後を読む"><span class="kl">統計 G05</span>時間経過と予後を読む</a>
+    </div>
+    <h1>腹臥位は重症ARDSの死亡を減らすか — PROSEVA試験とハザード比の読み方</h1>
+    <div class="cite">
+      Guérin C, Reignier J, Richard J-C, et al.; PROSEVA Study Group.<br>
+      Prone Positioning in Severe Acute Respiratory Distress Syndrome.<br>
+      N Engl J Med 2013;368:2159-2168. DOI: 10.1056/NEJMoa1214103 · 多施設無作為化比較試験 · n=466
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/23688302/" target="_blank" rel="noopener">PubMed →</a>
+      <a class="lnk" href="https://www.nejm.org/doi/full/10.1056/NEJMoa1214103" target="_blank" rel="noopener">原著（NEJM）→</a>
+      <a class="lnk" href="https://doi.org/10.1056/NEJMoa1214103" target="_blank" rel="noopener">DOI →</a>
+      <a class="lnk" href="https://clinicaltrials.gov/study/NCT00527813" target="_blank" rel="noopener">NCT00527813 →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>PROSEVAは、重症ARDS患者466例を対象に、<b>早期から16時間以上の腹臥位セッション</b>を行う戦略と仰臥位管理を比較した多施設RCT。</li>
+      <li>対象はPaO2:FIO2 &lt;150、FIO2 ≥0.6、PEEP ≥5 cmH2O、低一回換気量に近い条件で、12-24時間の安定化後にも基準を満たした患者。</li>
+      <li>主要評価項目の28日死亡は <b>16.0% vs 32.8%</b>、HR 0.39（95%CI 0.25-0.63、P&lt;0.001）。90日死亡も <b>23.6% vs 41.0%</b>、HR 0.44（95%CI 0.29-0.67）。</li>
+      <li>読みどころは、Kaplan-Meier曲線とハザード比を、絶対リスク差、施設経験、介入条件、限界と一緒に読むこと。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>ARDSで腹臥位を使うと酸素化が改善することは、PROSEVA以前から知られていました。仰臥位では背側肺が虚脱しやすく、腹臥位では換気と血流の分布がより均一になり、過伸展や虚脱を減らせる可能性があります。問題は、その生理学的改善が<b>死亡率低下</b>という患者中心アウトカムにつながるかでした。</p>
+    <p>過去のRCTでは、腹臥位による生存利益ははっきりしませんでした。一方で、重症低酸素血症のARDSでは利益が出る可能性がメタ解析で示唆されていました。PROSEVAはこの未解決点に対して、重症ARDSに絞り、低一回換気量の管理下で、早期から長時間の腹臥位を実施した試験です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>クリニカル・クエスチョン（PICO）</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">ARDSで挿管・人工呼吸中の成人。ARDSに対する挿管・人工呼吸の開始から36時間未満で、12-24時間の安定化後にもPaO2:FIO2 &lt;150 mmHg、FIO2 ≥0.6、PEEP ≥5 cmH2O、VT約6 ml/kg PBWを満たす重症ARDS。解析対象466例。</div>
+      <div class="k">I</div><div class="v">腹臥位群：無作為化後1時間以内に腹臥位へ。完全腹臥位で少なくとも16時間連続、原則として毎日、条件を満たすまで継続。</div>
+      <div class="k">C</div><div class="v">仰臥位群：半坐位の仰臥位管理。腹臥位へのクロスオーバーは、生命を脅かす低酸素血症に対する救命条件を満たす場合に限られた。</div>
+      <div class="k">O</div><div class="v">主要評価項目は28日死亡。副次評価項目は90日死亡、抜管成功、人工呼吸器非使用日数、ICU滞在、合併症、人工呼吸設定・血液ガス・呼吸メカニクスなど。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>研究デザインは、多施設共同の前向きランダム化比較試験です。26施設がフランス、1施設がスペインで、いずれも5年以上にわたり日常診療で腹臥位を使っていたICUでした。割付はコンピュータ生成で、ICUごとに層別化され、中央Webシステムで行われました。</p>
+    <p>対象者の入り方が重要です。単に「ARDSなら腹臥位」ではなく、<b>重症低酸素血症が12-24時間後にも持続した患者</b>を登録しています。さらに両群とも、VT 6 ml/kg PBWを目標とし、PEEPはPEEP-FIO2表で調整し、PplatRSを30 cmH2O以下、pHを7.20-7.45に保つ方針でした。つまり、腹臥位単独ではなく、肺保護換気の上に長時間腹臥位を重ねた試験です。</p>
+    <p>介入の強度も明確です。腹臥位群では初回セッションが無作為化後55±55分で開始され、平均4±4回、1回17±3時間行われました。全例が少なくとも1回の腹臥位を受け、初回から最終セッションまでのICU滞在時間の73%を腹臥位で過ごしました。</p>
+    <p>一方、盲検化には限界があります。治療担当者やデータ収集者は割付を知っていました。ただし、主要アウトカムは死亡であり、アウトカム評価者は割付を知らない形とされています。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY · 時間経過と予後を読む</div>
+      <h3>ハザード比は「ある時点の死亡割合」そのものではない</h3>
+      <p>この論文は死亡を28日・90日で報告し、Kaplan-Meier曲線とハザード比も示しています。ハザード比は、追跡期間中のある瞬間にイベントが起こる速さの比として読む指標です。28日死亡のHR 0.39は、腹臥位群で死亡発生のハザードが低いことを示しますが、読者の臨床感覚には絶対リスク差も必要です。</p>
+      <div class="formula">
+        Day 28 mortality<br>
+        Supine: 75/229 = 32.8%<br>
+        Prone: 38/237 = 16.0%<br>
+        Absolute risk difference = 32.8 - 16.0 = <b>16.8 percentage points</b><br>
+        Approximate NNT = 1 / 0.168 = <b>about 6</b><br>
+        Hazard ratio for death with prone positioning = <b>0.39</b> (95% CI 0.25-0.63)
+      </div>
+      <p>Kaplan-Meier曲線は、時間とともに生存割合がどう離れていくかを示します。PROSEVAでは曲線が早期から分かれ、90日死亡でも差が持続しています。ただし、HRだけを見て「死亡が61%減った」と短絡せず、<b>何日の時点で何%だったか</b>、<b>患者はどんな重症度だったか</b>、<b>介入はどれだけ長く・安全に実施されたか</b>まで合わせて読む必要があります。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="lbl">28-DAY MORTALITY</div>
+        <div class="num">16.0% vs 32.8%</div>
+        <div class="sub">Prone 38/237 vs Supine 75/229 · HR 0.39 (95%CI 0.25-0.63)</div>
+      </div>
+      <div class="result-card">
+        <div class="lbl">90-DAY MORTALITY</div>
+        <div class="num">23.6% vs 41.0%</div>
+        <div class="sub">Prone 56/237 vs Supine 94/229 · HR 0.44 (95%CI 0.29-0.67)</div>
+      </div>
+    </div>
+    <p>主要評価項目の28日死亡は、腹臥位群で <b>16.0%</b>、仰臥位群で <b>32.8%</b>でした（P&lt;0.001）。SOFAスコアで調整してもHR 0.42（95%CI 0.26-0.66）で、死亡低下の方向は保たれています。</p>
+    <p>90日死亡も、腹臥位群 <b>23.6%</b>、仰臥位群 <b>41.0%</b>でした（P&lt;0.001）。SOFA調整後のHRは0.48（95%CI 0.32-0.72）です。Kaplan-Meier曲線でも、90日まで生存曲線の差が示されています。</p>
+    <p>抜管成功は90日時点で <b>80.5%</b> vs <b>65.0%</b>。人工呼吸器非使用日数は28日で <b>14±9日</b> vs <b>10±10日</b>、90日で <b>57±34日</b> vs <b>43±38日</b>でした。気胸は6.3% vs 5.7%で差はありませんでした。</p>
+    <p>合併症では、心停止が仰臥位群31件、腹臥位群16件で、仰臥位群に多く報告されています（P=0.02）。その他の有害事象には、本文で有意な群間差は示されていません。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li><b>経験施設での試験：</b>参加施設は腹臥位に慣れたICUでした。著者らは、合併症率の低さは施設経験で説明される可能性があり、経験のない施設へそのまま一般化できるとは限らないと述べています。</li>
+      <li><b>対象は重症ARDSに限定：</b>PaO2:FIO2 &lt;150、FIO2 ≥0.6、PEEP ≥5 cmH2Oという重症低酸素血症の患者です。軽症・中等症ARDS全体に同じ効果を広げて読む試験ではありません。</li>
+      <li><b>除外された適格患者の情報不足：</b>適格だが組み入れられなかった患者のデータ記録に協力したICUが少なく、除外患者の生理学的状態を十分に把握できませんでした。</li>
+      <li><b>流体バランスとカテコラミン総量：</b>本文の限界として、fluid balanceと累積カテコラミン投与量が評価されていません。</li>
+      <li><b>ベースライン不均衡：</b>SOFAスコア、昇圧薬使用、筋弛緩薬使用に群間差があり、結果に影響した可能性があります。調整後も死亡は腹臥位群で低かったものの、解釈時には残る注意点です。</li>
+      <li><b>腹臥位そのものと体位変換の分離：</b>腹臥位群の患者は少なくとも1日1回仰臥位へ戻されたため、腹臥位そのものの効果と、1日の中で体位を変える効果を完全には分離できません。</li>
+      <li><b>機序の直接評価ではない：</b>著者らは、腹臥位が過伸展を減らしリクルートメントを促す可能性を論じていますが、この試験自体では肺リクルートメントを直接評価していません。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>PROSEVAの結果は大きく、28日死亡の絶対差は約17ポイントです。これは「酸素化がよくなる」だけでなく、死亡という硬いアウトカムで差が出た点が重要です。ただし、その効果は<b>重症ARDS、低一回換気量、長時間セッション、経験施設</b>という条件の組み合わせの中で得られたものです。</p>
+    <p>したがって、この記事の主語は「腹臥位を少し試した」ではありません。主語は、重症ARDSを見極め、早期に、16時間以上、毎日繰り返し、安全に回せるチームで行った腹臥位戦略です。この条件を外すと、同じ効果量を期待してよいかは分かりません。</p>
+    <div class="modern">
+      <div class="lbl">現代に持ち帰る条件</div>
+      <p>この古典を今読むときの実用的な核は、PROSEVAの組み入れ条件と運用条件を一緒に覚えることです。PaO2:FIO2 &lt;150、FIO2 ≥0.6、PEEP ≥5 cmH2O、VT約6 ml/kg PBW、12-24時間の確認、16時間以上の腹臥位、経験あるチーム。この一連の条件が、単なる体位変換ではなく治療戦略を形作っています。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <p>Abstract Conclusionから、試験の結論を述べる短い一文を読みます。死亡率の話をしているので、<span class="mono">decreased mortality</span> の主語が「腹臥位」ではなく「早期・長時間の腹臥位セッション」である点が重要です。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">— Abstract Conclusion（N Engl J Med 2013;368:2159-2168）より引用</span>
+        <span class="en-text">"In patients with severe ARDS, early application of prolonged prone-positioning sessions significantly decreased 28-day and 90-day mortality."</span>
+      </div>
+      <p class="gloss"><b>読みのポイント：</b><span class="mono">early application</span> と <span class="mono">prolonged prone-positioning sessions</span> が、介入の条件をまとめています。単に「腹臥位がよい」ではなく、早期に長時間セッションとして実施したことまで含めて読む文です。</p>
+      <table class="vocab">
+        <thead><tr><th>語・表現</th><th>意味・ニュアンス</th></tr></thead>
+        <tbody>
+          <tr><td>severe ARDS</td><td>重症ARDS。ここではPaO2:FIO2などの明確な条件で定義されている。</td></tr>
+          <tr><td>early application</td><td>早期適用。発症・登録後のタイミングが治療効果の条件になっている。</td></tr>
+          <tr><td>prolonged</td><td>長時間の。PROSEVAでは16時間以上のセッションを指す。</td></tr>
+          <tr><td>prone-positioning sessions</td><td>腹臥位セッション。体位そのものではなく、反復される介入単位としての表現。</td></tr>
+          <tr><td>mortality</td><td>死亡率。ここでは28日死亡と90日死亡。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>重症ARDSで腹臥位を検討するときは、「P/Fが悪いから寝かせ方を変える」ではなく、<b>早期・長時間・反復・低VT管理・経験あるチーム</b>というPROSEVAの条件をセットで確認する。</p>
+    </div>
+    <p>実務上は、患者選択、禁忌・ライン類・気道管理、鎮静/筋弛緩、皮膚・眼・圧迫、緊急時の戻し方まで、チームで標準化して初めて本文の介入に近づきます。PROSEVAは「腹臥位の名前」ではなく、「安全に長時間実施できる仕組み」を読ませる試験です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="PROSEVA試験の1200x630要約インフォグラフィック">
+        <rect x="0" y="0" width="1200" height="630" fill="#FBFCFB"/>
+        <rect x="0" y="0" width="1200" height="630" fill="#F4F6F4"/>
+        <rect x="46" y="44" width="1108" height="542" rx="10" fill="#FBFCFB" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="84" y="98" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="700" fill="#0F766E">PROSEVA · severe ARDS · prone positioning</text>
+        <text x="84" y="148" font-family="'Noto Serif JP', serif" font-size="42" font-weight="700" fill="#15302D">重症ARDSで腹臥位は死亡を減らすか</text>
+        <text x="84" y="188" font-family="'Noto Sans JP', sans-serif" font-size="22" fill="#2C4541">466例 · 多施設RCT · 16時間以上の早期腹臥位 vs 仰臥位</text>
+        <line x1="84" y1="224" x2="1116" y2="224" stroke="#D9E0DC" stroke-width="2"/>
+
+        <text x="84" y="274" font-family="'JetBrains Mono', monospace" font-size="21" font-weight="700" fill="#0B4F4A">28-day mortality</text>
+        <text x="84" y="324" font-family="'Noto Sans JP', sans-serif" font-size="25" fill="#2C4541">Prone</text>
+        <rect x="194" y="296" width="520" height="42" rx="4" fill="#E7ECE9"/>
+        <rect x="194" y="296" width="254" height="42" rx="4" fill="#0F766E"/>
+        <text x="748" y="327" font-family="'Noto Serif JP', serif" font-size="40" font-weight="700" fill="#0F766E">16.0%</text>
+
+        <text x="84" y="392" font-family="'Noto Sans JP', sans-serif" font-size="25" fill="#2C4541">Supine</text>
+        <rect x="194" y="364" width="520" height="42" rx="4" fill="#E7ECE9"/>
+        <rect x="194" y="364" width="520" height="42" rx="4" fill="#C96A2B"/>
+        <text x="748" y="395" font-family="'Noto Serif JP', serif" font-size="40" font-weight="700" fill="#C96A2B">32.8%</text>
+
+        <rect x="84" y="448" width="310" height="92" rx="8" fill="#15302D"/>
+        <text x="114" y="485" font-family="'JetBrains Mono', monospace" font-size="18" fill="#6FBCB3">Hazard ratio</text>
+        <text x="114" y="524" font-family="'Noto Serif JP', serif" font-size="39" font-weight="700" fill="#FFFFFF">0.39</text>
+
+        <rect x="424" y="448" width="330" height="92" rx="8" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="454" y="485" font-family="'JetBrains Mono', monospace" font-size="18" fill="#C96A2B">Absolute difference</text>
+        <text x="454" y="524" font-family="'Noto Serif JP', serif" font-size="39" font-weight="700" fill="#C96A2B">16.8 pt</text>
+
+        <rect x="784" y="448" width="332" height="92" rx="8" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="814" y="485" font-family="'JetBrains Mono', monospace" font-size="18" fill="#0B4F4A">Key condition</text>
+        <text x="814" y="522" font-family="'Noto Sans JP', sans-serif" font-size="25" font-weight="700" fill="#15302D">早期・長時間・経験施設</text>
+
+        <text x="84" y="574" font-family="'Noto Sans JP', sans-serif" font-size="19" fill="#5C6B68">値はGuérin et al. NEJM 2013に基づく。図はanes-jc用に独自作成。</text>
+      </svg>
+      <div class="info-cap">1200x630のXリンクカード比率で独自作成。原著図表の転載ではない。</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。気づいた点は指摘してもらえると助かります。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。<strong>作成方法：</strong>AIによる下書きを、提供された原著PDF、抽出テキスト、ページ画像で照合しながら作成しました。数値・解釈は一次資料での確認をおすすめします。図表は転載せず独自に作図しています。
+    </p>
+    <a class="foot-x" href="../feed.xml">RSSで更新を受け取る</a>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
+  </div>
+</footer>
+
+</body>
+</html>

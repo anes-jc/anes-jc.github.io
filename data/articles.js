@@ -36,6 +36,18 @@ window.ARTICLES = [
     ]
   },
   {
+    date: "2026.07.03", dow: "FRI", status: "公開予定", live: false,
+    title: "腹臥位は重症ARDSの死亡を減らすか — PROSEVA試験とハザード比の読み方",
+    url: "articles/proseva.html",
+    desc: "重症ARDS 466例を対象にした多施設RCT。早期に16時間以上の腹臥位を行うと28日死亡は16.0% vs 32.8%に低下。読みどころはKaplan-Meier曲線とハザード比。",
+    dowTag: { kind: "weekday", label: "FRI · 古典論文", tag: "古典論文" },
+    tags: [
+      { kind: "clinical", label: "集中治療", tag: "集中治療" },
+      { kind: "clinical", label: "ARDS", tag: "ARDS" },
+      { kind: "stat", label: "G05 時間経過と予後を読む", tag: "時間経過と予後を読む" }
+    ]
+  },
+  {
     date: "2026.07.01", dow: "WED", status: "公開予定", live: false,
     title: "レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence",
     url: "articles/remimazolam-eeg-regression.html",
