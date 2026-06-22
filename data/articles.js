@@ -63,7 +63,7 @@ window.ARTICLES = [
     date: "2026.06.29", dow: "MON", status: "公開予定", live: false,
     title: "脊麻帝王切開の昇圧薬は何を選ぶか — ネットワークメタ解析で読む",
     url: "articles/cesarean-vasopressor-nma.html",
-    desc: "脊麻帝王切開を対象にした55RCT・5487例のネットワークメタ解析。metaraminolなどが低血圧予防で上位。読みどころはSUCRA順位と胎児アウトカムの確実性。",
+    desc: "脊麻帝王切開を対象にした55RCT・5487例のネットワークメタ解析。メタラミノールなどが低血圧予防で上位。読みどころはrandom-effectsによる統合とSUCRA順位、胎児アウトカムの確実性。",
     dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
     tags: [
       { kind: "clinical", label: "麻酔", tag: "麻酔" },
