@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Mon, 22 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>術中NSAIDsはAKIを増やすか — 傾向スコアマッチングで読む観察研究</title>
+      <link>https://anes-jc.github.io/articles/nsaid-aki-psm.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/nsaid-aki-psm.html</guid>
+      <description>待機的大非心臓手術11,139例を対象にした単施設後ろ向きコホート。傾向スコアマッチング後のAKIは4.2% vs 4.2%（p&gt;0.999）。読みどころは傾向スコアマッチングの仕組みと残余交絡。</description>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 GMT</pubDate>
+      <category>統計・手法</category>
+      <category>麻酔</category>
+      <category>周術期鎮痛</category>
+      <category>バイアスと交絡を読む</category>
+    </item>
     <item>
       <title>上神経幹 vs ESPB — 肩関節鏡手術での鎮痛と横隔神経麻痺</title>
       <link>https://anes-jc.github.io/articles/shoulder-block-diaphragm.html</link>
