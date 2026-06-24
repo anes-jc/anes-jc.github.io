@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.08", dow: "WED", status: "公開予定", live: false,
+    title: "局所麻酔薬は少なくてよいか — 上顎神経ブロックの非劣性試験と信頼区間の読み方",
+    url: "articles/maxillary-block-volume.html",
+    desc: "両顎手術64例を対象にした二重盲検非劣性RCT。低容量(2mL)の上顎神経ブロックは術後2時間の痛みで高容量(5mL)に非劣性（平均差−0.1、95%CI −0.6〜0.8）。読みどころは非劣性マージンと信頼区間の位置。",
+    dowTag: { kind: "weekday", label: "WED · 統計・手法", tag: "統計・手法" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "区域麻酔", tag: "区域麻酔" },
+      { kind: "stat", label: "G03 不確実性を読む", tag: "不確実性を読む" }
+    ]
+  },
+  {
     date: "2026.07.06", dow: "MON", status: "公開予定", live: false,
     title: "がん手術の麻酔は予後を変えるか — GA-CARES試験とITT/per-protocolの読み方",
     url: "articles/ga-cares.html",
