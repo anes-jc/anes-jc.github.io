@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>周術期アスピリンは心血管イベントを防げるか — POISE-2試験と要因デザインの読み方</title>
+      <link>https://anes-jc.github.io/articles/poise-2.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/poise-2.html</guid>
+      <description>心血管リスクのある非心臓手術患者を対象にした2×2要因RCT。アスピリンは30日死亡/心筋梗塞を減らさず、大出血を増やした。読みどころは要因デザインとHR。</description>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 GMT</pubDate>
+      <category>古典論文</category>
+      <category>麻酔</category>
+      <category>周術期心臓管理</category>
+      <category>研究デザインを読む</category>
+    </item>
     <item>
       <title>術中NSAIDsはAKIを増やすか — 傾向スコアマッチングで読む観察研究</title>
       <link>https://anes-jc.github.io/articles/nsaid-aki-psm.html</link>
