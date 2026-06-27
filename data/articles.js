@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.10", dow: "FRI", status: "公開予定", live: false,
+    title: "産後出血にトラネキサム酸は効くか — WOMAN試験と複合エンドポイント・事前指定の読み方",
+    url: "articles/woman.html",
+    desc: "産後出血の女性2万例を対象にした国際二重盲検RCT。複合主要EP（全死亡または子宮摘出）は減らず、事前指定した出血死は1.5%対1.9%（RR0.81）で減少。読みどころは複合エンドポイントの希釈と事前指定の解析変更。",
+    dowTag: { kind: "weekday", label: "FRI · 古典論文", tag: "古典論文" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "産科麻酔", tag: "産科麻酔" },
+      { kind: "stat", label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
+    ]
+  },
+  {
     date: "2026.07.08", dow: "WED", status: "公開予定", live: false,
     title: "局所麻酔薬は少なくてよいか — 上顎神経ブロックの非劣性試験と信頼区間の読み方",
     url: "articles/maxillary-block-volume.html",
