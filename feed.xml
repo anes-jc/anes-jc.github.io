@@ -6,7 +6,16 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Fri, 26 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>先週のまとめ｜最新論文3選</title>
+      <link>https://anes-jc.github.io/articles/latest-papers-2026-06-28.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/latest-papers-2026-06-28.html</guid>
+      <description>対象期間の公開記事と最新論文3選をまとめる週次記事。選定論文と読みどころを短く確認できます。</description>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 GMT</pubDate>
+      <category>先週のまとめ</category>
+      <category>最新論文</category>
+    </item>
     <item>
       <title>周術期アスピリンは心血管イベントを防げるか — POISE-2試験と要因デザインの読み方</title>
       <link>https://anes-jc.github.io/articles/poise-2.html</link>
