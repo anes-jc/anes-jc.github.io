@@ -56,6 +56,24 @@ function paperLink(paper) {
   return `https://europepmc.org/article/${paper.source || "MED"}/${paper.id}`;
 }
 
+function sourceIdentifier(paper) {
+  if (paper.doi) return `DOI: ${paper.doi}`;
+  if (paper.pmid) return `PMID: ${paper.pmid}`;
+  return `Europe PMC: ${paper.source || "MED"}:${paper.id}`;
+}
+
+function normalizedTitle(paper) {
+  return String(paper.title || "").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function includesAny(text, terms) {
+  return terms.some((term) => text.includes(term));
+}
+
+function includesAll(text, terms) {
+  return terms.every((term) => text.includes(term));
+}
+
 function isPreprint(paper) {
   const source = String(paper.source || "").toUpperCase();
   const doi = String(paper.doi || "").toLowerCase();
@@ -83,6 +101,12 @@ function classifyStudyDesign(paper) {
   const text = `${paper.title || ""} ${paper.pubType || ""}`.toLowerCase();
   if (text.includes("protocol")) return "研究プロトコル";
   if (text.includes("non-randomized") || text.includes("non-randomised")) return "非無作為化研究";
+  if (text.includes("network meta-analysis") || text.includes("network meta analysis")) {
+    return "システマティックレビュー・ネットワークメタ解析";
+  }
+  if (text.includes("bayesian meta-analysis") || text.includes("bayesian meta analysis")) {
+    return "ベイズ階層メタ解析";
+  }
   const designs = [
     ["システマティックレビュー・メタ解析", ["systematic review", "meta-analysis", "meta analysis"]],
     ["無作為化比較試験", ["randomized", "randomised", "randomized controlled trial"]],
@@ -117,88 +141,143 @@ function deriveTheme(paper) {
 }
 
 function derivePaperHeading(paper) {
-  const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
-  const headings = [
-    ["上眼瞼再手術の局所麻酔にオリセリジン＋アルフェンタニルを足すと鎮痛は改善するか", ["oliceridine", "alfentanil", "blepharoplasty"]],
-    ["小児心臓手術でメチルプレドニゾロンは転帰を改善するか", ["methylprednisolone", "heart surgery", "pediatric"]],
-    ["小児心臓手術でメチルプレドニゾロンは転帰を改善するか", ["methylprednisolone", "heart surgery", "paediatric"]],
-    ["高齢整形外科手術で血中セレン低値は術後せん妄と関連するか", ["blood selenium", "postoperative delirium", "orthopedic"]],
-    ["橈骨遠位端骨折手術で区域麻酔は周術期転帰と術後医療利用にどう影響するか", ["regional anesthesia", "distal radius fracture"]],
-    ["チアノーゼ性先天性心疾患手術で正常酸素と高酸素を比較", ["cyanotic congenital heart surgery", "normoxia", "hyperoxia"]],
-    ["非挿管麻酔の長時間手術でTHRIVEが術後無気肺を減らすか", ["non-intubated anesthesia", "transnasal humidified rapid insufflation", "atelectasis"]],
-    ["若年者の脊椎手術で麻酔深度が運動誘発電位に与える影響", ["depth of anesthesia", "motor evoked potentials", "spinal surgery"]],
-    ["ARDS患者で人工呼吸戦略が予後に与える影響", ["ards", "mechanical ventilation", "mortality"]],
-    ["周術期の低血圧管理が術後転帰に与える影響", ["perioperative", "hypotension", "postoperative outcome"]],
-    ["術後疼痛に対する鎮痛法・オピオイド戦略を比較", ["postoperative pain", "analgesia", "opioid"]],
-    ["ICU患者の鎮静法とせん妄・転帰の関連を評価", ["icu", "sedation", "delirium"]],
-    ["気道管理・挿管手技の有効性と安全性を比較", ["airway", "intubation", "laryngoscopy"]],
-    ["敗血症・敗血症性ショックの治療戦略を評価", ["sepsis", "septic shock"]],
-  ];
-  const match = headings.find(([, terms]) => terms.every((term) => text.includes(term)));
-  return match?.[0] || `${deriveClinicalQuestionJa(paper)}：${classifyStudyDesign(paper)}`;
-}
-
-function derivePopulationJa(paper) {
-  const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
-  const populations = [
-    ["上眼瞼形成の再手術患者", ["blepharoplasty"]],
-    ["小児心臓手術患者", ["heart surgery", "pediatric"]],
-    ["小児心臓手術患者", ["heart surgery", "paediatric"]],
-    ["高齢整形外科手術患者", ["elderly", "orthopedic surgery"]],
-    ["橈骨遠位端骨折の手術患者", ["distal radius fracture"]],
-    ["チアノーゼ性先天性心疾患の手術患者", ["cyanotic congenital heart"]],
-    ["長時間の非挿管麻酔を受ける患者", ["prolonged non-intubated anesthesia"]],
-    ["若年者の脊椎手術患者", ["youth", "spinal surgery"]],
-    ["ARDS患者", ["ards"]],
-    ["敗血症・敗血症性ショック患者", ["sepsis", "septic shock"]],
-    ["ICU患者", ["icu", "intensive care"]],
-    ["周術期の患者", ["perioperative", "postoperative", "surgery", "surgical"]],
-    ["小児・若年患者", ["pediatric", "paediatric", "children", "adolescent", "youth"]],
-  ];
-  return populations.find(([, terms]) => terms.every((term) => text.includes(term)))?.[0] || "麻酔・集中治療領域の患者・研究対象";
-}
-
-function deriveClinicalQuestionJa(paper) {
-  const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
-  const questions = [
-    ["上眼瞼再手術の局所麻酔にオリセリジン＋アルフェンタニルを足すと鎮痛は改善するか", ["oliceridine", "alfentanil", "blepharoplasty"]],
-    ["小児心臓手術でメチルプレドニゾロンが術後転帰を改善するか", ["methylprednisolone", "heart surgery", "pediatric"]],
-    ["小児心臓手術でメチルプレドニゾロンが術後転帰を改善するか", ["methylprednisolone", "heart surgery", "paediatric"]],
-    ["血中セレン濃度と術後せん妄の関連", ["blood selenium", "postoperative delirium"]],
-    ["区域麻酔と周術期転帰・術後医療利用の関係", ["regional anesthesia", "distal radius fracture"]],
-    ["周術期の正常酸素管理と高酸素管理の違いが臨床転帰にどう影響するか", ["normoxia", "hyperoxia"]],
-    ["THRIVEの使用が術後早期無気肺を減らせるか", ["transnasal humidified rapid insufflation", "atelectasis"]],
-    ["麻酔深度が運動誘発電位モニタリングに与える影響", ["depth of anesthesia", "motor evoked potentials"]],
-    ["人工呼吸戦略と死亡・合併症の関係", ["mechanical ventilation", "mortality"]],
-    ["周術期低血圧の管理と術後転帰の関係", ["hypotension", "postoperative outcome"]],
-    ["鎮痛法やオピオイド戦略が疼痛・副作用に与える影響", ["postoperative pain", "analgesia"]],
-    ["鎮静方法とせん妄・転帰の関係", ["sedation", "delirium"]],
-    ["気道管理手技の有効性と安全性", ["airway", "intubation"]],
-    ["敗血症治療戦略の有効性と安全性", ["sepsis"]],
-  ];
-  return questions.find(([, terms]) => terms.every((term) => text.includes(term)))?.[0]
-    || `${deriveTheme(paper)}の臨床的な有効性・安全性`;
-}
-
-function deriveAbstractTakeawayJa(paper) {
-  const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
-  if (text.includes("systematic review") || text.includes("meta-analysis")) {
-    return "複数研究を統合し、効果の方向性と不確実性を整理して読む論文です。";
-  }
-  if (text.includes("randomized") || text.includes("randomised")) {
-    return "介入群と対照群を比較し、主要アウトカムと安全性を確認する論文です。";
-  }
-  if (text.includes("prospective")) {
-    return "前向きにデータを集め、臨床判断やモニタリングへの影響を確認する論文です。";
-  }
-  if (text.includes("cohort") || text.includes("observational")) {
-    return "実臨床データから関連の強さと限界を確認する論文です。";
-  }
-  return "抄録の背景・方法・結果をもとに、臨床で注目すべき点を短く整理しています。";
+  return titleRuleFor(paper)?.heading || `${deriveTitleTheme(paper)}：${classifyStudyDesign(paper)}`;
 }
 
 function summarizeAbstractJa(paper) {
-  return `${derivePopulationJa(paper)}を対象に、${deriveClinicalQuestionJa(paper)}を検討しています。${deriveAbstractTakeawayJa(paper)}`;
+  return titleRuleFor(paper)?.summary
+    || `英語タイトル上は「${deriveTitleTheme(paper)}」を扱う${classifyStudyDesign(paper)}です。下の英語タイトルと出典IDを確認して、抄録・原文で詳細を確認してください。`;
+}
+
+function titleRuleFor(paper) {
+  const text = normalizedTitle(paper);
+  const rules = [
+    {
+      terms: ["locoregional anesthesia", "cardiac surgery"],
+      heading: "心臓手術で局所・区域麻酔テクニックは鎮痛を改善するか",
+      summary: "心臓手術における局所・区域麻酔テクニックの鎮痛効果を、無作為化試験のシステマティックレビュー・ネットワークメタ解析で比較しています。",
+    },
+    {
+      terms: ["postoperative hepatic dysfunction", "stanford type a aortic dissection"],
+      heading: "Stanford A型大動脈解離修復術後の肝機能障害のリスク因子と予後",
+      summary: "Stanford A型大動脈解離修復術後の肝機能障害について、リスク因子と予後をシステマティックレビュー・メタ解析で整理した論文です。",
+    },
+    {
+      terms: ["balanced crystalloids versus saline", "mortality", "hospitalized patients"],
+      heading: "入院患者で平衡晶質液と生理食塩水の死亡への影響を比較",
+      summary: "入院患者における平衡晶質液と生理食塩水を、死亡をアウトカムとしてベイズ階層メタ解析で比較した論文です。",
+    },
+    {
+      terms: ["oliceridine", "alfentanil", "blepharoplasty"],
+      heading: "上眼瞼再手術の局所麻酔にオリセリジンとアルフェンタニルを併用する鎮痛戦略",
+      summary: "上眼瞼形成の再手術で、局所麻酔にオリセリジンとアルフェンタニルを組み合わせる鎮痛法を多施設無作為化試験で評価した論文です。",
+    },
+    {
+      terms: ["methylprednisolone", "heart surgery", "pediatric"],
+      heading: "小児心臓手術でメチルプレドニゾロンは転帰を改善するか",
+      summary: "小児心臓手術におけるメチルプレドニゾロンを、無作為化試験のメタ解析で評価した論文です。",
+    },
+    {
+      terms: ["methylprednisolone", "heart surgery", "paediatric"],
+      heading: "小児心臓手術でメチルプレドニゾロンは転帰を改善するか",
+      summary: "小児心臓手術におけるメチルプレドニゾロンを、無作為化試験のメタ解析で評価した論文です。",
+    },
+    {
+      terms: ["regional anesthesia", "distal radius fracture"],
+      heading: "橈骨遠位端骨折手術で区域麻酔は周術期転帰と術後医療利用にどう影響するか",
+      summary: "橈骨遠位端骨折修復術における区域麻酔と、周術期転帰・術後医療利用の関係を多施設後ろ向きコホートで評価した論文です。",
+    },
+    {
+      terms: ["cyanotic congenital heart surgery", "normoxia", "hyperoxia"],
+      heading: "チアノーゼ性先天性心疾患手術で正常酸素と高酸素を比較",
+      summary: "チアノーゼ性先天性心疾患手術の周術期酸素管理について、正常酸素と高酸素を無作為化試験のメタ解析で比較した論文です。",
+    },
+    {
+      terms: ["transnasal humidified rapid insufflation", "non-intubated anesthesia", "atelectasis"],
+      heading: "非挿管麻酔の長時間手術でTHRIVEが術後無気肺を減らすか",
+      summary: "長時間の非挿管麻酔を受ける患者で、THRIVEの使用が術後早期無気肺に与える影響を無作為化試験で検証した論文です。",
+    },
+    {
+      terms: ["depth of anesthesia", "motor evoked potentials", "spinal surgery"],
+      heading: "若年者の脊椎手術で麻酔深度が運動誘発電位に与える影響",
+      summary: "若年者の脊椎手術で、麻酔深度が運動誘発電位モニタリングに与える影響を前向きに調べた論文です。",
+    },
+  ];
+  return rules.find((rule) => includesAll(text, rule.terms));
+}
+
+function deriveTitleTheme(paper) {
+  const text = normalizedTitle(paper);
+  const themes = [
+    ["心臓手術の区域麻酔・鎮痛", ["locoregional anesthesia", "cardiac surgery"]],
+    ["大動脈解離術後の肝機能障害", ["hepatic dysfunction", "aortic dissection"]],
+    ["輸液製剤と死亡アウトカム", ["balanced crystalloids", "saline"]],
+    ["小児心臓手術", ["pediatric", "heart surgery"]],
+    ["小児心臓手術", ["paediatric", "heart surgery"]],
+    ["形成外科手術の鎮痛", ["blepharoplasty"]],
+    ["橈骨遠位端骨折の区域麻酔", ["distal radius fracture"]],
+    ["先天性心疾患手術の酸素管理", ["cyanotic congenital heart"]],
+    ["非挿管麻酔と術後無気肺", ["non-intubated anesthesia", "atelectasis"]],
+    ["脊椎手術の神経モニタリング", ["motor evoked potentials", "spinal surgery"]],
+    ["人工呼吸・ARDS管理", ["mechanical ventilation", "ards"]],
+    ["気道管理・挿管", ["airway", "intubation"]],
+    ["周術期鎮痛", ["analgesia", "pain"]],
+    ["集中治療", ["critical care", "intensive care", "icu"]],
+    ["周術期管理", ["perioperative", "postoperative", "surgery", "surgical"]],
+  ];
+  return themes.find(([, terms]) => includesAll(text, terms))?.[0] || "麻酔・集中治療領域の最新論文";
+}
+
+function paperCardData(paper) {
+  return {
+    heading: derivePaperHeading(paper),
+    design: classifyStudyDesign(paper),
+    summary: summarizeAbstractJa(paper),
+    title: String(paper.title || "").trim(),
+    journal: String(paper.journalTitle || "").trim(),
+    date: paper.firstPublicationDate || "",
+    link: paperLink(paper),
+    sourceId: sourceIdentifier(paper),
+  };
+}
+
+function validatePaperCards(cards, papers) {
+  if (cards.length !== papers.length) {
+    throw new Error(`Rendered ${cards.length} paper cards for ${papers.length} source papers.`);
+  }
+  const links = new Set();
+  const guardedClaims = [
+    ["ICU患者", ["icu", "intensive care"]],
+    ["小児心臓手術", ["pediatric", "paediatric", "heart surgery"]],
+    ["上眼瞼", ["blepharoplasty"]],
+    ["橈骨遠位端骨折", ["distal radius fracture"]],
+    ["チアノーゼ性先天性心疾患", ["cyanotic congenital heart"]],
+    ["A型大動脈解離", ["type a aortic dissection"]],
+    ["平衡晶質液", ["balanced crystalloids"]],
+  ];
+  cards.forEach((card, index) => {
+    const paper = papers[index];
+    const title = String(paper.title || "").trim();
+    const titleText = normalizedTitle(paper);
+    if (!card.title || card.title !== title) {
+      throw new Error(`Paper card ${index + 1} title does not match the source paper.`);
+    }
+    if (card.link !== paperLink(paper)) {
+      throw new Error(`Paper card ${index + 1} link does not match the source paper.`);
+    }
+    if (!card.sourceId) {
+      throw new Error(`Paper card ${index + 1} is missing a source identifier.`);
+    }
+    if (links.has(card.link)) {
+      throw new Error(`Duplicate paper link generated: ${card.link}`);
+    }
+    links.add(card.link);
+    for (const [claim, requiredTerms] of guardedClaims) {
+      if ((card.heading.includes(claim) || card.summary.includes(claim)) && !includesAny(titleText, requiredTerms)) {
+        throw new Error(`Paper card ${index + 1} claims "${claim}" but the English title does not support it.`);
+      }
+    }
+  });
 }
 
 async function fetchWithRetry(url, attempts = 3) {
@@ -279,15 +358,17 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
   const siteArticlesHtml = siteArticles.length ? siteArticles.map((article) => `
     <li><a href="../${escapeHtml(article.url)}">${escapeHtml(article.title)}</a><span>${escapeHtml(article.date)}</span></li>`).join("")
     : "<li>今週公開されたサイト記事はありません。</li>";
-  const papersHtml = papers.length ? papers.map((paper) => {
-    const heading = derivePaperHeading(paper);
+  const paperCards = papers.map(paperCardData);
+  validatePaperCards(paperCards, papers);
+  const papersHtml = paperCards.length ? paperCards.map((card) => {
     return `<article class="paper-card">
-      <h2>${escapeHtml(heading)}</h2>
-      <p class="design">${escapeHtml(classifyStudyDesign(paper))}</p>
-      <p class="summary"><span>抄録の日本語要約</span>${escapeHtml(summarizeAbstractJa(paper))}</p>
-      <h3>${escapeHtml(paper.title)}</h3>
-      <p class="meta">${escapeHtml(paper.journalTitle || "")}${paper.firstPublicationDate ? ` / ${escapeHtml(paper.firstPublicationDate)}` : ""}</p>
-      <a class="source" href="${paperLink(paper)}">抄録・原文を見る →</a>
+      <h2>${escapeHtml(card.heading)}</h2>
+      <p class="design">${escapeHtml(card.design)}</p>
+      <p class="summary"><span>日本語メモ</span>${escapeHtml(card.summary)}</p>
+      <h3>${escapeHtml(card.title)}</h3>
+      <p class="meta">${escapeHtml(card.journal)}${card.date ? ` / ${escapeHtml(card.date)}` : ""}</p>
+      <p class="source-id">${escapeHtml(card.sourceId)}</p>
+      <a class="source" href="${card.link}">抄録・原文を見る →</a>
     </article>`;
   }).join("") : "<p>最新論文情報を取得できませんでした。</p>";
   return `<!doctype html>
@@ -305,7 +386,7 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
 <title>${pageTitle} | anes-jc</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
-<style>:root{--paper:#f4f6f4;--paper-2:#fbfcfb;--ink:#15302d;--ink-soft:#2c4541;--teal:#0f766e;--teal-deep:#0b4f4a;--muted:#5c6b68;--line:#d9e0dc;--line-strong:#bcc8c3}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}.wrap{max-width:760px;margin:0 auto;padding:0 24px}a{color:var(--teal-deep)}header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}.bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}.bar-actions{display:flex;align-items:center;gap:14px}.back{font-size:13px;color:var(--muted);text-decoration:none}.foot-x{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 10px;white-space:nowrap}.foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}.ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}.kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}.pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep)}.pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.35;letter-spacing:.01em}.title-tail{white-space:nowrap}.cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}.sec{padding:38px 0;border-bottom:1px solid var(--line)}.sechd{margin-bottom:18px}.sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}.site-list{padding:0;list-style:none}.site-list li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.site-list span,.meta{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px;white-space:nowrap}.paper-card{padding:26px 28px;border:1px solid var(--line);border-radius:4px;margin:18px 0;background:var(--paper-2)}.paper-card h2{font-family:"Noto Serif JP",serif;font-size:22px;line-height:1.4;margin:0 0 8px;color:var(--ink)}.paper-card h3{font-size:15px;line-height:1.7;margin:14px 0 5px;font-weight:500;color:var(--ink-soft)}.design{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--line-strong);border-radius:3px;padding:3px 9px;margin:4px 0 12px;color:var(--teal-deep)}.summary{font-size:14px;line-height:1.8;color:var(--ink-soft);background:#fff;border-left:2px solid var(--teal);padding:12px 14px;margin:4px 0 16px}.summary span{display:block;font-size:11px;font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);margin-bottom:4px}.source{display:inline-block;margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-decoration:none;border:1px solid var(--line-strong);padding:6px 12px;border-radius:2px}.source:hover{background:var(--teal);color:#fff;border-color:var(--teal)}footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}.disc{font-size:12px;color:var(--muted);line-height:1.9}.foot-x{display:inline-block;margin-top:14px;padding:7px 12px}@media(max-width:560px){.bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.back{font-size:12px;white-space:nowrap}.wrap{padding:0 18px}h1 .title-part{display:block}.title-sep{display:none}.paper-card{padding:20px}.site-list li{display:block}.site-list span{display:block;margin-top:4px}}</style>
+<style>:root{--paper:#f4f6f4;--paper-2:#fbfcfb;--ink:#15302d;--ink-soft:#2c4541;--teal:#0f766e;--teal-deep:#0b4f4a;--muted:#5c6b68;--line:#d9e0dc;--line-strong:#bcc8c3}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}.wrap{max-width:760px;margin:0 auto;padding:0 24px}a{color:var(--teal-deep)}header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}.bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}.bar-actions{display:flex;align-items:center;gap:14px}.back{font-size:13px;color:var(--muted);text-decoration:none}.foot-x{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 10px;white-space:nowrap}.foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}.ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}.kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}.pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep)}.pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.35;letter-spacing:.01em}.title-tail{white-space:nowrap}.cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}.sec{padding:38px 0;border-bottom:1px solid var(--line)}.sechd{margin-bottom:18px}.sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}.site-list{padding:0;list-style:none}.site-list li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.site-list span,.meta,.source-id{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px}.site-list span,.meta{white-space:nowrap}.source-id{overflow-wrap:anywhere;margin-top:2px}.paper-card{padding:26px 28px;border:1px solid var(--line);border-radius:4px;margin:18px 0;background:var(--paper-2)}.paper-card h2{font-family:"Noto Serif JP",serif;font-size:22px;line-height:1.4;margin:0 0 8px;color:var(--ink)}.paper-card h3{font-size:15px;line-height:1.7;margin:14px 0 5px;font-weight:500;color:var(--ink-soft)}.design{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--line-strong);border-radius:3px;padding:3px 9px;margin:4px 0 12px;color:var(--teal-deep)}.summary{font-size:14px;line-height:1.8;color:var(--ink-soft);background:#fff;border-left:2px solid var(--teal);padding:12px 14px;margin:4px 0 16px}.summary span{display:block;font-size:11px;font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);margin-bottom:4px}.source{display:inline-block;margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-decoration:none;border:1px solid var(--line-strong);padding:6px 12px;border-radius:2px}.source:hover{background:var(--teal);color:#fff;border-color:var(--teal)}footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}.disc{font-size:12px;color:var(--muted);line-height:1.9}.foot-x{display:inline-block;margin-top:14px;padding:7px 12px}@media(max-width:560px){.bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.back{font-size:12px;white-space:nowrap}.wrap{padding:0 18px}h1 .title-part{display:block}.title-sep{display:none}.paper-card{padding:20px}.site-list li{display:block}.site-list span{display:block;margin-top:4px}}</style>
 <script src="../assets/analytics-config.js"></script>
 <script src="../assets/analytics.js" defer></script>
 </head><body><header class="bar"><div class="bar-in"><a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a><div class="bar-actions"><a class="back" href="../articles.html">← 記事一覧</a></div></div></header><div class="wrap">
