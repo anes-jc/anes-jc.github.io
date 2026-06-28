@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 28 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>脊麻帝王切開の昇圧薬は何を選ぶか — ネットワークメタ解析で読む</title>
+      <link>https://anes-jc.github.io/articles/cesarean-vasopressor-nma.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/cesarean-vasopressor-nma.html</guid>
+      <description>脊麻帝王切開を対象にした55RCT・5487例のネットワークメタ解析。メタラミノールなどが低血圧予防で上位。読みどころはrandom-effectsによる統合とSUCRA順位、胎児アウトカムの確実性。</description>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+      <category>新着論文</category>
+      <category>麻酔</category>
+      <category>産科麻酔</category>
+      <category>統合・予測・診断を読む</category>
+    </item>
     <item>
       <title>先週のまとめ｜最新論文3選</title>
       <link>https://anes-jc.github.io/articles/latest-papers-2026-06-28.html</link>
