@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="重症感染症・敗血症で入院後に退院した1,286例を対象にした多施設RCT（ACCOMPLISH）。遠隔モニタリングは退院後90日の『自宅で生きて過ごせた日数』を増やさず、65歳以上ではむしろ減らした。読みどころは患者中心の複合アウトカムとベイズ流の信用区間・優越確率。">
+<meta name="robots" content="noindex,nofollow" data-draft-only="true">
+<link rel="canonical" href="https://anes-jc.github.io/articles/sepsis-remote-monitoring.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="敗血症後の遠隔モニタリングは再入院を防ぐか — ACCOMPLISH試験と「自宅で過ごせた日数」の読み方 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="重症感染症・敗血症で入院後に退院した1,286例を対象にした多施設RCT（ACCOMPLISH）。遠隔モニタリングは退院後90日の『自宅で生きて過ごせた日数』を増やさず、65歳以上ではむしろ減らした。読みどころは患者中心の複合アウトカムとベイズ流の信用区間・優越確率。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/sepsis-remote-monitoring.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/sepsis-remote-monitoring.png?v=20260713">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="article:published_time" content="2026-07-13T00:00:00+09:00">
+<meta property="article:modified_time" content="2026-07-13T00:00:00+09:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="敗血症後の遠隔モニタリングは再入院を防ぐか — ACCOMPLISH試験と「自宅で過ごせた日数」の読み方 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="重症感染症・敗血症で入院後に退院した1,286例を対象にした多施設RCT（ACCOMPLISH）。遠隔モニタリングは退院後90日の『自宅で生きて過ごせた日数』を増やさず、65歳以上ではむしろ減らした。読みどころは患者中心の複合アウトカムとベイズ流の信用区間・優越確率。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/sepsis-remote-monitoring.png?v=20260713">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/sepsis-remote-monitoring.html"
+  },
+  "headline": "敗血症後の遠隔モニタリングは再入院を防ぐか — ACCOMPLISH試験と「自宅で過ごせた日数」の読み方",
+  "description": "重症感染症・敗血症で入院後に退院した1,286例を対象にした多施設RCT（ACCOMPLISH）。遠隔モニタリングは退院後90日の『自宅で生きて過ごせた日数』を増やさず、65歳以上ではむしろ減らした。読みどころは患者中心の複合アウトカムとベイズ流の信用区間・優越確率。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/sepsis-remote-monitoring.png?v=20260713"
+  ],
+  "datePublished": "2026-07-13T00:00:00+09:00",
+  "dateModified": "2026-07-13T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
+<title>敗血症後の遠隔モニタリングは再入院を防ぐか — ACCOMPLISH試験と「自宅で過ごせた日数」の読み方 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
+<link rel="stylesheet" href="../assets/article-toc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(27px,5vw,39px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .draft-notice{border:1px solid #E4C9AF;border-left:4px solid var(--amber);background:#FFF4EA;border-radius:3px;padding:14px 16px;margin:20px 0 0;color:var(--ink-soft);font-size:13px;line-height:1.7}
+  .draft-notice strong{display:block;color:var(--amber);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;margin-bottom:4px}
+  .published .draft-notice{display:none}
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBCB3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBCB3}
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+  .pico{display:grid;grid-template-columns:88px 1fr;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  .result-card{background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:18px}
+  .result-card .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.09em;margin-bottom:8px}
+  .result-card .num{font-family:"Noto Serif JP",serif;font-size:32px;font-weight:700;color:var(--teal-deep);line-height:1.1}
+  .result-card .sub{font-size:13px;color:var(--muted);margin-top:7px}
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+  .en{background:#EAF4F2;border:1px solid #BFD8D3;border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{background:rgba(255,255,255,.42);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:12px 14px 12px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  @media(max-width:560px){
+    .bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.brand .dot{width:7px;height:7px;flex-shrink:0}.back{font-size:12px;white-space:nowrap;flex-shrink:0}
+    .wrap{padding:0 18px}.pico{grid-template-columns:58px 1fr}.summary{padding:24px 22px}.stats{padding:22px 20px}.result-grid{grid-template-columns:1fr}
+    .en{padding:20px 18px}.vocab,.vocab tbody,.vocab tr,.vocab td{display:block;width:100%}.vocab thead{display:none}.vocab tr{border-bottom:1px solid var(--line);padding:12px 0}.vocab td{border-bottom:0;padding:0}.vocab td:first-child{white-space:normal;font-size:14px;line-height:1.45;margin-bottom:5px}.vocab td.hide-sm{display:block;font-size:12px;color:var(--teal-deep);font-weight:700;margin-bottom:4px}.vocab td:last-child{font-size:14px;line-height:1.7}
+  }
+</style>
+<script src="../assets/analytics-config.js"></script>
+<script src="../assets/analytics.js" defer></script>
+<script src="../assets/article-toc.js" defer></script>
+<script src="../assets/draft-gate.js" data-publish-date="2026-07-13" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../articles.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="draft-notice" data-draft-notice data-publish-date="2026-07-13" role="note">
+    <strong>PUBLICATION DRAFT</strong>
+    この記事は公開予定日前の下書き表示です。公開予定日は2026年7月13日です。正式公開前のため、内容が変更される場合があります。
+  </div>
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=新着論文">MON · 新着</a>
+      <a class="pill" href="../tags.html?tag=集中治療">集中治療</a>
+      <a class="pill" href="../tags.html?tag=敗血症">敗血症</a>
+      <a class="pill" href="../tags.html?tag=時間経過と予後を読む"><span class="kl">統計 G05</span>時間経過と予後を読む</a>
+    </div>
+    <h1>敗血症後の遠隔モニタリングは再入院を防ぐか — ACCOMPLISH試験と「自宅で過ごせた日数」の読み方</h1>
+    <div class="cite">
+      Yende S, et al.（24名）<br>
+      Remote Monitoring Approaches to Reduce Readmissions After Infection and Sepsis: A Randomized Clinical Trial.<br>
+      JAMA Netw Open. 2026;9(6):e2616641. · PMID: 42275060 · DOI: 10.1001/jamanetworkopen.2026.16641 · NCT04829188
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/42275060/" target="_blank" rel="noopener">PubMed →</a>
+      <a class="lnk" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13261490/" target="_blank" rel="noopener">原著（全文・OA）→</a>
+      <a class="lnk" href="https://doi.org/10.1001/jamanetworkopen.2026.16641" target="_blank" rel="noopener">DOI →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>敗血症または下気道感染症で入院し退院した成人を対象に、退院後の遠隔患者モニタリング（RPM）が再入院を減らすかを検証した、米国19病院・<b>1,286例</b>の多施設RCT（ACCOMPLISH）です。</li>
+      <li>主要アウトカムは退院後90日の<b>「自宅で生きて過ごせた日数（postdischarge home days）」</b>。質問範囲（低／高）×対応チーム（標準／強化）の4つのRPM群を、通常ケアとベイズ流の解析で比べました。</li>
+      <li>在宅日数の中央値はどの群も90日で、4つのRPM群はいずれも通常ケアより優れる確率が55%未満。<b>遠隔モニタリングは在宅日数を増やしませんでした</b>。</li>
+      <li>むしろ<b>65歳以上では在宅日数が減る方向</b>で、劣性確率は97.9〜99.6%でした。読みどころは、患者中心の複合アウトカムの作り方と、ベイズ流の信用区間・優越確率の読み方です。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの問いが大事か</h2></div>
+    <p>敗血症や肺炎などの重症感染症は、入院治療を終えて退院しても、その後の再入院がとても多い病態です。米国では年間300万人以上が重症感染症で入院し、退院後の再入院はケアの質を損なう主要な問題として、保険者（CMS）からも質の指標とみなされています。退院後の不安定な時期を、いかに安全に乗り切るかは集中治療・周術期医療に共通の課題です。</p>
+    <p>退院後に患者の症状を遠隔で見守る「遠隔患者モニタリング（remote patient monitoring; RPM）」は、心不全では再入院を減らせることが示され、CMSの償還対象にもなっています。しかし、感染症や敗血症の後で同じように役立つのかは、これまで十分に確かめられていませんでした。</p>
+    <p>そもそも感染症後の再入院を減らす介入を、ランダム化比較試験で厳密に評価した研究はほとんどなく、有効と確認された方法も見つかっていません。ここが、この研究が埋めようとした未解決の問題です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>研究上の問い</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">敗血症または下気道感染症で入院し退院した、再入院リスクが中等度〜高度の成人（21歳以上）。米国ペンシルベニア西部の19病院。インターネット接続機器を持ち、認知機能障害がない患者。</div>
+      <div class="k">I</div><div class="v">退院後の遠隔患者モニタリング（RPM）。質問範囲（低＝反復感染を中心に検出／高＝感染・心不全・COPDを幅広く監視）と、対応チーム（標準＝モニタリング看護師／強化＝緩和ケアの素養をもつ診療看護師を含むチーム）の組合せで4群。</div>
+      <div class="k">C</div><div class="v">通常ケア（退院後1週間の構造化された電話サポート）。</div>
+      <div class="k">O</div><div class="v">主要アウトカムは退院後90日の「自宅で生きて過ごせた日数（home days）」。副次アウトカムは再入院、90日死亡など。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>対象は、米国ペンシルベニア西部の19病院（UPMC系13施設と独立系6施設）で、2021年3月25日から2024年9月3日まで登録され、介入は2024年12月8日に終了しました。敗血症または下気道感染症で入院し、退院後の再入院リスクが中等度〜高度の成人が組み入れられています。最終解析は1,286例です。</p>
+    <p>群は通常ケアを含む5群です。RPMの介入は2つの軸の組合せでできています。1つはモニタリングの強度で、低強度は最多の再入院原因である反復感染を検出する質問、高強度は感染に加えて心不全やCOPDも幅広く監視します。もう1つは対応チームで、標準対応はアラートに応じてかかりつけ医・専門医と調整するモニタリング看護師、強化対応は診断・治療・検査オーダーができる診療看護師（緩和ケアの素養あり）を含み、退院後第1週の仮想診察や事前指示書の作成も行います。</p>
+    <p>割付には<b>レスポンス適応型ランダム化（response-adaptive randomization）</b>が使われました。最初の250例は通常ケアを30%に固定する助走期間とし、その後は退院後在宅日数のデータが蓄積するたびに、四半期ごとの中間解析（計10回）で割付確率を更新し、有効そうな介入に割り付けられやすくしています。サンプルサイズは当初1,500例の計画でしたが、2023年11月にデータ安全性モニタリング委員会と協議のうえ1,281例へ縮小されました（脱落が想定より少なく、COVID-19で登録が難しかったため）。</p>
+    <p>介入の性質上、試験は<b>オープンラベル</b>で、患者・実装チーム・コーディネーターは割付を知っています。ただし大半の研究者と、再入院の判断を行う臨床チームは盲検化されていました。解析は<b>ベイズ流の比例オッズモデル</b>で、各介入群と通常ケアを比べる累積オッズ比（COR）の事後分布、95%信用区間、優越確率を算出しています。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY · G05 時間経過と予後を読む</div>
+      <h3>「自宅で生きて過ごせた日数」とは何を測る物差しか</h3>
+      <p>この試験の主要アウトカムは、再入院率でも死亡率でもなく、退院後90日のうち「生きて自宅で過ごせた日数（postdischarge home days）」です。これは生存と在宅時間を1本にまとめた、患者中心の複合アウトカムです。90日のうち、入院・介護施設（SNF）・リハビリ施設・長期人工呼吸施設にいた日数を差し引いて数えます。</p>
+      <div class="formula">
+        自宅で過ごせた日数 = 90日 −（入院・施設にいた日数）<br>
+        死亡した場合 = −1日 を割り当てる<br>
+        COR（累積オッズ比）&gt; 1 … 在宅日数が増える方向／&lt; 1 … 減る方向
+      </div>
+      <p>ポイントは、死亡例に<b>−1日</b>を割り当てることです。もし死亡を「0日」や「在宅日数の欠測」として扱うと、早く亡くなった人が長く入院した人より良く見える、という逆説が起こり得ます。死亡を最下位に置くことで、「亡くならず、入院もせず、家で過ごせた時間」が長いほど良い、という自然な順序になります。死亡と医療利用という別々の出来事を、1つの順序尺度に統合できるのがこの指標の利点です。</p>
+      <p>差の評価には、頻度論のp値ではなく<b>ベイズ流</b>が使われています。読み方の軸は3つです。<b>(1) 累積オッズ比（COR）</b>は、在宅日数の分布が通常ケアより上にずれるか下にずれるかを表し、1より大きければ在宅日数が増える方向です。<b>(2) 95%信用区間（credible interval）</b>は「真の効果が95%の確率でこの範囲にある」と直接読める区間で、区間が1をまたぐなら明確な差は示せていません。<b>(3) 優越確率</b>は「その群が通常ケアより良い確率」そのもので、50%前後ならコイン投げと同じ＝差の証拠がない、と読みます。</p>
+      <p>もう1つの注意点が天井効果です。多くの患者は90日間ずっと自宅にいられるため、<b>中央値はどの群も90日</b>になりがちです。差は、亡くなった人や長く入院した人がいる分布の「裾」に現れます。だから単純な平均や中央値の比較ではなく、分布全体のずれを順序尺度（比例オッズ）で評価しているのです。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="lbl">ANALYZED</div>
+        <div class="num">1,286例</div>
+        <div class="sub">19病院・5群（通常ケア＋RPM 4群）</div>
+      </div>
+      <div class="result-card">
+        <div class="lbl">PRIMARY · HOME DAYS</div>
+        <div class="num">中央値 90日</div>
+        <div class="sub">全RPM群で優越確率 &lt;55%（上乗せなし）</div>
+      </div>
+    </div>
+    <p>退院後在宅日数の中央値は、通常ケア90日（IQR 83–90）に対し、4つのRPM群もいずれも90日（IQRは概ね83〜90）でした。通常ケアと比べた累積オッズ比（COR）と優越確率は、低強度・標準対応がCOR 0.96（95% CrI 0.70–1.32、優越44.4%）、高強度・標準対応が0.86（0.60–1.23、優越32.0%）、低強度・強化対応が1.01（0.76–1.33、優越52.5%）、高強度・強化対応が0.96（0.69–1.36、優越20.2%）でした。<b>すべての群で優越確率は55%未満</b>（20.2〜52.5%）で、在宅日数を増やす証拠は得られませんでした。</p>
+    <p>むしろ懸念は高齢者で出ました。<b>65歳以上</b>では、標準対応群がCOR 0.56（95% CrI 0.36–0.85）で<b>劣性確率99.6%</b>、強化対応群がCOR 0.67（0.45–0.98）で<b>劣性確率97.9%</b>でした。65歳以上の再入院率も、標準対応47.9%、強化対応38.6%に対し、通常ケアは29.7%で、遠隔モニタリング群のほうが高くなっていました。</p>
+    <p>副次アウトカムの90日死亡は、通常ケア6.5%（26/399）、低強度・標準8.8%（18/204）、高強度・標準5.4%（7/129）、低強度・強化6.3%（24/383）、高強度・強化8.2%（14/171）でした。90日以内に1回以上の再入院は、通常ケア37.8%（151/399）、低強度・標準39.7%（81/204）、高強度・標準44.2%（57/129）、低強度・強化37.3%（143/383）、高強度・強化36.3%（62/171）で、全体として通常ケアを明確に下回る群はありませんでした。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>単一の医療システム内での実装であり、他の地域・体制への一般化には限界があります。</li>
+      <li>参加にインターネット接続機器が必須で、そのために適格となりうる717例が除外されました。</li>
+      <li>評価したのは症状ベースの遠隔モニタリングで、生理学的モニタリングや対面の在宅訪問は評価していません。</li>
+      <li>介入への関与（エンゲージメント）が中程度（59.6%）にとどまり、介入の効果を十分に検出できなかった可能性があります。</li>
+      <li>介入の性質上オープンラベルで、患者・実装チーム・コーディネーターは割付を認識していました（ただし再入院判定チームは盲検）。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>心不全で再入院を減らせた遠隔モニタリングが、感染症・敗血症の後では同じようには働きませんでした。4群のいずれも在宅日数を増やさず、優越確率は50%前後かそれ以下です。ここで大事なのは、信用区間が1をまたぐことは「差がないと証明された」のではなく、「明確な差を示せなかった」という意味だということです。</p>
+    <p>一方で、65歳以上での劣性確率97.9〜99.6%は、単なる「効果なし」では片づけられないシグナルです。症状を頻繁に尋ねるモニタリングが、高齢患者ではかえって受診・再入院を増やす方向に働いた可能性があります。背景に多疾患やフレイルがある集団では、見守りの強化が安心ではなく負担や過剰な医療接触につながりうる、という解釈ができます。</p>
+    <p>つまりこの試験は、遠隔モニタリングという発想を一律に否定するものではなく、「誰に、どの形で届けるか」を問い直す材料です。著者ら自身も、敗血症や下気道感染症の後の遠隔モニタリングは、再評価し対象に合わせて調整すべきだと述べています。ランキングや平均だけでなく、サブグループでの方向性まで含めて読むことが、この種の実装研究では欠かせません。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>現代の視点</h2></div>
+    <p>退院後の遠隔モニタリングは、心不全領域での再入院減のエビデンスを背景に、CMS償還つきのテレヘルス戦略として普及してきました。本試験は、その成功体験を感染症後へ横展開できるかを、レスポンス適応型ランダム化とベイズ流解析を用いて厳密に検証した、数少ないRCTです。結果は「デジタルで見守れば安心」という直感に必ずしも沿いませんでした。</p>
+    <p>主要アウトカムに採られた「days alive and out of hospital（生きて病院の外で過ごせた日数）」という考え方は、近年ICUや周術期のアウトカム研究で標準化が進んでいます。死亡と入院・施設利用を1本の患者中心の物差しにまとめられ、規制・臨床の双方で重視されつつある指標です。麻酔・集中治療の論文を読むうえでも、今後ますます目にする形式といえます。</p>
+    <p>高齢者で害の方向のシグナルが出たことは、デジタルヘルス実装の難しさを示します。同じツールでも、対象患者の選び方、何を測るか、誰がどう応じるかというワークフロー設計で、結果は逆向きにもなり得ます。技術の有無より、運用設計と対象選択が予後を左右する、という視点が重要です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>英語で読む</h2></div>
+    <div class="en">
+      <div class="quote">
+        <span class="src">Conclusions（JAMA Netw Open. 2026;9(6):e2616641）の抜粋</span>
+        <span class="en-text">"remote monitoring did not increase time spent alive at home but reduced it in those 65 years and older."</span>
+      </div>
+      <p><b>読みのポイント：</b>骨格は <span class="mono">remote monitoring did not increase ... but reduced it</span> です。前半 <span class="mono">did not increase</span> で主要アウトカムの上乗せがなかったことを述べ、後半 <span class="mono">but reduced it</span> で逆に減らしたことを対比しています。<span class="mono">it</span> は <span class="mono">time spent alive at home</span> を指し、これは主要アウトカム「自宅で生きて過ごせた日数」の平易な言い換えです。最後の <span class="mono">in those 65 years and older</span> が、その害の方向が高齢サブグループに限られることを示します。</p>
+      <table class="vocab">
+        <thead><tr><th>表現</th><th class="hide-sm">意味</th><th>論文での読み方</th></tr></thead>
+        <tbody>
+          <tr><td>remote monitoring</td><td class="hide-sm">遠隔モニタリング</td><td>退院後に患者の症状を遠隔で見守る介入</td></tr>
+          <tr><td>did not increase</td><td class="hide-sm">増やさなかった</td><td>主要アウトカムで上乗せを示せなかった</td></tr>
+          <tr><td>time spent alive at home</td><td class="hide-sm">生きて自宅で過ごした時間</td><td>主要アウトカム（home days）の言い換え</td></tr>
+          <tr><td>but reduced it</td><td class="hide-sm">むしろ減らした</td><td>it は time spent alive at home を指す</td></tr>
+          <tr><td>those 65 years and older</td><td class="hide-sm">65歳以上の人々</td><td>害の方向が出た高齢サブグループ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>退院後の遠隔モニタリングは「つければ安心」とは限りません。敗血症・重症感染症の後では、症状ベースの遠隔モニタリングは自宅で過ごせた日数を増やさず、65歳以上ではむしろ減らす方向のシグナルが出ました。導入するなら、対象患者の選択・対応体制・何を測るかまで設計し、効果を自施設で確かめる姿勢が要ります。論文を読むときは、中央値が同じでも、累積オッズ比・信用区間・優越確率で「差の証拠の強さ」を読み取ることが大切です。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">11</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="敗血症・重症感染症後の遠隔モニタリングRCT（ACCOMPLISH、1286例）。退院後90日の自宅で過ごせた日数は4つのRPM群で増えず、65歳以上ではむしろ減少。患者中心の複合アウトカムとベイズ流の信用区間・優越確率で読む。">
+        <rect width="1200" height="630" fill="#F4F6F4"/>
+        <rect x="48" y="42" width="1104" height="546" rx="22" fill="#FBFCFB" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="86" y="96" font-family="Noto Serif JP, serif" font-size="34" font-weight="700" fill="#15302D">敗血症後の遠隔モニタリングは再入院を防ぐか</text>
+        <text x="86" y="132" font-family="Noto Sans JP, sans-serif" font-size="18" fill="#5C6B68">ACCOMPLISH試験：19病院・1,286例。主要評価は「自宅で生きて過ごせた日数」</text>
+
+        <rect x="86" y="170" width="330" height="104" rx="14" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="112" y="203" font-family="JetBrains Mono, monospace" font-size="14" fill="#0B4F4A">PRIMARY · HOME DAYS</text>
+        <text x="112" y="235" font-family="Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#15302D">中央値 どの群も90日</text>
+        <text x="112" y="260" font-family="Noto Sans JP, sans-serif" font-size="15" fill="#5C6B68">生存＋在宅日数の複合（死亡=−1日）</text>
+
+        <rect x="436" y="170" width="330" height="104" rx="14" fill="#15302D"/>
+        <text x="462" y="204" font-family="Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#E4ECE9">4つのRPM群とも上乗せなし</text>
+        <text x="462" y="236" font-family="Noto Sans JP, sans-serif" font-size="16" fill="#FFFFFF">COR 0.86〜1.01</text>
+        <text x="462" y="262" font-family="Noto Sans JP, sans-serif" font-size="16" fill="#FFFFFF">優越確率 20.2〜52.5%（&lt;55%）</text>
+
+        <rect x="786" y="170" width="328" height="104" rx="14" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="812" y="203" font-family="JetBrains Mono, monospace" font-size="14" fill="#C96A2B">AGE ≥ 65 · SIGNAL OF HARM</text>
+        <text x="812" y="235" font-family="Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#15302D">高齢者ではむしろ減少</text>
+        <text x="812" y="260" font-family="Noto Sans JP, sans-serif" font-size="15" fill="#5C6B68">劣性確率 97.9〜99.6%</text>
+
+        <line x1="251" y1="310" x2="251" y2="356" stroke="#BCC8C3" stroke-width="3"/>
+        <line x1="601" y1="310" x2="601" y2="356" stroke="#BCC8C3" stroke-width="3"/>
+        <line x1="950" y1="310" x2="950" y2="356" stroke="#BCC8C3" stroke-width="3"/>
+        <line x1="251" y1="356" x2="950" y2="356" stroke="#BCC8C3" stroke-width="3"/>
+        <polygon points="625,356 601,340 601,372" fill="#BCC8C3"/>
+
+        <rect x="86" y="392" width="318" height="112" rx="16" fill="#FBFCFB" stroke="#D9E0DC"/>
+        <text x="116" y="425" font-family="JetBrains Mono, monospace" font-size="14" fill="#0B4F4A">CREDIBLE INTERVAL</text>
+        <text x="116" y="458" font-family="Noto Sans JP, sans-serif" font-size="23" font-weight="700" fill="#15302D">95%信用区間が1をまたぐ</text>
+        <text x="116" y="486" font-family="Noto Sans JP, sans-serif" font-size="16" fill="#5C6B68">＝明確な差を示せていない</text>
+
+        <rect x="440" y="392" width="318" height="112" rx="16" fill="#FBFCFB" stroke="#D9E0DC"/>
+        <text x="470" y="425" font-family="JetBrains Mono, monospace" font-size="14" fill="#0B4F4A">PROBABILITY OF SUPERIORITY</text>
+        <text x="470" y="458" font-family="Noto Sans JP, sans-serif" font-size="23" font-weight="700" fill="#15302D">優越確率 &lt;55%</text>
+        <text x="470" y="486" font-family="Noto Sans JP, sans-serif" font-size="16" fill="#5C6B68">高くない＝優越の証拠なし</text>
+
+        <rect x="794" y="392" width="320" height="112" rx="16" fill="#FBFCFB" stroke="#D9E0DC"/>
+        <text x="824" y="425" font-family="JetBrains Mono, monospace" font-size="14" fill="#C96A2B">TAILOR, DON'T ASSUME</text>
+        <text x="824" y="458" font-family="Noto Sans JP, sans-serif" font-size="23" font-weight="700" fill="#15302D">誰に・どの形で</text>
+        <text x="824" y="486" font-family="Noto Sans JP, sans-serif" font-size="16" fill="#5C6B68">対象選択とワークフローが鍵</text>
+
+        <text x="86" y="560" font-family="Noto Sans JP, sans-serif" font-size="16" fill="#15302D">臨床の読み方：中央値が同じでも、COR・信用区間・優越確率で差の証拠の強さを読む。高齢者ではむしろ害の方向に注意。</text>
+      </svg>
+      <div class="info-cap">独自作成インフォグラフィック。Yende S, et al. JAMA Netw Open. 2026;9(6):e2616641 の主要所見を独自に作図。図表の転載ではありません。</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>免責・作成方法：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。PubMed、PMC全文（PMC13261490）、DOI解決先、論文本文のMethods/Results/Discussion、主要アウトカムの定義を確認し、統計テーマを患者中心の複合アウトカム「自宅で生きて過ごせた日数（days alive and out of hospital）」に絞り、ベイズ流の累積オッズ比・信用区間・優越確率の読み方を補助線として解説しました。効果量は原著の報告値のみを用い、独自の再計算は行っていません。図表は転載せず独自に作図しています。この通常記事は人間の内容確認と公開許可を経て掲載しています。
+    </p>
+    <a class="foot-x" href="../feed.xml">RSSで更新を受け取る</a>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
+  </div>
+</footer>
+</body>
+</html>

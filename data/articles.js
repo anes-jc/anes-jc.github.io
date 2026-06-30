@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.13", dow: "MON", status: "公開予定", live: false,
+    title: "敗血症後の遠隔モニタリングは再入院を防ぐか — ACCOMPLISH試験と「自宅で過ごせた日数」の読み方",
+    url: "articles/sepsis-remote-monitoring.html",
+    desc: "敗血症・下気道感染症で入院後に退院した1,286例の米国19病院・多施設RCT（ACCOMPLISH）。退院後90日の自宅で生きて過ごせた日数は4つの遠隔モニタリング群で増えず（COR 0.86〜1.01、優越確率<55%）、65歳以上ではむしろ減少。読みどころは患者中心の複合アウトカムとベイズ流の信用区間・優越確率。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
+    tags: [
+      { kind: "clinical", label: "集中治療", tag: "集中治療" },
+      { kind: "clinical", label: "敗血症", tag: "敗血症" },
+      { kind: "stat", label: "G05 時間経過と予後を読む", tag: "時間経過と予後を読む" }
+    ]
+  },
+  {
     date: "2026.07.10", dow: "FRI", status: "公開予定", live: false,
     title: "産後出血にトラネキサム酸は効くか — WOMAN試験と複合エンドポイント・事前指定の読み方",
     url: "articles/woman.html",
