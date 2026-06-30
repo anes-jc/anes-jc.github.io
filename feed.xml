@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Mon, 29 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence</title>
+      <link>https://anes-jc.github.io/articles/remimazolam-eeg-regression.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/remimazolam-eeg-regression.html</guid>
+      <description>レミマゾラムTIVA中の成人69例で、年齢が高いほどα/β/γ帯域パワーが低く、相対δ/θ帯域やcoherenceも変化した研究。PSIだけでは見えにくい脳波の年齢差を単回帰で読む。</description>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+      <category>統計の手法</category>
+      <category>麻酔</category>
+      <category>脳波モニタリング</category>
+      <category>効果の大きさを読む</category>
+    </item>
     <item>
       <title>脊麻帝王切開の昇圧薬は何を選ぶか — ネットワークメタ解析で読む</title>
       <link>https://anes-jc.github.io/articles/cesarean-vasopressor-nma.html</link>
