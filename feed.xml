@@ -6,14 +6,25 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 01 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>腹臥位は重症ARDSの死亡を減らすか — PROSEVA試験とハザード比の読み方</title>
+      <link>https://anes-jc.github.io/articles/proseva.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/proseva.html</guid>
+      <description>重症ARDS 466例を対象にした多施設RCT。早期に16時間以上の腹臥位を行うと28日死亡は16.0% vs 32.8%に低下。読みどころはKaplan-Meier曲線とハザード比。</description>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+      <category>古典論文</category>
+      <category>集中治療</category>
+      <category>ARDS</category>
+      <category>時間経過と予後を読む</category>
+    </item>
     <item>
       <title>レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence</title>
       <link>https://anes-jc.github.io/articles/remimazolam-eeg-regression.html</link>
       <guid isPermaLink="true">https://anes-jc.github.io/articles/remimazolam-eeg-regression.html</guid>
       <description>レミマゾラムTIVA中の成人69例で、年齢が高いほどα/β/γ帯域パワーが低く、相対δ/θ帯域やcoherenceも変化した研究。PSIだけでは見えにくい脳波の年齢差を単回帰で読む。</description>
       <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-      <category>統計の手法</category>
+      <category>統計・手法</category>
       <category>麻酔</category>
       <category>脳波モニタリング</category>
       <category>効果の大きさを読む</category>
