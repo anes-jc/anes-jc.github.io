@@ -29,6 +29,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Remove expired draft gates
+        run: node scripts/remove-draft-gates.mjs
+
       - name: Generate sitemap and RSS feed
         run: |
           node scripts/generate-sitemap.mjs
@@ -36,11 +39,11 @@ jobs:
 
       - name: Publish derived feed changes
         run: |
-          if [ -z "$(git status --porcelain -- sitemap.xml feed.xml)" ]; then
+          if [ -z "$(git status --porcelain -- articles sitemap.xml feed.xml)" ]; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml feed.xml
-          git commit -m "Refresh sitemap and RSS feed"
+          git add articles sitemap.xml feed.xml
+          git commit -m "Refresh derived feeds and un-gate date-reached articles"
           git push

@@ -88,7 +88,7 @@ window.ARTICLES = [
     title: "レミマゾラム麻酔中、高齢者のEEGはどう変わるか — 回帰分析で読む周波数パワーとcoherence",
     url: "articles/remimazolam-eeg-regression.html",
     desc: "レミマゾラムTIVA中の成人69例で、年齢が高いほどα/β/γ帯域パワーが低く、相対δ/θ帯域やcoherenceも変化した研究。PSIだけでは見えにくい脳波の年齢差を単回帰で読む。",
-    dowTag: { kind: "weekday", label: "WED · 統計の手法", tag: "統計の手法" },
+    dowTag: { kind: "weekday", label: "WED · 統計・手法", tag: "統計・手法" },
     tags: [
       { kind: "clinical", label: "麻酔", tag: "麻酔" },
       { kind: "clinical", label: "脳波モニタリング", tag: "脳波モニタリング" },
