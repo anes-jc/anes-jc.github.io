@@ -25,7 +25,7 @@ window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
     date: "2026.07.15", dow: "WED", status: "公開予定", live: false,
-    title: "早期経腸栄養は敗血症性ショックの死亡を減らすか — 不死時間バイアスとターゲット試験エミュレーションの読み方",
+    title: "早期経腸栄養は敗血症性ショックの死亡を減らすか — 不死時間バイアスとターゲット試験エミュレーション",
     url: "articles/sepsis-en-timing.html",
     desc: "敗血症性ショック4,003例のMIMIC-IVコホートを用いたターゲット試験エミュレーション。重み付き推定で早期(0-48h)経腸栄養は遅延(48-96h)より28日死亡リスクが低く（30.0%対35.0%、遅延vs早期HR1.21、95%CI1.15-1.27）、人工呼吸器非装着日数も多い方向。読みどころは不死時間バイアスとclone-censor-weight。",
     dowTag: { kind: "weekday", label: "WED · 統計・手法", tag: "統計・手法" },
