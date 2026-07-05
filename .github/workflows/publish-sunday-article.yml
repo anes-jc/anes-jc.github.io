@@ -8,6 +8,7 @@ on:
     - cron: "10 15 * * 6"
     - cron: "40 15 * * 6"
     - cron: "10 16 * * 6"
+    # The daily derived-feed workflow also backs this up at Sunday 00:10 JST.
   workflow_dispatch:
 
 permissions:
