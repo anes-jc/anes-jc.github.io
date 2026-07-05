@@ -132,7 +132,10 @@ function deriveTheme(paper) {
     ["術後合併症の予防", ["postoperative complication", "postoperative outcome"]],
     ["周術期の循環管理", ["hemodynamic", "haemodynamic", "hypotension", "blood pressure"]],
     ["周術期鎮痛・オピオイド", ["analgesia", "opioid", "postoperative pain"]],
+    ["周術期鎮痛・オピオイド", ["methadone", "qtc"]],
     ["麻酔法・麻酔薬の選択", ["anesthesia", "anaesthesia", "anesthetic", "anaesthetic"]],
+    ["ICUの人員・看護体制", ["turnover intention", "nurses"]],
+    ["ICUの電解質・栄養管理", ["phosphorus", "critically ill"]],
     ["ICUでの鎮静・せん妄", ["sedation", "delirium"]],
     ["集中治療の予後改善", ["critical care", "intensive care", "icu"]],
     ["周術期管理", ["perioperative", "postoperative", "surgery", "surgical"]],
@@ -152,6 +155,21 @@ function summarizeAbstractJa(paper) {
 function titleRuleFor(paper) {
   const text = normalizedTitle(paper);
   const rules = [
+    {
+      terms: ["single-dose intraoperative methadone", "qtc interval"],
+      heading: "術中メサドン単回投与はQTc間隔を延長するか",
+      summary: "全身麻酔導入時の静注メサドン単回投与とQTcFの変化を前向き観察コホートで評価した論文です。新規QTcF>500 msはメサドン群で少なく、単回投与では臨床的に意味のあるQTc延長は示されませんでした。",
+    },
+    {
+      terms: ["turnover intention", "intensive care nurses"],
+      heading: "ICU看護師の離職意向はどの程度多く、何が関連するか",
+      summary: "ICU看護師の「ICUを離れたい」「看護職を離れたい」という離職意向の有病割合と関連因子を統合したシステマティックレビュー・メタ解析です。離職意向は約3割にみられ、バーンアウト、業務負荷、人員配置、組織的支援が主要な論点です。",
+    },
+    {
+      terms: ["blood phosphorus level", "clinical outcomes", "critically ill patients"],
+      heading: "重症患者の血中リン値は死亡や人工呼吸期間とどう関連するか",
+      summary: "成人ICU患者の血中リン値と死亡、ICU滞在、人工呼吸期間の関連を整理したシステマティックレビュー・メタ解析です。低リン血症は滞在・人工呼吸期間の延長と、高リン血症は死亡リスクや滞在・人工呼吸期間の延長と関連していましたが、エビデンスの質と異質性には注意が必要です。",
+    },
     {
       terms: ["locoregional anesthesia", "cardiac surgery"],
       heading: "心臓手術で局所・区域麻酔テクニックは鎮痛を改善するか",
@@ -219,6 +237,9 @@ function deriveTitleTheme(paper) {
     ["先天性心疾患手術の酸素管理", ["cyanotic congenital heart"]],
     ["非挿管麻酔と術後無気肺", ["non-intubated anesthesia", "atelectasis"]],
     ["脊椎手術の神経モニタリング", ["motor evoked potentials", "spinal surgery"]],
+    ["術中メサドンとQTc間隔", ["single-dose intraoperative methadone", "qtc interval"]],
+    ["ICU看護師の離職意向", ["turnover intention", "intensive care nurses"]],
+    ["重症患者の血中リン値と臨床転帰", ["blood phosphorus level", "critically ill patients"]],
     ["人工呼吸・ARDS管理", ["mechanical ventilation", "ards"]],
     ["気道管理・挿管", ["airway", "intubation"]],
     ["周術期鎮痛", ["analgesia", "pain"]],
@@ -228,13 +249,28 @@ function deriveTitleTheme(paper) {
   return themes.find(([, terms]) => includesAll(text, terms))?.[0] || "麻酔・集中治療領域の最新論文";
 }
 
+function journalName(paper) {
+  const name = String(
+    paper.journalTitle
+      || paper.journalInfo?.journal?.title
+      || paper.journalInfo?.journal?.medlineAbbreviation
+      || "",
+  ).trim();
+  const known = [
+    [/^british journal of anaesthesia$/i, "British Journal of Anaesthesia"],
+    [/^intensive\s*&\s*critical care nursing$/i, "Intensive and Critical Care Nursing"],
+    [/^jpen\.\s*journal of parenteral and enteral nutrition$/i, "JPEN: Journal of Parenteral and Enteral Nutrition"],
+  ];
+  return known.find(([pattern]) => pattern.test(name))?.[1] || name;
+}
+
 function paperCardData(paper) {
   return {
     heading: derivePaperHeading(paper),
     design: classifyStudyDesign(paper),
     summary: summarizeAbstractJa(paper),
     title: String(paper.title || "").trim(),
-    journal: String(paper.journalTitle || "").trim(),
+    journal: journalName(paper),
     date: paper.firstPublicationDate || "",
     link: paperLink(paper),
     sourceId: sourceIdentifier(paper),
@@ -259,6 +295,7 @@ function validatePaperCards(cards, papers) {
     const paper = papers[index];
     const title = String(paper.title || "").trim();
     const titleText = normalizedTitle(paper);
+    const sourceText = `${titleText} ${String(paper.abstractText || "").toLowerCase()}`;
     if (!card.title || card.title !== title) {
       throw new Error(`Paper card ${index + 1} title does not match the source paper.`);
     }
@@ -268,13 +305,16 @@ function validatePaperCards(cards, papers) {
     if (!card.sourceId) {
       throw new Error(`Paper card ${index + 1} is missing a source identifier.`);
     }
+    if (card.heading.includes("麻酔・集中治療領域の最新論文") || card.summary.includes("英語タイトル上は")) {
+      throw new Error(`Paper card ${index + 1} uses an overly generic heading or summary: ${title}`);
+    }
     if (links.has(card.link)) {
       throw new Error(`Duplicate paper link generated: ${card.link}`);
     }
     links.add(card.link);
     for (const [claim, requiredTerms] of guardedClaims) {
-      if ((card.heading.includes(claim) || card.summary.includes(claim)) && !includesAny(titleText, requiredTerms)) {
-        throw new Error(`Paper card ${index + 1} claims "${claim}" but the English title does not support it.`);
+      if ((card.heading.includes(claim) || card.summary.includes(claim)) && !includesAny(sourceText, requiredTerms)) {
+        throw new Error(`Paper card ${index + 1} claims "${claim}" but the source metadata does not support it.`);
       }
     }
   });
