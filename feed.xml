@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Mon, 06 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>局所麻酔薬は少なくてよいか — 上顎神経ブロックの非劣性試験と信頼区間の読み方</title>
+      <link>https://anes-jc.github.io/articles/maxillary-block-volume.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/maxillary-block-volume.html</guid>
+      <description>両顎手術64例を対象にした二重盲検非劣性RCT。低容量(2mL)の上顎神経ブロックは術後2時間の痛みで高容量(5mL)に非劣性（平均差−0.1、95%CI −0.6〜0.8）。読みどころは非劣性マージンと信頼区間の位置。</description>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
+      <category>統計・手法</category>
+      <category>麻酔</category>
+      <category>区域麻酔</category>
+      <category>不確実性を読む</category>
+    </item>
     <item>
       <title>がん手術の麻酔は予後を変えるか — GA-CARES試験とITT/per-protocolの読み方</title>
       <link>https://anes-jc.github.io/articles/ga-cares.html</link>
