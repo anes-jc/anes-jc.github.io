@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.17", dow: "FRI", status: "公開予定", live: false,
+    title: "手術前の心リスクを予測できるか — RCRIと予測モデルの導出・前向き検証",
+    url: "articles/rcri.html",
+    desc: "非心臓手術を受ける50歳以上4,315例の前向きコホート（導出2,893／検証1,422）。術前6因子を各1点で数える簡易指標RCRIを導出し別集団で前向き検証、リスク階級別の心合併症率は検証コホートで0.4%→0.9%→6.6%→11.0%、識別能はROC曲線下面積0.806。読みどころは予測モデルの導出と検証の違い・識別能とキャリブレーション。",
+    dowTag: { kind: "weekday", label: "FRI · 古典論文", tag: "古典論文" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "周術期心臓管理", tag: "周術期心臓管理" },
+      { kind: "stat", label: "G06 統合・予測・診断を読む", tag: "統合・予測・診断を読む" }
+    ]
+  },
+  {
     date: "2026.07.15", dow: "WED", status: "公開予定", live: false,
     title: "早期経腸栄養は敗血症性ショックの死亡を減らすか — 不死時間バイアスとターゲット試験エミュレーション",
     url: "articles/sepsis-en-timing.html",

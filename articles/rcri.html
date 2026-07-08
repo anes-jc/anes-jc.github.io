@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow" data-draft-only="true">
+<meta name="description" content="非心臓手術の周術期心合併症リスクを予測するRCRI（改訂心リスク指標）の導出と前向き検証を読み解く古典。少数の臨床因子でリスクを層別化する予測モデルを題材に、導出と検証の違い・識別能・キャリブレーションの見方を解説する。">
+<link rel="canonical" href="https://anes-jc.github.io/articles/rcri.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="手術前の心リスクを予測できるか — RCRIと予測モデルの導出・前向き検証 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="非心臓手術の周術期心合併症リスクを予測するRCRI（改訂心リスク指標）の導出と前向き検証を読み解く古典。予測モデルの導出と検証の違い・識別能・キャリブレーションの見方を解説する。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/rcri.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/rcri.png?v=20260717">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="手術前の心リスクを予測できるか — RCRIと予測モデルの導出・前向き検証 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="非心臓手術の周術期心合併症リスクを予測するRCRIの導出と前向き検証を読み解く古典。予測モデルの導出と検証の違い・識別能・キャリブレーションの見方を解説する。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/rcri.png?v=20260717">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/rcri.html"
+  },
+  "headline": "手術前の心リスクを予測できるか — RCRIと予測モデルの導出・前向き検証",
+  "description": "非心臓手術の周術期心合併症リスクを予測するRCRIの導出と前向き検証を読み解く古典。予測モデルの導出と検証の違い・識別能・キャリブレーションの見方を解説する。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/rcri.png?v=20260717"
+  ],
+  "datePublished": "2026-07-17T00:00:00+09:00",
+  "dateModified": "2026-07-17T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
+<title>手術前の心リスクを予測できるか — RCRIと予測モデルの導出・前向き検証 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
+<link rel="stylesheet" href="../assets/article-toc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+  .bar-actions{display:flex;align-items:center;gap:14px}
+
+  .draft-notice{margin:14px 0 0;border:1px solid var(--amber);background:var(--amber-bg);border-radius:4px;padding:14px 18px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+  .draft-notice strong{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--amber);margin-right:8px}
+
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(26px,5vw,38px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .en{background:#EAF4F2;border:1px solid #BFD8D3;border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{background:rgba(255,255,255,.42);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:12px 14px 12px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .en .gloss{font-size:14px;color:var(--ink-soft);margin:14px 0 4px}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .vocab td.ipa{color:var(--muted);font-size:13px}
+  @media(max-width:560px){
+    .bar-in{height:54px;padding:0 18px;gap:12px}
+    .brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}
+    .brand .dot{width:7px;height:7px;flex-shrink:0}
+    .back{font-size:12px;white-space:nowrap;flex-shrink:0}
+    .vocab .hide-sm{display:none}
+  }
+
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBcb3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBcb3}
+  .summary li:last-child{margin-bottom:0}
+
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+
+  .pico{display:grid;grid-template-columns:88px 1fr;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .formula b{color:var(--amber)}
+
+  .epchain{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-strong);border:1px solid var(--line-strong);border-radius:3px;overflow:hidden;margin:18px 0;font-size:14px}
+  .ep-row{background:var(--paper-2);padding:12px 14px;display:flex;align-items:center;gap:12px}
+  .ep-row .ep-k{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--teal-deep);min-width:120px}
+  .ep-row .ep-v{color:var(--ink-soft);font-size:13.5px}
+  .ep-row.ep-dil{border-left:3px solid var(--amber)}
+  .ep-row.ep-key{border-left:3px solid var(--teal)}
+
+  .rtable{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+  .rtable th,.rtable td{border:1px solid var(--line);padding:9px 12px;text-align:center}
+  .rtable th{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);letter-spacing:.03em}
+  .rtable td:first-child,.rtable th:first-child{text-align:left}
+  .rtable tbody tr:nth-child(even){background:rgba(15,118,110,.03)}
+  .rtable .mono{font-family:"JetBrains Mono",monospace}
+
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+  .modern{border:1px dashed var(--line-strong);border-radius:4px;padding:20px 24px;margin:14px 0;background:rgba(15,118,110,.035)}
+  .modern .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .modern .lbl::before{content:"now";background:var(--teal);color:#fff;font-size:9px;padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+  .modern p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
+  .modern p:last-child{margin-bottom:0}
+  .modern b{color:var(--ink)}
+  .modern .ref{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.6;border-left:2px solid var(--line-strong);padding-left:12px;margin-top:12px}
+
+</style>
+<script src="../assets/analytics-config.js"></script>
+<script src="../assets/analytics.js" defer></script>
+<script src="../assets/article-toc.js" defer></script>
+<script src="../assets/draft-gate.js" data-publish-date="2026-07-17" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <div class="bar-actions">
+      <a class="back" href="../articles.html">← 記事一覧</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="draft-notice" data-draft-notice data-publish-date="2026-07-17" role="note">
+    <strong>PUBLICATION DRAFT</strong>
+    この記事は公開予定日前の下書き表示です。公開予定日は2026年7月17日です。正式公開前のため、内容が変更される場合があります。
+  </div>
+
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=古典論文">FRI · 古典論文</a>
+      <a class="pill" href="../tags.html?tag=麻酔">麻酔</a>
+      <a class="pill" href="../tags.html?tag=周術期心臓管理">周術期心臓管理</a>
+      <a class="pill" href="../tags.html?tag=統合・予測・診断を読む"><span class="kl">統計 G06</span>統合・予測・診断を読む</a>
+    </div>
+    <h1>手術前の心リスクを予測できるか — RCRIと予測モデルの導出・前向き検証</h1>
+    <div class="cite">
+      Lee TH, Marcantonio ER, Mangione CM, ほか.<br>
+      Derivation and prospective validation of a simple index for prediction of cardiac risk of major noncardiac surgery（Revised Cardiac Risk Index）.<br>
+      Circulation. 1999;100(10):1043–1049. · 前向きコホート（導出＋前向き検証）· n=4,315（導出2,893／検証1,422）
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/10477528/" target="_blank" rel="noopener">PubMed → 10477528</a>
+      <a class="lnk" href="https://www.ahajournals.org/doi/10.1161/01.cir.100.10.1043" target="_blank" rel="noopener">原著全文（無料公開）→</a>
+      <a class="lnk" href="https://doi.org/10.1161/01.cir.100.10.1043" target="_blank" rel="noopener">DOI → 10.1161/01.cir.100.10.1043</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>非心臓手術を受ける患者の<b>周術期の重大な心合併症</b>を、少数の臨床因子だけで見積もる簡易指標（RCRI）を、<b>導出コホート（2,893例）で作り、別の前向きコホート（1,422例）で検証</b>した古典。</li>
+      <li>最終モデルに残った予測因子は<b>6因子：高リスク手術・虚血性心疾患・うっ血性心不全・脳血管疾患・インスリン治療中の糖尿病・術前クレアチニン>2.0mg/dL</b>。各因子1点で加算し、点数でリスク階級I〜IVに分ける設計。</li>
+      <li>リスク階級が上がるほど心合併症の発生率が上がり、<b>検証コホートで0.4%→0.9%→6.6%→11.0%</b>。識別能（ROC曲線下面積）は<b>検証で0.806</b>で、既存指標より良好だった。</li>
+      <li>今回の統計の山場 → <b>予測モデルの「導出」と「検証」を分けて読むこと、識別能（discrimination）とキャリブレーション（calibration）の違い</b>。単施設で作った点数表が別集団でどこまで通用するかを見る枠組みを学ぶ。</li>
+    </ul>
+  </div>
+
+  <!-- 01 臨床背景 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>非心臓手術のあとに起こる心筋梗塞・肺水腫・心停止といった重大な心合併症は、周術期の主要な合併症の一つです。麻酔科医は術前外来で、「この患者は術後に心イベントを起こしやすいのか」「追加の検査や循環器コンサルトが必要なのか」を、限られた時間と情報のなかで判断しなければなりません。</p>
+    <p>この判断を、経験や印象だけでなく<b>誰が使っても同じ答えになる簡単な指標</b>に置き換えたい、という需要が古くからありました。1977年のGoldmanらの多因子心リスク指標をはじめ、周術期心リスクの指標はすでにいくつか提案されていましたが、いずれも<b>少数例で作られていて現代の手術・麻酔に合わない</b>、項目が多い、重み付けや書式が複雑で使いにくい、といった課題が原著で指摘されています。</p>
+    <p>そこで、<b>ベッドサイドで数えられる少数の臨床因子</b>だけから重大な心合併症の確率を層別化し、しかもそれを<b>導出した集団とは別の患者集団で前向きに検証</b>してみせたのが、この研究（Revised Cardiac Risk Index、RCRI）です。予測モデルを「作って終わり」にせず「別の集団で確かめる」という姿勢そのものが、この論文を古典たらしめています。</p>
+  </div>
+
+  <!-- 02 研究上の問い -->
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>研究上の問い（予測モデルの枠組み）</h2></div>
+    <div class="pico">
+      <div class="k">対象</div><div class="v">単一の三次教育病院（Brigham and Women's Hospital）で、待機的な大規模非心臓手術を受けた50歳以上・在院見込み2日以上の患者。1989年7月〜1994年2月に登録した計4,315例を、導出コホート2,893例と前向き検証コホート1,422例に分けた（緊急手術は対象外）。</div>
+      <div class="k">予測因子</div><div class="v">術前に評価できる臨床・検査項目（既往、手術種別、腎機能など）から候補を選び、多変量ロジスティック回帰で最終6因子を選抜（各因子の定義は下記）。</div>
+      <div class="k">アウトカム</div><div class="v">周術期の<b>重大な心合併症</b>＝心筋梗塞・肺水腫・心室細動/一次性心停止・完全房室ブロックの複合。単一の評価者が術前情報を盲検化した状態で判定。</div>
+      <div class="k">検証</div><div class="v">導出した点数表を<b>解析前に手をつけていない別の前向きコホート</b>に当てはめ、階級別の実測イベント率と識別能（ROC曲線下面積）を評価。</div>
+    </div>
+    <p style="margin-top:14px;font-size:14px;color:var(--muted)">※ これは介入試験（PICO）ではなく<b>予測モデル研究</b>。「介入の効果」ではなく「将来のイベントをどれだけ当てられるか」を評価する。読み方の軸が異なる点に注意。</p>
+  </div>
+
+  <!-- 03 デザイン解説 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>RCRIは<b>前向きコホートに基づく予測モデル研究</b>です。おおまかな流れは、(1) 大規模非心臓手術の患者を前向きに登録し、術前因子と術後の心合併症を記録する、(2) 全体の3分の2（2,893例）を導出コホートとし、多くの候補因子から心合併症と独立に関連する因子を多変量解析で選び、簡単な点数表に落とし込む（＝<b>導出 derivation</b>）、(3) 残る1,422例を検証コホートとし、<b>この集団は導出前には一切解析せず</b>、あとから点数表を適用して階級別の実測イベント率と当たり具合を確かめる（＝<b>前向き検証 validation</b>）、というものです。</p>
+    <p>因子の重み付けについても丁寧な確認をしています。ロジスティック回帰の係数に比例して点数を割り振る「変数重み付け版」と、全因子に一律1点を与える「等重み版」の2つを作って識別能を比べたところ、<b>両者に有意差がなかった（ROC面積 0.765 vs 0.759、P=0.28）</b>ため、より単純な<b>各因子1点の等重み版</b>を採用しました。単純さと引き換えに精度を失っていないことを、データで示してから割り切ったわけです。</p>
+    <p>予測モデルでは、介入試験と違って「割付」や「盲検化（治療の）」は主題になりません。代わりに、<b>どの因子を候補にしたか</b>、<b>過剰適合（overfitting）をどう避けたか</b>、<b>検証を同じデータでしていないか</b>が質の核心になります。RCRIが評価されるのは、導出と検証を明確に分け、少数因子に絞って過剰適合を抑え、他施設でも数えられる項目だけで構成した点にあります。</p>
+  </div>
+
+  <!-- 04 統計キーポイント -->
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY 01 — G06 統合・予測・診断を読む</div>
+      <h3>予測モデルの「導出」と「検証」、識別能とキャリブレーション</h3>
+      <p>予測モデル（リスクスコア）を読むときの最初の分かれ道は、その数字が<b>導出（derivation）</b>の段階のものか、<b>検証（validation）</b>の段階のものかです。導出とは、手元のデータに一番よく合うように因子と重みを決める作業で、ここでの当たり具合は<b>必ず良く出ます</b>——同じデータで作って同じデータで測っているからです（過剰適合）。本当に使えるかは、<b>作成に使っていない別の集団</b>で測って初めて分かります。これが検証です。RCRIの価値は、この検証を<b>前向きの別コホート</b>で行った点にあります。</p>
+      <div class="epchain">
+        <div class="ep-row ep-dil"><span class="ep-k">導出 derivation</span><span class="ep-v">同じデータで因子選び・重み付け → 見かけの性能は過大になりやすい（楽観バイアス）</span></div>
+        <div class="ep-row ep-key"><span class="ep-k">検証 validation</span><span class="ep-v">別の前向き集団に点数表を適用 → 実地に近い性能。ここでの階級別イベント率とROC面積が本番</span></div>
+      </div>
+      <p>検証の中身は、大きく<b>識別能（discrimination）</b>と<b>キャリブレーション（calibration）</b>の2つで見ます。識別能は「イベントを起こす人により高いリスクを与えられるか」で、代表指標が<b>c統計量（ROC曲線下の面積 AUC）</b>です。0.5で当てずっぽう、1.0で完全識別。RCRIのc統計量は導出コホートで0.759、検証コホートで0.806で、既存指標（原著版心リスク指標や修正版、ASA分類）より高い値でした。キャリブレーションは「予測した確率が実際の発生割合と合っているか」で、たとえば『10%と予測した人たちが本当に約10%でイベントを起こすか』を見ます。</p>
+      <div class="formula">
+        識別能（discrimination）＝ 誰が高リスクかを<b>順序</b>として当てられるか（c統計量/AUC）<br>
+        キャリブレーション（calibration）＝ 予測<b>確率の水準</b>が実測と合っているか<br><br>
+        両者は別物。<b>順序は当たるのに確率がずれる</b>ことも、その逆もある
+      </div>
+      <p>RCRIのように<b>因子の数でリスク階級に分ける</b>設計では、「階級が上がるほど実測イベント率が単調に上がるか」がキャリブレーションと識別能の両方を直感的に示します。実際、検証コホートでイベント率はクラスI 0.4%→II 0.9%→III 6.6%→IV 11.0%と上昇し、階級が上がるほどリスクが高いという関係が別集団でも再現されました。この階級別イベント率と検証コホートのROC面積が、この論文で最も見るべき数字です。</p>
+      <p>もう一つの読みどころは<b>外的妥当性</b>です。単施設・特定の手術構成で導出した点数表が、別の病院・別の患者層・別の時代でも同じ性能を保つとは限りません。実際この研究でも、腹部大動脈瘤手術のサブグループではRCRIの識別能が0.543とほとんど当たっておらず、集団によって効き方が変わることが原著の中で示されています。だからこそ後年、多数の<b>外部検証</b>研究が積み重ねられました（現代の視点で後述）。予測モデルは1本の論文で完結せず、<b>検証の蓄積で信頼が育つ</b>——この見方が、次に予測スコアの論文を読むときの軸になります。</p>
+    </div>
+  </div>
+
+  <!-- 05 結果 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <p><b>最終モデルの6つの予測因子</b>：導出コホートの多変量ロジスティック回帰で、重大な心合併症と独立に関連した因子は次の6つでした。①高リスク手術（腹腔内・胸腔内・鼠径部より上の血管手術）、②虚血性心疾患の既往、③うっ血性心不全の既往、④脳血管疾患（一過性脳虚血発作または脳卒中）の既往、⑤糖尿病に対するインスリン治療、⑥術前血清クレアチニン>2.0mg/dL。これら6因子の調整オッズ比は導出コホートで<b>おおむね1.9〜3.0の範囲</b>にそろっており、重み付けを分けても差が出なかったため各因子1点としています。</p>
+    <p><b>リスク階級別の心合併症発生率</b>：因子の数で0点をクラスI、1点をII、2点をIII、3点以上をIVとし、各階級のイベント率は以下のとおりでした（検証コホートでも上昇関係が再現）。</p>
+    <table class="rtable">
+      <thead>
+        <tr><th>リスク階級（因子数）</th><th>導出コホート</th><th>検証コホート</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>クラスI（0点）</td><td class="mono">0.5%（5/1071）</td><td class="mono">0.4%（2/488）</td></tr>
+        <tr><td>クラスII（1点）</td><td class="mono">1.3%（14/1106）</td><td class="mono">0.9%（5/567）</td></tr>
+        <tr><td>クラスIII（2点）</td><td class="mono">3.6%（18/506）</td><td class="mono">6.6%（17/258）</td></tr>
+        <tr><td>クラスIV（3点以上）</td><td class="mono">9.1%（19/210）</td><td class="mono">11.0%（12/109）</td></tr>
+      </tbody>
+    </table>
+    <p><b>識別能（ROC曲線下面積）</b>：RCRIのROC面積は<b>導出0.759（SE 0.032）、検証0.806（SE 0.034）</b>。同じコホートで比べた既存指標（原著版心リスク指標：検証0.701、修正版：0.582、ASA分類：0.706）より良好で、検証コホートでの差は統計的にも有意でした。</p>
+    <p><b>導出と検証の違いに注意すべき点</b>：6因子のうち<b>検証コホートで独立した予測因子として残ったのは4つ</b>（高リスク手術・虚血性心疾患・心不全・脳血管疾患）で、<b>インスリン治療と腎機能高値は検証コホートの多変量解析では独立性を示しませんでした</b>（調整オッズ比それぞれ1.0、0.9）。導出で選ばれた因子がそのまま別集団でも独立に効くとは限らない、という予測モデル研究の教訓がここに表れています。</p>
+  </div>
+
+  <!-- 06 リミテーション -->
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>導出・検証とも<b>単一の三次教育病院・待機手術</b>に基づく。手術の種類分布や患者背景が異なる集団、緊急手術や、より軽い手術を受ける低リスク集団での性能は不確実だと原著自身が述べている（外的妥当性の限界）。</li>
+      <li>アウトカム（重大な心合併症）の定義は当時のCK-MB基準による。とくに<b>心筋梗塞の診断基準</b>はその後トロポニンを軸に大きく変わっており、当時の発生率をそのまま現在に当てはめることはできない。</li>
+      <li>重大な心イベントは相対的に<b>稀</b>（全体で約2〜2.5%）で、上位階級のイベント数が少なく、階級別の推定は幅を持つ（例：検証クラスIVは12/109）。信頼区間の広さに注意して読む必要がある。</li>
+      <li>因子は「あり／なし」の二値で扱われ、重症度の勾配（軽い心不全と重い心不全など）は1点に丸められる。単純さと引き換えの情報損失がある。</li>
+      <li>腹部大動脈瘤手術ではリスク階級と合併症率に関係が見られず（識別能0.543）、症例数も110例と少なく検出力が限られていた。特定の高リスク手術では当てはまりが悪いことを、原著が明示している。</li>
+    </ul>
+  </div>
+
+  <!-- 07 解釈 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>RCRIが示したのは、「<b>少数の、ベッドサイドで数えられる因子だけでも、周術期の重大な心合併症をある程度は層別化できる</b>」ということでした。しかも重要なのは、その性能を導出と同じデータではなく<b>別の前向きコホートで確かめた</b>点です。予測モデルは、手元のデータへの当てはまりの良さ（導出）ではなく、<b>見ていない集団での当たり具合（検証）</b>で評価する——この読み方の型を、RCRIは分かりやすく提示しました。</p>
+    <p>一方で、点数が高いこと自体は「この患者に何をすべきか」を直接には教えません。リスクの<b>見積もり</b>と、それに基づく<b>意思決定</b>（追加検査、モニタリング、手術の可否や術式の変更）は別の問題です。RCRIは前者の道具であり、後者は患者ごとの文脈で考える必要があります。原著の考察でも、追加の非侵襲的検査は「中等度リスク」の患者に絞るべきという考え方や、リスク層別化そのものより術後の酸素需要を抑える管理のほうが予後を変えうるという別の立場が紹介されています。</p>
+    <div class="modern">
+      <div class="lbl">現代の視点</div>
+      <p>RCRIはその後、<b>多数の外部検証コホート</b>で繰り返し検討され、周術期心リスク評価の代表的な簡易指標の一つとして各国の周術期心血管評価ガイドラインに取り入れられてきました。系統的レビュー（Ford MK, Beattie WS, Wijeysundera DN. Ann Intern Med. 2010）では、RCRIは<b>全体として中等度の識別能を示す一方、血管外科の集団では当てはまりが弱い</b>ことが確認されています。これは原著自身が腹部大動脈瘤手術で見せた弱点（識別能0.543）と方向性が一致します。</p>
+      <p>近年は、より大規模なデータベース（例：NSQIPに基づく術式別のリスク計算式）や、術前バイオマーカー（NT-proBNP等）を組み込む枠組みも登場し、RCRIは「単純さと汎用性」で今も広く使われる一方、より精密な予測モデルとの役割分担が進んでいます。</p>
+      <p><b>実臨床での問いへの答え</b>：「術前に心リスクをどう見積もるか？」→ 少数因子の指標で<b>まず層別化</b>し、高リスク者に検討を集中させる。「点数が高ければ検査を追加すべきか？」→ 点数は入口であって結論ではない。<b>追加検査や介入が予後を変えるか</b>は別のエビデンスで判断する。</p>
+      <div class="ref">参考: Ford MK, Beattie WS, Wijeysundera DN. Systematic review: prediction of perioperative cardiac complications and mortality by the revised cardiac risk index. Ann Intern Med. 2010;152(1):26–35.（PMID 20048269）</div>
+    </div>
+  </div>
+
+  <!-- 08 英語で読む -->
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <p>原著要旨（Methods and Results）から、検証の結論にあたる一文を取り上げる。予測研究で頻出する「検証コホート」「診断性能」「ROC曲線」の語に注目する。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">— Lee TH, et al. Circulation. 1999;100(10):1043. Abstract（Methods and Results）</span>
+        <span class="en-text">"Receiver operating characteristic curve analysis in the validation cohort indicated that the diagnostic performance of the Revised Cardiac Risk Index was superior to other published risk-prediction indexes."</span>
+      </div>
+      <p class="gloss"><b>読みのポイント：</b>予測モデルの論文では、介入試験の「reduced/increased（効果）」ではなく、<b>diagnostic performance（当てる性能）</b>や <b>validation cohort（検証集団）</b> といった「どれだけ当てられるか」を述べる語が主役になる。この語彙を押さえると、その数字が“効果”ではなく“予測性能”の話だと取り違えずに読める。</p>
+      <table class="vocab">
+        <thead><tr><th>語・表現</th><th class="ipa hide-sm">発音</th><th>意味・ニュアンス</th></tr></thead>
+        <tbody>
+          <tr><td>receiver operating characteristic curve</td><td class="ipa hide-sm">—</td><td>ROC曲線。感度と偽陽性率の関係を描き、その下の面積（AUC）で識別能を測る</td></tr>
+          <tr><td>validation cohort</td><td class="ipa hide-sm">/ˌvæləˈdeɪʃən/</td><td>検証コホート。モデル作成（導出）に使っていない別集団。ここでの性能が「本番」</td></tr>
+          <tr><td>diagnostic performance</td><td class="ipa hide-sm">/ˌdaɪəɡˈnɒstɪk/</td><td>診断（予測）性能。ここではリスクをどれだけ当てられるかの良さ</td></tr>
+          <tr><td>superior to</td><td class="ipa hide-sm">/suːˈpɪəriə/</td><td>〜より優れる。指標同士の性能比較でよく使う</td></tr>
+          <tr><td>risk-prediction index</td><td class="ipa hide-sm">—</td><td>リスク予測指標。点数などでリスクを見積もる道具</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted)">※ 語彙表は引用文中に実際に出てくる語だけで作成。引用は要旨から1文のみに絞った。</p>
+  </div>
+
+  <!-- 09 明日からの臨床 -->
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>術前の心リスク評価では、少数因子の指標（RCRI）で<b>まず層別化し、高リスク者に検討を集中させる</b>——RCRIが術前評価に残したのはこの実務的な型です。点数は意思決定の入口であって、追加検査や介入の要否はそれ自体が予後を変えるかどうかで判断します。</p>
+    </div>
+    <p style="margin-top:16px;font-size:15px">古典としての読みどころは、<b>予測スコアの論文を「導出」と「検証」に分けて読む習慣</b>です。目にした性能の数字が、作成に使ったデータ上のものか、別集団での検証なのか。識別能（順序を当てる）とキャリブレーション（確率の水準が合う）を区別できているか。RCRIでは6因子のうち2因子が検証集団では独立性を失い、大動脈瘤手術では識別能が0.5付近まで落ちました。こうした「別集団での崩れ方」まで含めて見ると、新しいリスク計算式が出てきたときにも、その数字をどこまで信じてよいかを自分で見極められます。</p>
+  </div>
+
+  <!-- 10 インフォグラフィック -->
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="RCRIの要約図：6予測因子と、検証コホートでのリスク階級別の心合併症率">
+        <rect x="0" y="0" width="1200" height="630" fill="#FBFCFB"/>
+        <!-- タイトル -->
+        <text x="56" y="70" font-family="'Noto Serif JP',serif" font-size="34" font-weight="700" fill="#15302D">RCRI：非心臓手術の周術期心リスクを予測する</text>
+        <text x="56" y="106" font-family="'JetBrains Mono',monospace" font-size="18" fill="#5C6B68">Circulation 1999 · 前向きコホート n=4,315（導出2,893／検証1,422）· 導出と前向き検証</text>
+        <line x1="56" y1="128" x2="1144" y2="128" stroke="#D9E0DC" stroke-width="1.5"/>
+
+        <!-- 左：6因子 -->
+        <text x="56" y="168" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="700" fill="#0B4F4A">予測因子（各1点で加算）</text>
+        <g font-family="'Noto Sans JP',sans-serif" font-size="18" fill="#2C4541">
+          <text x="56" y="204">① 高リスク手術（腹腔内・胸腔内・鼠径部上の血管）</text>
+          <text x="56" y="238">② 虚血性心疾患の既往</text>
+          <text x="56" y="272">③ うっ血性心不全の既往</text>
+          <text x="56" y="306">④ 脳血管疾患（TIA・脳卒中）の既往</text>
+          <text x="56" y="340">⑤ インスリン治療中の糖尿病</text>
+          <text x="56" y="374">⑥ 術前クレアチニン &gt; 2.0 mg/dL</text>
+        </g>
+        <rect x="56" y="392" width="560" height="30" rx="3" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="68" y="413" font-family="'JetBrains Mono',monospace" font-size="14" fill="#0B4F4A">因子数 0/1/2/3以上 → リスク階級 I/II/III/IV</text>
+
+        <!-- 右：リスク階級別イベント率（検証コホート、実測値に比例） -->
+        <text x="648" y="168" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="700" fill="#0B4F4A">階級別の心合併症率（検証コホート）</text>
+        <g font-family="'Noto Sans JP',sans-serif" font-size="16" fill="#2C4541">
+          <text x="648" y="212">クラスI（0点）</text>
+          <rect x="820" y="196" width="300" height="22" fill="#E7ECE9"/>
+          <rect x="820" y="196" width="11" height="22" fill="#0F766E"/>
+          <text x="1128" y="213" font-family="'JetBrains Mono',monospace" font-size="15" fill="#5C6B68">0.4%</text>
+
+          <text x="648" y="252">クラスII（1点）</text>
+          <rect x="820" y="236" width="300" height="22" fill="#E7ECE9"/>
+          <rect x="820" y="236" width="25" height="22" fill="#0F766E"/>
+          <text x="1128" y="253" font-family="'JetBrains Mono',monospace" font-size="15" fill="#5C6B68">0.9%</text>
+
+          <text x="648" y="292">クラスIII（2点）</text>
+          <rect x="820" y="276" width="300" height="22" fill="#E7ECE9"/>
+          <rect x="820" y="276" width="180" height="22" fill="#0F766E"/>
+          <text x="1128" y="293" font-family="'JetBrains Mono',monospace" font-size="15" fill="#5C6B68">6.6%</text>
+
+          <text x="648" y="332">クラスIV（3点以上）</text>
+          <rect x="820" y="316" width="300" height="22" fill="#E7ECE9"/>
+          <rect x="820" y="316" width="300" height="22" fill="#C96A2B"/>
+          <text x="1128" y="333" font-family="'JetBrains Mono',monospace" font-size="15" fill="#5C6B68">11.0%</text>
+        </g>
+        <rect x="648" y="356" width="496" height="30" rx="3" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="660" y="377" font-family="'JetBrains Mono',monospace" font-size="14" fill="#C96A2B">棒の長さは実測イベント率に比例（最大＝11.0%）</text>
+
+        <line x1="56" y1="452" x2="1144" y2="452" stroke="#D9E0DC" stroke-width="1"/>
+
+        <!-- 下：導出 vs 検証 と 識別能 -->
+        <text x="56" y="492" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="700" fill="#0B4F4A">読みどころ：導出と検証を分ける</text>
+        <text x="56" y="524" font-family="'Noto Sans JP',sans-serif" font-size="18" fill="#2C4541">導出＝同じデータで作り性能は過大になりやすい／検証＝別の前向き集団での本番の性能</text>
+        <text x="56" y="556" font-family="'Noto Sans JP',sans-serif" font-size="18" fill="#2C4541">識別能（ROC曲線下面積）＝導出0.759・検証0.806（大動脈瘤手術では0.543と低下）</text>
+
+        <rect x="56" y="580" width="1088" height="0.5" fill="#D9E0DC"/>
+        <text x="56" y="606" font-family="'Noto Sans JP',sans-serif" font-size="17" font-weight="700" fill="#15302D">結論：少数因子でまず層別化。数字は「導出」か「検証」かを見極めて読む。</text>
+      </svg>
+      <div class="info-cap">数値は原著（Circulation 1999;100:1043–1049）の報告値。図は独自に作成（図表の転載なし）。1200×630でXリンクカード（assets/og/rcri.png）に転用予定。</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。気づいた点は指摘してもらえると助かります。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。<strong>作成方法：</strong>AIによる下書きを自分でレビュー・修正。数値・解釈は一次資料での確認をおすすめします。図表は転載せず独自に作図しています。
+    </p>
+    <a class="foot-x" href="../feed.xml">RSSで更新を受け取る</a>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
+  </div>
+</footer>
+
+</body>
+</html>
