@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.20", dow: "MON", status: "公開予定", live: false,
+    title: "片側脊髄くも膜下麻酔は低血圧を減らすか — メタ解析で読む平均差とリスク比",
+    url: "articles/unilateral-spinal-meta.html",
+    desc: "成人手術患者の脊髄くも膜下麻酔を対象にした19 RCT・1,191例のメタ解析。片側法は感覚ブロック発現を約2.6分遅らせ、持続を約28分短くし、低血圧はRR 0.40、悪心嘔吐はRR 0.20、硬膜穿刺後頭痛はRR 0.44に低下。読みどころは平均差・リスク比・I2（アイスクエアード）の読み分け。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "区域麻酔", tag: "区域麻酔" },
+      { kind: "stat", label: "G02 効果の大きさを読む", tag: "効果の大きさを読む" }
+    ]
+  },
+  {
     date: "2026.07.17", dow: "FRI", status: "公開予定", live: false,
     title: "手術前の心リスクを予測できるか — RCRIと予測モデルの導出・前向き検証",
     url: "articles/rcri.html",
