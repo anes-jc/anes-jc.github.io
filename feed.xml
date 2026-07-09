@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 08 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>産後出血にトラネキサム酸は効くか — WOMAN試験と複合エンドポイント・事前指定の読み方</title>
+      <link>https://anes-jc.github.io/articles/woman.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/woman.html</guid>
+      <description>産後出血の女性2万例を対象にした国際二重盲検RCT。複合主要EP（全死亡または子宮摘出）は減らず、事前指定した出血死は1.5%対1.9%（RR0.81）で減少。読みどころは複合エンドポイントの希釈と事前指定の解析変更。</description>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
+      <category>古典論文</category>
+      <category>麻酔</category>
+      <category>産科麻酔</category>
+      <category>研究デザインを読む</category>
+    </item>
     <item>
       <title>局所麻酔薬は少なくてよいか — 上顎神経ブロックの非劣性試験と信頼区間の読み方</title>
       <link>https://anes-jc.github.io/articles/maxillary-block-volume.html</link>
