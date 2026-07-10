@@ -48,6 +48,9 @@
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
   .mono{font-family:"JetBrains Mono",monospace;letter-spacing:.02em}
   a{color:inherit}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+  .skip-link{position:fixed;top:10px;left:10px;z-index:1000;padding:8px 12px;background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;transform:translateY(-150%)}
+  .skip-link:focus{transform:translateY(0)}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
   header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
@@ -78,7 +81,7 @@
   @media(min-width:681px){.mobile-menu{display:none!important}}
 
   .hero{position:relative;padding:74px 0 58px;border-bottom:1px solid var(--line);overflow:hidden}
-  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.16em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:400;letter-spacing:.16em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:10px}
   .eyebrow::before{content:"";width:26px;height:1px;background:var(--teal-deep)}
   h1.title{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(32px,5.4vw,54px);line-height:1.2;letter-spacing:.01em;color:var(--ink)}
   h1.title em{font-style:normal;color:var(--teal)}
@@ -102,10 +105,12 @@
   .post{display:grid;grid-template-columns:118px 1fr auto;gap:22px;align-items:start;padding:24px 8px;border-bottom:1px solid var(--line);color:inherit;transition:background .15s;cursor:pointer}
   .post:hover{background:var(--paper-2)}
   .post:hover .post-title{color:var(--teal)}
+  .post:focus-within{background:var(--paper-2)}
   .post-meta{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);line-height:1.6}
   .post-meta .tag{display:inline-block;margin-top:8px;padding:2px 8px;border:1px solid var(--line-strong);border-radius:2px;color:var(--teal-deep);font-size:11px}
   .post.live .post-meta .tag{background:var(--teal);color:#fff;border-color:var(--teal)}
   .post-title{font-family:"Noto Serif JP",serif;font-size:19px;font-weight:600;line-height:1.5}
+  .post-title-link{display:inline-block;color:inherit;text-decoration:none}
   .post-desc{font-size:14px;color:var(--ink-soft);margin-top:7px}
   .post-tags{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
   .ptag{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);border:1px solid var(--line-strong);border-radius:3px;padding:4px 11px;text-decoration:none;transition:.12s;letter-spacing:.03em}
@@ -142,7 +147,7 @@
   .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .flow .step{border:1px solid var(--line);background:var(--paper-2);border-radius:3px;padding:22px 18px}
   .flow .step .k{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal);font-weight:700}
-  .flow .step h4{font-size:15px;font-weight:700;margin:10px 0 6px}
+  .flow .step h3{font-size:15px;font-weight:700;margin:10px 0 6px}
   .flow .step p{font-size:13px;color:var(--muted)}
   @media(max-width:760px){.flow{grid-template-columns:1fr 1fr}}
   @media(max-width:440px){.flow{grid-template-columns:1fr}}
@@ -208,23 +213,25 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
 <header class="bar">
   <div class="wrap bar-in">
     <div class="brand"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</div>
-    <nav class="nav">
+    <nav class="nav" aria-label="主要メニュー">
       <a href="#feed">新着記事</a>
       <a href="#themes">統計テーマ</a>
       <a href="#flow">この企画について</a>
       <a href="feed.xml">RSS</a>
       <a class="x-nav" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">X</a>
     </nav>
-    <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false">
+    <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<div class="mobile-menu" id="mobileMenu">
+<nav class="mobile-menu" id="mobileMenu" aria-label="モバイルメニュー" hidden>
   <div class="wrap">
     <div class="mm-sec mm-nav">
       <a href="articles.html">記事一覧へ</a>
@@ -249,7 +256,9 @@
       </div>
     </div>
   </div>
-</div>
+</nav>
+
+<main id="main-content">
 
 <div class="hero">
   <div class="wrap">
@@ -271,7 +280,7 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-num">01</span>
-      <span class="sec-title">記事</span>
+      <h2 class="sec-title">記事</h2>
       <span class="sec-sub">週4回更新 — 日・月・水・金</span>
     </div>
     <div class="feed" id="feed-list"></div>
@@ -284,7 +293,7 @@
 <section id="themes">
   <div class="wrap">
     <div class="stat-band">
-      <div class="eyebrow">統計テーマ</div>
+      <h2 class="eyebrow">統計テーマ</h2>
       <h3>読みたいテーマから記事を探す。</h3>
       <p>論文を読むときに必要になる「読み解きの視点」を6つに分けました。各カテゴリをクリックすると、そのテーマを扱った記事の一覧へ移動します。記事ごとに1つのテーマを主役にして解説します。</p>
       <div class="curri">
@@ -333,16 +342,18 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-num">02</span>
-      <span class="sec-title">記事ができるまで</span>
+      <h2 class="sec-title">記事ができるまで</h2>
     </div>
     <div class="flow">
-      <div class="step"><div class="k">STEP 1</div><h4>自動収集</h4><p>日曜は先週のまとめ、月・水・金は対象誌のオープンアクセス新着論文を自動取得。ライセンスも自動チェック。</p></div>
-      <div class="step"><div class="k">STEP 2</div><h4>下書き生成</h4><p>全文を読み込み、固定テンプレートに沿った解説とインフォグラフィックを下書き。</p></div>
-      <div class="step"><div class="k">STEP 3</div><h4>専門医レビュー</h4><p>麻酔科医が内容や統計解釈を確認し、必要に応じて修正します。ただし、すべての誤りを発見・修正できるとは限りません。</p></div>
-      <div class="step"><div class="k">STEP 4</div><h4>公開</h4><p>レビューを経た記事を公開します。論文や統計について考えるきっかけとして、気軽にご覧ください。</p></div>
+      <div class="step"><div class="k">STEP 1</div><h3>自動収集</h3><p>日曜は先週のまとめ、月・水・金は対象誌のオープンアクセス新着論文を自動取得。ライセンスも自動チェック。</p></div>
+      <div class="step"><div class="k">STEP 2</div><h3>下書き生成</h3><p>全文を読み込み、固定テンプレートに沿った解説とインフォグラフィックを下書き。</p></div>
+      <div class="step"><div class="k">STEP 3</div><h3>専門医レビュー</h3><p>麻酔科医が内容や統計解釈を確認し、必要に応じて修正します。ただし、すべての誤りを発見・修正できるとは限りません。</p></div>
+      <div class="step"><div class="k">STEP 4</div><h3>公開</h3><p>レビューを経た記事を公開します。論文や統計について考えるきっかけとして、気軽にご覧ください。</p></div>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="wrap">
@@ -387,15 +398,15 @@
       ? `<a class="ptag dow" href="tags.html?tag=${encodeURIComponent(a.dowTag.tag)}">${esc(a.dowTag.label)}</a>`
       : "";
     const tags = (a.tags || []).map(tagHtml).join("");
-    return `<div class="post ${a.live ? "live" : ""}" data-href="${esc(a.url)}" role="link" tabindex="0">
+    return `<article class="post ${a.live ? "live" : ""}" data-href="${esc(a.url)}">
       <div class="post-meta">${esc(a.date)} ${esc(a.dow)}<span class="tag">${esc(a.status)}</span></div>
       <div>
-        <div class="post-title">${esc(a.title)}</div>
+        <a class="post-title-link" href="${esc(a.url)}"><h3 class="post-title">${esc(a.title)}</h3></a>
         <div class="post-desc">${esc(a.desc)}</div>
         <div class="post-tags">${dow}${tags}</div>
       </div>
-      <div class="post-arrow">→</div>
-    </div>`;
+      <div class="post-arrow" aria-hidden="true">→</div>
+    </article>`;
   }
   function mmLinkHtml(a){
     return `<a class="mm-link" href="${esc(a.url)}"><span class="mm-date">${esc(a.date)} ${esc(a.dow)} · ${esc(a.status)}</span>${esc(a.title)}</a>`;
@@ -413,18 +424,52 @@
   // ハンバーガーメニュー
   const burger = document.getElementById("burger");
   const menu = document.getElementById("mobileMenu");
-  burger.addEventListener("click", ()=>{
-    const open = menu.classList.toggle("open");
+  const pageContent = document.getElementById("main-content");
+  const pageFooter = document.querySelector("footer");
+  function setMenu(open, restoreFocus = false){
+    menu.hidden = !open;
+    menu.classList.toggle("open", open);
     burger.setAttribute("aria-expanded", open ? "true" : "false");
     burger.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+    pageContent.inert = open;
+    pageFooter.inert = open;
     document.body.style.overflow = open ? "hidden" : "";
+    if(open){
+      requestAnimationFrame(()=>menu.querySelector("a")?.focus());
+    } else if(restoreFocus){
+      burger.focus();
+    }
+  }
+  burger.addEventListener("click", ()=>{
+    setMenu(burger.getAttribute("aria-expanded") !== "true");
   });
   menu.querySelectorAll("a").forEach(a=>{
     a.addEventListener("click", ()=>{
-      menu.classList.remove("open");
-      burger.setAttribute("aria-expanded","false");
-      document.body.style.overflow = "";
+      setMenu(false);
     });
+  });
+  document.addEventListener("keydown", e=>{
+    if(burger.getAttribute("aria-expanded") !== "true") return;
+    if(e.key === "Escape"){
+      e.preventDefault();
+      setMenu(false, true);
+      return;
+    }
+    if(e.key !== "Tab") return;
+    const focusable = [burger, ...menu.querySelectorAll("a")];
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if(e.shiftKey && document.activeElement === first){
+      e.preventDefault();
+      last.focus();
+    } else if(!e.shiftKey && document.activeElement === last){
+      e.preventDefault();
+      first.focus();
+    }
+  });
+  const desktopMenu = window.matchMedia("(min-width:681px)");
+  desktopMenu.addEventListener("change", e=>{
+    if(e.matches && burger.getAttribute("aria-expanded") === "true") setMenu(false);
   });
 
   // 記事カード — div[data-href] をリンクとして動作させる（一覧を作った後に実行）
@@ -433,9 +478,6 @@
     card.addEventListener("click", e=>{
       if(e.target.closest("a")) return;
       window.location.href = href;
-    });
-    card.addEventListener("keydown", e=>{
-      if(e.key === "Enter") window.location.href = href;
     });
   });
 </script>

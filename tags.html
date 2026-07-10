@@ -31,6 +31,9 @@
   body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
   .wrap{max-width:880px;margin:0 auto;padding:0 24px}
   a{color:inherit}
+  a:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+  .skip-link{position:fixed;top:10px;left:10px;z-index:1000;padding:8px 12px;background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;transform:translateY(-150%)}
+  .skip-link:focus{transform:translateY(0)}
 
   header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
   .bar-in{max-width:880px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
@@ -99,6 +102,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
 <header class="bar">
   <div class="bar-in">
     <a class="brand" href="index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
@@ -108,6 +113,7 @@
   </div>
 </header>
 
+<main id="main-content">
 <div class="head">
   <div class="wrap">
     <div class="eyebrow">テーマ別の記事</div>
@@ -132,6 +138,7 @@
     <a href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
   </div>
 </div>
+</main>
 
 <script src="data/sunday-articles.js"></script>
 <script src="data/articles.js"></script>

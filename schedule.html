@@ -22,6 +22,9 @@
   body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
   a{color:inherit}
   .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+  .skip-link{position:fixed;top:10px;left:10px;z-index:1000;padding:8px 12px;background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;transform:translateY(-150%)}
+  .skip-link:focus{transform:translateY(0)}
   header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.88);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
   .bar-in{display:flex;align-items:center;justify-content:space-between;height:60px}
   .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
@@ -85,6 +88,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
 <header class="bar">
   <div class="wrap bar-in">
     <a class="brand" href="index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
@@ -103,11 +108,11 @@
   </div>
 </div>
 
-<main>
+<main id="main-content">
   <div class="wrap">
     <div class="tools">
       <div class="counts" id="counts"></div>
-      <div class="seg" aria-label="表示フィルター">
+      <div class="seg" role="group" aria-label="表示フィルター">
         <button type="button" data-filter="all" aria-pressed="true">全部</button>
         <button type="button" data-filter="live" aria-pressed="false">公開中</button>
         <button type="button" data-filter="upcoming" aria-pressed="false">公開予定</button>
