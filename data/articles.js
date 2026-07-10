@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.22", dow: "WED", status: "公開予定", live: false,
+    title: "ARDS患者のレニンは1年死亡と関連するか — 反復測定と予後モデルの落とし穴",
+    url: "articles/ards-renin-survival.html",
+    desc: "COVID-19関連ARDSで人工呼吸を受けた104例の単施設後ろ向きコホート。72時間レニンはlog変換後1SD増加あたり1年死亡と関連（調整OR 5.15、95%CI 1.34-19.78）。モデルAUC 0.941は内部検証なしの見かけ性能。読みどころは反復測定、post-baseline Kaplan-Meier、予後モデルの限界。",
+    dowTag: { kind: "weekday", label: "WED · 統計・手法", tag: "統計・手法" },
+    tags: [
+      { kind: "clinical", label: "集中治療", tag: "集中治療" },
+      { kind: "clinical", label: "ARDS", tag: "ARDS" },
+      { kind: "stat", label: "G05 時間経過と予後を読む", tag: "時間経過と予後を読む" }
+    ]
+  },
+  {
     date: "2026.07.20", dow: "MON", status: "公開予定", live: false,
     title: "片側脊髄くも膜下麻酔は低血圧を減らすか — メタ解析で読む平均差とリスク比",
     url: "articles/unilateral-spinal-meta.html",
