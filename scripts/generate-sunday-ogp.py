@@ -13,14 +13,14 @@ ARTICLE_DIR = REPO_ROOT / "articles"
 OG_DIR = REPO_ROOT / "assets" / "og"
 
 W, H = 1200, 630
-PAPER = "#F4F6F4"
-PAPER_2 = "#FBFCFB"
-INK = "#15302D"
+PAPER = "#F3EFE3"
+PAPER_2 = "#FAF7EF"
+INK = "#171815"
 TEAL = "#0F766E"
-TEAL_DEEP = "#0B4F4A"
-MUTED = "#5C6B68"
-LINE = "#D9E0DC"
-LINE_STRONG = "#BCC8C3"
+TEAL_DEEP = "#17344D"
+MUTED = "#69675F"
+LINE = "#D6D1C5"
+LINE_STRONG = "#A7A294"
 
 
 def strip_tags(value: str) -> str:
