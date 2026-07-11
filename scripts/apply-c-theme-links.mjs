@@ -7,7 +7,15 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 function addStylesheet(relativePath, href) {
   const target = path.join(root, relativePath);
   const html = fs.readFileSync(target, "utf8");
-  if (html.includes(`href="${href}"`)) return false;
+  const baseHref = href.split("?", 1)[0];
+  const escapedHref = baseHref.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const existingHref = new RegExp(`href="${escapedHref}(?:\\?v=[^"]+)?"`);
+  if (existingHref.test(html)) {
+    const next = html.replace(existingHref, `href="${href}"`);
+    if (next === html) return false;
+    fs.writeFileSync(target, next, "utf8");
+    return true;
+  }
   const marker = "</style>";
   const index = html.indexOf(marker);
   if (index < 0) throw new Error(`${relativePath}: </style> がありません`);
@@ -24,7 +32,7 @@ for (const name of articleNames) {
   const relativePath = `articles/${name}`;
   const html = fs.readFileSync(path.join(root, relativePath), "utf8");
   const href = html.includes("article-toc.css")
-    ? "../assets/article-c-theme.css"
+    ? "../assets/article-c-theme.css?v=20260711-2"
     : name.startsWith("latest-papers-")
       ? "../assets/weekly-c-theme.css"
       : null;
