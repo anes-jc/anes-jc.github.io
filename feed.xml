@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 12 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>敗血症後の遠隔モニタリングは再入院を防ぐか — ACCOMPLISH試験と「自宅で過ごせた日数」の読み方</title>
+      <link>https://anes-jc.github.io/articles/sepsis-remote-monitoring.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/sepsis-remote-monitoring.html</guid>
+      <description>敗血症・下気道感染症で入院後に退院した1,286例の米国19病院・多施設RCT（ACCOMPLISH）。退院後90日の自宅で生きて過ごせた日数は4つの遠隔モニタリング群で増えず（COR 0.86〜1.01、優越確率&lt;55%）、65歳以上ではむしろ減少。読みどころは患者中心の複合アウトカムとベイズ流の信用区間・優越確率。</description>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
+      <category>新着論文</category>
+      <category>集中治療</category>
+      <category>敗血症</category>
+      <category>時間経過と予後を読む</category>
+    </item>
     <item>
       <title>先週のまとめ｜最新論文3選</title>
       <link>https://anes-jc.github.io/articles/latest-papers-2026-07-12.html</link>
