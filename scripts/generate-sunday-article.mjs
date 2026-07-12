@@ -97,6 +97,37 @@ function scorePaper(paper, config) {
   return score + Math.min(Number(paper.citedByCount || 0), 10);
 }
 
+const DOMAIN_TITLE_TERMS = [
+  "anesthesia", "anaesthesia", "anesthetic", "anaesthetic",
+  "perioperative", "postoperative", "preoperative", "intraoperative",
+  "critical care", "intensive care", "critically ill", "icu",
+  "sepsis", "septic shock", "mechanical ventilation", "ventilator", "ards",
+  "airway", "intubation", "laryngoscopy", "sedation", "delirium",
+  "analgesia", "opioid", "regional block", "nerve block", "epidural",
+  "hemodynamic", "haemodynamic", "hypotension", "cardiac arrest", "resuscitation", "ecmo",
+];
+
+const SPECIALTY_JOURNAL_TERMS = [
+  "anesth", "anaesth", "critical care", "intensive care", "perioper", "pain", "resuscitation",
+];
+
+function includesDomainTitleTerm(title) {
+  return DOMAIN_TITLE_TERMS.some((term) => {
+    if (/^[a-z0-9]+$/.test(term) && term.length <= 4) {
+      return new RegExp(`\\b${term}\\b`, "i").test(title);
+    }
+    return title.includes(term);
+  });
+}
+
+function isDomainRelevant(paper) {
+  if (titleRuleFor(paper)) return true;
+  const title = normalizedTitle(paper);
+  const journal = journalName(paper).toLowerCase();
+  return includesDomainTitleTerm(title)
+    || includesAny(journal, SPECIALTY_JOURNAL_TERMS);
+}
+
 function classifyStudyDesign(paper) {
   const text = `${paper.title || ""} ${paper.pubType || ""}`.toLowerCase();
   if (text.includes("protocol")) return "研究プロトコル";
@@ -149,12 +180,27 @@ function derivePaperHeading(paper) {
 
 function summarizeAbstractJa(paper) {
   return titleRuleFor(paper)?.summary
-    || `英語タイトル上は「${deriveTitleTheme(paper)}」を扱う${classifyStudyDesign(paper)}です。下の英語タイトルと出典IDを確認して、抄録・原文で詳細を確認してください。`;
+    || `${deriveTitleTheme(paper)}を扱った${classifyStudyDesign(paper)}です。自動生成記事ではタイトル・抄録・書誌情報の範囲で紹介しているため、主要評価項目と数値結果はリンク先の抄録・原文で確認してください。`;
 }
 
 function titleRuleFor(paper) {
   const text = normalizedTitle(paper);
   const rules = [
+    {
+      terms: ["duloxetine", "pregabalin", "postoperative pain", "mega-liposuction"],
+      heading: "デュロキセチンとプレガバリンの周術期併用は術後疼痛を改善するか",
+      summary: "全身麻酔下の大量脂肪吸引術で、デュロキセチンとプレガバリンの周術期併用による術後疼痛改善を二重盲検無作為化比較試験で評価した論文です。",
+    },
+    {
+      terms: ["inhalational", "intravenous anesthesia", "moyamoya disease"],
+      heading: "もやもや病血行再建術で吸入麻酔と静脈麻酔の転帰を比較",
+      summary: "もやもや病の血行再建術を対象に、吸入麻酔と静脈麻酔が周術期の神経学的転帰と長期予後に与える影響をシステマティックレビュー・メタ解析で比較した論文です。",
+    },
+    {
+      terms: ["cefazolin", "staphylococcus aureus pneumonia", "critically ill patients"],
+      heading: "ICUのMSSA肺炎でセファゾリンと抗ブドウ球菌薬を比較",
+      summary: "集中治療室に入室した重症MSSA肺炎患者を対象に、セファゾリンと抗ブドウ球菌βラクタム薬の有効性を多施設コホートで比較した論文です。",
+    },
     {
       terms: ["single-dose intraoperative methadone", "qtc interval"],
       heading: "術中メサドン単回投与はQTc間隔を延長するか",
@@ -246,7 +292,8 @@ function deriveTitleTheme(paper) {
     ["集中治療", ["critical care", "intensive care", "icu"]],
     ["周術期管理", ["perioperative", "postoperative", "surgery", "surgical"]],
   ];
-  return themes.find(([, terms]) => includesAll(text, terms))?.[0] || "麻酔・集中治療領域の最新論文";
+  return themes.find(([, terms]) => includesAll(text, terms))?.[0]
+    || deriveTheme({ ...paper, abstractText: "" });
 }
 
 function journalName(paper) {
@@ -305,8 +352,11 @@ function validatePaperCards(cards, papers) {
     if (!card.sourceId) {
       throw new Error(`Paper card ${index + 1} is missing a source identifier.`);
     }
-    if (card.heading.includes("麻酔・集中治療領域の最新論文") || card.summary.includes("英語タイトル上は")) {
-      throw new Error(`Paper card ${index + 1} uses an overly generic heading or summary: ${title}`);
+    if (!isDomainRelevant(paper)) {
+      throw new Error(`Paper card ${index + 1} is outside the anesthesia and critical care scope: ${title}`);
+    }
+    if (!card.heading.trim() || !card.summary.trim()) {
+      throw new Error(`Paper card ${index + 1} is missing a heading or summary: ${title}`);
     }
     if (links.has(card.link)) {
       throw new Error(`Duplicate paper link generated: ${card.link}`);
@@ -347,7 +397,8 @@ async function fetchLatestPapers(period, config) {
       && !isPreprint(paper)
       && !text.includes("protocol")
       && !text.includes("editorial")
-      && !text.includes("letter");
+      && !text.includes("letter")
+      && isDomainRelevant(paper);
   })
     .map((paper) => ({ ...paper, selectionScore: scorePaper(paper, config) }))
     .sort((a, b) => b.selectionScore - a.selectionScore
@@ -366,6 +417,43 @@ async function fetchLatestPapers(period, config) {
     if (selected.length === config.latestPaperCount) break;
   }
   return selected;
+}
+
+function runGeneratorRegressionChecks() {
+  const outOfScope = {
+    id: "fixture-out-of-scope",
+    source: "MED",
+    title: "A systematic review and meta-analysis on survival and safety of durvalumab in early-stage non-small cell lung cancer.",
+    abstractText: "Patients may require critical care during treatment.",
+    journalTitle: "Oncology Review",
+    pubType: "Systematic Review",
+  };
+  if (isDomainRelevant(outOfScope)) {
+    throw new Error("Sunday generator regression: abstract-only domain wording passed the relevance filter.");
+  }
+
+  const shortTermFalsePositive = {
+    ...outOfScope,
+    id: "fixture-short-term-false-positive",
+    title: "A particular approach to oncology treatment.",
+    abstractText: "The report mentions ICU care only in its background.",
+  };
+  if (isDomainRelevant(shortTermFalsePositive)) {
+    throw new Error("Sunday generator regression: a partial ICU text match passed the relevance filter.");
+  }
+
+  const supportedFallback = {
+    id: "fixture-supported-fallback",
+    source: "MED",
+    title: "Randomized trial of airway management during emergency intubation.",
+    abstractText: "A randomized trial comparing two airway management strategies.",
+    journalTitle: "Critical Care",
+    pubType: "Randomized Controlled Trial",
+  };
+  if (!isDomainRelevant(supportedFallback)) {
+    throw new Error("Sunday generator regression: a relevant title was rejected.");
+  }
+  validatePaperCards([paperCardData(supportedFallback)], [supportedFallback]);
 }
 
 function renderPage({ config, issueDate, period, siteArticles, papers }) {
@@ -427,7 +515,7 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
-<style>:root{--paper:#f4f6f4;--paper-2:#fbfcfb;--ink:#15302d;--ink-soft:#2c4541;--teal:#0f766e;--teal-deep:#0b4f4a;--muted:#5c6b68;--line:#d9e0dc;--line-strong:#bcc8c3}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}.wrap{max-width:760px;margin:0 auto;padding:0 24px}a{color:var(--teal-deep)}header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}.bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}.bar-actions{display:flex;align-items:center;gap:14px}.back{font-size:13px;color:var(--muted);text-decoration:none}.foot-x{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 10px;white-space:nowrap}.foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}.ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}.kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}.pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep)}.pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.35;letter-spacing:.01em}.title-tail{white-space:nowrap}.cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}.sec{padding:38px 0;border-bottom:1px solid var(--line)}.sechd{margin-bottom:18px}.sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}.site-list{padding:0;list-style:none}.site-list li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.site-list span,.meta,.source-id{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px}.site-list span,.meta{white-space:nowrap}.source-id{overflow-wrap:anywhere;margin-top:2px}.paper-card{padding:26px 28px;border:1px solid var(--line);border-radius:4px;margin:18px 0;background:var(--paper-2)}.paper-card h2{font-family:"Noto Serif JP",serif;font-size:22px;line-height:1.4;margin:0 0 8px;color:var(--ink)}.paper-card h3{font-size:15px;line-height:1.7;margin:14px 0 5px;font-weight:500;color:var(--ink-soft)}.design{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--line-strong);border-radius:3px;padding:3px 9px;margin:4px 0 12px;color:var(--teal-deep)}.summary{font-size:14px;line-height:1.8;color:var(--ink-soft);background:#fff;border-left:2px solid var(--teal);padding:12px 14px;margin:4px 0 16px}.summary span{display:block;font-size:11px;font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);margin-bottom:4px}.source{display:inline-block;margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-decoration:none;border:1px solid var(--line-strong);padding:6px 12px;border-radius:2px}.source:hover{background:var(--teal);color:#fff;border-color:var(--teal)}footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}.disc{font-size:12px;color:var(--muted);line-height:1.9}.foot-x{display:inline-block;margin-top:14px;padding:7px 12px}@media(max-width:560px){.bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.back{font-size:12px;white-space:nowrap}.wrap{padding:0 18px}h1 .title-part{display:block}.title-sep{display:none}.paper-card{padding:20px}.site-list li{display:block}.site-list span{display:block;margin-top:4px}}</style>
+<style>:root{--paper:#f4f6f4;--paper-2:#fbfcfb;--ink:#15302d;--ink-soft:#2c4541;--teal:#0f766e;--teal-deep:#0b4f4a;--muted:#5c6b68;--line:#d9e0dc;--line-strong:#bcc8c3}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}.wrap{max-width:760px;margin:0 auto;padding:0 24px}a{color:var(--teal-deep)}header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}.bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}.bar-actions{display:flex;align-items:center;gap:14px}.back{font-size:13px;color:var(--muted);text-decoration:none}.foot-x{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:5px 10px;white-space:nowrap}.foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}.ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}.kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}.pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep)}.pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.35;letter-spacing:.01em}.title-tail{white-space:nowrap}.cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}.sec{padding:38px 0;border-bottom:1px solid var(--line)}.sechd{margin-bottom:18px}.sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}.site-list{padding:0;list-style:none}.site-list li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.site-list span,.meta,.source-id{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:12px}.site-list span,.meta{white-space:nowrap}.source-id{overflow-wrap:anywhere;margin-top:2px}.paper-card{padding:26px 28px;border:1px solid var(--line);border-radius:4px;margin:18px 0;background:var(--paper-2)}.paper-card h2{font-family:"Noto Serif JP",serif;font-size:22px;line-height:1.4;margin:0 0 8px;color:var(--ink)}.paper-card h3{font-size:15px;line-height:1.7;margin:14px 0 5px;font-weight:500;color:var(--ink-soft)}.design{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--line-strong);border-radius:3px;padding:3px 9px;margin:4px 0 12px;color:var(--teal-deep)}.summary{font-size:14px;line-height:1.8;color:var(--ink-soft);background:#fff;border-left:2px solid var(--teal);padding:12px 14px;margin:4px 0 16px}.summary span{display:block;font-size:11px;font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);margin-bottom:4px}.source{display:inline-block;margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;text-decoration:none;border:1px solid var(--line-strong);padding:6px 12px;border-radius:2px}.source:hover{background:var(--teal);color:#fff;border-color:var(--teal)}footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}.disc{font-size:12px;color:var(--muted);line-height:1.9}.foot-x{display:inline-block;margin-top:14px;padding:7px 12px}@media(max-width:560px){.bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.back{font-size:12px;white-space:nowrap}.wrap{padding:0 18px}h1 .title-part{display:block}.title-sep{display:none}.paper-card{padding:20px}.meta{white-space:normal;overflow-wrap:anywhere}.site-list li{display:block}.site-list span{display:block;margin-top:4px}}</style>
 <link rel="stylesheet" href="../assets/weekly-c-theme.css">
 <script src="../assets/analytics-config.js"></script>
 <script src="../assets/analytics.js" defer></script>
@@ -463,6 +551,7 @@ function writeRegistry(issueDate, slug) {
 const issueDate = issueDateJst();
 const period = issuePeriod(issueDate);
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
+runGeneratorRegressionChecks();
 const siteArticles = loadArticles().filter((article) => {
   const date = article.date.replaceAll(".", "-");
   return article.dow !== "SUN" && date >= period.start && date <= period.end && date <= issueDate;
@@ -477,8 +566,15 @@ if (papers.length < config.latestPaperCount) {
   throw new Error(`Expected ${config.latestPaperCount} latest papers, but found ${papers.length}.`);
 }
 const slug = `latest-papers-${issueDate}`;
-fs.writeFileSync(path.join(repoRoot, "articles", `${slug}.html`),
-  renderPage({ config, issueDate, period, siteArticles, papers }), "utf8");
-writeRegistry(issueDate, slug);
-console.log(`Generated Sunday article ${slug}: ${siteArticles.length} site article(s), ${papers.length} paper(s).`);
+const renderedPage = renderPage({ config, issueDate, period, siteArticles, papers });
+if (process.env.SUNDAY_DRY_RUN === "true") {
+  console.log(`Validated Sunday article ${slug}: ${siteArticles.length} site article(s), ${papers.length} paper(s).`);
+  papers.forEach((paper, index) => {
+    console.log(`${index + 1}. ${paper.title} [score=${paper.selectionScore}]`);
+  });
+} else {
+  fs.writeFileSync(path.join(repoRoot, "articles", `${slug}.html`), renderedPage, "utf8");
+  writeRegistry(issueDate, slug);
+  console.log(`Generated Sunday article ${slug}: ${siteArticles.length} site article(s), ${papers.length} paper(s).`);
+}
 
