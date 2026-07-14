@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Mon, 13 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>早期経腸栄養は敗血症性ショックの死亡を減らすか — 不死時間バイアスとターゲット試験エミュレーション</title>
+      <link>https://anes-jc.github.io/articles/sepsis-en-timing.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/sepsis-en-timing.html</guid>
+      <description>敗血症性ショック4,003例のMIMIC-IVコホートを用いたターゲット試験エミュレーション。重み付き推定で早期(0-48h)経腸栄養は遅延(48-96h)より28日死亡リスクが低く（30.0%対35.0%、遅延vs早期HR1.21、95%CI1.15-1.27）、人工呼吸器非装着日数も多い方向。読みどころは不死時間バイアスとclone-censor-weight。</description>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 GMT</pubDate>
+      <category>統計・手法</category>
+      <category>集中治療</category>
+      <category>敗血症</category>
+      <category>バイアスと交絡を読む</category>
+    </item>
     <item>
       <title>敗血症後の遠隔モニタリングは再入院を防ぐか — ACCOMPLISH試験と「自宅で過ごせた日数」の読み方</title>
       <link>https://anes-jc.github.io/articles/sepsis-remote-monitoring.html</link>
