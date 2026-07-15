@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow" data-draft-only="true">
+<meta name="description" content="救急部門で診断された敗血症性ショック1,341例の多施設RCT。ProCESS試験はEGDTを含む定型プロトコル蘇生が通常ケアより60日院内死亡を改善しないことを示し、陰性試験を信頼区間で読む練習になる。">
+<link rel="canonical" href="https://anes-jc.github.io/articles/process-early-septic-shock.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="敗血症性ショックにEGDTは必要か — ProCESS試験と信頼区間で読む陰性RCT | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="敗血症性ショック1,341例の多施設RCT。EGDTを含む定型プロトコル蘇生は通常ケアより60日院内死亡を改善せず、陰性試験を信頼区間で読む視点を整理する。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/process-early-septic-shock.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/process-early-septic-shock.png?v=20260724">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="敗血症性ショックにEGDTは必要か — ProCESS試験と信頼区間で読む陰性RCT | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="ProCESS試験で、定型プロトコル蘇生は通常ケアより60日院内死亡を改善せず。陰性RCTを信頼区間で読む。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/process-early-septic-shock.png?v=20260724">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/process-early-septic-shock.html"
+  },
+  "headline": "敗血症性ショックにEGDTは必要か — ProCESS試験と信頼区間で読む陰性RCT",
+  "description": "救急部門で診断された敗血症性ショック1,341例の多施設RCT。EGDTを含む定型プロトコル蘇生が通常ケアより60日院内死亡を改善しないことを示し、陰性試験を信頼区間で読む練習になる。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/process-early-septic-shock.png?v=20260724"
+  ],
+  "datePublished": "2026-07-24T00:00:00+09:00",
+  "dateModified": "2026-07-24T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
+<title>敗血症性ショックにEGDTは必要か — ProCESS試験と信頼区間で読む陰性RCT | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
+<link rel="stylesheet" href="../assets/article-toc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+  .bar-actions{display:flex;align-items:center;gap:14px}
+  .draft-notice{margin:14px 0 0;border:1px solid var(--amber);background:var(--amber-bg);border-radius:4px;padding:14px 18px;font-size:13px;color:var(--ink-soft);line-height:1.7}
+  .draft-notice strong{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--amber);margin-right:8px}
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(26px,5vw,38px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBcb3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBcb3}
+  .summary li:last-child{margin-bottom:0}
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+  .pico{display:grid;grid-template-columns:98px 1fr;gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .formula b{color:var(--amber)}
+  .rtable{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+  .rtable th,.rtable td{border:1px solid var(--line);padding:9px 12px;text-align:center}
+  .rtable th{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);letter-spacing:.03em}
+  .rtable td:first-child,.rtable th:first-child{text-align:left}
+  .rtable tbody tr:nth-child(even){background:rgba(15,118,110,.03)}
+  .rtable .mono{font-family:"JetBrains Mono",monospace}
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+  .modern{border:1px dashed var(--line-strong);border-radius:4px;padding:20px 24px;margin:14px 0;background:rgba(15,118,110,.035)}
+  .modern .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .modern .lbl::before{content:"now";background:var(--teal);color:#fff;font-size:9px;padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+  .modern p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
+  .modern p:last-child{margin-bottom:0}
+  .modern b{color:var(--ink)}
+  .modern .ref{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);line-height:1.6;border-left:2px solid var(--line-strong);padding-left:12px;margin-top:12px}
+  .en{background:#EAF4F2;border:1px solid #BFD8D3;border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{background:rgba(255,255,255,.42);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:12px 14px 12px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .en .gloss{font-size:14px;color:var(--ink-soft);margin:14px 0 4px}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .vocab td.ipa{color:var(--muted);font-size:13px}
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  @media(max-width:560px){
+    .bar-in{height:54px;padding:0 18px;gap:12px}
+    .brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}
+    .brand .dot{width:7px;height:7px;flex-shrink:0}
+    .back{font-size:12px;white-space:nowrap;flex-shrink:0}
+    .pico{grid-template-columns:1fr}
+    .pico .k{border-bottom:none;padding-bottom:4px}
+    .pico .v{padding-top:4px}
+    .rtable{font-size:12px}
+    .rtable th,.rtable td{padding:7px 6px}
+    .vocab .hide-sm{display:none}
+  }
+</style>
+<link rel="stylesheet" href="../assets/article-c-theme.css?v=20260711-2">
+<script src="../assets/analytics-config.js"></script>
+<script src="../assets/analytics.js" defer></script>
+<script src="../assets/article-toc.js" defer></script>
+<script src="../assets/draft-gate.js" data-publish-date="2026-07-24" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <div class="bar-actions">
+      <a class="back" href="../articles.html">← 記事一覧</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="draft-notice" data-draft-notice data-publish-date="2026-07-24" role="note">
+    <strong>PUBLICATION DRAFT</strong>
+    この記事は公開予定日前の下書き表示です。公開予定日は2026年7月24日です。正式公開前のため、内容が変更される場合があります。
+  </div>
+
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=古典論文">FRI · 古典論文</a>
+      <a class="pill" href="../tags.html?tag=集中治療">集中治療</a>
+      <a class="pill" href="../tags.html?tag=敗血症">敗血症</a>
+      <a class="pill" href="../tags.html?tag=不確実性を読む"><span class="kl">統計 G03</span>不確実性を読む</a>
+    </div>
+    <h1>敗血症性ショックにEGDTは必要か — ProCESS試験と信頼区間で読む陰性RCT</h1>
+    <div class="cite">
+      ProCESS Investigators, Yealy DM, Kellum JA, Huang DT, ほか.<br>
+      A Randomized Trial of Protocol-Based Care for Early Septic Shock.<br>
+      N Engl J Med. 2014;370(18):1683-1693. · 多施設ランダム化比較試験 · n=1,341 · PMCID: PMC4101700
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/24635773/" target="_blank" rel="noopener">PubMed → 24635773</a>
+      <a class="lnk" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4101700/" target="_blank" rel="noopener">原著全文（PMC）→</a>
+      <a class="lnk" href="https://doi.org/10.1056/NEJMoa1401602" target="_blank" rel="noopener">DOI → 10.1056/NEJMoa1401602</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li><b>敗血症性ショックの初期6時間蘇生</b>で、中心静脈圧・ScvO2などを目標にしたEGDT、より簡略なprotocol-based standard therapy、通常ケアを比べた米国31救急部門の多施設RCT。</li>
+      <li>解析対象は<b>1,341例</b>。主要評価項目は<b>60日以内の院内死亡</b>で、EGDT 21.0%、standard therapy 18.2%、usual care 18.9%。</li>
+      <li>protocol-based care（EGDT + standard therapy）対usual careは<b>RR 1.04、95%CI 0.82-1.31、P=0.83</b>。EGDT対standard therapyも<b>RR 1.15、95%CI 0.88-1.51、P=0.31</b>で、死亡改善は示されなかった。</li>
+      <li>今回の統計の山場 → <b>陰性RCTを「同じ」と読まないこと</b>。p値だけでなく信頼区間を見て、「どの程度の利益・害ならまだ否定できていないか」を読む。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>2001年のRivers試験は、救急部門で重症敗血症・敗血症性ショックを早期に見つけ、最初の6時間で中心静脈圧、平均血圧、尿量、中心静脈酸素飽和度（ScvO2）などを目標に介入するEGDTを提示した。PubMedで確認できる同試験の要旨では、院内死亡はEGDT群30.5%に対し標準治療群46.5%で、P=0.009と報告されている。</p>
+    <p>この結果は、敗血症初期蘇生の考え方を大きく変えた。一方で、EGDTは中心静脈カテーテル、ScvO2監視、輸血、強心薬を組み合わせる複雑な束であり、「どの要素が本当に必要なのか」「現代の通常ケアが改善したあとでも同じ効果があるのか」は未解決だった。</p>
+    <p>ProCESS試験が問うたのは、敗血症性ショックを早く認識し、抗菌薬や輸液などの標準的なケアがすでに進んでいる環境で、なお全例に定型プロトコル蘇生を上乗せする価値があるのか、という実践的な疑問である。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>研究上の問い（PICO）</h2></div>
+    <div class="pico">
+      <div class="k">対象</div><div class="v">米国31救急部門で、敗血症が疑われ、SIRS基準2項目以上に加え、難治性低血圧または血清乳酸4 mmol/L以上を満たした成人。ショック検出後2時間以内、来院後12時間以内に登録。</div>
+      <div class="k">介入</div><div class="v">protocol-based EGDT。中心静脈カテーテルを置き、中心静脈圧とScvO2を監視し、輸液、昇圧薬、ドブタミン、赤血球輸血をプロトコルに沿って使う。</div>
+      <div class="k">比較</div><div class="v">protocol-based standard therapy（中心静脈カテーテル・ScvO2・強心薬・輸血を必須にしない簡略プロトコル）と、担当医判断によるusual care。</div>
+      <div class="k">アウトカム</div><div class="v">主要評価項目は60日以内の院内死亡。副次評価項目は長期死亡、臓器補助、ICU・病院資源利用など。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>割付は1:1:1で、EGDT、standard therapy、usual careの3群に分けた。EGDTとstandard therapyは、訓練を受けた専任チームが最初の6時間に介入した。usual careは担当医の判断に任されたが、参加施設は敗血症性ショックの定型蘇生プロトコルを日常的には使っておらず、連続ScvO2カテーテルも日常使用していないことが条件だった。</p>
+    <p>重要なのは、主要仮説が逐次的に設定されていた点である。まずEGDTとstandard therapyを合わせた「protocol-based care」がusual careより優れているかを検定し、それが陽性なら、EGDTがstandard therapyより優れているかを見る設計だった。つまり、この試験の第一の問いは「何らかの定型プロトコル化が通常ケアを上回るか」であり、次の問いが「侵襲的なEGDTが簡略プロトコルを上回るか」である。</p>
+    <p>解析はintention-to-treatで行われた。当初は1,950例を予定していたが、全体死亡率が想定より低いことが盲検下で確認され、同じ絶対リスク差を検出するため登録目標は1,350例に再計算された。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント：陰性試験を信頼区間で読む</h2></div>
+    <div class="stats">
+      <div class="tag">STAT KEY · EFFECT_03_P_CI</div>
+      <h3>p値は「差がない証明」ではない</h3>
+      <p>ProCESSの主要比較は、protocol-based care対usual careでP=0.83だった。これは「観察された差が、帰無仮説のもとで珍しくない」という情報であり、「両者が完全に同じ」と証明したものではない。</p>
+      <p>臨床的には95%信頼区間を見る。主要比較のRRは1.04で、95%CIは0.82-1.31だった。これは、protocol-based careに大きな死亡改善がある可能性は低そうだが、推定の幅としては一定の利益側から害側まで残っている、という読み方になる。</p>
+      <div class="formula">
+        protocol-based care vs usual care<br>
+        RR = <b>1.04</b> · 95%CI = <b>0.82 to 1.31</b> · P = <b>0.83</b><br><br>
+        解釈: 「有意差なし」より先に、<b>効果の幅</b>と<b>臨床的に許容できる幅</b>を見る
+      </div>
+      <p>もう一つの落とし穴は、陰性試験を非劣性試験のように読むことだ。ProCESSは、通常ケアがEGDTに非劣性だと証明する設計ではない。したがって「通常ケアで十分」と言うときは、ProCESS単独ではなく、その後のARISE、ProMISe、患者レベルメタ解析まで含めたエビデンスの流れで受け止める必要がある。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <p><b>介入は実際に違っていた。</b>最初の6時間の輸液量はEGDT 2.8 L、standard therapy 3.3 L、usual care 2.3 L。昇圧薬使用は54.9%、52.2%、44.1%。ドブタミンはEGDTで8.0%と、standard therapy 1.1%、usual care 0.9%より多く、赤血球輸血もEGDTで14.4%と多かった。つまり「介入差がなかったから陰性」という試験ではない。</p>
+    <p><b>主要評価項目は改善しなかった。</b>60日以内の院内死亡は、EGDT 92/439（21.0%）、standard therapy 81/446（18.2%）、usual care 86/456（18.9%）だった。</p>
+    <table class="rtable">
+      <thead>
+        <tr><th>比較・アウトカム</th><th>EGDT</th><th>Standard therapy</th><th>Usual care</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>60日以内院内死亡</td><td class="mono">21.0%<br>92/439</td><td class="mono">18.2%<br>81/446</td><td class="mono">18.9%<br>86/456</td></tr>
+        <tr><td>90日死亡</td><td class="mono">31.9%<br>129/405</td><td class="mono">30.8%<br>128/415</td><td class="mono">33.7%<br>139/412</td></tr>
+        <tr><td>新規腎代替療法を要する腎不全</td><td class="mono">3.1%</td><td class="mono">6.0%</td><td class="mono">2.8%</td></tr>
+        <tr><td>ICU入室</td><td class="mono">91.3%</td><td class="mono">85.4%</td><td class="mono">86.2%</td></tr>
+      </tbody>
+    </table>
+    <p><b>主要比較の推定値。</b>EGDTとstandard therapyを合わせたprotocol-based careの60日以内院内死亡は19.5%（173/885）で、usual care 18.9%との差は有意ではなかった（RR 1.04、95%CI 0.82-1.31、P=0.83）。EGDTとstandard therapyの比較も有意差なし（RR 1.15、95%CI 0.88-1.51、P=0.31）。</p>
+    <p><b>副次アウトカム。</b>90日死亡、1年死亡、臓器補助の必要性に有意差はなかった。新規腎代替療法を要する腎不全はstandard therapy群で高かったが、腎代替療法の期間は群間で有意差がなかった。死亡を除く重大有害事象も群間差なしだった。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>ProCESSはRivers 2001試験の直接再現ではない。対象集団、通常ケア、背景治療、初期輸液後のScvO2測定タイミングが異なり、単純な追試としては読めない。</li>
+      <li>登録されたのは、救急部門で敗血症性ショックとして認識された患者である。認識が遅い環境で、定型プロトコルが早期認識の仕組みとして役立つかは、この試験だけでは評価できない。</li>
+      <li>敗血症性ショックは異質で、ランダム化前のケアもばらつく。サブグループごとの効果差を十分に検出する力は限られていた。</li>
+      <li>院内死亡は生命維持治療の撤退方針など施設・文化差の影響を受けうる。これは原著が明記した限界である。</li>
+      <li>試験の主要目的は優越性の検証であり、usual careがEGDTに非劣性であることを正式に証明するデザインではない。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>ProCESSから最も素直に言えるのは、現代的な救急・ICUケアの中で、全例に中心静脈カテーテル、ScvO2監視、輸血、強心薬まで含むEGDTを義務化しても、60日以内院内死亡の改善は示されなかった、ということである。介入差は明確に作られていたため、結果は「プロトコルが実行されなかった」ではなく、「より多い侵襲的介入が死亡改善に結びつかなかった」と読む。</p>
+    <p>ただし、これは敗血症性ショックの初期対応を軽くしてよいという話ではない。ProCESSのusual care群も、早期認識、抗菌薬、輸液、昇圧薬など、当時すでに改善したケアを受けていた。EGDTの教訓は、早く見つけて早く介入するという仕組みを残しつつ、ScvO2目標や輸血・強心薬までを全例に固定する必要性を再検討するところにある。</p>
+    <div class="modern">
+      <div class="lbl">現代の視点</div>
+      <p>ProCESSのあと、ARISE、ProMISeも同じ方向の結果を示し、2017年の患者レベルメタ解析では、EGDTとusual careの90日死亡は24.9% vs 25.4%、調整OR 0.97（95%CI 0.82-1.14、P=0.68）だった。EGDTはICU利用、心血管サポート、入院コストを増やしたが、死亡改善は示さなかった。</p>
+      <p>2021年Surviving Sepsis Campaignガイドラインは、ProCESS後のエビデンスを踏まえた敗血症管理の代表的な参照先である。この記事では個別推奨文までは踏み込まないが、現代の臨床判断では、原著1本の結論だけでなく、ガイドラインと自施設の敗血症プロトコルを合わせて確認する必要がある。</p>
+      <div class="ref">参考: Rowan KM, Angus DC, Bailey M, et al. N Engl J Med. 2017;376:2223-2234. PMID 28320242 / Evans L, Rhodes A, Alhazzani W, et al. Intensive Care Med. 2021;47:1181-1247. PMID 34599691</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <p>原著Abstract Resultsから、副次アウトカムの全体像を短く述べる一文を読む。陰性試験では、`no significant differences` を「完全に同じ」と訳しすぎないことが大切である。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">— ProCESS Investigators. N Engl J Med. 2014;370:1683. Abstract Results</span>
+        <span class="en-text">"There were no significant differences in 90-day mortality, 1-year mortality, or the need for organ support."</span>
+      </div>
+      <p class="gloss"><b>読みのポイント：</b>`no significant differences` は「統計学的に有意な差はなかった」という表現であり、「差が絶対にない」「同等性が証明された」ではない。続く名詞句が何を指すかを確認し、本文では信頼区間も一緒に読む。</p>
+      <table class="vocab">
+        <thead><tr><th>語・表現</th><th class="ipa hide-sm">発音</th><th>意味・ニュアンス</th></tr></thead>
+        <tbody>
+          <tr><td>no significant differences</td><td class="ipa hide-sm">—</td><td>統計学的に有意な差なし。差がゼロという証明ではない</td></tr>
+          <tr><td>90-day mortality</td><td class="ipa hide-sm">/mɔːrˈtæləti/</td><td>90日死亡率。いつまで追跡した死亡かを示す</td></tr>
+          <tr><td>1-year mortality</td><td class="ipa hide-sm">—</td><td>1年死亡率。短期死亡と同じ方向かを見る</td></tr>
+          <tr><td>need for</td><td class="ipa hide-sm">/niːd/</td><td>〜の必要性。介入・補助療法を要したかを表す</td></tr>
+          <tr><td>organ support</td><td class="ipa hide-sm">—</td><td>臓器補助。人工呼吸、循環補助、腎代替療法などを含む文脈で使われる</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted)">※ 語彙表は引用文中に実際に出てくる語句だけで作成。引用はAbstract Resultsから1文のみに絞った。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>敗血症性ショックでは、早く認識し、抗菌薬・輸液・昇圧薬を遅らせないことが土台になる。その上で、全例に中心静脈カテーテルとScvO2監視を置くEGDTを義務化するより、患者の反応と施設プロトコルに沿って必要なモニタリング・介入を選ぶ。</p>
+    </div>
+    <p style="margin-top:16px;font-size:15px">論文を読む実務としては、陰性試験に出会ったらまず「どの効果幅まで否定できたのか」を見る。ProCESSではRR 1.04、95%CI 0.82-1.31という幅があり、p=0.83だけを見て「完全に同じ」とは言えない。臨床判断では、ProCESS、後続RCT、患者レベルメタ解析、最新ガイドラインを一続きで確認する。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="ProCESS試験の要約図：3群比較と主要結果、陰性RCTの信頼区間の読み方">
+        <rect x="0" y="0" width="1200" height="630" fill="#FBFCFB"/>
+        <text x="56" y="70" font-family="'Noto Serif JP',serif" font-size="34" font-weight="700" fill="#15302D">ProCESS：敗血症性ショック初期蘇生をどう標準化するか</text>
+        <text x="56" y="106" font-family="'JetBrains Mono',monospace" font-size="18" fill="#5C6B68">N Engl J Med 2014 · 多施設RCT · 31 EDs · n=1,341 · 主要評価項目: 60日以内院内死亡</text>
+        <line x1="56" y1="128" x2="1144" y2="128" stroke="#D9E0DC" stroke-width="1.5"/>
+        <text x="56" y="168" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="700" fill="#0B4F4A">3つの初期6時間蘇生戦略</text>
+        <g>
+          <rect x="56" y="190" width="330" height="132" rx="4" fill="#EAF4F2" stroke="#BFD8D3"/>
+          <text x="76" y="224" font-family="'JetBrains Mono',monospace" font-size="20" font-weight="700" fill="#0F766E">EGDT</text>
+          <text x="76" y="260" font-family="'Noto Sans JP',sans-serif" font-size="17" fill="#2C4541">CVC + ScvO2監視</text>
+          <text x="76" y="290" font-family="'Noto Sans JP',sans-serif" font-size="17" fill="#2C4541">輸液・昇圧薬・輸血・強心薬</text>
+          <text x="76" y="314" font-family="'JetBrains Mono',monospace" font-size="16" fill="#5C6B68">n=439</text>
+          <rect x="435" y="190" width="330" height="132" rx="4" fill="#F7ECE2" stroke="#E4C9AF"/>
+          <text x="455" y="224" font-family="'JetBrains Mono',monospace" font-size="20" font-weight="700" fill="#C96A2B">Standard protocol</text>
+          <text x="455" y="260" font-family="'Noto Sans JP',sans-serif" font-size="17" fill="#2C4541">CVC・ScvO2を必須にしない</text>
+          <text x="455" y="290" font-family="'Noto Sans JP',sans-serif" font-size="17" fill="#2C4541">血圧・shock indexなどで調整</text>
+          <text x="455" y="314" font-family="'JetBrains Mono',monospace" font-size="16" fill="#5C6B68">n=446</text>
+          <rect x="814" y="190" width="330" height="132" rx="4" fill="#F4F6F4" stroke="#BCC8C3"/>
+          <text x="834" y="224" font-family="'JetBrains Mono',monospace" font-size="20" font-weight="700" fill="#15302D">Usual care</text>
+          <text x="834" y="260" font-family="'Noto Sans JP',sans-serif" font-size="17" fill="#2C4541">担当医判断の初期蘇生</text>
+          <text x="834" y="290" font-family="'Noto Sans JP',sans-serif" font-size="17" fill="#2C4541">現代的な標準ケア環境</text>
+          <text x="834" y="314" font-family="'JetBrains Mono',monospace" font-size="16" fill="#5C6B68">n=456</text>
+        </g>
+        <text x="56" y="370" font-family="'JetBrains Mono',monospace" font-size="17" font-weight="700" fill="#0B4F4A">60日以内院内死亡</text>
+        <g font-family="'Noto Sans JP',sans-serif" font-size="17" fill="#2C4541">
+          <text x="56" y="414">EGDT</text>
+          <rect x="210" y="398" width="410" height="24" fill="#E7ECE9"/>
+          <rect x="210" y="398" width="410" height="24" fill="#0F766E"/>
+          <text x="642" y="417" font-family="'JetBrains Mono',monospace" font-size="16" fill="#5C6B68">21.0% (92/439)</text>
+          <text x="56" y="454">Standard</text>
+          <rect x="210" y="438" width="410" height="24" fill="#E7ECE9"/>
+          <rect x="210" y="438" width="356" height="24" fill="#C96A2B"/>
+          <text x="642" y="457" font-family="'JetBrains Mono',monospace" font-size="16" fill="#5C6B68">18.2% (81/446)</text>
+          <text x="56" y="494">Usual care</text>
+          <rect x="210" y="478" width="410" height="24" fill="#E7ECE9"/>
+          <rect x="210" y="478" width="369" height="24" fill="#17344D"/>
+          <text x="642" y="497" font-family="'JetBrains Mono',monospace" font-size="16" fill="#5C6B68">18.9% (86/456)</text>
+        </g>
+        <rect x="780" y="382" width="364" height="112" rx="4" fill="#15302D"/>
+        <text x="806" y="420" font-family="'JetBrains Mono',monospace" font-size="16" font-weight="700" fill="#6FBCB3">PRIMARY COMPARISON</text>
+        <text x="806" y="454" font-family="'Noto Sans JP',sans-serif" font-size="19" fill="#E4ECE9">Protocol-based care vs usual care</text>
+        <text x="806" y="486" font-family="'JetBrains Mono',monospace" font-size="22" font-weight="700" fill="#FFFFFF">RR 1.04 · 95%CI 0.82-1.31</text>
+        <line x1="56" y1="536" x2="1144" y2="536" stroke="#D9E0DC" stroke-width="1"/>
+        <text x="56" y="576" font-family="'Noto Sans JP',sans-serif" font-size="19" fill="#15302D">読み方：P=0.83だけで「同じ」としない。信頼区間が残す利益・害の幅を確認する。</text>
+        <text x="56" y="606" font-family="'Noto Sans JP',sans-serif" font-size="17" font-weight="700" fill="#15302D">結論：EGDTを含む定型プロトコル蘇生は、通常ケアより死亡を改善しなかった。</text>
+      </svg>
+      <div class="info-cap">数値は原著（N Engl J Med 2014;370:1683-1693）の報告値。図は独自に作成（図表の転載なし）。1200×630でXリンクカード（assets/og/process-early-septic-shock.png）に転用予定。</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>このサイトについて：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。気づいた点は指摘してもらえると助かります。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。<strong>作成方法：</strong>AIによる下書きを自分でレビュー・修正。数値・解釈は一次資料での確認をおすすめします。図表は転載せず独自に作図しています。
+    </p>
+    <a class="foot-x" href="../feed.xml">RSSで更新を受け取る</a>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
+  </div>
+</footer>
+
+</body>
+</html>

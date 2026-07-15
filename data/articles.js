@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.24", dow: "FRI", status: "公開予定", live: false,
+    title: "敗血症性ショックにEGDTは必要か — ProCESS試験と信頼区間で読む陰性RCT",
+    url: "articles/process-early-septic-shock.html",
+    desc: "救急部門で診断された敗血症性ショック1,341例の米国31施設RCT。EGDTを含む定型プロトコル蘇生は通常ケアより60日院内死亡を改善せず（RR 1.04、95%CI 0.82-1.31、P=0.83）。読みどころは陰性RCTをp値だけでなく信頼区間で読むこと。",
+    dowTag: { kind: "weekday", label: "FRI · 古典論文", tag: "古典論文" },
+    tags: [
+      { kind: "clinical", label: "集中治療", tag: "集中治療" },
+      { kind: "clinical", label: "敗血症", tag: "敗血症" },
+      { kind: "stat", label: "G03 不確実性を読む", tag: "不確実性を読む" }
+    ]
+  },
+  {
     date: "2026.07.22", dow: "WED", status: "公開予定", live: false,
     title: "ARDS患者のレニンは1年死亡と関連するか — 反復測定と予後モデルの落とし穴",
     url: "articles/ards-renin-survival.html",
