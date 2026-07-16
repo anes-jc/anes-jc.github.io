@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>手術前の心リスクを予測できるか — RCRIと予測モデルの導出・前向き検証</title>
+      <link>https://anes-jc.github.io/articles/rcri.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/rcri.html</guid>
+      <description>非心臓手術を受ける50歳以上4,315例の前向きコホート（導出2,893／検証1,422）。術前6因子を各1点で数える簡易指標RCRIを導出し別集団で前向き検証、リスク階級別の心合併症率は検証コホートで0.4%→0.9%→6.6%→11.0%、識別能はROC曲線下面積0.806。読みどころは予測モデルの導出と検証の違い・識別能とキャリブレーション。</description>
+      <pubDate>Fri, 17 Jul 2026 00:00:00 GMT</pubDate>
+      <category>古典論文</category>
+      <category>麻酔</category>
+      <category>周術期心臓管理</category>
+      <category>統合・予測・診断を読む</category>
+    </item>
     <item>
       <title>早期経腸栄養は敗血症性ショックの死亡を減らすか — 不死時間バイアスとターゲット試験エミュレーション</title>
       <link>https://anes-jc.github.io/articles/sepsis-en-timing.html</link>
