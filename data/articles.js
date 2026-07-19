@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.07.27", dow: "MON", status: "公開予定", live: false,
+    title: "内視鏡鎮静で鼻咽頭エアウェイは気道介入を減らすか — 単盲検RCTとアウトカム評価",
+    url: "articles/npa-endoscopy-mac.html",
+    desc: "消化管内視鏡のMAC中に鼻咽頭エアウェイをルーチン使用する多施設単盲検RCT。主要複合アウトカムは18.5% vs 40.1%に低下したが、差は主にchin lift/jaw thrustで、低酸素単独は差なし。読みどころは盲検化不能な医療者判断アウトカムの評価。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "気道管理", tag: "気道管理" },
+      { kind: "stat", label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
+    ]
+  },
+  {
     date: "2026.07.24", dow: "FRI", status: "公開予定", live: false,
     title: "敗血症性ショックにEGDTは必要か — ProCESS試験と信頼区間で読む陰性RCT",
     url: "articles/process-early-septic-shock.html",
