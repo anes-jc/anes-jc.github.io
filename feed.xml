@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 19 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>片側脊髄くも膜下麻酔は低血圧を減らすか — メタ解析で読む平均差とリスク比</title>
+      <link>https://anes-jc.github.io/articles/unilateral-spinal-meta.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/unilateral-spinal-meta.html</guid>
+      <description>成人手術患者の脊髄くも膜下麻酔を対象にした19 RCT・1,191例のメタ解析。片側法は感覚ブロック発現を約2.6分遅らせ、持続を約28分短くし、低血圧はRR 0.40、悪心嘔吐はRR 0.20、硬膜穿刺後頭痛はRR 0.44に低下。読みどころは平均差・リスク比・I2（アイスクエアード）の読み分け。</description>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
+      <category>新着論文</category>
+      <category>麻酔</category>
+      <category>区域麻酔</category>
+      <category>効果の大きさを読む</category>
+    </item>
     <item>
       <title>先週のまとめ｜最新論文3選</title>
       <link>https://anes-jc.github.io/articles/latest-papers-2026-07-19.html</link>
