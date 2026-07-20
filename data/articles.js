@@ -24,6 +24,18 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.08.03", dow: "MON", status: "公開予定", live: false,
+    title: "手術中のノイズ遮断は術後痛を減らすか — 多施設RCTと主観的アウトカムの盲検化",
+    url: "articles/noise-isolation-pain.html",
+    desc: "全身麻酔下の待機的大腹部手術302例を対象にした中国4施設RCT。術中のノイズ遮断ヘッドホン装着で、術後24時間以内のNRS 4以上の痛みは23% vs 49%（RR 0.47）。読みどころは、主観的アウトカムを扱うRCTでの盲検化と評価バイアス。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "術後鎮痛", tag: "術後鎮痛" },
+      { kind: "stat", label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
+    ]
+  },
+  {
     date: "2026.07.27", dow: "MON", status: "公開予定", live: false,
     title: "内視鏡鎮静で鼻咽頭エアウェイは気道介入を減らすか — 単盲検RCTとアウトカム評価",
     url: "articles/npa-endoscopy-mac.html",
