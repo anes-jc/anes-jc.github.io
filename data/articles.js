@@ -36,6 +36,18 @@ window.ARTICLES = [
     ]
   },
   {
+    date: "2026.07.29", dow: "WED", status: "公開予定", live: false,
+    title: "麻酔科医の長時間勤務は術後アウトカムに影響するか — 固定効果で読む観察研究の交絡",
+    url: "articles/anesthesiologist-work-hours-fixed-effects.html",
+    desc: "MPOGレジストリ36施設・1,648,720手術を用いた横断研究。16時間以上の連続勤務は0.7%で、主要複合アウトカムの調整リスク差は0.1%（95%CI -0.4〜0.5）、入院中死亡は0.3%（95%CI 0.1〜0.5）。読みどころは、同じ麻酔科医内で比べる固定効果モデルと観察研究の交絡。",
+    dowTag: { kind: "weekday", label: "WED · 統計・手法", tag: "統計・手法" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "患者安全", tag: "患者安全" },
+      { kind: "stat", label: "G04 バイアスと交絡を読む", tag: "バイアスと交絡を読む" }
+    ]
+  },
+  {
     date: "2026.07.27", dow: "MON", status: "公開予定", live: false,
     title: "内視鏡鎮静で鼻咽頭エアウェイは気道介入を減らすか — 単盲検RCTとアウトカム評価",
     url: "articles/npa-endoscopy-mac.html",

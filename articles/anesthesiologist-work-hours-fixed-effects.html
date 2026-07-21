@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MPOGレジストリ36施設・1,648,720手術を用いた横断研究。担当麻酔科医が症例開始時点で16時間以上連続勤務していた症例は0.7%。主要複合アウトカムの調整リスク差は0.1%（95%CI -0.4〜0.5）、入院中死亡は0.3%（95%CI 0.1〜0.5）。読みどころは、同じ麻酔科医内で比べる固定効果モデルと観察研究の交絡。">
+<meta name="robots" content="noindex,nofollow" data-draft-only="true">
+<link rel="canonical" href="https://anes-jc.github.io/articles/anesthesiologist-work-hours-fixed-effects.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="麻酔科医の長時間勤務は術後アウトカムに影響するか — 固定効果で読む観察研究の交絡 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="MPOG 36施設・164万手術の横断研究。16時間以上の連続勤務で主要複合アウトカムは明確に増えず、入院中死亡は小さい絶対差。固定効果で交絡を読む。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/anesthesiologist-work-hours-fixed-effects.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/anesthesiologist-work-hours-fixed-effects.png?v=20260729">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="article:published_time" content="2026-07-29T00:00:00+09:00">
+<meta property="article:modified_time" content="2026-07-29T00:00:00+09:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="麻酔科医の長時間勤務は術後アウトカムに影響するか — 固定効果で読む観察研究の交絡 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="MPOG 36施設・164万手術。16時間以上の連続勤務と術後アウトカムを、同じ麻酔科医内の比較で読む。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/anesthesiologist-work-hours-fixed-effects.png?v=20260729">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/anesthesiologist-work-hours-fixed-effects.html"
+  },
+  "headline": "麻酔科医の長時間勤務は術後アウトカムに影響するか — 固定効果で読む観察研究の交絡",
+  "description": "MPOGレジストリ36施設・1,648,720手術を用いた横断研究。担当麻酔科医が症例開始時点で16時間以上連続勤務していた症例は0.7%。主要複合アウトカムの調整リスク差は0.1%（95%CI -0.4〜0.5）、入院中死亡は0.3%（95%CI 0.1〜0.5）。読みどころは、同じ麻酔科医内で比べる固定効果モデルと観察研究の交絡。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/anesthesiologist-work-hours-fixed-effects.png?v=20260729"
+  ],
+  "datePublished": "2026-07-29T00:00:00+09:00",
+  "dateModified": "2026-07-29T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
+<title>麻酔科医の長時間勤務は術後アウトカムに影響するか — 固定効果で読む観察研究の交絡 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
+<link rel="stylesheet" href="../assets/article-toc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(27px,5vw,39px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .draft-notice{border:1px solid #E4C9AF;border-left:4px solid var(--amber);background:#FFF4EA;border-radius:3px;padding:14px 16px;margin:20px 0 0;color:var(--ink-soft);font-size:13px;line-height:1.7}
+  .draft-notice strong{display:block;color:var(--amber);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;margin-bottom:4px}
+  .published .draft-notice{display:none}
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBCB3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBCB3}
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+  .pico{display:grid;grid-template-columns:88px 1fr;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  .result-card{background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:18px}
+  .result-card .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.09em;margin-bottom:8px}
+  .result-card .num{font-family:"Noto Serif JP",serif;font-size:29px;font-weight:700;color:var(--teal-deep);line-height:1.1}
+  .result-card .sub{font-size:13px;color:var(--muted);margin-top:7px}
+  .rtable{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+  .rtable th,.rtable td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+  .rtable th{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);letter-spacing:.03em}
+  .rtable tbody tr:nth-child(even){background:rgba(15,118,110,.03)}
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+  .en{background:#EAF4F2;border:1px solid #BFD8D3;border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{background:rgba(255,255,255,.42);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:12px 14px 12px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  @media(max-width:560px){
+    .bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.brand .dot{width:7px;height:7px;flex-shrink:0}.back{font-size:12px;white-space:nowrap;flex-shrink:0}
+    .wrap{padding:0 18px}.pico{grid-template-columns:58px 1fr}.summary{padding:24px 22px}.stats{padding:22px 20px}.result-grid{grid-template-columns:1fr}
+    .rtable{font-size:13px}.rtable th,.rtable td{padding:8px 7px}
+    .en{padding:20px 18px}.vocab,.vocab tbody,.vocab tr,.vocab td{display:block;width:100%}.vocab thead{display:none}.vocab tr{border-bottom:1px solid var(--line);padding:12px 0}.vocab td{border-bottom:0;padding:0}.vocab td:first-child{white-space:normal;font-size:14px;line-height:1.45;margin-bottom:5px}.vocab td.hide-sm{display:block;font-size:12px;color:var(--teal-deep);font-weight:700;margin-bottom:4px}.vocab td:last-child{font-size:14px;line-height:1.7}
+  }
+</style>
+<link rel="stylesheet" href="../assets/article-c-theme.css?v=20260711-2">
+<script src="../assets/analytics-config.js"></script>
+<script src="../assets/analytics.js" defer></script>
+<script src="../assets/article-toc.js" defer></script>
+<script src="../assets/draft-gate.js" data-publish-date="2026-07-29" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../articles.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="draft-notice" data-draft-notice data-publish-date="2026-07-29" role="note">
+    <strong>PUBLICATION DRAFT</strong>
+    この記事は公開予定日前の下書き表示です。公開予定日は2026年7月29日です。正式公開前のため、内容が変更される場合があります。
+  </div>
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=統計・手法">WED · 統計・手法</a>
+      <a class="pill" href="../tags.html?tag=麻酔">麻酔</a>
+      <a class="pill" href="../tags.html?tag=患者安全">患者安全</a>
+      <a class="pill" href="../tags.html?tag=バイアスと交絡を読む"><span class="kl">統計 G04</span>バイアスと交絡を読む</a>
+    </div>
+    <h1>麻酔科医の長時間勤務は術後アウトカムに影響するか — 固定効果で読む観察研究の交絡</h1>
+    <div class="cite">
+      Dixit AA, Deverett B, Sun EC.<br>
+      Extended Work Periods Among Anesthesiologists and Postoperative Patient Outcomes.<br>
+      JAMA Netw Open. 2026;9(5):e2611644. · Cross-sectional study · n=1,648,720 procedures · 1,711 anesthesiologists · 36 institutions · PMID: 42096198 · DOI: 10.1001/jamanetworkopen.2026.11644 · PMCID: PMC13153990
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/42096198/" target="_blank" rel="noopener">PubMed →</a>
+      <a class="lnk" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2848751" target="_blank" rel="noopener">原著（全文・OA）→</a>
+      <a class="lnk" href="https://doi.org/10.1001/jamanetworkopen.2026.11644" target="_blank" rel="noopener">DOI →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>米国MPOGレジストリを用い、36施設・<b>1,648,720件</b>の手術で、担当麻酔科医が症例開始時点で<b>16時間以上</b>連続して術中業務をしていたかを調べた横断研究です。</li>
+      <li>16時間以上勤務に該当した症例は<b>11,556件（0.7%）</b>。主要評価項目は、入院中死亡または主要合併症の複合アウトカムでした。</li>
+      <li>調整後の複合アウトカムは<b>12.1% vs 12.0%</b>、リスク差<b>0.1%</b>（95%CI -0.4〜0.5、P=.82）で、主要解析では明確な差は示されませんでした。入院中死亡は<b>1.3% vs 1.0%</b>、リスク差<b>0.3%</b>（95%CI 0.1〜0.5、P=.009）でした。</li>
+      <li>読みどころは、観察研究で「疲れていそうな医師の患者」と「そうでない患者」をそのまま比べないこと。同じ麻酔科医の中で比べる固定効果モデルが、どの交絡を抑え、どの交絡を残すのかを読む論文です。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの問いが大事か</h2></div>
+    <p>麻酔科医の仕事は、術中の変化に短時間で反応し続ける仕事です。気道、循環、出血、薬剤投与、手術進行、チームとのコミュニケーションを同時に見ながら、判断を積み重ねます。長い勤務で注意力や反応速度が落ちるなら、患者安全に影響する可能性があります。</p>
+    <p>一方で、実際の臨床現場では、勤務時間だけを切り出して患者アウトカムと結びつけるのは簡単ではありません。夜間・緊急手術・重症患者・人員配置・施設方針が絡みます。長時間勤務中の症例は、そもそも通常勤務中の症例と患者背景や手術内容が違うかもしれません。</p>
+    <p>この研究の臨床的な問いは、「長時間勤務の麻酔科医が担当した患者で、術後の死亡や大きな合併症が増えるのか」です。ただし、この問いを読むうえで重要なのは、勤務疲労の影響そのものだけでなく、観察データで勤務体制と患者背景の違いをどう分けるかです。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>研究上の問い</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">MPOGレジストリに含まれる米国36施設の成人外科手術。解析対象は1,648,720手術、1,711人の麻酔科医。</div>
+      <div class="k">E</div><div class="v">症例開始時点で、担当麻酔科医が16時間以上連続して術中業務をしていた症例。該当症例は11,556件（0.7%）。</div>
+      <div class="k">C</div><div class="v">同じ麻酔科医が16時間未満の連続勤務状態で担当した症例。主要解析では麻酔科医固定効果を用い、同じ麻酔科医内で比較した。</div>
+      <div class="k">O</div><div class="v">主要アウトカムは入院中死亡または主要合併症の複合アウトカム。副次アウトカムは入院中死亡、心筋梗塞、脳卒中、血栓塞栓、AKI、主要呼吸器合併症、腸間膜虚血、麻酔関連合併症。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>本研究は、Multicenter Perioperative Outcomes Group（MPOG）のレジストリを使った横断研究です。2010年1月1日から2020年8月30日までの手術データを用い、解析は2025年7月から11月に行われました。</p>
+    <p>初期サンプルは4,617,416件の手術でした。データ品質や解析条件に基づく除外の後、最終的に36施設、1,711人の麻酔科医、1,648,720件の手術が解析されました。複数の麻酔科医が関わった症例では、症例に最も長くサインインしていた麻酔科医を主担当として扱いました。</p>
+    <p>曝露は、症例開始時点で主担当麻酔科医が16時間以上連続して術中業務をしていたかです。16時間閾値は、過去に研修医の勤務時間制限で使われた基準を参考にしています。感度分析では12時間、20時間、勤務時間カテゴリでも検討しています。</p>
+    <p>主要アウトカムは入院中死亡または主要合併症の複合アウトカムです。合併症は退院サマリーのICD-9/ICD-10コードを用いて定義されました。手術後長期のアウトカムや、医師本人の疲労・バーンアウト・帰宅時事故などは評価していません。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY · G04 バイアスと交絡を読む</div>
+      <h3>固定効果モデルは「同じ人の中で比べる」ことで、見えない違いを一部そろえる</h3>
+      <p>この研究で一番大事なのは、長時間勤務群と通常勤務群をそのまま比べていないことです。長時間勤務中の症例は緊急手術が多く、手術開始時刻も違い、担当する麻酔科医や施設の勤務モデルも違う可能性があります。そのまま比較すると、勤務時間の影響ではなく、患者・手術・施設・麻酔科医の違いを見てしまいます。</p>
+      <div class="formula">
+        線形確率モデルの読み方<br>
+        アウトカム発生確率 = 勤務16時間以上の係数 + 患者背景 + 手術手技 + 開始時刻 + 麻酔科医固定効果 + 誤差<br>
+        勤務16時間以上の係数 = 調整後の絶対リスク差
+      </div>
+      <p>麻酔科医固定効果とは、麻酔科医ごとの変わりにくい特徴を、各麻酔科医専用の補正項として入れる方法です。たとえば、ある麻酔科医がもともと高リスク症例を多く担当する、特定施設の運用に属する、診療スタイルが違う、といった固定的な違いを直接測れなくても、その麻酔科医の中で長時間勤務中と通常勤務中を比べることで一部抑えられます。</p>
+      <p>ただし、固定効果は万能ではありません。同じ麻酔科医でも、長時間勤務中の症例は夜間・緊急・特殊手術に偏るかもしれません。研究は手術開始時刻、手術手技、患者背景を追加調整していますが、その時々で変わる未測定要因は残ります。したがって、この論文は「固定効果でかなり工夫した観察研究」であり、「長時間勤務が死亡を引き起こした」と断定する研究ではありません。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="lbl">DATASET</div>
+        <div class="num">164万件</div>
+        <div class="sub">36施設、1,711人の麻酔科医、1,648,720手術。</div>
+      </div>
+      <div class="result-card">
+        <div class="lbl">EXTENDED WORK</div>
+        <div class="num">0.7%</div>
+        <div class="sub">16時間以上勤務に該当した症例は11,556件。</div>
+      </div>
+    </div>
+
+    <table class="rtable">
+      <thead>
+        <tr><th>項目</th><th>原著報告値</th><th>読み方</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>患者背景の違い</td>
+          <td>原著は緊急症例・ASA-PS・年齢などを調整因子に含めており、16時間以上勤務症例と16時間未満症例で患者背景・手術背景が異なっていたことを示唆する。</td>
+          <td>長時間勤務症例は、通常勤務症例と背景がかなり違う。単純比較では読みにくい。</td>
+        </tr>
+        <tr>
+          <td>主要複合アウトカム（未調整）</td>
+          <td>12.3% vs 12.0%、リスク差0.3%、95%CI -0.3〜0.9、P=.38。</td>
+          <td>未調整では小さい増加方向だが、明確な差とは言えない。</td>
+        </tr>
+        <tr>
+          <td>主要複合アウトカム（調整後）</td>
+          <td>12.1% vs 12.0%、リスク差0.1%、95%CI -0.4〜0.5、P=.82。</td>
+          <td>主要解析では、複合アウトカムの明確な増加は示されなかった。</td>
+        </tr>
+        <tr>
+          <td>入院中死亡</td>
+          <td>調整後 1.3% vs 1.0%、リスク差0.3%、95%CI 0.1〜0.5、P=.009。</td>
+          <td>副次アウトカムでは小さい絶対差が示された。</td>
+        </tr>
+        <tr>
+          <td>急性腎障害</td>
+          <td>調整後 7.1% vs 6.7%、リスク差0.4%、95%CI -0.1〜0.8、P=.08。</td>
+          <td>増加方向だが、統計学的に明確な差とは言えない。</td>
+        </tr>
+        <tr>
+          <td>主要呼吸器合併症</td>
+          <td>調整後 6.0% vs 5.7%、リスク差0.3%、95%CI -0.1〜0.6、P=.15。</td>
+          <td>方向は増加だが、主要解析としては不確実。</td>
+        </tr>
+        <tr>
+          <td>感度分析</td>
+          <td>12時間閾値ではリスク差1.1%（95%CI 0.8〜1.5）。20時間閾値では0%（95%CI -0.6〜0.5）。</td>
+          <td>多くの解析で小さい増加方向。ただし閾値とモデルで結果の見え方は変わる。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>全体として、主要複合アウトカムでは「明確な増加」とは言えませんでした。一方で、死亡や複数の感度分析では小さい増加方向が見えます。この組み合わせを、強い因果結論ではなく、患者安全上の仮説として読むのが妥当です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li><b>観察研究であり、因果は断定できない。</b>麻酔科医固定効果、手術手技、開始時刻、患者背景を入れても、同じ麻酔科医の中で時間とともに変わる未測定要因は残ります。</li>
+      <li><b>対象は長時間勤務を経験する麻酔科医に限られる。</b>固定効果モデルでは、16時間以上勤務を一度も経験していない麻酔科医は推定に寄与しません。結果は、そのような勤務モデルを持つ麻酔科医・施設に寄ったものです。</li>
+      <li><b>施設の一般化に注意が必要。</b>多くの施設がアカデミック施設で、非アカデミック施設、異なる人員配置、異なる勤務政策へそのまま当てはまるとは限りません。</li>
+      <li><b>アウトカムは入院中・退院前に限られる。</b>退院後死亡、長期合併症、再入院、患者報告アウトカムは評価されていません。</li>
+      <li><b>合併症は診断コードに基づく。</b>入院中死亡は比較的確実に捕捉されますが、合併症コードには誤分類やタイミングの曖昧さが残ります。</li>
+      <li><b>疲労そのものを測っていない。</b>曝露は手術症例へのサインイン時間から作られています。院内の他業務、術前準備、産科鎮痛、困難気道対応、実際の睡眠時間、主観的疲労は測定されていません。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果の解釈</h2></div>
+    <p>この論文の主結果だけを読むなら、16時間以上の連続勤務は主要複合アウトカムを明確には増やしていません。調整後リスク差は0.1%で、95%信頼区間は減少方向から増加方向までを含みます。したがって、「長時間勤務で主要合併症が確実に増える」とは言えません。</p>
+    <p>一方で、入院中死亡では0.3%の絶対差が示され、感度分析の多くも小さい増加方向でした。0.3%は一見小さく見えますが、手術件数が大きい領域では患者安全上無視しにくい差です。ただし、これは副次アウトカムであり、観察研究の残余交絡も残るため、政策や勤務設計を変える根拠としては、他研究や現場情報と合わせて考えるべきです。</p>
+    <p>統計的には、固定効果モデルが何をしているかを理解すると、この論文の読み方がかなり変わります。単純な「長時間勤務群 vs 通常勤務群」ではなく、同じ麻酔科医の中で比較し、さらに患者背景・手術手技・開始時刻を調整している。だからこそ、単純比較よりは交絡に強い。しかし、夜間の症例の複雑さ、チーム体制、引き継ぎ、実際の睡眠など、時間とともに変わる要因は残る。ここがこの研究の強みと限界です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <p>観察研究の方法を説明する、要となる一文です。ここでは、比較の単位が患者群ではなく「同じ麻酔科医の中」に寄せられていることを読みます。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">Abstract Main Outcomes and Measures（JAMA Netw Open. 2026;9(5):e2611644）より引用</span>
+        <span class="en-text">"A within-anesthesiologist approach was used to compare outcomes for patients treated by each anesthesiologist when in an extended work period vs not."</span>
+      </div>
+      <p>読みのポイントは <b>within-anesthesiologist</b> です。between、つまり「麻酔科医どうしを比べる」のではなく、within、つまり「同じ麻酔科医の中で比べる」という意味です。この表現が分かると、論文が交絡をどう減らそうとしているかを読み取りやすくなります。</p>
+      <table class="vocab">
+        <thead><tr><th>語句</th><th>読み方</th><th>この文での意味</th></tr></thead>
+        <tbody>
+          <tr><td>within-anesthesiologist</td><td class="hide-sm">比較の単位</td><td>同じ麻酔科医の中で、長時間勤務時とそうでない時を比べること。</td></tr>
+          <tr><td>approach</td><td class="hide-sm">方法</td><td>解析の考え方・方法。ここでは固定効果に近い比較の枠組み。</td></tr>
+          <tr><td>compare outcomes</td><td class="hide-sm">研究目的</td><td>患者アウトカムを比べること。死亡や主要合併症の発生を見ている。</td></tr>
+          <tr><td>treated by</td><td class="hide-sm">担当関係</td><td>その麻酔科医に担当された、という関係を示す。</td></tr>
+          <tr><td>extended work period</td><td class="hide-sm">曝露</td><td>長時間勤務の状態。本研究では16時間以上の連続術中勤務。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">METHODS TAKEAWAY</div>
+      <p>観察研究で「医師・施設・勤務体制」が曝露になるときは、患者背景だけでなく、担当者や施設の固定的な違いが交絡になる。固定効果モデルは強い工夫だが、時間帯・緊急度・チーム体制・実際の疲労までは完全に消せない。</p>
+    </div>
+    <p>臨床的には、この論文だけで勤務時間ルールを決めるのではなく、長時間勤務を患者安全上のシステムリスクとして見直す材料にするのが自然です。症例数が大きい領域では、絶対リスク差が小さくても、影響を受ける患者数は大きくなりえます。</p>
+    <p>論文を読む側としては、まず「何と何を比べているか」を確認します。同じ医師内の比較か、施設間比較か、患者背景だけの調整か。次に「残る交絡は何か」を考えます。この論文なら、手術開始時刻や手術手技は調整されていますが、実際の睡眠、症例間業務、チーム構成、引き継ぎの質は直接測られていません。</p>
+    <p>水曜枠の学びとしては、p値だけでなく絶対リスク差を読むことも大事です。主要複合アウトカムの0.1%と、入院中死亡の0.3%は、どちらも小さい絶対差です。小さい差を「無意味」と片づけず、同時に「確実な因果」とも言い切らない。その中間の読み方が、この論文の実践的なポイントです。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="麻酔科医の16時間以上連続勤務と術後アウトカムの横断研究。MPOG 36施設、164万8720手術、1711人の麻酔科医。16時間以上勤務は11556件、0.7%。主要複合アウトカムの調整リスク差は0.1%、入院中死亡の調整リスク差は0.3%。読みどころは同じ麻酔科医内で比べる固定効果モデル。">
+        <rect width="1200" height="630" fill="#F4F6F4"/>
+        <rect x="46" y="40" width="1108" height="550" rx="22" fill="#FBFCFB" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="78" y="94" font-family="Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#0F766E">WED · 統計・手法 · 患者安全</text>
+        <text x="78" y="145" font-family="Noto Serif JP, serif" font-size="42" font-weight="700" fill="#15302D">長時間勤務と術後アウトカムをどう読むか</text>
+        <text x="78" y="188" font-family="Noto Sans JP, sans-serif" font-size="22" fill="#2C4541">MPOG 36施設 · 1,648,720手術 · 1,711人の麻酔科医</text>
+
+        <rect x="78" y="226" width="324" height="142" rx="16" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="104" y="266" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" fill="#0B4F4A">EXPOSURE</text>
+        <text x="104" y="316" font-family="Noto Serif JP, serif" font-size="44" font-weight="700" fill="#15302D">0.7%</text>
+        <text x="104" y="350" font-family="Noto Sans JP, sans-serif" font-size="20" fill="#2C4541">16時間以上勤務 · 11,556件</text>
+
+        <rect x="438" y="226" width="324" height="142" rx="16" fill="#15302D"/>
+        <text x="464" y="266" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" fill="#6FBCB3">PRIMARY</text>
+        <text x="464" y="316" font-family="Noto Serif JP, serif" font-size="44" font-weight="700" fill="#E4ECE9">+0.1%</text>
+        <text x="464" y="350" font-family="Noto Sans JP, sans-serif" font-size="20" fill="#DDE8E4">複合アウトカム · 95%CI -0.4〜0.5</text>
+
+        <rect x="798" y="226" width="324" height="142" rx="16" fill="#FFF4EA" stroke="#E4C9AF"/>
+        <text x="824" y="266" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" fill="#C96A2B">SECONDARY</text>
+        <text x="824" y="316" font-family="Noto Serif JP, serif" font-size="44" font-weight="700" fill="#15302D">+0.3%</text>
+        <text x="824" y="350" font-family="Noto Sans JP, sans-serif" font-size="20" fill="#2C4541">入院中死亡 · 95%CI 0.1〜0.5</text>
+
+        <line x1="98" y1="414" x2="1102" y2="414" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="100" y="456" font-family="Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#15302D">読みどころ：固定効果で「同じ麻酔科医の中」を比べる</text>
+
+        <rect x="100" y="482" width="305" height="58" rx="10" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="124" y="518" font-family="Noto Sans JP, sans-serif" font-size="21" font-weight="700" fill="#15302D">医師ごとの違いを抑える</text>
+
+        <rect x="448" y="482" width="305" height="58" rx="10" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="472" y="518" font-family="Noto Sans JP, sans-serif" font-size="21" font-weight="700" fill="#15302D">手術・時刻・背景を調整</text>
+
+        <rect x="796" y="482" width="306" height="58" rx="10" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="820" y="518" font-family="Noto Sans JP, sans-serif" font-size="21" font-weight="700" fill="#15302D">残余交絡は残る</text>
+
+        <rect x="78" y="562" width="1044" height="34" rx="8" fill="#EAF4F2"/>
+        <text x="100" y="585" font-family="Noto Sans JP, sans-serif" font-size="17" fill="#0B4F4A">主結果は明確な差なし。死亡と感度分析の小さなシグナルは、患者安全上の仮説として慎重に読む。</text>
+      </svg>
+      <div class="info-cap">図：原著報告値をもとに編集部で独自作成。Xリンクカード用に1200×630比率で設計。</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>免責・作成方法：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。PubMed、JAMA Network Open全文、DOI解決先、原著本文のMethods/Results/Discussion、Tables 1-4、Limitations、Article Informationを確認し、統計テーマを観察研究の交絡と麻酔科医固定効果モデルに絞って解説しました。効果量、信頼区間、P値は原著の報告値のみを用い、独自の再計算は行っていません。図表は転載せず独自に作図しています。この通常記事は人間の内容確認と公開許可が出るまでGitHubへ反映しません。
+    </p>
+    <a class="foot-x" href="../feed.xml">RSSで更新を受け取る</a>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
+  </div>
+</footer>
+</body>
+</html>
