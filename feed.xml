@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 22 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>敗血症性ショックにEGDTは必要か — ProCESS試験と信頼区間で読む陰性RCT</title>
+      <link>https://anes-jc.github.io/articles/process-early-septic-shock.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/process-early-septic-shock.html</guid>
+      <description>救急部門で診断された敗血症性ショック1,341例の米国31施設RCT。EGDTを含む定型プロトコル蘇生は通常ケアより60日院内死亡を改善せず（RR 1.04、95%CI 0.82-1.31、P=0.83）。読みどころは陰性RCTをp値だけでなく信頼区間で読むこと。</description>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+      <category>古典論文</category>
+      <category>集中治療</category>
+      <category>敗血症</category>
+      <category>不確実性を読む</category>
+    </item>
     <item>
       <title>ARDS患者のレニンは1年死亡と関連するか — 反復測定と予後モデルの落とし穴</title>
       <link>https://anes-jc.github.io/articles/ards-renin-survival.html</link>
