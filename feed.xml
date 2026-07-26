@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 26 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>内視鏡鎮静で鼻咽頭エアウェイは気道介入を減らすか — 単盲検RCTとアウトカム評価</title>
+      <link>https://anes-jc.github.io/articles/npa-endoscopy-mac.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/npa-endoscopy-mac.html</guid>
+      <description>消化管内視鏡のMAC中に鼻咽頭エアウェイをルーチン使用する多施設単盲検RCT。主要複合アウトカムは18.5% vs 40.1%に低下したが、差は主にchin lift/jaw thrustで、低酸素単独は差なし。読みどころは盲検化不能な医療者判断アウトカムの評価。</description>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+      <category>新着論文</category>
+      <category>麻酔</category>
+      <category>気道管理</category>
+      <category>研究デザインを読む</category>
+    </item>
     <item>
       <title>先週のまとめ｜最新論文3選</title>
       <link>https://anes-jc.github.io/articles/latest-papers-2026-07-26.html</link>
