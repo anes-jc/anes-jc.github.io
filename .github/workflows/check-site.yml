@@ -22,3 +22,8 @@ jobs:
 
       - name: Validate site structure and publication state
         run: node scripts/check-site.mjs
+
+      - name: Validate Sunday generator safeguards
+        env:
+          SUNDAY_SELF_TEST: "true"
+        run: node scripts/generate-sunday-article.mjs
