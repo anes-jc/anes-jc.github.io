@@ -129,6 +129,8 @@ function isDomainRelevant(paper) {
 }
 
 function classifyStudyDesign(paper) {
+  const explicitDesign = titleRuleFor(paper)?.design;
+  if (explicitDesign) return explicitDesign;
   const text = `${paper.title || ""} ${paper.pubType || ""}`.toLowerCase();
   if (text.includes("protocol")) return "研究プロトコル";
   if (text.includes("non-randomized") || text.includes("non-randomised")) return "非無作為化研究";
@@ -150,28 +152,32 @@ function classifyStudyDesign(paper) {
 }
 
 function deriveTheme(paper) {
+  const explicitTheme = titleRuleFor(paper)?.theme;
+  if (explicitTheme) return explicitTheme;
   const text = `${paper.title || ""} ${paper.abstractText || ""}`.toLowerCase();
   const themes = [
-    ["敗血症の治療・管理", ["sepsis", "septic shock"]],
-    ["小児心臓手術", ["pediatric", "heart surgery"]],
-    ["小児心臓手術", ["paediatric", "heart surgery"]],
-    ["形成外科手術の鎮痛", ["blepharoplasty", "analgesia"]],
-    ["術後せん妄", ["postoperative delirium"]],
-    ["区域麻酔", ["regional anesthesia"]],
-    ["人工呼吸・ARDS管理", ["mechanical ventilation", "ventilator", "ards"]],
-    ["気道管理・挿管", ["airway", "intubation", "laryngoscopy"]],
-    ["術後合併症の予防", ["postoperative complication", "postoperative outcome"]],
-    ["周術期の循環管理", ["hemodynamic", "haemodynamic", "hypotension", "blood pressure"]],
-    ["周術期鎮痛・オピオイド", ["analgesia", "opioid", "postoperative pain"]],
-    ["周術期鎮痛・オピオイド", ["methadone", "qtc"]],
-    ["麻酔法・麻酔薬の選択", ["anesthesia", "anaesthesia", "anesthetic", "anaesthetic"]],
-    ["ICUの人員・看護体制", ["turnover intention", "nurses"]],
-    ["ICUの電解質・栄養管理", ["phosphorus", "critically ill"]],
-    ["ICUでの鎮静・せん妄", ["sedation", "delirium"]],
-    ["集中治療の予後改善", ["critical care", "intensive care", "icu"]],
-    ["周術期管理", ["perioperative", "postoperative", "surgery", "surgical"]],
+    { label: "敗血症の治療・管理", any: ["sepsis", "septic shock"] },
+    { label: "小児心臓手術", all: ["pediatric", "heart surgery"] },
+    { label: "小児心臓手術", all: ["paediatric", "heart surgery"] },
+    { label: "形成外科手術の鎮痛", all: ["blepharoplasty", "analgesia"] },
+    { label: "術後せん妄", any: ["postoperative delirium"] },
+    { label: "区域麻酔", any: ["regional anesthesia"] },
+    { label: "人工呼吸・ARDS管理", any: ["mechanical ventilation", "ventilator", "ards"] },
+    { label: "気道管理・挿管", any: ["airway", "intubation", "laryngoscopy"] },
+    { label: "術後合併症の予防", any: ["postoperative complication", "postoperative outcome"] },
+    { label: "周術期の循環管理", any: ["hemodynamic", "haemodynamic", "hypotension", "blood pressure"] },
+    { label: "周術期鎮痛・オピオイド", any: ["analgesia", "opioid", "postoperative pain"] },
+    { label: "周術期鎮痛・オピオイド", all: ["methadone", "qtc"] },
+    { label: "麻酔法・麻酔薬の選択", any: ["anesthesia", "anaesthesia", "anesthetic", "anaesthetic"] },
+    { label: "ICUの人員・看護体制", all: ["turnover intention", "nurses"] },
+    { label: "ICUの電解質・栄養管理", all: ["phosphorus", "critically ill"] },
+    { label: "ICUでの鎮静・せん妄", any: ["sedation", "delirium"] },
+    { label: "集中治療の予後改善", any: ["critical care", "intensive care", "icu"] },
+    { label: "周術期管理", any: ["perioperative", "postoperative", "surgery", "surgical"] },
   ];
-  return themes.find(([, terms]) => terms.some((term) => text.includes(term)))?.[0] || "麻酔・集中治療の最新研究";
+  return themes.find((rule) => rule.all
+    ? includesAll(text, rule.all)
+    : includesAny(text, rule.any))?.label || "麻酔・集中治療の最新研究";
 }
 
 function derivePaperHeading(paper) {
@@ -186,6 +192,27 @@ function summarizeAbstractJa(paper) {
 function titleRuleFor(paper) {
   const text = normalizedTitle(paper);
   const rules = [
+    {
+      terms: ["spinal anesthesia", "laparoscopic colorectal surgery", "systematic review"],
+      theme: "腹腔鏡下大腸手術の脊髄くも膜下麻酔",
+      heading: "腹腔鏡下大腸手術で脊髄くも膜下麻酔を併用すると、鎮痛と腸管回復はどうなるか",
+      design: "前向きコホート＋システマティックレビュー・メタ解析",
+      summary: "前向きコホート242例と無作為化試験5件・338例のメタ解析です。全身麻酔への脊髄くも膜下麻酔の追加は、早期疼痛と術後24時間のオピオイド使用を減らしましたが、排ガス・排便・経口摂取までの時間、遷延性術後イレウス、在院日数は改善しませんでした。鎮痛補助としては有望でも、腸管回復を早める手段とはいえない結果です。",
+    },
+    {
+      terms: ["closed-loop vasopressor systems", "systematic review and meta-analysis"],
+      theme: "閉ループ制御による周術期循環管理",
+      heading: "閉ループ昇圧薬システムは目標MAP内の時間を増やすか",
+      design: "システマティックレビュー・メタ解析",
+      summary: "無作為化試験6件・215例を対象とし、うち周術期の5試験をメタ解析しています。手動調整と比べて、閉ループ制御は平均動脈圧（MAP）が目標範囲内にある時間を33.94パーセントポイント増やし、低血圧の時間を18.24パーセントポイント減らしました。一方で高血圧、ノルアドレナリン総量、有害事象には明確な差がなく、研究間の異質性と小規模標本、患者中心アウトカムが未確立な点に注意が必要です。",
+    },
+    {
+      terms: ["speaking valves", "early mobilization", "following tracheostomy"],
+      theme: "気管切開後のICU早期離床",
+      heading: "気管切開後のスピーキングバルブはICUでの早期離床を促すか",
+      design: "前向き無作為化比較試験",
+      summary: "気管切開後のICU患者90例を、標準リハビリテーションにスピーキングバルブを追加する群47例と対照群43例に割り付けた試験です。21日目のCPAx（ICUでの身体機能評価）は中央値28対22で追加群が高く、嚥下機能と生活の質も改善しました。単施設・小規模試験であり、在院日数などへの効果は今後の検証が必要です。",
+    },
     {
       terms: ["duloxetine", "pregabalin", "postoperative pain", "mega-liposuction"],
       heading: "デュロキセチンとプレガバリンの周術期併用は術後疼痛を改善するか",
@@ -337,6 +364,11 @@ function validatePaperCards(cards, papers) {
     ["チアノーゼ性先天性心疾患", ["cyanotic congenital heart"]],
     ["A型大動脈解離", ["type a aortic dissection"]],
     ["平衡晶質液", ["balanced crystalloids"]],
+    ["腹腔鏡下大腸手術", ["laparoscopic colorectal surgery"]],
+    ["脊髄くも膜下麻酔", ["spinal anesthesia"]],
+    ["閉ループ昇圧薬", ["closed-loop vasopressor"]],
+    ["スピーキングバルブ", ["speaking valve"]],
+    ["気管切開", ["tracheostomy"]],
   ];
   cards.forEach((card, index) => {
     const paper = papers[index];
@@ -454,9 +486,24 @@ function runGeneratorRegressionChecks() {
     throw new Error("Sunday generator regression: a relevant title was rejected.");
   }
   validatePaperCards([paperCardData(supportedFallback)], [supportedFallback]);
+
+  const colorectalAnalgesia = {
+    id: "fixture-colorectal-spinal-analgesia",
+    source: "MED",
+    title: "Spinal anesthesia in laparoscopic colorectal surgery: analgesia and recovery outcomes - a cohort study and systematic review of randomized controlled studies.",
+    abstractText: "A prospective cohort and meta-analysis evaluated pain, opioid use, and bowel recovery.",
+    journalTitle: "Langenbeck's Archives of Surgery",
+    pubType: "Journal Article",
+  };
+  const colorectalCard = paperCardData(colorectalAnalgesia);
+  if (colorectalCard.heading.includes("形成外科")
+      || colorectalCard.design !== "前向きコホート＋システマティックレビュー・メタ解析") {
+    throw new Error("Sunday generator regression: colorectal spinal analgesia was misclassified.");
+  }
+  validatePaperCards([colorectalCard], [colorectalAnalgesia]);
 }
 
-function renderPage({ config, issueDate, period, siteArticles, papers }) {
+function renderPage({ config, issueDate, modifiedDate, period, siteArticles, papers }) {
   const pageTitle = "先週のまとめ｜最新論文3選";
   const pageDescription = `${period.start}から${period.end}の公開記事と最新論文3選をまとめる週次記事。選定論文と読みどころを短く確認できます。`;
   const pageUrl = `${siteUrl}/articles/latest-papers-${issueDate}.html`;
@@ -472,7 +519,7 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
     description: pageDescription,
     image: [imageUrl],
     datePublished: `${issueDate}T00:00:00+09:00`,
-    dateModified: `${issueDate}T00:00:00+09:00`,
+    dateModified: `${modifiedDate}T00:00:00+09:00`,
     author: {
       "@type": "Organization",
       name: "anes-jc",
@@ -521,7 +568,7 @@ function renderPage({ config, issueDate, period, siteArticles, papers }) {
 <script src="../assets/analytics.js" defer></script>
 </head><body><header class="bar"><div class="bar-in"><a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a><div class="bar-actions"><a class="back" href="../articles.html">← 記事一覧</a></div></div></header><div class="wrap">
 <div class="ahead"><div class="kicker"><a class="pill cls" href="../tags.html?tag=先週のまとめ">SUN · 先週のまとめ</a><a class="pill" href="../tags.html?tag=最新論文">最新論文</a></div>
-<h1><span class="title-part">先週のまとめ</span><span class="title-sep">｜</span><span class="title-part title-tail">最新論文3選</span></h1><div class="cite">${issueDate} 公開<br>対象期間: ${period.start} - ${period.end}</div></div>
+<h1><span class="title-part">先週のまとめ</span><span class="title-sep">｜</span><span class="title-part title-tail">最新論文3選</span></h1><div class="cite">${issueDate} 公開${modifiedDate !== issueDate ? `<br>${modifiedDate} 内容修正` : ""}<br>対象期間: ${period.start} - ${period.end}</div></div>
 <section class="sec"><div class="sechd"><h2>先週の記事一覧</h2></div><ul class="site-list">${siteArticlesHtml}</ul></section>
 <section class="sec"><div class="sechd"><h2>最新論文3選</h2></div>${papersHtml}</section>
 <section class="sec"><div class="sechd"><h2>このページについて</h2></div><p>このページは、週次の定点観測として毎週日曜に自動生成・自動公開しています。</p></section>
@@ -549,6 +596,7 @@ function writeRegistry(issueDate, slug) {
 }
 
 const issueDate = issueDateJst();
+const modifiedDate = currentDateJst();
 const period = issuePeriod(issueDate);
 const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 runGeneratorRegressionChecks();
@@ -566,7 +614,7 @@ if (papers.length < config.latestPaperCount) {
   throw new Error(`Expected ${config.latestPaperCount} latest papers, but found ${papers.length}.`);
 }
 const slug = `latest-papers-${issueDate}`;
-const renderedPage = renderPage({ config, issueDate, period, siteArticles, papers });
+const renderedPage = renderPage({ config, issueDate, modifiedDate, period, siteArticles, papers });
 if (process.env.SUNDAY_DRY_RUN === "true") {
   console.log(`Validated Sunday article ${slug}: ${siteArticles.length} site article(s), ${papers.length} paper(s).`);
   papers.forEach((paper, index) => {
