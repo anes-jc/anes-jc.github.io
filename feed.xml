@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Mon, 27 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>麻酔科医の長時間勤務は術後アウトカムに影響するか — 固定効果で読む観察研究の交絡</title>
+      <link>https://anes-jc.github.io/articles/anesthesiologist-work-hours-fixed-effects.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/anesthesiologist-work-hours-fixed-effects.html</guid>
+      <description>MPOGレジストリ36施設・1,648,720手術を用いた横断研究。16時間以上の連続勤務は0.7%で、主要複合アウトカムの調整リスク差は0.1%（95%CI -0.4〜0.5）、入院中死亡は0.3%（95%CI 0.1〜0.5）。読みどころは、同じ麻酔科医内で比べる固定効果モデルと観察研究の交絡。</description>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 GMT</pubDate>
+      <category>統計・手法</category>
+      <category>麻酔</category>
+      <category>患者安全</category>
+      <category>バイアスと交絡を読む</category>
+    </item>
     <item>
       <title>内視鏡鎮静で鼻咽頭エアウェイは気道介入を減らすか — 単盲検RCTとアウトカム評価</title>
       <link>https://anes-jc.github.io/articles/npa-endoscopy-mac.html</link>
