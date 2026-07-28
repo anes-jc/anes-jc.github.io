@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="術後肺合併症リスクのある心臓手術成人1,280例の国際多施設RCT（NOTACS）。抜管直後からの予防的高流量鼻酸素は、90日間の自宅で生きて追加支援なく過ごせた日数を改善せず、再挿管やICU再入室も同程度。読みどころはDAH90と床効果の解釈。">
+<meta name="robots" content="noindex,nofollow" data-draft-only="true">
+<link rel="canonical" href="https://anes-jc.github.io/articles/hfnot-cardiac-surgery-notacs.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="心臓手術後の高流量鼻酸素は回復日数を増やすか — NOTACS試験とDAH90の読みどころ | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="心臓手術後ICUの1,280例RCT。予防的HFNOTはDAH90を改善せず、二次臨床アウトカムも同程度。読みどころは患者中心アウトカムDAH90の床効果と解釈。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/hfnot-cardiac-surgery-notacs.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/hfnot-cardiac-surgery-notacs.png?v=20260817">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="article:published_time" content="2026-08-17T00:00:00+09:00">
+<meta property="article:modified_time" content="2026-08-17T00:00:00+09:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="心臓手術後の高流量鼻酸素は回復日数を増やすか — NOTACS試験とDAH90の読みどころ | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="NOTACS試験では、抜管後HFNOTはDAH90を改善せず。中央値0日の意味、追加支援を含む患者中心アウトカム、二次アウトカムの読み方を整理。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/hfnot-cardiac-surgery-notacs.png?v=20260817">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/hfnot-cardiac-surgery-notacs.html"
+  },
+  "headline": "心臓手術後の高流量鼻酸素は回復日数を増やすか — NOTACS試験とDAH90の読みどころ",
+  "description": "術後肺合併症リスクのある心臓手術成人1,280例の国際多施設RCT（NOTACS）。抜管直後からの予防的高流量鼻酸素は、90日間の自宅で生きて追加支援なく過ごせた日数を改善せず、再挿管やICU再入室も同程度。読みどころはDAH90と床効果の解釈。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/hfnot-cardiac-surgery-notacs.png?v=20260817"
+  ],
+  "datePublished": "2026-08-17T00:00:00+09:00",
+  "dateModified": "2026-08-17T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
+<title>心臓手術後の高流量鼻酸素は回復日数を増やすか — NOTACS試験とDAH90の読みどころ | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
+<link rel="stylesheet" href="../assets/article-toc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --navy:#17344D;--muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(27px,5vw,39px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .draft-notice{border:1px solid #E4C9AF;border-left:4px solid var(--amber);background:#FFF4EA;border-radius:3px;padding:14px 16px;margin:20px 0 0;color:var(--ink-soft);font-size:13px;line-height:1.7}
+  .draft-notice strong{display:block;color:var(--amber);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;margin-bottom:4px}
+  .published .draft-notice{display:none}
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBCB3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBCB3}
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+  .pico{display:grid;grid-template-columns:92px 1fr;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  .result-card{background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:18px}
+  .result-card .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.09em;margin-bottom:8px}
+  .result-card .num{font-family:"Noto Serif JP",serif;font-size:32px;font-weight:700;color:var(--teal-deep);line-height:1.1}
+  .result-card .sub{font-size:13px;color:var(--muted);margin-top:7px}
+  .rtable{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+  .rtable th,.rtable td{border:1px solid var(--line);padding:9px 12px;text-align:center}
+  .rtable th{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);letter-spacing:.03em}
+  .rtable td:first-child,.rtable th:first-child{text-align:left}
+  .rtable tbody tr:nth-child(even){background:rgba(15,118,110,.03)}
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+  .note{border:1px dashed var(--line-strong);border-radius:4px;padding:20px 24px;margin:14px 0;background:rgba(15,118,110,.035)}
+  .note .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--teal-deep);font-weight:700;margin-bottom:10px}
+  .note p{font-size:14.5px;color:var(--ink-soft);margin-bottom:10px}
+  .en{background:#EAF4F2;border:1px solid #BFD8D3;border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{background:rgba(255,255,255,.42);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:12px 14px 12px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  @media(max-width:560px){
+    .bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.brand .dot{width:7px;height:7px;flex-shrink:0}.back{font-size:12px;white-space:nowrap;flex-shrink:0}
+    .wrap{padding:0 18px}.pico{grid-template-columns:1fr}.pico .k{border-bottom:none;padding-bottom:4px}.pico .v{padding-top:4px}
+    .summary{padding:24px 22px}.stats{padding:22px 20px}.result-grid{grid-template-columns:1fr}.rtable{font-size:12px}.rtable th,.rtable td{padding:7px 6px}
+    .en{padding:20px 18px}.vocab,.vocab tbody,.vocab tr,.vocab td{display:block;width:100%}.vocab thead{display:none}.vocab tr{border-bottom:1px solid var(--line);padding:12px 0}.vocab td{border-bottom:0;padding:0}.vocab td:first-child{white-space:normal;font-size:14px;line-height:1.45;margin-bottom:5px}.vocab td:last-child{font-size:14px;line-height:1.7}
+  }
+</style>
+<link rel="stylesheet" href="../assets/article-c-theme.css?v=20260711-2">
+<script src="../assets/analytics-config.js"></script>
+<script src="../assets/draft-gate.js" data-publish-date="2026-08-17" defer></script>
+<script src="../assets/analytics.js" defer></script>
+<script src="../assets/article-toc.js" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../articles.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="draft-notice" data-draft-notice data-publish-date="2026-08-17" role="note">
+    <strong>PUBLICATION DRAFT</strong>
+    この記事は公開予定日前の下書き表示です。公開予定日は2026年8月17日です。正式公開前のため、内容が変更される場合があります。
+  </div>
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=新着論文">MON · 新着</a>
+      <a class="pill" href="../tags.html?tag=麻酔">麻酔</a>
+      <a class="pill" href="../tags.html?tag=呼吸管理">呼吸管理</a>
+      <a class="pill" href="../tags.html?tag=時間経過と予後を読む"><span class="kl">統計 G05</span>時間経過と予後を読む</a>
+    </div>
+    <h1>心臓手術後の高流量鼻酸素は回復日数を増やすか — NOTACS試験とDAH90の読みどころ</h1>
+    <div class="cite">
+      Litton E, Parke RL, McGuinness SP, Dawson SN, Villar SS, Shetty SS, et al.; Nasal High-Flow Oxygen Therapy After Cardiac Surgery Investigators.<br>
+      High-Flow Nasal Oxygen Therapy After Cardiac Surgery: A Randomized Clinical Trial.<br>
+      JAMA Netw Open. 2026;9(4):e265447. · International multicenter randomized trial · n=1,280 · PMID: 41949866 · DOI: 10.1001/jamanetworkopen.2026.5447 · PMCID: PMC13063085 · ISRCTN14092678
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/41949866/" target="_blank" rel="noopener">PubMed → 41949866</a>
+      <a class="lnk" href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2847515" target="_blank" rel="noopener">原著全文（JAMA）→</a>
+      <a class="lnk" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13063085/" target="_blank" rel="noopener">PMC → PMC13063085</a>
+      <a class="lnk" href="https://doi.org/10.1001/jamanetworkopen.2026.5447" target="_blank" rel="noopener">DOI →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>術後肺合併症リスクのある非緊急心臓手術成人を対象に、抜管直後からの予防的高流量鼻酸素療法（HFNOT）を標準酸素療法（SOT）と比べた、17施設・3か国・<b>1,280例</b>の国際多施設RCT（NOTACS）です。</li>
+      <li>主要アウトカムは、90日間の<b>「自宅で生きて、術前より追加支援なく過ごせた日数（DAH90）」</b>。HFNOT群もSOT群も中央値は0日（IQR 0-79 vs 0-87）で、中央値差0（95%CI 0-0、P=.75）でした。</li>
+      <li>追加支援の条件を外した「生きて病院外で過ごせた日数」は82日 vs 82日。再挿管、CPAP、ICU再入室、QOL/ADLも同程度でした。</li>
+      <li>結論は「予防的HFNOTをルーチン導入する根拠はない」。読みどころは、DAH90のような患者中心アウトカムで、中央値0日の床効果とアウトカム定義をどう読むかです。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの研究が必要だったか</h2></div>
+    <p>心臓手術後の肺合併症は頻度が高く、低酸素、呼吸不全、肺炎、ICU再入室、入院延長につながります。特にCOPD、喘息、肥満、喫煙歴などがある患者では、抜管後の呼吸管理が術後経過を左右します。</p>
+    <p>高流量鼻酸素療法（high-flow nasal oxygen therapy; HFNOT）は、加温加湿した酸素を高流量で投与し、軽いPEEP様効果、死腔洗い流し、分泌物クリアランス改善、呼吸仕事量の軽減が期待されます。生理学的には魅力的で、心臓手術後の非侵襲的呼吸補助として使われる場面も増えています。</p>
+    <p>しかし、生理学的な改善が、患者にとって大事なアウトカムに変わるとは限りません。酸素化が少し良くなっても、退院、再挿管、ICU再入室、生活機能、医療資源使用が変わらなければ、ルーチン導入の価値は限られます。NOTACS試験は、その「本当に患者の回復を良くするのか」を大規模に確かめた研究です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>研究上の問い（PICO）</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">心肺バイパスを伴う非緊急または緊急の心臓手術を受け、術後肺合併症リスク因子を1つ以上持つ18歳以上の成人。リスク因子はCOPD、喘息、4週以内の下気道感染、BMI 35以上、10 pack-year超の喫煙歴など。</div>
+      <div class="k">I</div><div class="v">ICUでの抜管直後から少なくとも16時間行う高流量鼻酸素療法（HFNOT）。40%酸素・30 L/minで開始し、5-10分後に50 L/minへ増量。</div>
+      <div class="k">C</div><div class="v">標準酸素療法（SOT）。30-40%酸素、2-6 L/min、鼻カニューラまたは非再呼吸マスク。</div>
+      <div class="k">O</div><div class="v">主要アウトカムは、術後90日間の「自宅で生きて、術前より追加支援なく過ごせた日数（DAH90）」。二次アウトカムは追加支援条件を外したDAH90、再挿管、CPAP、ICU再入室、在院日数、死亡、術後肺合併症、QOL/ADLなど。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>NOTACSは、研究者主導の国際多施設RCTです。英国、オーストラリア、ニュージーランドの17心臓手術施設で、2020年10月7日から2024年6月19日まで登録・追跡が行われました。デザインは適応的、並行群、オープンラベル、アウトカム評価者盲検です。</p>
+    <p>ランダム化は1:1で、オンラインツールを用い、施設で層別化し、ブロックサイズ4または6のランダム置換ブロックを使っています。割付は手術開始後、気管抜管前に行われました。治療者と患者は割付を知っていましたが、アウトカム判定者は盲検化されています。</p>
+    <p>この試験には、<b>事前計画されたサンプルサイズ再推定</b>があります。最初の計画は850例でしたが、300例が90日追跡を完了した時点で、治療効果そのものではなく、標準偏差、クロスオーバー、脱落、死亡などの「nuisance parameter（試験設計上必要なばらつきの情報）」を使って、90%検出力を保つために1,280例へ増やされました。これは途中で良さそうな結果に合わせて人数を変えたのではなく、予定した検出力を維持するための設計変更です。</p>
+    <p>もう1つの特徴は、主要アウトカムのDAH90に「追加支援なし」という条件を加えたことです。この最終版アウトカムは、データベースロック前に統計解析計画で事前指定されています。術後の患者にとって、単に家にいるだけでなく、術前より支援が増えていないことが重要だという患者・消費者の視点が反映されています。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント：DAH90をどう読むか</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY · ICU_02_DAYS_ALIVE_OUT_OF_HOSPITAL</div>
+      <h3>中央値0日でも「全員が90日入院した」わけではない</h3>
+      <p>DAH90（days alive and at home）は、90日間のうち「生きて、自宅にいた日数」を数える患者中心アウトカムです。死亡、再入院、施設入所を1つの物差しにまとめられるため、ICUや周術期の研究でよく使われます。</p>
+      <p>NOTACSの主要アウトカムは、通常のDAH90に<b>「術前より追加支援が増えていない」</b>という条件を加えた修正版です。1日ごとに、患者が術前の通常居所にいて、追加支援も増えていなければ1点。それ以外の日は0点。死亡例はDAH90=0です。</p>
+      <div class="formula">
+        1日ごとの点数<br>
+        自宅にいて、術前より追加支援なし = 1<br>
+        入院・施設・追加支援あり・死亡 = 0<br><br>
+        90日分を合計 → DAH90 without increased support
+      </div>
+      <p>この定義では、短期間でも自宅支援が増えると、その期間は0として扱われます。心臓手術後は一時的な家族介助や訪問支援が増えやすいため、中央値が0日になりました。これは「ほとんどの患者がずっと病院にいた」という意味ではありません。実際、追加支援条件を外したDAH90は両群とも中央値82日でした。</p>
+      <p>したがって、今回の結果は2段階で読む必要があります。まず、修正版DAH90では差がない。次に、追加支援条件を外した在宅・院外日数、再挿管、CPAP、ICU再入室、QOL/ADLも同程度である。主要アウトカムの床効果だけで結論を決めるのではなく、二次アウトカムも合わせて「臨床的に重要な利益は考えにくい」と読むのが妥当です。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="lbl">RANDOMIZED</div>
+        <div class="num">1,280例</div>
+        <div class="sub">HFNOT 640 / SOT 640</div>
+      </div>
+      <div class="result-card">
+        <div class="lbl">PRIMARY · DAH90</div>
+        <div class="num">0 vs 0日</div>
+        <div class="sub">中央値差0（95%CI 0-0）、P=.75</div>
+      </div>
+    </div>
+    <p>1,280例が登録され、HFNOT群640例、SOT群640例に割り付けられました。DAH90の完全データは1,224例（95.6%）で得られています。平均年齢は62.9歳、男性が69.7%でした。群間の背景はおおむねよくそろっていました。</p>
+    <p>主要アウトカムである「追加支援なしDAH90」は、HFNOT群0日（IQR 0-79）、SOT群0日（IQR 0-87）でした。中央値差は0（95%CI 0-0）、P=.75で、感度解析、per-protocol解析、time-on-treatment解析でも治療効果は示されませんでした。</p>
+    <table class="rtable">
+      <thead>
+        <tr><th>アウトカム</th><th>HFNOT</th><th>SOT</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>追加支援なしDAH90, median (IQR)</td><td class="mono">0 (0-79)</td><td class="mono">0 (0-87)</td></tr>
+        <tr><td>30日間の生存・院外日数, median (IQR)</td><td class="mono">22 (18-24)</td><td class="mono">23 (18-24)</td></tr>
+        <tr><td>90日間の生存・院外日数, median (IQR)</td><td class="mono">82 (77-84)</td><td class="mono">82 (78-84)</td></tr>
+        <tr><td>死亡</td><td class="mono">14/640 (2.2%)</td><td class="mono">11/640 (1.7%)</td></tr>
+        <tr><td>ICU再入室</td><td class="mono">31/640 (4.8%)</td><td class="mono">27/640 (4.2%)</td></tr>
+        <tr><td>再挿管</td><td class="mono">21/625 (3.4%)</td><td class="mono">15/630 (2.4%)</td></tr>
+        <tr><td>CPAP使用</td><td class="mono">50/625 (8.0%)</td><td class="mono">59/630 (9.4%)</td></tr>
+        <tr><td>術後肺合併症</td><td class="mono">84/638 (13.2%)</td><td class="mono">108/637 (17.0%)</td></tr>
+      </tbody>
+    </table>
+    <p>プロセス指標では、割付治療への遵守はHFNOT群81.6%、SOT群77.8%でした。呼吸サポートの強化（escalation）はHFNOT群338/625（54.1%）、SOT群354/628（56.4%）で、最も多い理由は両群とも低酸素でした。</p>
+    <p>DAH90の追加支援条件を外した二次アウトカム、生存・院外日数、再挿管、CPAP、ICU再入室、QOL（EQ-5D-5L）、ADL（Barthel index）はいずれも同程度でした。原著は、事前指定された効果指標全体を通じて、予防的HFNOTによる臨床的に重要な利益は考えにくいと解釈しています。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li>主要アウトカムは試験進行中に修正された。ただし、最終版DAH90はデータベースロック前に統計解析計画で事前指定されていた。</li>
+      <li>中間解析は元のDAH90で行われた。著者らは元のDAH90でも修正版DAH90でも群間差はなく、95%CIから臨床的に重要な差は考えにくいと述べている。</li>
+      <li>修正版DAH90では、軽い追加支援と重い追加支援が同じ0として扱われる。短期間の軽い介助と持続的な依存が同じ重みになる可能性がある。</li>
+      <li>居所と支援の情報は患者報告に依存し、日ごとの細かい記録ではないため、近似バイアスの可能性がある。</li>
+      <li>介入はオープンラベルで、患者と治療者は割付を知っていた。アウトカム評価は盲検化されていたが、ケア行動や継続判断への影響は残りうる。</li>
+      <li>対象は術後肺合併症リスクのある非緊急心臓手術後の予防的HFNOTであり、他の術式、すでに呼吸不全がある患者、救急・一般ICUの治療的HFNOTにはそのまま一般化できない。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果をどう解釈するか</h2></div>
+    <p>この試験の実務的な結論は明快です。術後肺合併症リスクのある心臓手術患者に、抜管直後から予防的にHFNOTをルーチンで使っても、患者中心アウトカムは改善しませんでした。酸素化や快適性などの生理学的な利点はあっても、それが90日後の在宅・支援・再入院・生活機能まで改善するとは限りません。</p>
+    <p>一方で、「DAH90が両群0日だから役に立たないアウトカム」と片づけるのも早すぎます。今回の0日は、追加支援を含めた厳しい定義による床効果を反映しています。だからこそ、追加支援条件を外したDAH90、再挿管、CPAP、ICU再入室、QOL/ADLも一緒に見る必要があります。そこでも一貫して差が見えなかったことが、結論を支えています。</p>
+    <div class="note">
+      <div class="lbl">読みの整理</div>
+      <p><b>言えること:</b> 術後肺合併症リスクのある非緊急心臓手術患者で、抜管直後からの予防的HFNOTを全例に近い形で導入する根拠は乏しい。</p>
+      <p><b>言いすぎになる表現:</b> HFNOTは心臓手術後に常に無効、または呼吸不全治療として無意味、とは言えない。この試験は予防的・抜管後・特定リスク集団での比較である。</p>
+      <p><b>次に読むべき点:</b> 低酸素や呼吸仕事量を短期的に改善する介入でも、患者中心アウトカムに変わらないことがある。導入コストやスタッフ負荷も含めて判断する。</p>
+    </div>
+    <p>麻酔・集中治療の現場では、酸素療法の選択は「SpO2が上がるか」だけでなく、「その患者の術後回復を良くするか」で考える必要があります。NOTACSは、HFNOTを必要な患者に使うことを否定する研究ではなく、リスク因子があるという理由だけで予防的に全例使用する発想を見直す研究です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <div class="en">
+      <div class="quote">
+        <span class="src">Conclusions（JAMA Network Open. 2026;9(4):e265447）の抜粋</span>
+        <span class="en-text">"These findings do not support routine implementation of prophylactic HFNOT following cardiac surgery."</span>
+      </div>
+      <p><b>読みのポイント：</b>骨格は <span class="mono">These findings do not support ...</span> です。<span class="mono">do not support</span> は「否定を証明した」ではなく、「このデータは支持しない」という慎重な結論表現です。何を支持しないのかは <span class="mono">routine implementation</span> で、個別患者への使用ではなく、ルーチン導入を指しています。最後の <span class="mono">following cardiac surgery</span> が、適用範囲を心臓手術後に限定しています。</p>
+      <table class="vocab">
+        <thead><tr><th>表現</th><th>意味</th><th>論文での読み方</th></tr></thead>
+        <tbody>
+          <tr><td>These findings</td><td>これらの所見</td><td>主要・二次・感度解析を含む試験全体の結果</td></tr>
+          <tr><td>do not support</td><td>支持しない</td><td>「有効性を示す根拠にならない」という慎重表現</td></tr>
+          <tr><td>routine implementation</td><td>ルーチン導入</td><td>対象患者に広く標準化して行うこと</td></tr>
+          <tr><td>prophylactic HFNOT</td><td>予防的HFNOT</td><td>呼吸不全が起きてからではなく、抜管後に先回りで使うHFNOT</td></tr>
+          <tr><td>following cardiac surgery</td><td>心臓手術後に</td><td>今回の対象集団を限定する表現</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;color:var(--muted)">※ 語彙表は引用文中に実際に出てくる語句だけで作成。引用はConclusionsから1文のみに絞った。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">TAKEAWAY</div>
+      <p>心臓手術後に肺合併症リスク因子がある、という理由だけで抜管後HFNOTをルーチン導入する根拠は弱い。必要な患者への治療的使用は別として、予防的・一律使用を検討している施設では、酸素化だけでなく、再挿管、ICU再入室、在宅日数、QOL、機器・スタッフ負荷まで含めて自施設の運用を見直す。</p>
+    </div>
+    <p style="margin-top:16px;font-size:15px">論文を読むときは、主要アウトカムの中央値だけで結論を急がないことが大切です。DAH90の定義、死亡や追加支援の扱い、床効果、感度解析、二次アウトカムを順に確認すると、「生理学的には良さそう」な介入が患者中心アウトカムで本当に有効かを冷静に評価できます。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="NOTACS試験の要約図。心臓手術後の予防的HFNOTは、DAH90、再挿管、CPAP、ICU再入室を改善しなかった。">
+        <rect width="1200" height="630" fill="#F3EFE3"/>
+        <rect x="54" y="42" width="1092" height="546" rx="18" fill="#FBFCFB" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="88" y="92" font-family="Noto Serif JP, serif" font-size="34" font-weight="700" fill="#171815">心臓手術後のHFNOT：ルーチン予防投与は必要か</text>
+        <text x="88" y="128" font-family="Noto Sans JP, sans-serif" font-size="18" fill="#5C6B68">NOTACS · 17施設・3か国 · 1,280例 · HFNOT vs standard oxygen after extubation</text>
+        <line x1="88" y1="152" x2="1112" y2="152" stroke="#BCC8C3" stroke-width="2"/>
+
+        <rect x="88" y="184" width="312" height="138" rx="14" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="116" y="218" font-family="JetBrains Mono, monospace" font-size="14" fill="#0B4F4A">PRIMARY OUTCOME</text>
+        <text x="116" y="255" font-family="Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#15302D">DAH90</text>
+        <text x="116" y="286" font-family="Noto Sans JP, sans-serif" font-size="17" fill="#2C4541">自宅で生きて</text>
+        <text x="116" y="312" font-family="Noto Sans JP, sans-serif" font-size="17" fill="#2C4541">追加支援なく過ごせた日数</text>
+
+        <rect x="444" y="184" width="312" height="138" rx="14" fill="#17344D"/>
+        <text x="474" y="218" font-family="JetBrains Mono, monospace" font-size="14" fill="#BFD8D3">RESULT</text>
+        <text x="474" y="258" font-family="Noto Serif JP, serif" font-size="44" font-weight="700" fill="#FFFFFF">0 vs 0日</text>
+        <text x="474" y="292" font-family="Noto Sans JP, sans-serif" font-size="18" fill="#FFFFFF">中央値差0（95%CI 0-0）</text>
+        <text x="474" y="316" font-family="JetBrains Mono, monospace" font-size="17" fill="#BFD8D3">P = .75</text>
+
+        <rect x="800" y="184" width="312" height="138" rx="14" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="828" y="218" font-family="JetBrains Mono, monospace" font-size="14" fill="#C96A2B">WHY ZERO?</text>
+        <text x="828" y="255" font-family="Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#15302D">床効果を読む</text>
+        <text x="828" y="286" font-family="Noto Sans JP, sans-serif" font-size="17" fill="#2C4541">短い追加支援でも0点。</text>
+        <text x="828" y="312" font-family="Noto Sans JP, sans-serif" font-size="17" fill="#2C4541">院外日数は82 vs 82日。</text>
+
+        <text x="88" y="374" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#0F766E">SECONDARY CLINICAL OUTCOMES</text>
+        <g font-family="Noto Sans JP, sans-serif" font-size="17" fill="#2C4541">
+          <text x="88" y="420">再挿管</text>
+          <rect x="260" y="398" width="210" height="28" fill="#E7ECE9"/>
+          <rect x="260" y="398" width="102" height="28" fill="#17344D"/>
+          <rect x="260" y="434" width="72" height="28" fill="#0F766E"/>
+          <text x="500" y="420" font-family="JetBrains Mono, monospace" font-size="16" fill="#5C6B68">3.4% vs 2.4%</text>
+
+          <text x="88" y="492">CPAP</text>
+          <rect x="260" y="470" width="210" height="28" fill="#E7ECE9"/>
+          <rect x="260" y="470" width="168" height="28" fill="#17344D"/>
+          <rect x="260" y="506" width="197" height="28" fill="#0F766E"/>
+          <text x="500" y="492" font-family="JetBrains Mono, monospace" font-size="16" fill="#5C6B68">8.0% vs 9.4%</text>
+
+          <text x="640" y="420">ICU再入室</text>
+          <rect x="812" y="398" width="210" height="28" fill="#E7ECE9"/>
+          <rect x="812" y="398" width="101" height="28" fill="#17344D"/>
+          <rect x="812" y="434" width="88" height="28" fill="#0F766E"/>
+          <text x="1048" y="420" font-family="JetBrains Mono, monospace" font-size="16" fill="#5C6B68">4.8% vs 4.2%</text>
+
+          <text x="640" y="492">90日院外日数</text>
+          <rect x="812" y="470" width="210" height="28" fill="#E7ECE9"/>
+          <rect x="812" y="470" width="191" height="28" fill="#17344D"/>
+          <rect x="812" y="506" width="191" height="28" fill="#0F766E"/>
+          <text x="1048" y="492" font-family="JetBrains Mono, monospace" font-size="16" fill="#5C6B68">82 vs 82日</text>
+        </g>
+
+        <rect x="88" y="550" width="1024" height="1.5" fill="#D9E0DC"/>
+        <text x="88" y="580" font-family="Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#15302D">結論：予防的HFNOTは患者中心アウトカムを改善せず。リスク因子だけでのルーチン導入は支持されない。</text>
+      </svg>
+      <div class="info-cap">独自作成インフォグラフィック。Litton E, et al. JAMA Netw Open. 2026;9(4):e265447 の主要所見を独自に作図。図表の転載ではありません。1200×630でXリンクカード（assets/og/hfnot-cardiac-surgery-notacs.png）に転用予定。</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>免責・作成方法：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。PubMed、JAMA Network Open全文、PMC情報、DOI解決先、論文本文のMethods/Results/Discussion、主要アウトカムの定義を確認し、統計テーマをDAH90（days alive and at home）に絞って解説しました。効果量・信頼区間・P値は原著報告値のみを用い、独自の再計算は行っていません。図表は転載せず独自に作図しています。この通常記事は人間の内容確認と公開許可を経てから掲載する想定の下書きです。
+    </p>
+    <a class="foot-x" href="../feed.xml">RSSで更新を受け取る</a>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="米国14救急部・ICUで重症成人2,365例を対象にしたRSI試験。気管挿管時の導入薬としてケタミンはエトミデートより28日院内死亡を減らさず、挿管中の循環虚脱は22.1% vs 17.0%で増える方向。読みどころは主要アウトカムと副次アウトカムを分けて読むこと。">
+<meta name="robots" content="noindex,nofollow" data-draft-only="true">
+<link rel="canonical" href="https://anes-jc.github.io/articles/ketamine-etomidate-rsi.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="anes-jc">
+<meta property="og:title" content="気管挿管時の導入薬はケタミンかエトミデートか — RSI試験と主要・副次アウトカムの階層 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta property="og:description" content="重症成人2,365例の多施設RCT。ケタミンは28日院内死亡を減らさず、挿管中循環虚脱は増える方向。主要・副次アウトカムの階層を読む。">
+<meta property="og:url" content="https://anes-jc.github.io/articles/ketamine-etomidate-rsi.html">
+<meta property="og:image" content="https://anes-jc.github.io/assets/og/ketamine-etomidate-rsi.png?v=20260810">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="article:published_time" content="2026-08-10T00:00:00+09:00">
+<meta property="article:modified_time" content="2026-08-10T00:00:00+09:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="気管挿管時の導入薬はケタミンかエトミデートか — RSI試験と主要・副次アウトカムの階層 | 麻酔・集中治療 / 論文ジャーナルクラブ">
+<meta name="twitter:description" content="重症成人2,365例の多施設RCT。ケタミンは28日院内死亡を減らさず、挿管中循環虚脱は増える方向。主要・副次アウトカムの階層を読む。">
+<meta name="twitter:image" content="https://anes-jc.github.io/assets/og/ketamine-etomidate-rsi.png?v=20260810">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://anes-jc.github.io/articles/ketamine-etomidate-rsi.html"
+  },
+  "headline": "気管挿管時の導入薬はケタミンかエトミデートか — RSI試験と主要・副次アウトカムの階層",
+  "description": "米国14救急部・ICUで重症成人2,365例を対象にしたRSI試験。気管挿管時の導入薬としてケタミンはエトミデートより28日院内死亡を減らさず、挿管中の循環虚脱は22.1% vs 17.0%で増える方向。読みどころは主要アウトカムと副次アウトカムを分けて読むこと。",
+  "image": [
+    "https://anes-jc.github.io/assets/og/ketamine-etomidate-rsi.png?v=20260810"
+  ],
+  "datePublished": "2026-08-10T00:00:00+09:00",
+  "dateModified": "2026-08-10T00:00:00+09:00",
+  "author": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "anes-jc"
+  },
+  "inLanguage": "ja"
+}
+</script>
+<title>気管挿管時の導入薬はケタミンかエトミデートか — RSI試験と主要・副次アウトカムの階層 | 麻酔・集中治療 / 論文ジャーナルクラブ</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="anes-jc RSS" href="https://anes-jc.github.io/feed.xml">
+<link rel="stylesheet" href="../assets/article-toc.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F4;--paper-2:#FBFCFB;--ink:#15302D;--ink-soft:#2C4541;
+    --teal:#0F766E;--teal-deep:#0B4F4A;--amber:#C96A2B;--amber-bg:#F7ECE2;
+    --muted:#5C6B68;--line:#D9E0DC;--line-strong:#BCC8C3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace}
+  header.bar{border-bottom:1px solid var(--line);background:rgba(244,246,244,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+  .bar-in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--ink);text-decoration:none}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.15)}
+  .back{font-size:13px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--teal)}
+  .ahead{padding:48px 0 30px;border-bottom:1px solid var(--line)}
+  .kicker{font-family:"JetBrains Mono",monospace;letter-spacing:.06em;color:var(--teal-deep);display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center}
+  .kicker .pill{font-size:12px;font-weight:500;border:1px solid var(--line-strong);border-radius:3px;padding:5px 12px;text-decoration:none;color:var(--teal-deep);transition:.13s;letter-spacing:.05em}
+  a.pill:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .kicker .pill.cls{background:var(--ink);color:#fff;border-color:var(--ink)}
+  a.pill.cls:hover{background:var(--teal-deep);border-color:var(--teal-deep)}
+  .kicker .pill .kl{color:var(--muted);font-size:10px;letter-spacing:.08em;margin-right:6px}
+  a.pill:hover .kl{color:#cfe7e2}
+  h1{font-family:"Noto Serif JP",serif;font-weight:700;font-size:clamp(27px,5vw,39px);line-height:1.35;letter-spacing:.01em}
+  .cite{margin-top:22px;font-size:13px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.7;border-left:2px solid var(--teal);padding-left:14px}
+  .links{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .lnk{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 12px;background:var(--paper-2);transition:.15s}
+  .lnk:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .draft-notice{border:1px solid #E4C9AF;border-left:4px solid var(--amber);background:#FFF4EA;border-radius:3px;padding:14px 16px;margin:20px 0 0;color:var(--ink-soft);font-size:13px;line-height:1.7}
+  .draft-notice strong{display:block;color:var(--amber);font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.12em;margin-bottom:4px}
+  .published .draft-notice{display:none}
+  .summary{background:var(--ink);color:#E4ECE9;border-radius:4px;padding:28px 30px;margin:36px 0}
+  .summary .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#6FBCB3;margin-bottom:14px}
+  .summary ul{list-style:none}
+  .summary li{padding-left:20px;position:relative;margin-bottom:9px;font-size:15px}
+  .summary li::before{content:"▸";position:absolute;left:0;color:#6FBCB3}
+  .sec{padding:38px 0;border-bottom:1px solid var(--line)}
+  .sec:last-of-type{border-bottom:none}
+  .sechd{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+  .sechd .no{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:700;color:var(--teal);flex-shrink:0}
+  .sechd h2{font-family:"Noto Serif JP",serif;font-size:22px;font-weight:600;line-height:1.4}
+  .sec p{font-size:16px;color:var(--ink-soft);margin-bottom:16px}
+  .sec p:last-child{margin-bottom:0}
+  .sec b{color:var(--ink);font-weight:700}
+  .pico{display:grid;grid-template-columns:88px 1fr;border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:8px 0}
+  .pico .k{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--teal-deep);padding:12px 14px;font-size:13px;border-bottom:1px solid var(--line);display:flex;align-items:center}
+  .pico .v{padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+  .pico .k:last-of-type,.pico .v:last-child{border-bottom:none}
+  .stats{background:var(--amber-bg);border:1px solid #E4C9AF;border-left:4px solid var(--amber);border-radius:3px;padding:26px 28px;margin:14px 0}
+  .stats .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:6px}
+  .stats h3{font-family:"Noto Serif JP",serif;font-size:18px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+  .stats p{font-size:15px;margin-bottom:13px}
+  .formula{font-family:"JetBrains Mono",monospace;background:#fff;border:1px solid #E4C9AF;border-radius:3px;padding:13px 16px;font-size:14px;color:var(--ink);margin:13px 0;line-height:1.7;overflow-x:auto}
+  .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  .result-card{background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:18px}
+  .result-card .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.09em;margin-bottom:8px}
+  .result-card .num{font-family:"Noto Serif JP",serif;font-size:29px;font-weight:700;color:var(--teal-deep);line-height:1.1}
+  .result-card .sub{font-size:13px;color:var(--muted);margin-top:7px}
+  .rtable{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px}
+  .rtable th,.rtable td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+  .rtable th{background:var(--paper-2);font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);letter-spacing:.03em}
+  .rtable tbody tr:nth-child(even){background:rgba(15,118,110,.03)}
+  .lims{list-style:none;margin-top:4px}
+  .lims li{position:relative;padding-left:26px;margin-bottom:13px;font-size:15px;color:var(--ink-soft)}
+  .lims li::before{content:"!";position:absolute;left:0;top:1px;width:18px;height:18px;background:var(--paper-2);border:1px solid var(--line-strong);border-radius:50%;color:var(--amber);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace}
+  .en{background:#EAF4F2;border:1px solid #BFD8D3;border-radius:3px;padding:24px 26px;margin:10px 0}
+  .en .quote{background:rgba(255,255,255,.42);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:12px 14px 12px 16px;margin-bottom:8px}
+  .en .quote .src{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-bottom:8px;letter-spacing:.04em}
+  .en .quote .en-text{font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic}
+  .vocab{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+  .vocab th{text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--teal-deep);border-bottom:1px solid var(--line-strong);padding:8px 10px 8px 0;font-weight:700}
+  .vocab td{border-bottom:1px solid var(--line);padding:9px 10px 9px 0;color:var(--ink-soft);vertical-align:top}
+  .vocab td:first-child{font-family:"JetBrains Mono",monospace;color:var(--ink);font-weight:500;white-space:nowrap}
+  .take{border:1px solid var(--teal);border-radius:3px;padding:24px 26px;margin:10px 0;background:var(--paper-2)}
+  .take .lbl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .take p{font-size:16px;color:var(--ink);font-weight:500}
+  .info-wrap{margin:30px 0 10px}
+  .info-cap{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  svg.info{width:100%;height:auto;display:block;background:var(--paper-2);border:1px solid var(--line);border-radius:4px}
+  footer{border-top:1px solid var(--line);padding:36px 0 60px;margin-top:24px}
+  .disc{font-size:12px;color:var(--muted);line-height:1.9}
+  .disc strong{color:var(--ink-soft)}
+  .foot-x{display:inline-block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--teal-deep);text-decoration:none;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:2px;padding:7px 12px}
+  .foot-x:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+  @media(max-width:560px){
+    .bar-in{height:54px;padding:0 18px;gap:12px}.brand{min-width:0;gap:8px;font-size:12px;line-height:1.2;white-space:nowrap}.brand .dot{width:7px;height:7px;flex-shrink:0}.back{font-size:12px;white-space:nowrap;flex-shrink:0}
+    .wrap{padding:0 18px}.pico{grid-template-columns:58px 1fr}.summary{padding:24px 22px}.stats{padding:22px 20px}.result-grid{grid-template-columns:1fr}
+    .rtable{font-size:13px}.rtable th,.rtable td{padding:8px 7px}
+    .en{padding:20px 18px}.vocab,.vocab tbody,.vocab tr,.vocab td{display:block;width:100%}.vocab thead{display:none}.vocab tr{border-bottom:1px solid var(--line);padding:12px 0}.vocab td{border-bottom:0;padding:0}.vocab td:first-child{white-space:normal;font-size:14px;line-height:1.45;margin-bottom:5px}.vocab td.hide-sm{display:block;font-size:12px;color:var(--teal-deep);font-weight:700;margin-bottom:4px}.vocab td:last-child{font-size:14px;line-height:1.7}
+  }
+</style>
+<link rel="stylesheet" href="../assets/article-c-theme.css?v=20260711-2">
+<script src="../assets/analytics-config.js"></script>
+<script src="../assets/analytics.js" defer></script>
+<script src="../assets/article-toc.js" defer></script>
+<script src="../assets/draft-gate.js" data-publish-date="2026-08-10" defer></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../index.html"><span class="dot"></span>麻酔・集中治療 / 論文ジャーナルクラブ</a>
+    <a class="back" href="../articles.html">← 記事一覧</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="draft-notice" data-draft-notice data-publish-date="2026-08-10" role="note">
+    <strong>PUBLICATION DRAFT</strong>
+    この記事は公開予定日前の下書き表示です。公開予定日は2026年8月10日です。正式公開前のため、内容が変更される場合があります。
+  </div>
+  <div class="ahead">
+    <div class="kicker">
+      <a class="pill cls" href="../tags.html?tag=新着論文">MON · 新着</a>
+      <a class="pill" href="../tags.html?tag=集中治療">集中治療</a>
+      <a class="pill" href="../tags.html?tag=気道管理">気道管理</a>
+      <a class="pill" href="../tags.html?tag=研究デザインを読む"><span class="kl">統計 G01</span>研究デザインを読む</a>
+    </div>
+    <h1>気管挿管時の導入薬はケタミンかエトミデートか — RSI試験と主要・副次アウトカムの階層</h1>
+    <div class="cite">
+      Casey JD, Seitz KP, Driver BE, Gibbs KW, Ginde AA, Trent SA, Russell DW, et al.; RSI Investigators and the Pragmatic Critical Care Research Group.<br>
+      Ketamine or Etomidate for Tracheal Intubation of Critically Ill Adults.<br>
+      N Engl J Med. 2026;394(16):1608-1620. · Multicenter randomized trial · n=2,365 · PMID: 41369227 · DOI: 10.1056/NEJMoa2511420 · PMCID: PMC12711137 · NCT05277896
+    </div>
+    <div class="links">
+      <a class="lnk" href="https://pubmed.ncbi.nlm.nih.gov/41369227/" target="_blank" rel="noopener">PubMed →</a>
+      <a class="lnk" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12711137/" target="_blank" rel="noopener">PMC全文（OA）→</a>
+      <a class="lnk" href="https://www.nejm.org/doi/full/10.1056/NEJMoa2511420" target="_blank" rel="noopener">NEJM →</a>
+      <a class="lnk" href="https://doi.org/10.1056/NEJMoa2511420" target="_blank" rel="noopener">DOI →</a>
+      <a class="lnk" href="https://clinicaltrials.gov/study/NCT05277896" target="_blank" rel="noopener">Trial登録 →</a>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="lbl">30秒サマリー</div>
+    <ul>
+      <li>米国6医療センターの14救急部・ICUで、緊急気管挿管を受ける重症成人を<b>ケタミン</b>または<b>エトミデート</b>による麻酔導入に割り付けた、多施設プラグマティックRCTです。</li>
+      <li>2,365例が解析対象となり、主要評価項目は<b>28日までの院内死亡</b>でした。対象の46.7%は敗血症または敗血症性ショック、22.0%は登録時に昇圧薬を使用していました。</li>
+      <li>28日院内死亡はケタミン群<b>28.1%</b>、エトミデート群<b>29.1%</b>。試験施設で調整した絶対リスク差は<b>-0.8 percentage points</b>、95% CI -4.5〜2.9、P = 0.65で、ケタミンによる死亡低下は示されませんでした。</li>
+      <li>一方、事前指定の副次評価項目である挿管中の循環虚脱は<b>22.1% vs 17.0%</b>、リスク差5.1 percentage points、95% CI 1.9〜8.3。読みどころは、主要アウトカムと副次アウトカムを同じ重さで読まないことです。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">01</span><h2>臨床背景：なぜこの問いが大事か</h2></div>
+    <p>救急外来やICUでの気管挿管は、手術室で予定された挿管とは条件が違います。低酸素、ショック、敗血症、意識障害、循環作動薬使用などが重なり、導入薬の血圧・心機能・副腎系への影響が患者アウトカムに直結しうる場面です。</p>
+    <p>エトミデートは血圧への影響が少ない導入薬としてよく使われます。一方で、単回投与でも副腎の11β-hydroxylaseを阻害し、コルチゾール産生を一時的に下げることが知られています。とくに敗血症患者では、この副腎抑制が死亡や臓器障害に関わるのではないか、という懸念が長く残っていました。</p>
+    <p>ケタミンはNMDA受容体に作用する解離性麻酔薬で、鎮痛・健忘も持ち、副腎抑制を起こしません。交感神経刺激で血圧を保つという期待もありますが、重症患者ではカテコラミン枯渇や直接的な心抑制により、逆に低血圧・不整脈・心停止が問題になる可能性もあります。</p>
+    <p>過去の小規模RCT、観察研究、メタ解析は結果が割れていました。そこでRSI試験は、重症成人の緊急気管挿管で、ケタミンがエトミデートより死亡を減らすかを、十分な規模の多施設RCTとして検証しました。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">02</span><h2>研究上の問い</h2></div>
+    <div class="pico">
+      <div class="k">P</div><div class="v">18歳以上の重症成人で、救急部またはICUで緊急気管挿管を受け、麻酔導入薬を必要とする患者。主診断が外傷、妊娠、囚人、即時挿管でランダム化不能、いずれかの薬剤が必須/禁忌と判断された患者などは除外。</div>
+      <div class="k">I</div><div class="v">気管挿管の麻酔導入薬としてケタミン静注を使用。体重別ノモグラムでfull/intermediate/reduced doseを示し、臨床医が用量を選択。</div>
+      <div class="k">C</div><div class="v">気管挿管の麻酔導入薬としてエトミデート静注を使用。こちらも体重別ノモグラムを提示し、臨床医が用量を選択。</div>
+      <div class="k">O</div><div class="v">主要評価項目は28日までの院内死亡。事前指定された単一の副次評価項目は、導入から挿管後2分までの循環虚脱（SBP &lt;65 mmHg、新規または増量昇圧薬、心停止）。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">03</span><h2>研究デザイン解説</h2></div>
+    <p>RSI試験（Randomized Trial of Sedative Choice for Intubationの略）は、プラグマティック、多施設、非盲検、並行群間RCTです。緊急気道確保の手技を指す「rapid sequence intubation」と略語は同じRSIですが、ここでは試験の登録名を指しています。米国6医療センターの14施設、具体的には6つの救急部と8つのICUで実施されました。試験はClinicalTrials.govにNCT05277896として登録され、FDAのIND、Vanderbilt University Medical CenterのIRB承認、独立データ安全性モニタリング委員会の監督下で行われました。</p>
+    <p>ランダム化は1:1で、試験施設ごとに層別化し、可変ブロックを用いました。割付は連番付き不透明封筒に入れられ、登録後まで隠蔽されました。ただし、薬剤を実際に投与する試験なので、割付後は臨床医と研究スタッフが割付を知る非盲検デザインです。</p>
+    <p>3,439例が適格性評価され、2,367例が登録されました。登録後に囚人と判明した2例を除外し、2,365例がtrial populationに入りました。ケタミン群1,176例、エトミデート群1,189例です。主要評価項目の解析では、28日前にフォローアップから撤回した各群3例を除き、ケタミン1,173例、エトミデート1,186例が分母になりました。</p>
+    <p>介入遵守は高く、ケタミン群の99.2%がケタミン、エトミデート群の99.6%がエトミデートを受けました。神経筋遮断薬も両群99.7%で使われています。つまり、この試験は「割り付けた薬剤が実際に投与されたか」という点ではかなりきれいな試験です。</p>
+    <p>主要解析はintention-to-treatで、試験施設のrandom effectと群割付のfixed effectを入れたgeneralized linear mixed-effects modelを使っています。多施設試験では施設ごとの実践や患者背景が違うため、試験施設をモデルに入れて主要結果を推定しています。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">04</span><h2>今回の統計キーポイント</h2></div>
+    <div class="stats">
+      <div class="tag">STATS KEY · G01 研究デザインを読む</div>
+      <h3>主要アウトカムと副次アウトカムを同じ重さで読まない</h3>
+      <p>この論文で一番大事なのは、ケタミン群とエトミデート群の差を1つの数字だけで判断しないことです。試験の主仮説は「ケタミンが28日院内死亡を減らすか」で、主要評価項目も28日院内死亡です。この主要評価項目では、死亡は28.1% vs 29.1%、絶対リスク差 -0.8 percentage points、95% CI -4.5〜2.9でした。</p>
+      <div class="formula">
+        アウトカム階層の読み方<br>
+        主要評価項目: 試験が最も答えたい問い。サンプルサイズ設計の中心。<br>
+        事前指定副次評価項目: 重要だが、主要評価項目より結論の重みは軽い。<br>
+        探索的・安全性アウトカム: 仮説生成や安全性シグナルとして読む。
+      </div>
+      <p>副次評価項目の挿管中循環虚脱は、ケタミン群で22.1%、エトミデート群で17.0%でした。これは臨床的に無視できない差です。ただし、原著は主要評価項目以外の信頼区間について、多重性調整をしていないため、治療効果の確定的な違いを推論するために使うべきではないと明記しています。</p>
+      <p>したがって、この記事での読み方は二段階です。第一に、ケタミンはエトミデートと比べて28日院内死亡を下げるとは示されなかった。第二に、挿管中の循環虚脱はケタミンで多い方向に見え、臨床上の注意シグナルとして重要である。副次アウトカムの陽性結果を、主要アウトカムと同じ強さの結論に引き上げないことが、この試験を読む核心です。</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">05</span><h2>主な結果</h2></div>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="lbl">TRIAL POPULATION</div>
+        <div class="num">2,365例</div>
+        <div class="sub">ケタミン1,176例、エトミデート1,189例。</div>
+      </div>
+      <div class="result-card">
+        <div class="lbl">PRIMARY OUTCOME</div>
+        <div class="num">-0.8%</div>
+        <div class="sub">28日院内死亡の調整絶対リスク差。95% CI -4.5〜2.9。</div>
+      </div>
+    </div>
+
+    <table class="rtable">
+      <thead>
+        <tr><th>評価項目</th><th>原著報告値</th><th>読み方</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>対象患者の重症度</td>
+          <td>中央値年齢60歳。46.7%が敗血症または敗血症性ショック、22.0%が登録時に昇圧薬を使用。挿管場所は救急部55.7%、ICU44.3%。</td>
+          <td>手術室の予定挿管ではなく、死亡率が高い救急/ICU挿管集団を見ている。</td>
+        </tr>
+        <tr>
+          <td>主要評価項目: 28日院内死亡</td>
+          <td>ケタミン 330/1,173（28.1%） vs エトミデート 345/1,186（29.1%）。試験施設調整絶対リスク差 -0.8 percentage points、95% CI -4.5〜2.9、P = 0.65。</td>
+          <td>ケタミンが死亡を減らすという主仮説は支持されなかった。信頼区間は小さい利益から小さい害までを含む。</td>
+        </tr>
+        <tr>
+          <td>28日死亡（場所を問わず）</td>
+          <td>378例（32.2%） vs 384例（32.4%）。調整絶対リスク差 0.0 percentage points、95% CI -3.9〜3.9。</td>
+          <td>退院後の死亡を含めても、死亡差は明確でない。</td>
+        </tr>
+        <tr>
+          <td>敗血症サブグループの28日院内死亡</td>
+          <td>38.8% vs 38.2%。調整絶対リスク差 1.0 percentage points、95% CI -4.8〜6.7。</td>
+          <td>エトミデートの副腎抑制が問題になりやすいと考えられていた敗血症でも、死亡低下は示されていない。</td>
+        </tr>
+        <tr>
+          <td>副次評価項目: 挿管中循環虚脱</td>
+          <td>260/1,176（22.1%） vs 202/1,189（17.0%）。絶対リスク差 5.1 percentage points、95% CI 1.9〜8.3。</td>
+          <td>ケタミン群で挿管中の循環虚脱が多い方向。主要結論ではないが臨床的に重要な安全性シグナル。</td>
+        </tr>
+        <tr>
+          <td>循環虚脱の構成要素</td>
+          <td>SBP &lt;65 mmHg: 6.4% vs 5.5%。新規/増量昇圧薬: 21.3% vs 15.9%。心停止: 1.0% vs 0.8%。</td>
+          <td>差の多くは新規または増量昇圧薬で説明される。心停止単独の明確な増加ではない。</td>
+        </tr>
+        <tr>
+          <td>その他の患者中心アウトカム</td>
+          <td>ventilator-free daysは中央値23 vs 23、vasopressor-free daysは25 vs 25、ICU-free daysは20 vs 19。</td>
+          <td>死亡以外の臨床アウトカムでも、明確な優劣は示されていない。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>原著の結論は明確です。ケタミンはエトミデートと比べて28日院内死亡を減らしませんでした。一方で、挿管中循環虚脱はケタミン群で多い方向に見えました。臨床的には、ケタミンを「副腎抑制がないから死亡を減らすはず」「血圧に強いはず」と単純化しないための試験です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">06</span><h2>リミテーション</h2></div>
+    <ul class="lims">
+      <li><b>非盲検試験である。</b>薬剤投与後は臨床医と研究スタッフが割付を知っています。死亡のような硬いアウトカムへの影響は限定的でも、挿管中の血圧記録、昇圧薬投与、手技中対応などには割付認識が影響した可能性があります。</li>
+      <li><b>外傷患者には一般化できない。</b>主診断が外傷の患者は除外されています。外傷、頭蓋内圧、出血性ショックなどの文脈で同じように読めるとは限りません。</li>
+      <li><b>小さい差は除外できない。</b>主要評価項目の95%信頼区間は、ケタミンの小さな利益も小さな害も含みます。非常に頻用される薬剤では、数%未満の差でも患者数全体では意味を持つ可能性があります。</li>
+      <li><b>他の導入薬には答えない。</b>比較はケタミンとエトミデートに限られます。プロポフォール、ベンゾジアゼピン、バルビツレートなど他の導入薬の有効性・安全性はこの試験だけでは判断できません。</li>
+      <li><b>副次・探索的アウトカムの多重性に注意が必要。</b>原著は主要アウトカム以外の信頼区間を多重性調整していないと明記しています。循環虚脱の差は重要ですが、解釈は主要アウトカムより慎重にする必要があります。</li>
+    </ul>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">07</span><h2>結果の解釈</h2></div>
+    <p>RSI試験は、エトミデートの副腎抑制を避ける目的でケタミンを選ぶと死亡が減る、という期待を支持しませんでした。2,365例規模で、死亡率が約30%の重症集団を対象にしても、28日院内死亡はほぼ同じでした。敗血症サブグループでも死亡低下は示されていません。</p>
+    <p>一方で、挿管中の循環虚脱がケタミン群で多い方向だった点は、実務上重い所見です。差の中心は新規または増量昇圧薬で、心停止そのものが大きく増えたわけではありません。それでも、ショックや敗血症で「ケタミンなら循環が安定する」と考えて選ぶときには、この結果を思い出す必要があります。</p>
+    <p>この論文を臨床に持ち込むなら、結論は「全例でエトミデートに戻す」でも「ケタミンは危険」でもありません。ケタミンを死亡低下目的で優先する根拠は弱く、挿管中循環虚脱には注意が必要、という読み方です。薬剤選択は、禁忌、施設での可用性、患者の循環状態、気道難易度、鎮痛・鎮静の必要性、術者の経験を合わせて判断することになります。</p>
+    <p>統計的には、主要アウトカムが陰性で、副次アウトカムに差が出た試験の典型例として読めます。副次アウトカムを無視する必要はありませんが、主要アウトカムの結論を上書きするほど強く読むのは危険です。「死亡は下げない」「循環虚脱は増える方向」という2つの文章を、重みを分けて持ち帰るのが現実的です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">08</span><h2>英語で読む</h2></div>
+    <p>Discussionの要所にある慎重な表現です。副次アウトカムで差が見えたとき、断定しすぎないための英語を読みます。</p>
+    <div class="en">
+      <div class="quote">
+        <span class="src">Discussion（PMC author manuscript, N Engl J Med. 2026;394:1608-1620）より引用</span>
+        <span class="en-text">"The incidence of cardiovascular complications during intubation appeared to be higher with ketamine than with etomidate."</span>
+      </div>
+      <p>読みのポイントは <b>appeared to be higher</b> です。単に「higherだった」と断定せず、「高いように見えた」という慎重な表現にしています。副次アウトカムであり、多重性調整もないため、臨床的な注意シグナルとして重視しつつ、主要アウトカムの結論と同じ強さでは読まない、という態度が英語にも表れています。</p>
+      <table class="vocab">
+        <thead><tr><th>語句</th><th>読み方</th><th>この文での意味</th></tr></thead>
+        <tbody>
+          <tr><td>incidence</td><td class="hide-sm">頻度</td><td>あるイベントが起きた割合。ここでは挿管中循環合併症の発生割合。</td></tr>
+          <tr><td>cardiovascular complications</td><td class="hide-sm">アウトカム</td><td>血圧低下、昇圧薬増量、心停止などの循環系合併症。</td></tr>
+          <tr><td>during intubation</td><td class="hide-sm">時間範囲</td><td>気管挿管の最中。原著では導入から挿管後2分までを中心に扱う。</td></tr>
+          <tr><td>appeared to be higher</td><td class="hide-sm">慎重表現</td><td>高いように見えた。副次アウトカムを断定しすぎない言い方。</td></tr>
+          <tr><td>with ketamine than with etomidate</td><td class="hide-sm">比較</td><td>エトミデート使用時より、ケタミン使用時で、という比較の形。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">09</span><h2>明日からの臨床に活かすには</h2></div>
+    <div class="take">
+      <div class="lbl">CLINICAL TAKEAWAY</div>
+      <p>重症成人の緊急気管挿管で、ケタミンを「エトミデートより死亡を減らす薬」として選ぶ根拠はこの試験では示されなかった。ショックや敗血症では、挿管中循環虚脱のシグナルを意識し、導入前後の血圧・昇圧薬準備を具体的に組み込む。</p>
+    </div>
+    <p>実務では、導入薬を選ぶ前に、患者の循環予備能、昇圧薬の有無、敗血症やショック、気道確保までの時間、鎮痛の必要性、禁忌を整理します。ケタミンは鎮痛や気管支拡張などの利点を持ちますが、重症患者では常に血圧を保つ薬ではありません。</p>
+    <p>エトミデートについても、副腎抑制の懸念が消えたわけではありません。しかし、この大規模RCTでは、少なくとも28日院内死亡を増やす明確なシグナルは示されませんでした。敗血症患者でもケタミン優位の死亡差は示されていません。</p>
+    <p>論文を読む練習としては、主要アウトカム、副次アウトカム、探索的アウトカムを分けます。主要アウトカムで「死亡低下なし」、副次アウトカムで「循環虚脱は多い方向」。この2つを混ぜて、過度に単純な薬剤ランキングにしないことが重要です。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sechd"><span class="no">10</span><h2>インフォグラフィック</h2></div>
+    <div class="info-wrap">
+      <svg class="info" viewBox="0 0 1200 630" role="img" aria-label="RSI試験の要約図。重症成人の緊急気管挿管2365例、ケタミン1176例、エトミデート1189例。28日院内死亡は28.1%対29.1%、調整絶対リスク差マイナス0.8 percentage points。挿管中循環虚脱は22.1%対17.0%、リスク差5.1 percentage points。読みどころは主要アウトカムと副次アウトカムの階層。">
+        <rect width="1200" height="630" fill="#F4F6F4"/>
+        <rect x="46" y="40" width="1108" height="550" rx="22" fill="#FBFCFB" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="78" y="94" font-family="Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#0F766E">MON · 新着論文 · 救急/ICU気道管理</text>
+        <text x="78" y="145" font-family="Noto Serif JP, serif" font-size="42" font-weight="700" fill="#15302D">ケタミン vs エトミデート：RSI試験</text>
+        <text x="78" y="188" font-family="Noto Sans JP, sans-serif" font-size="22" fill="#2C4541">米国14救急部・ICU · 重症成人の緊急気管挿管 · n=2,365</text>
+
+        <rect x="78" y="226" width="492" height="158" rx="16" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="108" y="266" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" fill="#0B4F4A">PRIMARY · 28-day in-hospital death</text>
+        <text x="108" y="318" font-family="Noto Serif JP, serif" font-size="47" font-weight="700" fill="#15302D">28.1% vs 29.1%</text>
+        <text x="108" y="354" font-family="Noto Sans JP, sans-serif" font-size="22" fill="#2C4541">adjusted RD -0.8 · 95% CI -4.5〜2.9</text>
+
+        <rect x="626" y="226" width="496" height="158" rx="16" fill="#15302D"/>
+        <text x="656" y="266" font-family="JetBrains Mono, monospace" font-size="18" font-weight="700" fill="#6FBCB3">SECONDARY · cardiovascular collapse</text>
+        <text x="656" y="318" font-family="Noto Serif JP, serif" font-size="47" font-weight="700" fill="#E4ECE9">22.1% vs 17.0%</text>
+        <text x="656" y="354" font-family="Noto Sans JP, sans-serif" font-size="22" fill="#DDE8E4">RD +5.1 · 95% CI 1.9〜8.3</text>
+
+        <line x1="98" y1="420" x2="1102" y2="420" stroke="#D9E0DC" stroke-width="2"/>
+        <text x="100" y="462" font-family="Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#15302D">読みどころ：アウトカムの階層を分ける</text>
+
+        <rect x="100" y="486" width="300" height="54" rx="10" fill="#EAF4F2" stroke="#BFD8D3"/>
+        <text x="124" y="520" font-family="Noto Sans JP, sans-serif" font-size="21" font-weight="700" fill="#15302D">死亡低下は示されず</text>
+
+        <rect x="450" y="486" width="300" height="54" rx="10" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="474" y="520" font-family="Noto Sans JP, sans-serif" font-size="21" font-weight="700" fill="#15302D">循環虚脱は多い方向</text>
+
+        <rect x="800" y="486" width="302" height="54" rx="10" fill="#F7ECE2" stroke="#E4C9AF"/>
+        <text x="824" y="520" font-family="Noto Sans JP, sans-serif" font-size="21" font-weight="700" fill="#15302D">副次結果は慎重に読む</text>
+
+        <rect x="78" y="560" width="1044" height="34" rx="8" fill="#EAF4F2"/>
+        <text x="100" y="583" font-family="Noto Sans JP, sans-serif" font-size="17" fill="#0B4F4A">ケタミンを死亡低下目的で優先する根拠は弱い。導入前後の血圧・昇圧薬準備を具体化する。</text>
+      </svg>
+      <div class="info-cap">図：原著報告値をもとに編集部で独自作成。Xリンクカード用に1200×630比率で設計。</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="disc">
+      <strong>免責・作成方法：</strong>麻酔科医が個人的な勉強のために書いた論文の読みメモです。内容に誤りがあるかもしれません。実際の臨床判断は必ず原著論文・最新ガイドライン・各施設方針に基づいてください。PubMed、PMC全文、NEJM公式ページ、DOI解決先、ClinicalTrials.gov、原著本文のMethods/Results/Discussion、Table 3、Limitations、Supplementary Material表示を確認し、統計テーマを主要・副次アウトカムと多重性の読み方に絞って解説しました。効果量、信頼区間、P値は原著の報告値のみを用い、独自の再計算は行っていません。図表は転載せず独自に作図しています。この通常記事は人間の内容確認と公開許可が出るまでGitHubへ反映しません。
+    </p>
+    <a class="foot-x" href="../feed.xml">RSSで更新を受け取る</a>
+    <a class="foot-x" href="https://x.com/anes_icu_jc" target="_blank" rel="noopener">Xで更新を見る</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -24,6 +24,30 @@
 window.ARTICLES = [
   ...(window.SUNDAY_ARTICLES || []),
   {
+    date: "2026.08.17", dow: "MON", status: "公開予定", live: false,
+    title: "心臓手術後の高流量鼻酸素は回復日数を増やすか — NOTACS試験とDAH90の読みどころ",
+    url: "articles/hfnot-cardiac-surgery-notacs.html",
+    desc: "術後肺合併症リスクのある心臓手術成人1,280例の国際多施設RCT（NOTACS）。抜管直後からの予防的高流量鼻酸素は、90日間の自宅で生きて追加支援なく過ごせた日数を改善せず、再挿管やICU再入室も同程度。読みどころはDAH90と床効果の解釈。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
+    tags: [
+      { kind: "clinical", label: "麻酔", tag: "麻酔" },
+      { kind: "clinical", label: "呼吸管理", tag: "呼吸管理" },
+      { kind: "stat", label: "G05 時間経過と予後を読む", tag: "時間経過と予後を読む" }
+    ]
+  },
+  {
+    date: "2026.08.10", dow: "MON", status: "公開予定", live: false,
+    title: "気管挿管時の導入薬はケタミンかエトミデートか — RSI試験と主要・副次アウトカムの階層",
+    url: "articles/ketamine-etomidate-rsi.html",
+    desc: "米国14救急部・ICUで重症成人2,365例を対象にしたRSI試験。気管挿管時の導入薬としてケタミンはエトミデートより28日院内死亡を減らさず、挿管中の循環虚脱は22.1% vs 17.0%で増える方向。読みどころは主要アウトカムと副次アウトカムを分けて読むこと。",
+    dowTag: { kind: "weekday", label: "MON · 新着", tag: "新着論文" },
+    tags: [
+      { kind: "clinical", label: "集中治療", tag: "集中治療" },
+      { kind: "clinical", label: "気道管理", tag: "気道管理" },
+      { kind: "stat", label: "G01 研究デザインを読む", tag: "研究デザインを読む" }
+    ]
+  },
+  {
     date: "2026.08.03", dow: "MON", status: "公開予定", live: false,
     title: "手術中のノイズ遮断は術後痛を減らすか — 多施設RCTと主観的アウトカムの盲検化",
     url: "articles/noise-isolation-pain.html",
