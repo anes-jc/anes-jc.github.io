@@ -6,7 +6,16 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 29 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>先週のまとめ｜最新論文3選</title>
+      <link>https://anes-jc.github.io/articles/latest-papers-2026-08-02.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/latest-papers-2026-08-02.html</guid>
+      <description>対象期間の公開記事と最新論文3選をまとめる週次記事。選定論文と読みどころを短く確認できます。</description>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+      <category>先週のまとめ</category>
+      <category>最新論文</category>
+    </item>
     <item>
       <title>麻酔科医の長時間勤務は術後アウトカムに影響するか — 固定効果で読む観察研究の交絡</title>
       <link>https://anes-jc.github.io/articles/anesthesiologist-work-hours-fixed-effects.html</link>
