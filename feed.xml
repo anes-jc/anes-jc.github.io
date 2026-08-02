@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 02 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>手術中のノイズ遮断は術後痛を減らすか — 多施設RCTと主観的アウトカムの盲検化</title>
+      <link>https://anes-jc.github.io/articles/noise-isolation-pain.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/noise-isolation-pain.html</guid>
+      <description>全身麻酔下の待機的大腹部手術302例を対象にした中国4施設RCT。術中のノイズ遮断ヘッドホン装着で、術後24時間以内のNRS 4以上の痛みは23% vs 49%（RR 0.47）。読みどころは、主観的アウトカムを扱うRCTでの盲検化と評価バイアス。</description>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+      <category>新着論文</category>
+      <category>麻酔</category>
+      <category>術後鎮痛</category>
+      <category>研究デザインを読む</category>
+    </item>
     <item>
       <title>先週のまとめ｜最新論文3選</title>
       <link>https://anes-jc.github.io/articles/latest-papers-2026-08-02.html</link>
