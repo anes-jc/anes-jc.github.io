@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 09 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>気管挿管時の導入薬はケタミンかエトミデートか — RSI試験と主要・副次アウトカムの階層</title>
+      <link>https://anes-jc.github.io/articles/ketamine-etomidate-rsi.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/ketamine-etomidate-rsi.html</guid>
+      <description>米国14救急部・ICUで重症成人2,365例を対象にしたRSI試験。気管挿管時の導入薬としてケタミンはエトミデートより28日院内死亡を減らさず、挿管中の循環虚脱は22.1% vs 17.0%で増える方向。読みどころは主要アウトカムと副次アウトカムを分けて読むこと。</description>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
+      <category>新着論文</category>
+      <category>集中治療</category>
+      <category>気道管理</category>
+      <category>研究デザインを読む</category>
+    </item>
     <item>
       <title>先週のまとめ｜最新論文3選</title>
       <link>https://anes-jc.github.io/articles/latest-papers-2026-08-09.html</link>
