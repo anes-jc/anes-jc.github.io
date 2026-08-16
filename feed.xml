@@ -6,7 +6,18 @@
     <atom:link href="https://anes-jc.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>麻酔・集中治療領域の論文解説と週次まとめの更新情報です。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 16 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>心臓手術後の高流量鼻酸素は回復日数を増やすか — NOTACS試験とDAH90の読みどころ</title>
+      <link>https://anes-jc.github.io/articles/hfnot-cardiac-surgery-notacs.html</link>
+      <guid isPermaLink="true">https://anes-jc.github.io/articles/hfnot-cardiac-surgery-notacs.html</guid>
+      <description>術後肺合併症リスクのある心臓手術成人1,280例の国際多施設RCT（NOTACS）。抜管直後からの予防的高流量鼻酸素は、90日間の自宅で生きて追加支援なく過ごせた日数を改善せず、再挿管やICU再入室も同程度。読みどころはDAH90と床効果の解釈。</description>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
+      <category>新着論文</category>
+      <category>麻酔</category>
+      <category>呼吸管理</category>
+      <category>時間経過と予後を読む</category>
+    </item>
     <item>
       <title>先週のまとめ｜最新論文3選</title>
       <link>https://anes-jc.github.io/articles/latest-papers-2026-08-16.html</link>
